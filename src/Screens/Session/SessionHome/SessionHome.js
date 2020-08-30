@@ -1,10 +1,11 @@
 import React from 'react';
 import InvisibleLink from '../../../Components/InvisibleLink';
 import '../Session.css';
+import {STUDENT_SESSION} from '../../../App/global.js';
 
-const SessionHome = () => (
-  <div className="session-home">
-    <h1>Welcome to Student Session!</h1>
+function StudentSessionEnabled() {
+  return (
+    <div>
     <h3>How to apply for Student Sessions:</h3>
     <h4>
       <li>
@@ -24,6 +25,31 @@ const SessionHome = () => (
     </h4>
     <br />
     <br />
+    </div>
+  )};
+
+function StudentSessionDisabled() {
+  return(
+  <div>
+    <h3>Student sessions are not available yet, but you can already update your profile. </h3>
+    <h4> 
+      <li>
+        Go to your <InvisibleLink to="/user"> profile </InvisibleLink> and fill
+        in your phone number and upload your CV(s).
+      </li>
+    </h4>
+    <br />
+    <br />
+  </div>
+  )};
+
+
+const SessionHome = () => (
+  <div className="session-home">
+    <h1>Welcome to Student Session!</h1>
+
+    {STUDENT_SESSION[3] ? <StudentSessionEnabled /> : <StudentSessionDisabled />}
+
     <h3>Do you want to know more about the companies?</h3>
     <h4>
       <InvisibleLink to="/session/companies">Go to Companies</InvisibleLink>

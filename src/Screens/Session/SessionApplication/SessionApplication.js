@@ -6,6 +6,7 @@ import HtmlTitle from '../../../Components/HtmlTitle';
 import InvisibleLink from '../../../Components/InvisibleLink';
 import SessionForm from '../../../Forms/SessionForm';
 import '../Session.css';
+import {STUDENT_SESSION} from '../../../App/global.js';
 
 type Application = {
   companyId: number,
@@ -71,7 +72,7 @@ class SessionApplication extends Component<Props> {
 
         <SessionForm
           onSubmit={this.createStudentSessionAppl}
-          disabled={!false} // STUDENT_SESSIONS_ACTIVE
+          disabled={!STUDENT_SESSION[1]}
         />
       </div>
     );
