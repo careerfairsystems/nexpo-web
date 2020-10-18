@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import type { Element } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-import {Layout, Menu, Breadcrumb, Icon} from 'antd';
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import { startCase } from 'lodash/fp';
 import Home from '../Screens/Home';
 import Info from '../Screens/Info';
@@ -44,7 +44,6 @@ import NotFound from '../Screens/NotFound';
 import PrivateRoute from '../Components/PrivateRoute';
 import HtmlTitle from '../Components/HtmlTitle';
 import { hasAccess, hasPermission } from '../Util/PermissionsHelper';
-import {STUDENT_SESSION} from '../App/global.js';
 
 const { Header, Content, Footer } = Layout;
 
@@ -274,7 +273,7 @@ class App extends Component<Props> {
                   this.restrictedMenuItem({
                     route: 'session/application',
                     title: 'Apply',
-                    disabled: !STUDENT_SESSION[0]
+                    disabled: process.env.STUDENT_SESSION_ENABLED !== 'true'
                   }),
                   this.restrictedMenuItem({
                     route: 'session/applications',

@@ -6,7 +6,6 @@ import HtmlTitle from '../../../Components/HtmlTitle';
 import InvisibleLink from '../../../Components/InvisibleLink';
 import SessionForm from '../../../Forms/SessionForm';
 import '../Session.css';
-import {STUDENT_SESSION} from '../../../App/global.js';
 
 type Application = {
   companyId: number,
@@ -54,6 +53,8 @@ class SessionApplication extends Component<Props> {
       return <NotFound />;
     }
 
+    const enabled = process.env.STUDENT_SESSION_ENABLED === 'true';
+
     return (
       <div className="session-application">
         <HtmlTitle title="Student Session Application" />
@@ -70,10 +71,11 @@ class SessionApplication extends Component<Props> {
         </h4>
         <br />
 
-        <SessionForm
-          onSubmit={this.createStudentSessionAppl}
-          disabled={!STUDENT_SESSION[1]}
-        />
+        {enabled ? (
+          <SessionForm onSubmit={this.createStudentSessionAppl} />
+        ) : (
+          <p>Student sessions are currently not available.</p>
+        )}
       </div>
     );
   }
