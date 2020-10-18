@@ -53,7 +53,7 @@ class SessionApplication extends Component<Props> {
       return <NotFound />;
     }
 
-    const enabled = process.env.STUDENT_SESSION_ENABLED === 'true';
+    const enabled = process.env.REACT_APP_STUDENT_SESSION_ENABLED === 'true';
 
     return (
       <div className="session-application">

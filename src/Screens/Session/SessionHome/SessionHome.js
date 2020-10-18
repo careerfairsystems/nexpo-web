@@ -51,7 +51,7 @@ const SessionHome = () => (
   <div className="session-home">
     <h1>Welcome to Student Session!</h1>
 
-    {process.env.STUDENT_SESSION_ENABLED === 'true' ? (
+    {process.env.REACT_APP_STUDENT_SESSION_ENABLED === 'true' ? (
       <StudentSessionEnabled />
     ) : (
       <StudentSessionDisabled />
