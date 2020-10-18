@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import type { Element } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Breadcrumb, Icon, Menu, Layout } from 'antd';
 import { startCase } from 'lodash/fp';
 import Home from '../Screens/Home';
 import Info from '../Screens/Info';
