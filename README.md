@@ -6,6 +6,34 @@ Welcome to Nexpo - Next generation Expo!
 
 This project aims to to supply [ARKAD](https://arkad.tlth.se) with an inhouse project management system.
 
+
+## Development
+Development is fairly straightforward but require some dependencies:
+- `yarn` is needed for package management and to run scripts
+- A version of the backend is needed and the easiest way is to create one with `docker` so you need to have that installed as well
+
+### Set up backend
+1. Clone the backend repository where you want to store it: `git clone https://github.com/careerfairsystems/nexpo-backend`
+2. Enter the created folder: `cd nexpo-backend`
+3. Switch branch to the docker-enabled version: `git checkout docker`
+4. Build and start the backend: `docker-compose up -d`
+5. Wait a few minutes for the backend to compile and start (a faster way is being tested but not finished yet). You can check the progress by running `docker-compose logs app` and if you see a mention of the server running on port 4000 you are ready to move to the next step
+6. Seed the database. This is needed because we need to populate the database with some data so we can log in and access the backend. You can seed the database by running: `docker-compose exec mix run priv/repo/seeds.exs`
+7. Done! You can now use this command to **start** the backend: `docker-compose up -d` and to **stop** the backend: `docker-compose down` and you don't have to repeat all the steps next time you want to use the backend
+
+### Set up the frontend
+1. Clone this repo: `git clone https://github.com/careerfairsystems/nexpo-web`
+2. Change directory to the created folder: `cd nexpp-web`
+3. Install all the dependencies: `yarn install`
+4. Run the development server: `yarn start` *Note:* You might get a message about needing to update the browserlist database, if that happens, just stop the server with Ctrl+C and then run the command suggested.
+5. To stop the server, simply press Ctrl+C. You can access the app on localhost:3000, the first time you access it can be very slow (30+ seconds) but the next will be fast.
+
+
+******* ATTENTION *******
+The content below is outdated and from a time where the backend and frontend were entwined together. It can no longer be called relevant and we need to update it. Not everything is outdated though so if you wonder something you can take a look at it but don't think of it as the ultimate truth.
+
+
+
 # Table of Contents
 <!-- To update table of contents: npm run update-toc-readme -->
 
