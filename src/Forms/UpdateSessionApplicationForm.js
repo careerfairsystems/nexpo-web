@@ -20,7 +20,7 @@ const UpdateSessionApplicationForm = ({
   invalid,
   pristine,
   submitting
-}: Props) => (
+}: Props): React$Element<any> => (
   <Form onSubmit={handleSubmit}>
     <Field
       name="motivation"
@@ -45,6 +45,8 @@ const mapStateToProps = (state, props) => ({
   form: `updateStudentSessionApplication${props.id}`
 });
 
-const stateful = connect(mapStateToProps);
+const stateful: any = connect(mapStateToProps)(
+  reduxForm()(UpdateSessionApplicationForm)
+);
 
-export default stateful(reduxForm()(UpdateSessionApplicationForm));
+export default stateful;

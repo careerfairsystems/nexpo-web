@@ -14,29 +14,30 @@ export default {
   /**
    * Create a deadline
    */
-  create: (data: {}) =>
+  create: (data: {}): Promise<any> =>
     authFormPost('/api/deadlines', data).then(handleHttpResponse),
 
   /**
    * Fetches all deadlines
    */
-  getAll: () => authFetch('/api/deadlines').then(handleHttpResponse),
+  getAll: (): Promise<any> =>
+    authFetch('/api/deadlines').then(handleHttpResponse),
 
   /**
    * Fetches a deadline
    */
-  get: (id: string) =>
+  get: (id: string): Promise<any> =>
     authFetch(`/api/deadlines/${id}`).then(handleHttpResponse),
 
   /**
    * Updates a deadline
    */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: {}): Promise<any> =>
     authFormPut(`/api/deadlines/${id}`, data).then(handleHttpResponse),
 
   /**
    * Delete a deadline
    */
-  delete: (id: string) =>
+  delete: (id: string): Promise<any> =>
     authDelete(`/api/deadlines/${id}`).then(handleHttpResponse)
 };

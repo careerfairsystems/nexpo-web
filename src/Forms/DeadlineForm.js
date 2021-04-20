@@ -10,7 +10,7 @@ import makeField from './helper';
 
 const TextInput = makeField(Input);
 const MyDatePicker = makeField((props: FieldProps) =>
-  DatePicker({ ...props, showTime: true, format: 'YYYY-MM-DD HH:mm' })
+  DatePicker({ showTime: true, format: 'YYYY-MM-DD HH:mm', ...props })
 );
 
 type Props = {
@@ -29,6 +29,8 @@ const mapStateToProps = state => ({
   formState: state.form.DeadlineForm
 });
 
-const stateful = connect(mapStateToProps);
+const stateful: any = connect(mapStateToProps)(
+  reduxForm({ form: 'deadline' })(DeadlineForm)
+);
 
-export default stateful(reduxForm({ form: 'deadline' })(DeadlineForm));
+export default stateful;

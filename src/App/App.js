@@ -142,7 +142,7 @@ const App = ({
   logout,
   redirect,
   pathname
-}: Props) => {
+}: Props): React$Element<any> => {
   const loggedInMenuItem = () => {
     const { email, firstName, lastName } = currentUser || {};
 

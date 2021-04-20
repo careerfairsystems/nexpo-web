@@ -20,13 +20,17 @@ const interestsValues = [
   { id: 7, name: 'Full-time job' }
 ];
 
-const renderInterestItem = interest => (
+const renderInterestItem = (interest: { id: number, name: string }) => (
   <Select.Option key={interest.id} value={interest.id}>
     {interest.name}
   </Select.Option>
 );
 
-const renderProgrammeItem = programme => (
+const renderProgrammeItem = (programme: {
+  id: number,
+  name: string,
+  code: string
+}): React$Element<any> => (
   <Select.Option key={programme.id} value={programme.id}>
     {programme.name} - {programme.code}
   </Select.Option>
@@ -48,7 +52,11 @@ type Props = {
   pristine: boolean
 };
 
-const StudentForm = ({ handleSubmit, pristine, programmes }: Props) => (
+const StudentForm = ({
+  handleSubmit,
+  pristine,
+  programmes
+}: Props): React$Element<any> => (
   <Form onSubmit={handleSubmit}>
     <Field name="year" label="Graduation Year" component={TextInput} />
     <Field
@@ -132,12 +140,12 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const stateful = connect(mapStateToProps);
-
-export default stateful(
+const stateful: any = connect(mapStateToProps)(
   reduxForm({
     form: 'student',
     enableReinitialize: true,
     keepDirtyOnReinitialize: true
   })(StudentForm)
 );
+
+export default stateful;

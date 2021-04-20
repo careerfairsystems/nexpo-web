@@ -28,8 +28,6 @@ const UploadButton = ({ accept = '', value, onChange }: Props) => (
   </Upload>
 );
 
-// UploadButton.defaultProps = {
-//   accept: ''
-// };
+const field: any = makeField(UploadButton);
 
-export default makeField(UploadButton);
+export default field;

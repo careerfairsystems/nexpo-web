@@ -9,7 +9,7 @@ type PasswordValues = {
   passwordConfirmation?: string
 };
 
-export const validatePassword = (values: PasswordValues) => {
+export const validatePassword = (values: PasswordValues): any => {
   const errors = {};
   if (values && values.password && values.passwordConfirmation) {
     if (values.password !== values.passwordConfirmation) {
@@ -18,17 +18,16 @@ export const validatePassword = (values: PasswordValues) => {
   }
   return errors;
 };
-export const required = (value: string) =>
+export const required = (value: string): ?string =>
   trim(value) ? undefined : "Field can't be empty";
 
-type Props = {
-  ...FieldProps,
+type Props = FieldProps & {
   accept: string,
   children: Node,
   format: string,
   label: string
 };
-const makeField = (Component: React.ComponentType<*>) => ({
+const makeField = (Component: React.ComponentType<any>) => ({
   input,
   meta,
   children,

@@ -14,27 +14,29 @@ export default {
   /**
    * Create a role
    */
-  create: (data: {}) => authPost('/api/roles', data).then(handleHttpResponse),
+  create: (data: {}): Promise<any> =>
+    authPost('/api/roles', data).then(handleHttpResponse),
 
   /**
    * Fetches all roles
    */
-  getAll: () => authFetch('/api/roles').then(handleHttpResponse),
+  getAll: (): Promise<any> => authFetch('/api/roles').then(handleHttpResponse),
 
   /**
    * Fetches a role
    */
-  get: (id: string) => authFetch(`/api/roles/${id}`).then(handleHttpResponse),
+  get: (id: string): Promise<any> =>
+    authFetch(`/api/roles/${id}`).then(handleHttpResponse),
 
   /**
    * Updates a role
    */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: {}): Promise<any> =>
     authPut(`/api/roles/${id}`, data).then(handleHttpResponse),
 
   /**
    * Delete a role
    */
-  delete: (id: string) =>
+  delete: (id: string): Promise<any> =>
     authDelete(`/api/roles/${id}`).then(handleHttpResponse)
 };

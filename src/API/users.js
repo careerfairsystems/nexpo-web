@@ -15,48 +15,51 @@ export default {
   /**
    * Fetches the current user
    */
-  getMe: () => authFetch('/api/me').then(handleHttpResponse),
+  getMe: (): Promise<any> => authFetch('/api/me').then(handleHttpResponse),
 
   /**
    * Updates the current user
    */
-  updateMe: (data: {}) => authFormPut('/api/me', data).then(handleHttpResponse),
+  updateMe: (data: {}): Promise<any> =>
+    authFormPut('/api/me', data).then(handleHttpResponse),
 
   /**
    * Delete the current user
    */
-  deleteMe: () => authDelete('/api/me').then(handleHttpResponse),
+  deleteMe: (): Promise<any> => authDelete('/api/me').then(handleHttpResponse),
 
   /**
    * Updates the current user's student
    */
-  updateMyStudent: (data: {}) =>
+  updateMyStudent: (data: {}): Promise<any> =>
     authFormPut('/api/me/student', data).then(handleHttpResponse),
 
   /**
    * Create a user
    */
-  create: (data: {}) => authPost('/api/users', data).then(handleHttpResponse),
+  create: (data: {}): Promise<any> =>
+    authPost('/api/users', data).then(handleHttpResponse),
 
   /**
    * Fetches all users
    */
-  getAll: () => authFetch('/api/users').then(handleHttpResponse),
+  getAll: (): Promise<any> => authFetch('/api/users').then(handleHttpResponse),
 
   /**
    * Fetches a user
    */
-  get: (id: string) => authFetch(`/api/users/${id}`).then(handleHttpResponse),
+  get: (id: string): Promise<any> =>
+    authFetch(`/api/users/${id}`).then(handleHttpResponse),
 
   /**
    * Updates a user
    */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: {}): Promise<any> =>
     authPut(`/api/users/${id}`, data).then(handleHttpResponse),
 
   /**
    * Delete a user
    */
-  delete: (id: string) =>
+  delete: (id: string): Promise<any> =>
     authDelete(`/api/users/${id}`).then(handleHttpResponse)
 };

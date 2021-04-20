@@ -3,7 +3,7 @@ import { zipWith, sortBy, flow } from 'lodash/fp';
 import { Table, Input, Checkbox, Button } from 'antd';
 import { Field } from 'redux-form';
 import moment from 'moment';
-import type { FieldsProps } from 'redux-form';
+import type { FieldProps } from 'redux-form';
 import makeField, { required } from './helper';
 import DatePicker from '../Components/DatePicker';
 import TimePicker from '../Components/TimePicker';
@@ -13,9 +13,16 @@ const FieldCheckbox = makeField(Checkbox);
 const MyDatePicker = makeField(DatePicker);
 const MyTimePicker = makeField(TimePicker);
 
-type Props = {
-  ...FieldsProps,
-  fieldValues?: {}
+type Props = FieldProps & {
+  fields: any[],
+  fieldValues: {
+    date: any,
+    startTime: any,
+    endTime: any,
+    timeslotLength: any,
+    breakLength: any,
+    location: any
+  }
 };
 
 const generateTimeSlots = (fields, values) => {
@@ -111,7 +118,10 @@ const columns = [
   }
 ];
 
-const DynamicTimeSlots = ({ fields, fieldValues }: Props) => (
+const DynamicTimeSlots = ({
+  fields,
+  fieldValues
+}: Props): React$Element<any> => (
   <div className="student-session-time-slots">
     <Field name="date" label="Date" component={MyDatePicker} />
     <Field name="startTime" label="Start Time" component={MyTimePicker} />
@@ -166,9 +176,5 @@ const DynamicTimeSlots = ({ fields, fieldValues }: Props) => (
     />
   </div>
 );
-
-DynamicTimeSlots.defaultProps = {
-  fieldValues: {}
-};
 
 export default DynamicTimeSlots;

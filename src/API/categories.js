@@ -14,29 +14,30 @@ export default {
   /**
    * Create a category
    */
-  create: (data: {}) =>
+  create: (data: {}): Promise<any> =>
     authPost('/api/categories', data).then(handleHttpResponse),
 
   /**
    * Fetches all categories
    */
-  getAll: () => authFetch('/api/categories').then(handleHttpResponse),
+  getAll: (): Promise<any> =>
+    authFetch('/api/categories').then(handleHttpResponse),
 
   /**
    * Fetches a category
    */
-  get: (id: string) =>
+  get: (id: string): Promise<any> =>
     authFetch(`/api/categories/${id}`).then(handleHttpResponse),
 
   /**
    * Updates a category
    */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: {}): Promise<any> =>
     authPut(`/api/categories/${id}`, data).then(handleHttpResponse),
 
   /**
    * Delete a category
    */
-  delete: (id: string) =>
+  delete: (id: string): Promise<any> =>
     authDelete(`/api/categories/${id}`).then(handleHttpResponse)
 };

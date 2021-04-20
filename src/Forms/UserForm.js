@@ -49,6 +49,8 @@ const mapStateToProps = state => ({
   formState: state.form.UserForm
 });
 
-const stateful = connect(mapStateToProps);
+const stateful: any = connect(mapStateToProps)(
+  reduxForm({ form: 'user' })(UserForm)
+);
 
-export default stateful(reduxForm({ form: 'user' })(UserForm));
+export default stateful;
