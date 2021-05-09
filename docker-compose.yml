@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "3000:3000"
+    tty: true
+    extra_hosts:
+      host.docker.internal: host-gateway
