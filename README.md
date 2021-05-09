@@ -22,6 +22,12 @@ Development is fairly straightforward but require some dependencies:
 7. Done! You can now use this command to **start** the backend: `docker-compose up -d` and to **stop** the backend: `docker-compose down` and you don't have to repeat all the steps next time you want to use the backend
 
 ### Set up the frontend
+There are currently two ways of running the frontend, with Docker or locally
+#### With Docker
+1. Run `docker-compose up`
+2. The server should now be available on http://localhost:3000
+
+#### Locally
 1. Clone this repo: `git clone https://github.com/careerfairsystems/nexpo-web`
 2. Change directory to the created folder: `cd nexpp-web`
 3. Install all the dependencies: `yarn install`
