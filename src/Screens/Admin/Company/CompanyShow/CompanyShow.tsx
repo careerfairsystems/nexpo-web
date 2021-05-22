@@ -24,42 +24,45 @@ import HtmlTitle from '../../../../Components/HtmlTitle';
 import LoadingSpinner from '../../../../Components/LoadingSpinner';
 import '../Company.css';
 import CompanyStudentSessionForm from '../../../../Forms/CompanyStudentSessionForm';
+
+type Company = {
+  id?: string,
+  name?: string,
+  website?: string,
+  description?: string,
+  logoUrl?: string,
+
+  studentSessionDays?: number,
+  studentSessionApplications?: Array<any>,
+  studentSessionTimeSlots?: Array<{
+    id: number,
+    start: string,
+    end: string,
+    location: string,
+    studentSession: {
+      student: {
+        user: {
+          firstName?: string,
+          lastName?: string,
+          email?: string,
+          phoneNumber?: string
+        }
+      }
+    }
+  }>,
+  topStudents?: Array<{ id: number, firstName: string, lastName: string }>
+};
+
 /**
  * Responsible for rendering a company. Company id is recieved via url
  */
 type Props = {
   id: string,
-  createStudentSession: ({}) => Promise<void>,
-  deleteStudentSession: string => Promise<void>,
-  company: {
-    id?: string,
-    name?: string,
-    website?: string,
-    description?: string,
-    logoUrl?: string,
-
-    studentSessionDays?: number,
-    studentSessionApplications?: Array<*>,
-    studentSessionTimeSlots?: Array<{
-      id: number,
-      start: string,
-      end: string,
-      location: string,
-      studentSession: {
-        student: {
-          user: {
-            firstName?: string,
-            lastName?: string,
-            email?: string,
-            phoneNumber?: string
-          }
-        }
-      }
-    }>,
-    topStudents?: Array<{ id: number, firstName: string, lastName: string }>
-  },
+  createStudentSession: (studentSession: object) => Promise<void>,
+  deleteStudentSession: (id: string) => Promise<void>,
+  company: Company,
   fetching: boolean,
-  getCompany: string => Promise<void>,
+  getCompany: (id: string) => Promise<void>,
   match?: {
     path: string
   }

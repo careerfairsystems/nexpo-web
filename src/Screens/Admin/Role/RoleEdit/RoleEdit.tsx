@@ -19,12 +19,12 @@ type Role = {
 type Props = {
   id: string,
   role: { type?: string },
-  getRole: string => Promise<void>,
+  getRole: (id: string) => Promise<void>,
   getAllUsers: () => Promise<void>,
   fetchingRoles: boolean,
   fetchingUsers: boolean,
-  updateRole: (string, { role: Role }) => Promise<void>,
-  history: { push: string => any }
+  updateRole: (id: string, roleObject: { role: Role }) => Promise<void>,
+  history: { push: (route: string) => any }
 };
 
 const RoleEdit = ({

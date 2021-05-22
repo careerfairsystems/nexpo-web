@@ -26,15 +26,15 @@ const styles = {
 type Props = {
   type: 'error' | 'success',
   message: string,
-  linkUrl?: ?string,
-  linkText?: ?string
+  linkUrl?: string,
+  linkText?: string
 };
 
-const Message = ({ 
+const Message = ({
   message,
   linkUrl,
   linkText,
-  type 
+  type
 }: Props) => {
   let icon = null;
   switch (type) {

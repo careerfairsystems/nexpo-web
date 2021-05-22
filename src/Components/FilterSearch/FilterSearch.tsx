@@ -9,10 +9,10 @@ export const FilterIcon = (filtered: boolean) => (
 type InputEvent = SyntheticKeyboardEvent<HTMLInputElement>;
 
 type Props = {
-  clearFilters: void => void,
-  confirm: void => void,
+  clearFilters: () => void,
+  confirm: () => void,
   selectedKeys: Array<string>,
-  setSelectedKeys: (Array<?string>) => void
+  setSelectedKeys: (keys?: Array<string>) => void
 };
 
 const FilterSearch = ({

@@ -3,14 +3,14 @@ import ReplacePasswordForm from '../../Forms/ReplacePasswordForm';
 import SuccessMessage from '../SuccessMessage';
 import { NotFound } from '../../Screens/NotFound/NotFound';
 
-type PasswordObj = {|
+type PasswordObj = {
   password: string,
   passwordConfirmation: string
-|};
+};
 
 type Props = {
-  sendNewPasswordToBackend: PasswordObj => Promise<{}>,
-  verifyKey: () => Promise<{}>,
+  sendNewPasswordToBackend: (password: PasswordObj) => Promise<object>,
+  verifyKey: () => Promise<object>,
   keyIsValid: boolean,
   errors?: {
     password?: string[],

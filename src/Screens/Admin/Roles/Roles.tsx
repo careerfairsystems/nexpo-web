@@ -13,7 +13,7 @@ type Props = {
   roles: {},
   fetching: boolean,
   getAllRoles: () => Promise<void>,
-  deleteRole: string => Promise<void>
+  deleteRole: (id: string) => Promise<void>
 };
 
 const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) => {

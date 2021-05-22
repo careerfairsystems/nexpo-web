@@ -20,9 +20,9 @@ type Props = {
   id?: string,
   user: { name?: string },
   fetching: boolean,
-  getUser: string => Promise<void>,
-  history: { push: string => any },
-  updateUser: (string, { user: UserObj }) => Promise<void>
+  getUser: (id: string) => Promise<void>,
+  history: { push: (route: string) => any },
+  updateUser: (id: string, userObject: { user: UserObj }) => Promise<void>
 };
 
 const UserEdit = ({

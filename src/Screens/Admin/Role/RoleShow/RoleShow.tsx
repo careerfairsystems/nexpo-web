@@ -17,7 +17,7 @@ type Props = {
     permissions?: Array<string>,
     users?: Array<number>
   },
-  getRole: string => Promise<void>
+  getRole: (id: string) => Promise<void>
 };
 
 const RoleShow = ({ id, role, getRole }: Props) => {

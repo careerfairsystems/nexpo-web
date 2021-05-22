@@ -18,7 +18,7 @@ export default {
       handleHttpResponse
     ),
 
-  verifyForgotPasswordKey: ({ key }: { key: string }): Promise<*> =>
+  verifyForgotPasswordKey: ({ key }: { key: string }): Promise<any> =>
     fetch(`/api/password/forgot/${key}`).then(handleHttpResponse),
 
   replaceForgottenPassword: ({

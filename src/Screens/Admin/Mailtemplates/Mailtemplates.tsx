@@ -7,57 +7,57 @@ import LoadingSpinner from '../../../Components/LoadingSpinner';
 import HtmlTitle from '../../../Components/HtmlTitle';
 
 /**
- * Responsible for rendering a list of deadlines
+ * Responsible for rendering a list of mailtemplates
  */
 type Props = {
-  deadlines?: {},
+  mailtemplates?: {},
   fetching: boolean,
-  getAllDeadlines: () => Promise<void>,
-  deleteDeadline: string => Promise<void>
+  getAllMailtemplates: () => Promise<void>,
+  deleteMailtemplate: (id: string) => Promise<void>
 };
 
-const Deadlines = ({
-  deadlines,
+const Mailtemplates = ({
+  mailtemplates,
   fetching,
-  getAllDeadlines,
-  deleteDeadline
+  getAllMailtemplates,
+  deleteMailtemplate
 }: Props) => {
   useEffect(() => {
-    getAllDeadlines();
-  }, [getAllDeadlines]);
+    getAllMailtemplates();
+  }, [getAllMailtemplates]);
 
-  const deadlineColumns = () => [
+  const mailtemplateColumns = () => [
     {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
       render: (name: string, { id }: { id: string }) => (
-        <InvisibleLink to={`/admin/deadlines/${id}`}>{name}</InvisibleLink>
+        <InvisibleLink to={`/admin/mailtemplates/${id}`}>{name}</InvisibleLink>
       )
     },
     {
-      title: 'Start',
-      dataIndex: 'start',
-      key: 'start'
+      title: 'Subject',
+      dataIndex: 'subject',
+      key: 'subject'
     },
     {
-      title: 'End',
-      dataIndex: 'end',
-      key: 'end'
+      title: 'Signature',
+      dataIndex: 'signature',
+      key: 'signature'
     },
     {
       title: 'Action',
       key: 'action',
-      render: (deadline: { id: string }) => {
+      render: (mailtemplate: { id: string }) => {
         return (
           <span>
-            <InvisibleLink to={`/admin/deadlines/${deadline.id}`}>
+            <InvisibleLink to={`/admin/mailtemplates/${mailtemplate.id}`}>
               Edit
             </InvisibleLink>
             <Divider type="vertical" />
             <Popconfirm
               title="Sure to delete?"
-              onConfirm={() => deleteDeadline(deadline.id)}
+              onConfirm={() => deleteMailtemplate(mailtemplate.id)}
             >
               <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>
                 Delete
@@ -69,27 +69,27 @@ const Deadlines = ({
     }
   ];
 
-  const renderDeadlines = () => {
-    const tempDeadlines = deadlines || {};
+  const renderMailtemplates = () => {
+    const tempMailTemplates = mailtemplates || {};
     return (
       <div>
-        <HtmlTitle title="Deadlines" />
+        <HtmlTitle title="Mailtemplates" />
 
-        <h1>Deadlines</h1>
+        <h1>Mailtemplates</h1>
 
         <Table
-          columns={deadlineColumns()}
+          columns={mailtemplateColumns()}
           dataSource={sortBy(
             'name',
-            Object.keys(tempDeadlines).map(i => ({
-              ...tempDeadlines[i],
+            Object.keys(tempMailTemplates).map(i => ({
+              ...tempMailTemplates[i],
               key: i
             }))
           )}
         />
-        <InvisibleLink to="/admin/deadlines/new">
+        <InvisibleLink to="/admin/mailtemplates/new">
           <Button onClick={() => null} type="primary">
-            New deadline
+            New mailtemplate
           </Button>
         </InvisibleLink>
       </div>
@@ -99,11 +99,11 @@ const Deadlines = ({
   if (fetching) {
     return <LoadingSpinner />;
   }
-  return renderDeadlines();
+  return renderMailtemplates();
 };
 
-Deadlines.defaultProps = {
-  deadlines: {}
+Mailtemplates.defaultProps = {
+  mailtemplates: {}
 };
 
-export default Deadlines;
+export default Mailtemplates;

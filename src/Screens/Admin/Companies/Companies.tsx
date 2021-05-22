@@ -15,8 +15,8 @@ type Props = {
   companies?: {},
   fetching: boolean,
   getAllCompanies: () => Promise<void>,
-  deleteCompany: string => Promise<void>,
-  createBulk: (data: {}) => Promise<void>
+  deleteCompany: (id: string) => Promise<void>,
+  createBulk: (data: object) => Promise<void>
 };
 
 const Companies = ({

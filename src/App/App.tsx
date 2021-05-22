@@ -47,11 +47,10 @@ import { hasAccess, hasPermission } from '../Util/PermissionsHelper';
 
 const { Header, Content, Footer } = Layout;
 
-// the | ... | means exact type. look up flow exact type for more information
-type RouteItem = {|
+type RouteItem = {
   path: string,
-  component: React$ComponentType<{}>
-|};
+  component: React.ComponentType
+};
 
 const privateRoutes: Array<RouteItem> = [
   { path: '/', component: Home },
@@ -111,27 +110,27 @@ const routes = (
 type Props = {
   isLoggedIn: boolean,
   currentUser?: {
-    email?: ?string,
-    firstName?: ?string,
-    lastName?: ?string,
+    email?: string,
+    firstName?: string,
+    lastName?: string,
     roles?: Array<{ type: string, permissions: Array<string> }>
   },
   logout: () => void,
-  redirect: string => void,
+  redirect: (route: string) => void,
   pathname: string
 };
 
-type SubMenuProps = {|
+type SubMenuProps = {
   route: string,
   title: string,
-  menus: Array<?React$Element<any>>
-|};
+  menus?: Array<React.Component>
+};
 
-type MenuItemProps = {|
+type MenuItemProps = {
   route: string,
   title: string,
   disabled?: boolean
-|};
+};
 
 /**
  * The base of the application. Defines the basic layout

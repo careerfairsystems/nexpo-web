@@ -29,12 +29,12 @@ type Props = {
   currentUser?: UserObj,
   currentStudent?: StudentObj,
   fetching: boolean,
-  updateCurrentUser: ({ user: UserObj }) => Promise<void>,
-  updateCurrentStudent: ({ student: StudentObj }) => Promise<void>,
+  updateCurrentUser: (userObject: { user: UserObj }) => Promise<void>,
+  updateCurrentStudent: (studentObject: { student: StudentObj }) => Promise<void>,
   getAllProgrammes: () => Promise<void>,
   deleteCurrentUser: () => Promise<void>,
   logout: () => Promise<void>,
-  resetForm: string => Promise<void>
+  resetForm: (id: string) => Promise<void>
 };
 
 const CurrentUser = ({

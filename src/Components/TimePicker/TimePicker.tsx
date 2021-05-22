@@ -7,7 +7,7 @@ import { TimePicker } from 'antd';
  */
 type Props = {
   value: any,
-  onChange: any => void,
+  onChange: (time?: string) => void,
   format: string
 };
 

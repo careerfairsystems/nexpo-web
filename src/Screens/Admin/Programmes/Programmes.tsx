@@ -11,7 +11,7 @@ import HtmlTitle from '../../../Components/HtmlTitle';
 type Props = {
   programmes?: {},
   fetching: boolean,
-  deleteProgramme: string => Promise<void>,
+  deleteProgramme: (id: string) => Promise<void>,
   getAllProgrammes: () => Promise<void>
 };
 

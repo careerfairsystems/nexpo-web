@@ -8,9 +8,9 @@ export type Response = {
   type: any,
   error?: string,
   errors?: Error,
-  +json: () => Promise<*>,
+  json: () => Promise<any>,
   headers: Headers,
-  +text: () => Promise<any>
+  text: () => Promise<any>
 };
 
 type ErrorResponse = {

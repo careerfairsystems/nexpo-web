@@ -12,9 +12,9 @@ type Props = {
     student?: number
   },
   fetching: boolean,
-  getProgramme: string => Promise<void>,
-  createProgramme: ({ programme: {} }) => Promise<void>,
-  updateProgramme: (string, { programme: {} }) => Promise<void>
+  getProgramme: (id: string) => Promise<void>,
+  createProgramme: (programmeObject: { programme: {} }) => Promise<void>,
+  updateProgramme: (id: string, programmeObject: { programme: {} }) => Promise<void>
 };
 
 const Programme = ({

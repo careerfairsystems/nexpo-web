@@ -4,6 +4,15 @@
   "private": true,
   "proxy": "http://localhost:4000",
   "dependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/lodash": "^4.14.170",
+    "@types/node": "^15.6.0",
+    "@types/react": "^17.0.6",
+    "@types/react-csv": "^1.1.1",
+    "@types/react-dom": "^17.0.5",
+    "@types/react-helmet": "^6.1.1",
+    "@types/react-redux": "^7.1.16",
+    "@types/react-router-dom": "^5.1.7",
     "antd": "^3.10.1",
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
@@ -16,13 +25,14 @@
     "react-helmet": "^6.1.0",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "4.0.3",
     "react-test-renderer": "^16.5.2",
     "redux": "^4.0.1",
     "redux-form": "^8.3.6",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "rxjs-compat": "^6.5.3",
+    "typescript": "^4.2.4",
     "victory": "^35.0.3",
     "whatwg-fetch": "^3.0.0"
   },
@@ -62,8 +72,7 @@
     "test-watch": "npm-run-all -p watch-css test-js",
     "test-ci": "npm run build-css && CI=true npm run test-js",
     "test-coverage": "npm run test-js -- --coverage",
-    "eject": "react-scripts eject",
-    "postinstall": "npx flow-typed install && npx flow-typed create-stub whatwg-fetch && npx flow-typed create-stub antd && npx flow-typed create-stub redux-form"
+    "eject": "react-scripts eject"
   },
   "engines": {
     "node": ">=12.0.0",

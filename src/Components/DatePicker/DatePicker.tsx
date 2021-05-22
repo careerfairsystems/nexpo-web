@@ -4,11 +4,11 @@ import { DatePicker } from 'antd';
 /**
  * Custom DatePicker that handles the conversion of the moment date value
  */
-type Props = {|
+type Props = {
   value: any,
-  onChange: any => void,
+  onChange: (date?: string) => void,
   format: string
-|};
+};
 const MyDatePicker = ({
   value,
   onChange,

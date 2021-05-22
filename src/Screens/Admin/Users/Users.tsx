@@ -14,7 +14,7 @@ type Props = {
   users?: {},
   fetching: boolean,
   getAllUsers: () => Promise<void>,
-  deleteUser: string => Promise<void>
+  deleteUser: (id: string) => Promise<void>
 };
 
 const Users = ({ users, fetching, getAllUsers, deleteUser }: Props) => {

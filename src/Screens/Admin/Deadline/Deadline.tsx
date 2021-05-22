@@ -15,8 +15,8 @@ type Props = {
   deadline: {},
   createDeadline: ({ deadline: {} }) => Promise<void>,
   fetching: boolean,
-  getDeadline: string => Promise<void>,
-  updateDeadline: (string, { deadline: {} }) => Promise<void>
+  getDeadline: (id: string) => Promise<void>,
+  updateDeadline: (id: string, deadlineObject: { deadline: object }) => Promise<void>
 };
 
 const Deadline = ({
