@@ -18,14 +18,14 @@ type Application = {
 };
 
 type Props = {
-  applications?: ?Array<Application>,
-  companies?: {},
+  applications?: Array<Application>,
+  companies?: any,
   getAllCompanies: () => Promise<void>,
-  deleteStudentSessionAppl: string => Promise<void>,
+  deleteStudentSessionAppl: (id: string) => Promise<void>,
   fetching: boolean,
   updateStudentSessionAppl: (
-    string,
-    { studentSessionApplication: { motivation: string } }
+    id: string,
+    studentSessionApplicationObject: { studentSessionApplication: { motivation: string } }
   ) => Promise<void>
 };
 

@@ -15,14 +15,14 @@ type Props = {
   fetching: boolean,
   currentUser: {
     email?: string,
-    student?: {}
+    student?: object
   },
   getAllCompanies: () => Promise<void>,
   getAllProgrammes: () => Promise<void>,
-  createStudentSessionAppl: ({
+  createStudentSessionAppl: (studentSessionApplicationObject: {
     studentSessionApplication: Application
   }) => Promise<void>,
-  resetForm: string => Promise<void>
+  resetForm: (form: string) => Promise<void>
 };
 
 const SessionApplication = ({

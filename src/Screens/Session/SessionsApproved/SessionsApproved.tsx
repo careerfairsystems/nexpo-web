@@ -28,7 +28,7 @@ type Session = {
 };
 
 type Props = {
-  sessions?: ?Array<Session>,
+  sessions?: Array<Session>,
   companies?: {
     id?: string,
     name?: string,

@@ -21,7 +21,7 @@ type Props = {
     logoUrl?: string
   },
   getCurrentCompany: () => Promise<void>,
-  resetForm: string => any
+  resetForm: (id: string) => any
 };
 
 const YourCompanyProfileShow = ({
