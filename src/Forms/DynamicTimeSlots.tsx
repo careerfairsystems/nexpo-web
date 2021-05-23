@@ -13,8 +13,7 @@ const FieldCheckbox = makeField(Checkbox);
 const MyDatePicker = makeField(DatePicker);
 const MyTimePicker = makeField(TimePicker);
 
-type Props = {
-  ...FieldsProps,
+type Props = FieldsProps & {
   fieldValues?: {}
 };
 

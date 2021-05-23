@@ -11,7 +11,7 @@ const TextArea = makeField(Input.TextArea);
 
 type Props = {
   handleSubmit: () => Promise<void>,
-  onCancel?: Event => any,
+  onCancel?: (event: Event) => any,
   submitting: boolean
 };
 const CurrentCompanyForm = ({ handleSubmit, onCancel, submitting }: Props) => (

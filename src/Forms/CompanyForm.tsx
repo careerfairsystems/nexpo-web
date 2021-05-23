@@ -12,9 +12,8 @@ import DynamicTimeSlots from './DynamicTimeSlots';
 const TextInput = makeField(Input);
 const TextArea = makeField(Input.TextArea);
 
-type Props = {
-  ...FormProps,
-  onCancel?: Event => any
+type Props = FormProps & {
+  onCancel?: (event: Event) => any
 };
 
 const CompanyForm = ({

@@ -29,7 +29,7 @@ const permissions = [
   'write_hosts'
 ];
 
-const renderPermissionItem = permission => (
+const renderPermissionItem = (permission: string) => (
   <Select.Option key={permission}>{permission}</Select.Option>
 );
 
@@ -39,8 +39,7 @@ const renderUserItem = user => (
   </Select.Option>
 );
 
-type Props = {
-  ...FormProps,
+type Props = FormProps & {
   users: {},
   handleSubmit: () => Promise<void>
 };

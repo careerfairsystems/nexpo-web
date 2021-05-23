@@ -21,14 +21,13 @@ export const validatePassword = (values: PasswordValues) => {
 export const required = (value: string) =>
   trim(value) ? undefined : "Field can't be empty";
 
-type Props = {
-  ...FieldProps,
+type Props = FieldProps & {
   accept: string,
   children: Node,
   format: string,
   label: string
 };
-const makeField = (Component: React.ComponentType<*>) => ({
+const makeField = (Component: React.ComponentType<any>) => ({
   input,
   meta,
   children,
