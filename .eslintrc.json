@@ -1,30 +1,43 @@
 {
-  "parser": "babel-eslint",
+  // Use the TypeScript parser
+  "parser": "@typescript-eslint/parser",
+  // Link the TypeScript config to make use of type information
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  // Recognize globals for diferent environments
   "env": {
     "browser": true,
     "jest": true,
     "es6": true,
     "node": true
   },
+  // Extend other configs with recommended settings
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:flowtype/recommended",
-    "airbnb",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react",
-    "prettier/standard"
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-typescript"
+    //"prettier",
+    //"prettier/react",
+    //"prettier/standard"
   ],
-  "plugins": ["react", "flowtype", "prettier"],
+  // Enable plugins
+  //"plugins": ["prettier"],
+  // Specify rules that override defaults and the ones in the extended configs
   "rules": {
-    "import/no-named-as-default": 0,
+    //"import/no-named-as-default": 0,
+    // Discourage the use of double quotes
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
     "react/jsx-filename-extension": [
       "error",
       { "extensions": [".js", ".jsx"] }
     ],
-    "quotes": ["error", "single", { "avoidEscape": true }],
-    "flowtype/no-types-missing-file-annotation": 0,
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
