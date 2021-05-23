@@ -29,7 +29,7 @@ const routeAccess = {
 const getBasePath = route => route.split('/').filter(i => i)[0];
 
 export const hasPermission = (
-  currentUser: ?{ roles?: Array<{ type: string, permissions: Array<string> }> },
+  currentUser?: { roles?: Array<{ type: string, permissions: Array<string> }> },
   route: string
 ) => {
   const basePath = getBasePath(route);
@@ -47,7 +47,7 @@ export const hasPermission = (
   return true;
 };
 
-export const hasAccess = (currentUser: ?{}, route: string) => {
+export const hasAccess = (currentUser?: {}, route: string) => {
   const basePath = getBasePath(route);
   const accessNeeded = routeAccess[basePath];
 

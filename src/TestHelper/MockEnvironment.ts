@@ -11,7 +11,7 @@ const INITIAL_ENVIRONMENT = process.env.NODE_ENV;
  * Sets the environment
  * @param {string} env
  */
-const setEnvironment = (env) => {
+const setEnvironment = (env: string) => {
   process.env.NODE_ENV = env;
 }
 
@@ -20,7 +20,7 @@ const setEnvironment = (env) => {
  * @param {string} env
  * @param {function} func
  */
-const runInEnvironment = (env, func) => {
+const runInEnvironment = (env: string, func: Function) => {
   setEnvironment(env);
   func();
   setEnvironment(INITIAL_ENVIRONMENT);
@@ -31,7 +31,7 @@ const runInEnvironment = (env, func) => {
  */
 // eslint-disable-next-line import/prefer-default-export
 export const mockEnvironment = {
-  runInProduction: (func: *) => runInEnvironment('production', func),
-  runInDevelopment: (func: *) => runInEnvironment('development', func),
-  runInTest: (func: *) => runInEnvironment('test', func)
+  runInProduction: (func: any) => runInEnvironment('production', func),
+  runInDevelopment: (func: any) => runInEnvironment('development', func),
+  runInTest: (func: any) => runInEnvironment('test', func)
 };

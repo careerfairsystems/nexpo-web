@@ -5,6 +5,6 @@ import thunk from 'redux-thunk';
  */
 const middlewares = [thunk];
 const createNewMockStore = configureMockStore(middlewares);
-export const createMockStore = (initialState: ?{}) =>
+export const createMockStore = (initialState?: {}) =>
   // $FlowFixMe
   createNewMockStore(initialState);

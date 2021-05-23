@@ -19,7 +19,7 @@ export const getParameterByName = (
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 };
 
-export const toExternal = (url: ?string) => {
+export const toExternal = (url?: string) => {
   if (!url) return url;
   if (url.match(/^[a-zA-Z]*:\/\/|^\/\//)) {
     return url;
