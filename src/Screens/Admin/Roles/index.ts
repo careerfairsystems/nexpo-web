@@ -5,12 +5,12 @@ import type { State } from '../../../Store/reducers';
 
 const mapStateToProps = (state: State) => ({
   roles: state.entities.roles,
-  fetching: state.api.roles.fetching
+  fetching: state.api.roles.fetching,
 });
 
 const mapDispatchToProps = {
   deleteRole: Actions.roles.deleteRole,
-  getAllRoles: Actions.roles.getAllRoles
+  getAllRoles: Actions.roles.getAllRoles,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

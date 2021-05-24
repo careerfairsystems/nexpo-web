@@ -10,10 +10,10 @@ import HtmlTitle from '../../../Components/HtmlTitle';
  * Responsible for rendering a list of roles
  */
 type Props = {
-  roles: {},
-  fetching: boolean,
-  getAllRoles: () => Promise<void>,
-  deleteRole: (id: string) => Promise<void>
+  roles: {};
+  fetching: boolean;
+  getAllRoles: () => Promise<void>;
+  deleteRole: (id: string) => Promise<void>;
 };
 
 const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) => {
@@ -28,7 +28,7 @@ const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) => {
       key: 'type',
       render: (type: string, { id }: { id: string }) => (
         <InvisibleLink to={`/admin/roles/${id}`}>{type}</InvisibleLink>
-      )
+      ),
     },
     {
       title: 'Permissions',
@@ -36,7 +36,7 @@ const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) => {
       key: 'permissions',
       render: (permissions: Array<string>) => (
         <span>{permissions.join(', ')}</span>
-      )
+      ),
     },
     {
       title: 'Action',
@@ -56,8 +56,8 @@ const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) => {
             <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>Delete</span>
           </Popconfirm>
         </span>
-      )
-    }
+      ),
+    },
   ];
 
   if (fetching) return <LoadingSpinner />;
@@ -70,9 +70,9 @@ const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) => {
         columns={roleColumns()}
         dataSource={sortBy(
           'type',
-          Object.keys(roles).map(i => ({
+          Object.keys(roles).map((i) => ({
             ...roles[i],
-            key: i
+            key: i,
           }))
         )}
       />

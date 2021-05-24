@@ -8,8 +8,8 @@ const TextInput = makeField(Input);
 const TextArea = makeField(Input.TextArea);
 
 type Props = {
-  handleSubmit: () => Promise<void>,
-  pristine: boolean
+  handleSubmit: () => Promise<void>;
+  pristine: boolean;
 };
 const UserForm = ({ handleSubmit, pristine }: Props) => (
   <Form onSubmit={handleSubmit}>
@@ -45,8 +45,8 @@ const UserForm = ({ handleSubmit, pristine }: Props) => (
   </Form>
 );
 
-const mapStateToProps = state => ({
-  formState: state.form.UserForm
+const mapStateToProps = (state) => ({
+  formState: state.form.UserForm,
 });
 
 const stateful = connect(mapStateToProps);

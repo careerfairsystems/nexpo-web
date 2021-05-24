@@ -4,37 +4,37 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const updateStudentSessionIsLoading = () => ({
-  type: actionTypes.PUT_STUDENT_SESSION
+  type: actionTypes.PUT_STUDENT_SESSION,
 });
 
 export const updateStudentSessionSuccess = (studentSession: {}) => {
   message.success('Your Session was successfully updated.');
   return {
     type: actionTypes.PUT_STUDENT_SESSION_SUCCESS,
-    studentSession
+    studentSession,
   };
 };
 
 export type UpdateStudentSessionFailureAction = {
-  type: string
+  type: string;
 };
-export const updateStudentSessionFailure = (): UpdateStudentSessionFailureAction => {
-  message.warning('Something went wrong, please try again later');
-  return {
-    type: actionTypes.PUT_STUDENT_SESSION_FAILURE
+export const updateStudentSessionFailure =
+  (): UpdateStudentSessionFailureAction => {
+    message.warning('Something went wrong, please try again later');
+    return {
+      type: actionTypes.PUT_STUDENT_SESSION_FAILURE,
+    };
   };
-};
 
-export const updateStudentSession = (id: string, status: number) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const updateStudentSession =
+  (id: string, status: number) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateStudentSessionIsLoading());
     return API.studentSessions
       .updateSession(id, status)
-      .then(session => {
+      .then((session) => {
         dispatch(updateStudentSessionSuccess(session.data));
       })
       .catch(() => {
         dispatch(updateStudentSessionFailure());
       });
   };
-}

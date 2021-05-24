@@ -10,14 +10,14 @@ import '../Role.css';
  * Responsible for rendering a role. Role id is recieved via url
  */
 type Props = {
-  id: string,
+  id: string;
   role: {
-    id?: string,
-    type?: string,
-    permissions?: Array<string>,
-    users?: Array<number>
-  },
-  getRole: (id: string) => Promise<void>
+    id?: string;
+    type?: string;
+    permissions?: Array<string>;
+    users?: Array<number>;
+  };
+  getRole: (id: string) => Promise<void>;
 };
 
 const RoleShow = ({ id, role, getRole }: Props) => {

@@ -22,7 +22,7 @@ it('should render NotFound if there is no role', () => {
 it('should set html title', () => {
   const role = {
     type: 'test',
-    permissions: ['read_all', 'write_all']
+    permissions: ['read_all', 'write_all'],
   };
   const func = jest.fn();
   const wrapper = shallow(<RoleShow id="1" role={role} getRole={func} />);
@@ -35,7 +35,7 @@ it('should set html title', () => {
 it('should render role information', () => {
   const role = {
     type: 'test',
-    permissions: ['read_all', 'write_all']
+    permissions: ['read_all', 'write_all'],
   };
   const func = jest.fn();
   const wrapper = shallow(<RoleShow id="1" role={role} getRole={func} />);

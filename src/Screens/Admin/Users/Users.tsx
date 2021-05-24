@@ -11,10 +11,10 @@ import FilterSearch, { FilterIcon } from '../../../Components/FilterSearch';
  * Responsible for rendering a list of users
  */
 type Props = {
-  users?: {},
-  fetching: boolean,
-  getAllUsers: () => Promise<void>,
-  deleteUser: (id: string) => Promise<void>
+  users?: {};
+  fetching: boolean;
+  getAllUsers: () => Promise<void>;
+  deleteUser: (id: string) => Promise<void>;
 };
 
 const Users = ({ users, fetching, getAllUsers, deleteUser }: Props) => {
@@ -33,42 +33,40 @@ const Users = ({ users, fetching, getAllUsers, deleteUser }: Props) => {
         onFilter: (value, user) => toLower(user.email).includes(toLower(value)),
         render: (email, { id }) => (
           <InvisibleLink to={`/admin/users/${id}`}>{email}</InvisibleLink>
-        )
+        ),
       },
       {
         title: 'First Name',
         dataIndex: 'firstName',
-        key: 'firstName'
+        key: 'firstName',
       },
       {
         title: 'Last Name',
         dataIndex: 'lastName',
-        key: 'lastName'
+        key: 'lastName',
       },
       {
         title: 'Action',
         key: 'action',
-        render: user => {
-          return (
-            <span>
-              <InvisibleLink to={`/admin/users/${user.id}`}>Show</InvisibleLink>
-              <Divider type="vertical" />
-              <InvisibleLink to={`/admin/users/${user.id}/edit`}>
-                Edit
-              </InvisibleLink>
-              <Divider type="vertical" />
-              <Popconfirm
-                title="Sure to delete?"
-                onConfirm={() => deleteUser(user.id)}
-              >
-                <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>
-                  Delete
-                </span>
-              </Popconfirm>
-            </span>
-          );
-        }
-      }
+        render: (user) => (
+          <span>
+            <InvisibleLink to={`/admin/users/${user.id}`}>Show</InvisibleLink>
+            <Divider type="vertical" />
+            <InvisibleLink to={`/admin/users/${user.id}/edit`}>
+              Edit
+            </InvisibleLink>
+            <Divider type="vertical" />
+            <Popconfirm
+              title="Sure to delete?"
+              onConfirm={() => deleteUser(user.id)}
+            >
+              <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>
+                Delete
+              </span>
+            </Popconfirm>
+          </span>
+        ),
+      },
     ];
 
     const tempUsers = users || {};
@@ -80,9 +78,9 @@ const Users = ({ users, fetching, getAllUsers, deleteUser }: Props) => {
 
         <Table
           columns={userColumns}
-          dataSource={Object.keys(tempUsers).map(i => ({
+          dataSource={Object.keys(tempUsers).map((i) => ({
             ...tempUsers[i],
-            key: i
+            key: i,
           }))}
         />
       </div>
@@ -96,7 +94,7 @@ const Users = ({ users, fetching, getAllUsers, deleteUser }: Props) => {
 };
 
 Users.defaultProps = {
-  users: {}
+  users: {},
 };
 
 export default Users;

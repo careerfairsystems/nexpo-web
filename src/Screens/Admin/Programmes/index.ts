@@ -5,12 +5,12 @@ import type { State } from '../../../Store/reducers';
 
 const mapStateToProps = (state: State) => ({
   programmes: state.entities.programmes,
-  fetching: state.api.programmes.fetching
+  fetching: state.api.programmes.fetching,
 });
 
 const mapDispatchToProps = {
   deleteProgramme: Actions.programmes.deleteProgramme,
-  getAllProgrammes: Actions.programmes.getAllProgrammes
+  getAllProgrammes: Actions.programmes.getAllProgrammes,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

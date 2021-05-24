@@ -27,7 +27,7 @@ describe('Entities reducer', () => {
       studentSessionTimeSlots: {},
       studentSessionApplications: {},
       statistics: {},
-      students: {}
+      students: {},
     };
   });
   it('should return the empty initial state', () => {
@@ -46,10 +46,10 @@ describe('Entities reducer', () => {
     expect(Object.keys(state.entries).length).toBeGreaterThan(0);
     // Check that each company's entry exists in entries
     const companyKeys = Object.keys(state.companies);
-    companyKeys.forEach(companyKey => {
+    companyKeys.forEach((companyKey) => {
       expect(
-        state.companies[companyKey].entries.forEach(entryNbr =>
-          Object.keys(state.entries).find(entryKey => entryNbr === entryKey)
+        state.companies[companyKey].entries.forEach((entryNbr) =>
+          Object.keys(state.entries).find((entryKey) => entryNbr === entryKey)
         )
       );
     });
@@ -67,10 +67,10 @@ describe('Entities reducer', () => {
     expect(Object.keys(state.entries).length).toBeGreaterThan(0);
     // Check that each company's entry exists in entries
     const companyKeys = Object.keys(state.companies);
-    companyKeys.forEach(companyKey => {
+    companyKeys.forEach((companyKey) => {
       expect(
-        state.companies[companyKey].entries.forEach(entryNbr =>
-          Object.keys(state.entries).find(entryKey => entryNbr === entryKey)
+        state.companies[companyKey].entries.forEach((entryNbr) =>
+          Object.keys(state.entries).find((entryKey) => entryNbr === entryKey)
         )
       );
     });
@@ -98,10 +98,10 @@ describe('Entities reducer', () => {
     expect(Object.keys(state.users).length).toBeGreaterThan(0);
     // Check that each role's user exists in entries
     const roleKeys = Object.keys(state.roles);
-    roleKeys.forEach(roleKey => {
+    roleKeys.forEach((roleKey) => {
       expect(
-        state.roles[roleKey].users.forEach(userNbr =>
-          Object.keys(state.users).find(userKey => userNbr === userKey)
+        state.roles[roleKey].users.forEach((userNbr) =>
+          Object.keys(state.users).find((userKey) => userNbr === userKey)
         )
       );
     });
@@ -129,10 +129,10 @@ describe('Entities reducer', () => {
     expect(Object.keys(state.roles).length).toBeGreaterThan(0);
     // Check that each role's user exists in entries
     const userKeys = Object.keys(state.users);
-    userKeys.forEach(userKey => {
+    userKeys.forEach((userKey) => {
       expect(
-        state.users[userKey].roles.forEach(roleNbr =>
-          Object.keys(state.roles).find(roleKey => roleNbr === roleKey)
+        state.users[userKey].roles.forEach((roleNbr) =>
+          Object.keys(state.roles).find((roleKey) => roleNbr === roleKey)
         )
       );
     });
@@ -152,10 +152,10 @@ describe('Entities reducer', () => {
     expect(Object.keys(state.attributes).length).toBeGreaterThan(0);
     // Check that each category's attribute exists in attributes
     const categoryKeys = Object.keys(state.categories);
-    categoryKeys.forEach(categoryKey => {
+    categoryKeys.forEach((categoryKey) => {
       expect(
-        state.categories[categoryKey].attributes.forEach(attrNbr =>
-          Object.keys(state.attributes).find(attrKey => attrNbr === attrKey)
+        state.categories[categoryKey].attributes.forEach((attrNbr) =>
+          Object.keys(state.attributes).find((attrKey) => attrNbr === attrKey)
         )
       );
     });
@@ -177,35 +177,35 @@ describe('Entities reducer', () => {
     expect(Object.keys(state.companies).length).toBeGreaterThan(0);
     // Check that each category's attributes exists in attributes
     const categoryKeys = Object.keys(state.categories);
-    categoryKeys.forEach(categoryKey => {
+    categoryKeys.forEach((categoryKey) => {
       expect(
-        state.categories[categoryKey].attributes.forEach(attrNbr =>
-          Object.keys(state.attributes).find(attrKey => attrNbr === attrKey)
+        state.categories[categoryKey].attributes.forEach((attrNbr) =>
+          Object.keys(state.attributes).find((attrKey) => attrNbr === attrKey)
         )
       );
     });
     // Check that each attribute's entries exists in entries
     const attributeKeys = Object.keys(state.attributes);
-    attributeKeys.forEach(attributeKey => {
+    attributeKeys.forEach((attributeKey) => {
       expect(
-        state.attributes[attributeKey].entries.forEach(entryNbr =>
-          Object.keys(state.entries).find(entryKey => entryNbr === entryKey)
+        state.attributes[attributeKey].entries.forEach((entryNbr) =>
+          Object.keys(state.entries).find((entryKey) => entryNbr === entryKey)
         )
       );
     });
     // Check that each entry's company exist
     const entryKeys = Object.keys(state.entries);
-    entryKeys.forEach(entryKey => {
+    entryKeys.forEach((entryKey) => {
       expect(state.companies).toHaveProperty(
         state.entries[entryKey].company.toString()
       );
     });
     // Check that each company's entry exists in entries
     const companyKeys = Object.keys(state.companies);
-    companyKeys.forEach(companyKey => {
+    companyKeys.forEach((companyKey) => {
       expect(
-        state.companies[companyKey].entries.forEach(entryNbr =>
-          Object.keys(state.entries).find(entryKey => entryNbr === entryKey)
+        state.companies[companyKey].entries.forEach((entryNbr) =>
+          Object.keys(state.entries).find((entryKey) => entryNbr === entryKey)
         )
       );
     });
@@ -218,8 +218,8 @@ describe('Entities reducer', () => {
 
     expect(state).toMatchObject({
       users: {
-        '1': testUser
-      }
+        1: testUser,
+      },
     });
   });
   it('should handle fetch current user success', () => {
@@ -229,8 +229,8 @@ describe('Entities reducer', () => {
 
     expect(state).toMatchObject({
       users: {
-        '1': testUser
-      }
+        1: testUser,
+      },
     });
   });
 
@@ -243,27 +243,28 @@ describe('Entities reducer', () => {
     );
 
     expect(state).toMatchObject({
-      currentUser: {}
+      currentUser: {},
     });
   });
 
   it('should handle delete session application', () => {
     const sessionApplicationId = '1';
-    const action = Actions.studentSessions.deleteStudentSessionApplSuccess(
-      sessionApplicationId
-    );
+    const action =
+      Actions.studentSessions.deleteStudentSessionApplSuccess(
+        sessionApplicationId
+      );
     const state = EntitiesReducer(
       {
         ...initialState,
         studentSessionApplications: {
-          '1': { id: '1', companyid: '1', studentid: '1' }
-        }
+          1: { id: '1', companyid: '1', studentid: '1' },
+        },
       },
       action
     );
 
     expect(state).toMatchObject({
-      studentSessionApplications: {}
+      studentSessionApplications: {},
     });
   });
 
@@ -273,30 +274,30 @@ describe('Entities reducer', () => {
       id: '1',
       companyid: '1',
       studentid: '1',
-      motivation: 'Old motivation'
+      motivation: 'Old motivation',
     };
 
     const action = Actions.studentSessions.updateStudentSessionApplSuccess({
       ...oldAppl,
-      ...data
+      ...data,
     });
     const state = EntitiesReducer(
       {
         ...initialState,
-        studentSessionApplications: testData.studentSessionApplications
+        studentSessionApplications: testData.studentSessionApplications,
       },
       action
     );
 
     expect(state).toMatchObject({
       studentSessionApplications: {
-        '1': {
+        1: {
           id: '1',
           companyid: '1',
           studentid: '1',
-          motivation: 'New Motivation'
-        }
-      }
+          motivation: 'New Motivation',
+        },
+      },
     });
   });
 
@@ -310,7 +311,7 @@ describe('Entities reducer', () => {
     );
 
     expect(state).toMatchObject({
-      statistics: { nbrApplicatons: 10 }
+      statistics: { nbrApplicatons: 10 },
     });
   });
 
@@ -324,7 +325,7 @@ describe('Entities reducer', () => {
     );
     expect(state).toMatchObject({
       ...initialState,
-      companies: omit([id], normalized)
+      companies: omit([id], normalized),
     });
   });
 
@@ -338,7 +339,7 @@ describe('Entities reducer', () => {
     );
     expect(state).toMatchObject({
       ...initialState,
-      roles: omit([id], normalized)
+      roles: omit([id], normalized),
     });
   });
 
@@ -352,7 +353,7 @@ describe('Entities reducer', () => {
     );
     expect(state).toMatchObject({
       ...initialState,
-      users: omit([id], normalized)
+      users: omit([id], normalized),
     });
   });
 
@@ -362,7 +363,7 @@ describe('Entities reducer', () => {
     const state = EntitiesReducer(
       {
         ...initialState,
-        studentSessionApplications: testData.studentSessionApplications
+        studentSessionApplications: testData.studentSessionApplications,
       },
       action
     );
@@ -375,19 +376,18 @@ describe('Entities reducer', () => {
     const id = '1';
     const sessionApplication = {
       ...testData.studentSessions[id],
-      studentSessionStatus: 1
+      studentSessionStatus: 1,
     };
-    const action = Actions.studentSessions.updateStudentSessionSuccess(
-      sessionApplication
-    );
+    const action =
+      Actions.studentSessions.updateStudentSessionSuccess(sessionApplication);
     const state = EntitiesReducer(
       { ...initialState, studentSessions: testData.studentSessions },
       action
     );
     expect(state).toMatchObject({
       studentSessions: {
-        '1': sessionApplication
-      }
+        1: sessionApplication,
+      },
     });
   });
 });

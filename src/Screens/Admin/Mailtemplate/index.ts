@@ -15,7 +15,7 @@ const mapDispatchToProps = {
   getMailtemplate: Actions.mailtemplates.getMailtemplate,
   createMailtemplate: Actions.mailtemplates.createMailtemplate,
   updateMailtemplate: Actions.mailtemplates.updateMailtemplate,
-  resetForm: reset
+  resetForm: reset,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

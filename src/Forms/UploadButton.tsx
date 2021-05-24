@@ -4,9 +4,9 @@ import { message, Button, Icon, Upload } from 'antd';
 import makeField from './helper';
 
 type Props = {
-  accept: string,
-  value: {} | string,
-  onChange: (file?: File) => Promise<void>
+  accept: string;
+  value: {} | string;
+  onChange: (file?: File) => Promise<void>;
 };
 
 const UploadButton = ({ accept = '', value, onChange }: Props) => (
@@ -14,7 +14,7 @@ const UploadButton = ({ accept = '', value, onChange }: Props) => (
     key="uploadButton"
     accept={accept}
     fileList={isEmpty(value) ? [] : [value]}
-    beforeUpload={file => {
+    beforeUpload={(file) => {
       if (file.size < 1e6) onChange(file);
       else message.warning('Cannot upload files larger than 1MB');
       return false;

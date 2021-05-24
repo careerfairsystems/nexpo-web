@@ -10,17 +10,17 @@ import HtmlTitle from '../../../Components/HtmlTitle';
  * Responsible for rendering a list of mailtemplates
  */
 type Props = {
-  mailtemplates?: {},
-  fetching: boolean,
-  getAllMailtemplates: () => Promise<void>,
-  deleteMailtemplate: (id: string) => Promise<void>
+  mailtemplates?: {};
+  fetching: boolean;
+  getAllMailtemplates: () => Promise<void>;
+  deleteMailtemplate: (id: string) => Promise<void>;
 };
 
 const Mailtemplates = ({
   mailtemplates,
   fetching,
   getAllMailtemplates,
-  deleteMailtemplate
+  deleteMailtemplate,
 }: Props) => {
   useEffect(() => {
     getAllMailtemplates();
@@ -33,40 +33,36 @@ const Mailtemplates = ({
       key: 'name',
       render: (name: string, { id }: { id: string }) => (
         <InvisibleLink to={`/admin/mailtemplates/${id}`}>{name}</InvisibleLink>
-      )
+      ),
     },
     {
       title: 'Subject',
       dataIndex: 'subject',
-      key: 'subject'
+      key: 'subject',
     },
     {
       title: 'Signature',
       dataIndex: 'signature',
-      key: 'signature'
+      key: 'signature',
     },
     {
       title: 'Action',
       key: 'action',
-      render: (mailtemplate: { id: string }) => {
-        return (
-          <span>
-            <InvisibleLink to={`/admin/mailtemplates/${mailtemplate.id}`}>
-              Edit
-            </InvisibleLink>
-            <Divider type="vertical" />
-            <Popconfirm
-              title="Sure to delete?"
-              onConfirm={() => deleteMailtemplate(mailtemplate.id)}
-            >
-              <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>
-                Delete
-              </span>
-            </Popconfirm>
-          </span>
-        );
-      }
-    }
+      render: (mailtemplate: { id: string }) => (
+        <span>
+          <InvisibleLink to={`/admin/mailtemplates/${mailtemplate.id}`}>
+            Edit
+          </InvisibleLink>
+          <Divider type="vertical" />
+          <Popconfirm
+            title="Sure to delete?"
+            onConfirm={() => deleteMailtemplate(mailtemplate.id)}
+          >
+            <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>Delete</span>
+          </Popconfirm>
+        </span>
+      ),
+    },
   ];
 
   const renderMailtemplates = () => {
@@ -81,9 +77,9 @@ const Mailtemplates = ({
           columns={mailtemplateColumns()}
           dataSource={sortBy(
             'name',
-            Object.keys(tempMailTemplates).map(i => ({
+            Object.keys(tempMailTemplates).map((i) => ({
               ...tempMailTemplates[i],
-              key: i
+              key: i,
             }))
           )}
         />
@@ -103,7 +99,7 @@ const Mailtemplates = ({
 };
 
 Mailtemplates.defaultProps = {
-  mailtemplates: {}
+  mailtemplates: {},
 };
 
 export default Mailtemplates;

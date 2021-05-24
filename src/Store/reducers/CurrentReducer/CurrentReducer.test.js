@@ -8,7 +8,7 @@ import { CurrentReducer } from './CurrentReducer';
 describe('Current reducer', () => {
   it('should return the empty initial state', () => {
     const initialState = {
-      user: undefined
+      user: undefined,
     };
     expect(CurrentReducer(undefined, { type: 'NONE' })).toEqual(initialState);
   });

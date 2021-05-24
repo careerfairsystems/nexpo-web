@@ -13,29 +13,29 @@ import '../User.css';
  * Responsible for rendering a user. User id is recieved via url
  */
 type Props = {
-  id?: string,
+  id?: string;
   user?: {
-    id?: string,
-    email?: string,
-    firstName?: string,
-    lastName?: string,
-    foodPreferences?: string,
-    phoneNumber?: string,
-    roles?: Array<{ type: string }>,
+    id?: string;
+    email?: string;
+    firstName?: string;
+    lastName?: string;
+    foodPreferences?: string;
+    phoneNumber?: string;
+    roles?: Array<{ type: string }>;
     student?: {
-      resumeSvUrl: string,
-      resumeEnUrl: string,
-      studentSessionApplications: Array<{ companyId: number }>,
-      studentSessions: Array<{ companyId: number }>,
-      programme: { name: string },
-      year: string
-    }
-  },
-  fetching: boolean,
-  getUser: (id: string) => Promise<void>,
+      resumeSvUrl: string;
+      resumeEnUrl: string;
+      studentSessionApplications: Array<{ companyId: number }>;
+      studentSessions: Array<{ companyId: number }>;
+      programme: { name: string };
+      year: string;
+    };
+  };
+  fetching: boolean;
+  getUser: (id: string) => Promise<void>;
   match?: {
-    path?: string
-  }
+    path?: string;
+  };
 };
 
 const UserShow = ({ id, user, fetching, getUser, match }: Props) => {
@@ -46,13 +46,10 @@ const UserShow = ({ id, user, fetching, getUser, match }: Props) => {
   const { firstName, lastName, email, phoneNumber, foodPreferences, student } =
     user || {};
 
-  const displayName = () => {
-    return firstName ? [firstName, lastName].join(' ') : email;
-  };
+  const displayName = () =>
+    firstName ? [firstName, lastName].join(' ') : email;
 
-  const roles = () => {
-    return isEmpty(roles) ? 'None' : map('type', roles).join(', ');
-  };
+  const roles = () => (isEmpty(roles) ? 'None' : map('type', roles).join(', '));
 
   const renderStudent = () => {
     const {
@@ -61,7 +58,7 @@ const UserShow = ({ id, user, fetching, getUser, match }: Props) => {
       resumeEnUrl,
       programme,
       studentSessionApplications = [],
-      studentSessions = []
+      studentSessions = [],
     } = student || {};
 
     return (
@@ -102,11 +99,11 @@ const UserShow = ({ id, user, fetching, getUser, match }: Props) => {
 UserShow.defaultProps = {
   id: '',
   user: {
-    student: {}
+    student: {},
   },
   match: {
-    path: ''
-  }
+    path: '',
+  },
 };
 
 export default UserShow;

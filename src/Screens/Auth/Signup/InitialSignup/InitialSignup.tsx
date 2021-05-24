@@ -10,19 +10,18 @@ import SuccessMessage from '../../../../Components/SuccessMessage';
  */
 
 type Props = {
-  finished?: boolean
-}
+  finished?: boolean;
+};
 
-const InitialSignup = ({finished} : Props) => {
-
-  const [state, setState] = useState({finished});
+const InitialSignup = ({ finished }: Props) => {
+  const [state, setState] = useState({ finished });
 
   const signup = (values: { email: string }) => {
     const { email } = values;
     return API.signup
       .initialSignup(email)
       .then(() => setState({ finished: true }))
-      .catch(err => {
+      .catch((err) => {
         throw new SubmissionError({ ...err.errors });
       });
   };
@@ -44,6 +43,6 @@ const InitialSignup = ({finished} : Props) => {
       </div>
     </div>
   );
-}
+};
 
 export default InitialSignup;

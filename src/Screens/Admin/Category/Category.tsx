@@ -8,9 +8,9 @@ import HtmlTitle from '../../../Components/HtmlTitle';
  * Responsible for rendering a category. Category id is recieved via url
  */
 type Props = {
-  id: string,
-  category: { attributes?: Array<any>, title?: string },
-  getCategory: (id: string) => Promise<void>
+  id: string;
+  category: { attributes?: Array<any>; title?: string };
+  getCategory: (id: string) => Promise<void>;
 };
 
 const Category = ({ id, category, getCategory }: Props) => {

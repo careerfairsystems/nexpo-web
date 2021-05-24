@@ -4,7 +4,7 @@ import Schema from '../../normalizr/schema';
 import type { State } from '../../reducers';
 
 type Props = {
-  match: Match
+  match: Match;
 };
 export const getUserId = (state: State, props: Props) => props.match.params.id;
 
@@ -12,7 +12,7 @@ export const getUser = (state: State, props: Props) => {
   const userId = getUserId(state, props);
 
   const {
-    users: [user]
+    users: [user],
   } = denormalize(
     { users: [userId] },
     { users: Schema.usersSchema() },

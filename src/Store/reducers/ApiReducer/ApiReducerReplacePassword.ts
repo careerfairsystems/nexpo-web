@@ -7,14 +7,14 @@ import * as actionTypes from '../../ActionTypes';
 import type { ApiStatus } from './ApiReducer';
 
 type ReplaceForgottenPasswordRequest = {
-  type: typeof actionTypes.REPLACE_FORGOTTEN_PASSWORD_REQUEST
+  type: typeof actionTypes.REPLACE_FORGOTTEN_PASSWORD_REQUEST;
 };
 type ReplaceForgottenPasswordSuccess = {
-  type: typeof actionTypes.REPLACE_FORGOTTEN_PASSWORD_SUCCESS
+  type: typeof actionTypes.REPLACE_FORGOTTEN_PASSWORD_SUCCESS;
 };
 type ReplaceForgottenPasswordFailure = {
-  type: typeof actionTypes.REPLACE_FORGOTTEN_PASSWORD_FAILURE,
-  errors: { password: string, passwordConfirmation: string }
+  type: typeof actionTypes.REPLACE_FORGOTTEN_PASSWORD_FAILURE;
+  errors: { password: string; passwordConfirmation: string };
 };
 
 type Action =

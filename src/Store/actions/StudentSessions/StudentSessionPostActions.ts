@@ -6,7 +6,7 @@ import type { Dispatch } from '../../reducers';
 
 export function createStudentSessionIsLoading() {
   return {
-    type: actionTypes.POST_STUDENT_SESSION
+    type: actionTypes.POST_STUDENT_SESSION,
   };
 }
 
@@ -14,32 +14,30 @@ export function createStudentSessionSuccess(company: {}) {
   message.success('Student Session was successfully created.');
   return {
     type: actionTypes.POST_STUDENT_SESSION_SUCCESS,
-    company
+    company,
   };
 }
 
 export type CreateStudentSessionFailureAction = {
-  type: string
+  type: string;
 };
 export function createStudentSessionFailure(): CreateStudentSessionFailureAction {
   message.warning('Student Session could not be created');
 
   return {
-    type: actionTypes.POST_STUDENT_SESSION_FAILURE
+    type: actionTypes.POST_STUDENT_SESSION_FAILURE,
   };
 }
 
-export const createStudentSession = (data: {}) => {
-  return (dispatch: Dispatch) => {
-    dispatch(createStudentSessionIsLoading());
-    return API.studentSessions
-      .create(data)
-      .then(company => {
-        dispatch(createStudentSessionSuccess(company.data));
-        dispatch(reset('studentSession'));
-      })
-      .catch(() => {
-        dispatch(createStudentSessionFailure());
-      });
-  };
-}
+export const createStudentSession = (data: {}) => (dispatch: Dispatch) => {
+  dispatch(createStudentSessionIsLoading());
+  return API.studentSessions
+    .create(data)
+    .then((company) => {
+      dispatch(createStudentSessionSuccess(company.data));
+      dispatch(reset('studentSession'));
+    })
+    .catch(() => {
+      dispatch(createStudentSessionFailure());
+    });
+};

@@ -4,7 +4,7 @@ import type { State } from '../../reducers';
 
 export const getCurrentUser = (state: State) => {
   const {
-    users: [user]
+    users: [user],
   } = denormalize(
     { users: [state.current.user] },
     { users: Schema.usersSchema() },

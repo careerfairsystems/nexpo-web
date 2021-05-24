@@ -8,5 +8,5 @@ export default {
   /**
    * Fetches all statistics
    */
-  getAll: () => authFetch('/api/statistics').then(handleHttpResponse)
+  getAll: () => authFetch('/api/statistics').then(handleHttpResponse),
 };

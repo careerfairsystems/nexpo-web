@@ -14,7 +14,7 @@ describe('Mailtemplate', () => {
       fetching: false,
       getMailtemplate: jest.fn(),
       resetForm: jest.fn(),
-      updateMailtemplate: jest.fn()
+      updateMailtemplate: jest.fn(),
     };
   });
 
@@ -23,7 +23,7 @@ describe('Mailtemplate', () => {
       name: 'Test Mailtemplate',
       subject: 'Welcome!',
       content: '<h1>Hi and Welcome!</h1>',
-      signature: 'Best Regards\nDevelopers'
+      signature: 'Best Regards\nDevelopers',
     };
     shallow(<Mailtemplate id="1" {...props} mailtemplate={mailtemplate} />);
   });
@@ -45,7 +45,7 @@ describe('Mailtemplate', () => {
       name: 'Test Mailtemplate',
       subject: 'Welcome!',
       content: '<h1>Hi and Welcome!</h1>',
-      signature: 'Best Regards\nDevelopers'
+      signature: 'Best Regards\nDevelopers',
     };
     const wrapper = shallow(
       <Mailtemplate id="1" {...props} mailtemplate={mailtemplate} />
@@ -59,10 +59,10 @@ describe('Mailtemplate', () => {
     const wrapper = shallow(<Mailtemplate id="1" {...props} />);
     const newSubject = 'Welcome!';
     const instance = wrapper.instance();
-    if(instance) instance.updateMailtemplate({ subject: newSubject });
+    if (instance) instance.updateMailtemplate({ subject: newSubject });
     setTimeout(() => {
       expect(props.createMailtemplate).toHaveBeenCalledWith({
-        mailtemplate: { id: '1', subject: newSubject }
+        mailtemplate: { id: '1', subject: newSubject },
       });
     }, 100);
   });
@@ -73,7 +73,7 @@ describe('Mailtemplate', () => {
       name: 'Test Mailtemplate',
       subject: 'Welcome!',
       content: '<h1>Hi and Welcome!</h1>',
-      signature: 'Best Regards\nDevelopers'
+      signature: 'Best Regards\nDevelopers',
     };
     const id = '1';
     const wrapper = shallow(
@@ -81,10 +81,10 @@ describe('Mailtemplate', () => {
     );
     const newSubject = 'Welcome to ARKAD!';
     const instance = wrapper.instance();
-    if(instance) instance.updateMailtemplate({ subject: newSubject });
+    if (instance) instance.updateMailtemplate({ subject: newSubject });
     setTimeout(() => {
       expect(props.updateMailtemplate).toHaveBeenCalledWith(id, {
-        mailtemplate: { id, subject: newSubject }
+        mailtemplate: { id, subject: newSubject },
       });
     }, 100);
   });

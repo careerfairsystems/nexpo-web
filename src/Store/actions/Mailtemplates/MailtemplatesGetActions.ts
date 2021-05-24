@@ -4,36 +4,35 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const getMailtemplateIsLoading = () => ({
-  type: actionTypes.FETCH_MAILTEMPLATE
+  type: actionTypes.FETCH_MAILTEMPLATE,
 });
 
 export const getMailtemplateSuccess = (mailtemplate: {}) => ({
   type: actionTypes.FETCH_MAILTEMPLATE_SUCCESS,
-  mailtemplate
+  mailtemplate,
 });
 
 export type GetMailtemplateFailureAction = {
-  type: string
+  type: string;
 };
 export const getMailtemplateFailure = (): GetMailtemplateFailureAction => {
   message.error(
     'Something went wrong when trying to fetch mailtemplate, please try again later'
   );
   return {
-    type: actionTypes.FETCH_MAILTEMPLATE_FAILURE
+    type: actionTypes.FETCH_MAILTEMPLATE_FAILURE,
   };
 };
 
-export const getMailtemplate = (id: string) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const getMailtemplate =
+  (id: string) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getMailtemplateIsLoading());
     return API.mailtemplates
       .get(id)
-      .then(mailtemplate => {
+      .then((mailtemplate) => {
         dispatch(getMailtemplateSuccess(mailtemplate.data));
       })
       .catch(() => {
         dispatch(getMailtemplateFailure());
       });
   };
-}

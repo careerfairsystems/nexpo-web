@@ -5,102 +5,98 @@ import API from '../../../API';
 import ApiError from '../../../Errors/ApiError';
 
 export const forgotPasswordRequest = () => ({
-  type: actionTypes.FORGOT_PASSWORD_REQUEST
+  type: actionTypes.FORGOT_PASSWORD_REQUEST,
 });
 
 export const forgotPasswordSuccess = () => ({
-  type: actionTypes.FORGOT_PASSWORD_SUCCESS
+  type: actionTypes.FORGOT_PASSWORD_SUCCESS,
 });
 
 export type ForgotPasswordAction = {
-  email: string
+  email: string;
 };
-export const forgotPassword = ({ email }: ForgotPasswordAction) => (
-  dispatch: Dispatch<{ type: string }>
-) => {
-  dispatch(forgotPasswordRequest());
-  return API.session.forgotPassword({ email }).then(() => {
-    dispatch(forgotPasswordSuccess());
-  });
-};
+export const forgotPassword =
+  ({ email }: ForgotPasswordAction) =>
+  (dispatch: Dispatch<{ type: string }>) => {
+    dispatch(forgotPasswordRequest());
+    return API.session.forgotPassword({ email }).then(() => {
+      dispatch(forgotPasswordSuccess());
+    });
+  };
 
 export const verifyForgotPasswordKeyRequest = () => ({
-  type: actionTypes.VERIFY_FORGOT_PASSWORD_KEY_REQUEST
+  type: actionTypes.VERIFY_FORGOT_PASSWORD_KEY_REQUEST,
 });
 
 export const verifyForgotPasswordKeySuccess = () => ({
-  type: actionTypes.VERIFY_FORGOT_PASSWORD_KEY_SUCCESS
+  type: actionTypes.VERIFY_FORGOT_PASSWORD_KEY_SUCCESS,
 });
 
 export const verifyForgotPasswordKeyFailure = () => ({
-  type: actionTypes.VERIFY_FORGOT_PASSWORD_KEY_FAILURE
+  type: actionTypes.VERIFY_FORGOT_PASSWORD_KEY_FAILURE,
 });
 
 export type VerifyForgotPasswordKeyAction = {
-  key: string
+  key: string;
 };
-export const verifyForgotPasswordKey = ({
-  key
-}: VerifyForgotPasswordKeyAction) => (dispatch: Dispatch<{ type: string }>) => {
-  dispatch(verifyForgotPasswordKeyRequest());
-  return API.session
-    .verifyForgotPasswordKey({ key })
-    .then(() => {
-      dispatch(verifyForgotPasswordKeySuccess());
-    })
-    .catch(() => {
-      dispatch(verifyForgotPasswordKeyFailure());
-    });
-};
+export const verifyForgotPasswordKey =
+  ({ key }: VerifyForgotPasswordKeyAction) =>
+  (dispatch: Dispatch<{ type: string }>) => {
+    dispatch(verifyForgotPasswordKeyRequest());
+    return API.session
+      .verifyForgotPasswordKey({ key })
+      .then(() => {
+        dispatch(verifyForgotPasswordKeySuccess());
+      })
+      .catch(() => {
+        dispatch(verifyForgotPasswordKeyFailure());
+      });
+  };
 
 export const replaceForgottenPasswordRequest = () => ({
-  type: actionTypes.REPLACE_FORGOTTEN_PASSWORD_REQUEST
+  type: actionTypes.REPLACE_FORGOTTEN_PASSWORD_REQUEST,
 });
 
 export const replaceForgottenPasswordSuccess = () => ({
-  type: actionTypes.REPLACE_FORGOTTEN_PASSWORD_SUCCESS
+  type: actionTypes.REPLACE_FORGOTTEN_PASSWORD_SUCCESS,
 });
 
 export type ReplaceForgottenPasswordFailureAction = {
-  type: string,
-  errors: {}
+  type: string;
+  errors: {};
 };
 export const replaceForgottenPasswordFailure = (
   errors?: {} = {}
 ): ReplaceForgottenPasswordFailureAction => ({
   type: actionTypes.REPLACE_FORGOTTEN_PASSWORD_FAILURE,
-  errors
+  errors,
 });
 
 export type ReplaceForgottenPasswordAction = {
-  key: string,
-  password: string,
-  passwordConfirmation: string
+  key: string;
+  password: string;
+  passwordConfirmation: string;
 };
-export const replaceForgottenPassword = ({
-  key,
-  password,
-  passwordConfirmation
-}: ReplaceForgottenPasswordAction) => (
-  dispatch: Dispatch<{ type: string }>
-) => {
-  dispatch(replaceForgottenPasswordRequest());
-  return API.session
-    .replaceForgottenPassword({
-      key,
-      password,
-      passwordConfirmation
-    })
-    .then(() => {
-      dispatch(replaceForgottenPasswordSuccess());
-    })
-    .catch((error: ApiError) => {
-      const { errors } = error;
-      dispatch(replaceForgottenPasswordFailure(errors));
-      if (errors)
-        throw new SubmissionError({
-          password: errors.password,
-          passwordConfirmation: errors.passwordConfirmation
-        });
-    });
-};
+export const replaceForgottenPassword =
+  ({ key, password, passwordConfirmation }: ReplaceForgottenPasswordAction) =>
+  (dispatch: Dispatch<{ type: string }>) => {
+    dispatch(replaceForgottenPasswordRequest());
+    return API.session
+      .replaceForgottenPassword({
+        key,
+        password,
+        passwordConfirmation,
+      })
+      .then(() => {
+        dispatch(replaceForgottenPasswordSuccess());
+      })
+      .catch((error: ApiError) => {
+        const { errors } = error;
+        dispatch(replaceForgottenPasswordFailure(errors));
+        if (errors)
+          throw new SubmissionError({
+            password: errors.password,
+            passwordConfirmation: errors.passwordConfirmation,
+          });
+      });
+  };

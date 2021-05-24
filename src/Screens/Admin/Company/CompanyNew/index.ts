@@ -3,7 +3,7 @@ import { Actions } from '../../../../Store';
 import CompanyNew from './CompanyNew';
 
 const mapDispatchToProps = {
-  createCompany: Actions.companies.createCompany
+  createCompany: Actions.companies.createCompany,
 };
 
 const stateful = connect(null, mapDispatchToProps);

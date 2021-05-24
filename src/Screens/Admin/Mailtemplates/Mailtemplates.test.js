@@ -11,7 +11,7 @@ describe('mailtemplates', () => {
     props = {
       fetching: false,
       getAllMailtemplates: jest.fn(),
-      deleteMailtemplate: jest.fn()
+      deleteMailtemplate: jest.fn(),
     };
   });
 
@@ -35,16 +35,16 @@ describe('mailtemplates', () => {
 
   it('should render mailtemplates', () => {
     const mailtemplates = {
-      '1': {
+      1: {
         id: 1,
         name: 'Welcome',
-        content: '<h1>Welcome!</h1>'
+        content: '<h1>Welcome!</h1>',
       },
-      '2': {
+      2: {
         id: 2,
         name: 'Signup',
-        content: '<h1>Welcome!</h1>'
-      }
+        content: '<h1>Welcome!</h1>',
+      },
     };
     const wrapper = shallow(
       <Mailtemplates {...props} id="1" mailtemplates={mailtemplates} />

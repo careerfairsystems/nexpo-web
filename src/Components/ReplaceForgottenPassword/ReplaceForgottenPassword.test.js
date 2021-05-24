@@ -11,7 +11,7 @@ describe('ReplaceForgottenPassword', () => {
       verifyKey: jest.fn(),
       sendNewPasswordToBackend: jest.fn(),
       hashKey: 'random-string',
-      keyIsValid: true
+      keyIsValid: true,
     };
   });
 
@@ -48,7 +48,7 @@ describe('ReplaceForgottenPassword', () => {
     setTimeout(() => {
       expect(props.sendNewPasswordToBackend).toHaveBeenCalledWith({
         password: values.password,
-        passwordConfirmation: values.passwordConfirmation
+        passwordConfirmation: values.passwordConfirmation,
       });
     }, 100);
   });

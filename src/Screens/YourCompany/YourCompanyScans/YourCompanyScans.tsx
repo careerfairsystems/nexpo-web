@@ -4,52 +4,52 @@ import { sortBy } from 'lodash/fp';
 import HtmlTitle from '../../../Components/HtmlTitle';
 
 type User = {
-  firstName: string,
-  lastName: string,
-  email: string,
-  profileImage: string
+  firstName: string;
+  lastName: string;
+  email: string;
+  profileImage: string;
 };
 
 type Programme = {
-  code: string,
-  name: string
+  code: string;
+  name: string;
 };
 
 type Interest = {
-  id: number,
-  name: string
+  id: number;
+  name: string;
 };
 
 type Student = {
-  year: number,
-  master: string,
-  linkedIn: string,
-  programme: Programme,
-  resumeEnUrl: string,
-  resumeSvUrl: string,
-  interests: Array<Interest>,
-  user: User
+  year: number;
+  master: string;
+  linkedIn: string;
+  programme: Programme;
+  resumeEnUrl: string;
+  resumeSvUrl: string;
+  interests: Array<Interest>;
+  user: User;
 };
 
 type Blip = {
-  id: number,
-  rating: number,
-  comment: string,
-  student: Student
+  id: number;
+  rating: number;
+  comment: string;
+  student: Student;
 };
 
 type Props = {
   currentCompany: {
-    blips: Array<Blip>
-  },
-  fetching: boolean,
-  getCurrentCompany: () => Promise<void>
+    blips: Array<Blip>;
+  };
+  fetching: boolean;
+  getCurrentCompany: () => Promise<void>;
 };
 
 const YourCompanyScans = ({
   currentCompany,
   fetching,
-  getCurrentCompany
+  getCurrentCompany,
 }: Props) => {
   useEffect(() => {
     getCurrentCompany();
@@ -60,7 +60,7 @@ const YourCompanyScans = ({
     const name = `${blip.student.user.firstName} ${blip.student.user.lastName}`;
     const year = blip.student.year ? blip.student.year : '';
     const programme = blip.student.programme ? blip.student.programme.name : '';
-    const interests = blip.student.interests.map(i => i.name).join('. ');
+    const interests = blip.student.interests.map((i) => i.name).join('. ');
     const rating = blip.rating ? blip.rating : 0;
     const comment = blip.comment ? blip.comment : '';
 
@@ -70,7 +70,7 @@ const YourCompanyScans = ({
   const exportBlips = () => {
     const data = [
       'Email,Name,Graduation year,Programme,Interests,Rating,Comment',
-      ...currentCompany.blips.map(blipToCsv)
+      ...currentCompany.blips.map(blipToCsv),
     ].join('\n');
 
     const blob = new Blob([data]);
@@ -96,7 +96,7 @@ const YourCompanyScans = ({
           disabled={!blip.student.linkedIn}
         >
           LinkedIn
-        </a>
+        </a>,
       ]}
     >
       <List.Item.Meta
@@ -113,9 +113,9 @@ const YourCompanyScans = ({
           `Master: ${blip.student.master ? blip.student.master : 'Not set'}`,
           `Interests: ${
             blip.student.interests.length !== 0
-              ? blip.student.interests.map(i => i.name).join(', ')
+              ? blip.student.interests.map((i) => i.name).join(', ')
               : 'Not set'
-          }`
+          }`,
         ].join('   |   ')}
       />
       {blip.comment ? `Comment: ${blip.comment}` : 'No comment'}
@@ -129,7 +129,7 @@ const YourCompanyScans = ({
         <div
           style={{
             float: 'left',
-            marginRight: '10px'
+            marginRight: '10px',
           }}
         >
           <h2>Student Scans</h2>

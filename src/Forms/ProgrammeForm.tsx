@@ -7,9 +7,9 @@ import makeField from './helper';
 const TextInput = makeField(Input);
 
 type Props = {
-  disabled?: boolean,
-  handleSubmit: () => Promise<void>,
-  submitting: boolean
+  disabled?: boolean;
+  handleSubmit: () => Promise<void>;
+  submitting: boolean;
 };
 const ProgrammeForm = ({ handleSubmit, disabled, submitting }: Props) => (
   <Form onSubmit={handleSubmit}>
@@ -27,11 +27,11 @@ const ProgrammeForm = ({ handleSubmit, disabled, submitting }: Props) => (
 );
 
 ProgrammeForm.defaultProps = {
-  disabled: false
+  disabled: false,
 };
 
-const mapStateToProps = state => ({
-  formState: state.form.ProgrammeForm
+const mapStateToProps = (state) => ({
+  formState: state.form.ProgrammeForm,
 });
 
 const stateful = connect(mapStateToProps);

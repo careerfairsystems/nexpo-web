@@ -2,8 +2,8 @@ import React from 'react';
 import { isNil, join } from 'lodash/fp';
 
 type Props = {
-  roles?: Array<string>,
-  permissions?: Array<string>
+  roles?: Array<string>;
+  permissions?: Array<string>;
 };
 const AdminHome = ({ roles = [], permissions = [] }: Props) => (
   <div>
@@ -25,7 +25,7 @@ const AdminHome = ({ roles = [], permissions = [] }: Props) => (
 
 AdminHome.defaultProps = {
   roles: [],
-  permissions: []
+  permissions: [],
 };
 
 export default AdminHome;

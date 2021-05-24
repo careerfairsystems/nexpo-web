@@ -21,5 +21,5 @@ export default {
   session,
   statistics,
   studentSessions,
-  users
+  users,
 };

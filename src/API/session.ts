@@ -5,7 +5,7 @@ export default {
   /**
    * Tries to login
    */
-  login: ({ email, password }: { email: string, password: string }) =>
+  login: ({ email, password }: { email: string; password: string }) =>
     fetchJson('/api/login', { data: { email, password }, method: 'POST' }).then(
       handleHttpResponse
     ),
@@ -24,14 +24,14 @@ export default {
   replaceForgottenPassword: ({
     key,
     password,
-    passwordConfirmation
+    passwordConfirmation,
   }: {
-    key: string,
-    password: string,
-    passwordConfirmation: string
+    key: string;
+    password: string;
+    passwordConfirmation: string;
   }) =>
     fetchJson(`/api/password/new/${key}`, {
       data: { password, passwordConfirmation },
-      method: 'POST'
-    }).then(handleHttpResponse)
+      method: 'POST',
+    }).then(handleHttpResponse),
 };

@@ -3,5 +3,5 @@ import * as CompanyGetNotAppliedToSelector from './CompanyGetNotAppliedToSelecto
 
 export default {
   ...CompanyGetCurrentSelector,
-  ...CompanyGetNotAppliedToSelector
+  ...CompanyGetNotAppliedToSelector,
 };

@@ -5,7 +5,7 @@ import { mockHttpResponse, createMockStore } from '../../../TestHelper';
 describe('getAllRolesIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_ROLES
+      type: actionTypes.FETCH_ROLES,
     };
     const action = Actions.roles.getAllRolesIsLoading();
     expect(action).toEqual(expectedAction);
@@ -16,13 +16,13 @@ describe('getAllRolesSuccess', () => {
   it('should create the correct action', () => {
     const testRoles = [
       {
-        name: 'Role1'
-      }
+        name: 'Role1',
+      },
     ];
 
     const expectedAction = {
       type: actionTypes.FETCH_ROLES_SUCCESS,
-      roles: testRoles
+      roles: testRoles,
     };
     const action = Actions.roles.getAllRolesSuccess(testRoles);
     expect(action).toEqual(expectedAction);
@@ -32,7 +32,7 @@ describe('getAllRolesSuccess', () => {
 describe('getAllRolesFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_ROLES_FAILURE
+      type: actionTypes.FETCH_ROLES_FAILURE,
     };
     const action = Actions.roles.getAllRolesFailure();
     expect(action).toEqual(expectedAction);
@@ -53,14 +53,14 @@ describe('getAllRoles', () => {
   it('should call success action on success', () => {
     const roles = [
       {
-        name: 'Role1'
-      }
+        name: 'Role1',
+      },
     ];
     mockHttpResponse({ status: 200, body: { data: roles } });
 
     const expectedActions = [
       Actions.roles.getAllRolesIsLoading(),
-      Actions.roles.getAllRolesSuccess(roles)
+      Actions.roles.getAllRolesSuccess(roles),
     ];
 
     const store = createMockStore();
@@ -76,7 +76,7 @@ describe('getAllRoles', () => {
 
     const expectedActions = [
       Actions.roles.getAllRolesIsLoading(),
-      Actions.roles.getAllRolesFailure()
+      Actions.roles.getAllRolesFailure(),
     ];
 
     const store = createMockStore();
@@ -91,7 +91,7 @@ describe('getAllRoles', () => {
 describe('createRoleIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_ROLE
+      type: actionTypes.POST_ROLE,
     };
     const action = Actions.roles.createRoleIsLoading();
     expect(action).toEqual(expectedAction);
@@ -101,12 +101,12 @@ describe('createRoleIsLoading', () => {
 describe('createRoleSuccess', () => {
   it('should create the correct action', () => {
     const testRole = {
-      name: 'Role1'
+      name: 'Role1',
     };
 
     const expectedAction = {
       type: actionTypes.POST_ROLE_SUCCESS,
-      role: testRole
+      role: testRole,
     };
     const action = Actions.roles.createRoleSuccess(testRole);
     expect(action).toEqual(expectedAction);
@@ -116,7 +116,7 @@ describe('createRoleSuccess', () => {
 describe('createRoleFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_ROLE_FAILURE
+      type: actionTypes.POST_ROLE_FAILURE,
     };
     const action = Actions.roles.createRoleFailure();
     expect(action).toEqual(expectedAction);
@@ -137,14 +137,14 @@ describe('createRole', () => {
 
   it('should call success action on success', () => {
     const role = {
-      name: 'Role1'
+      name: 'Role1',
     };
     mockHttpResponse({ status: 200, body: { data: role } });
 
     const expectedActions = [
       Actions.roles.createRoleIsLoading(),
       Actions.roles.createRoleSuccess(role),
-      reset('role')
+      reset('role'),
     ];
 
     const store = createMockStore();
@@ -162,7 +162,7 @@ describe('createRole', () => {
 
     const expectedActions = [
       Actions.roles.createRoleIsLoading(),
-      Actions.roles.createRoleFailure()
+      Actions.roles.createRoleFailure(),
     ];
 
     const store = createMockStore();
@@ -177,7 +177,7 @@ describe('createRole', () => {
 describe('getRoleIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_ROLE
+      type: actionTypes.FETCH_ROLE,
     };
     const action = Actions.roles.getRoleIsLoading();
     expect(action).toEqual(expectedAction);
@@ -188,12 +188,12 @@ describe('getRoleSuccess', () => {
   it('should create the correct action', () => {
     const testRole = {
       id: 1,
-      name: 'Role1'
+      name: 'Role1',
     };
 
     const expectedAction = {
       type: actionTypes.FETCH_ROLE_SUCCESS,
-      role: testRole
+      role: testRole,
     };
     const action = Actions.roles.getRoleSuccess(testRole);
     expect(action).toEqual(expectedAction);
@@ -203,7 +203,7 @@ describe('getRoleSuccess', () => {
 describe('getRoleFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_ROLE_FAILURE
+      type: actionTypes.FETCH_ROLE_FAILURE,
     };
     const action = Actions.roles.getRoleFailure();
     expect(action).toEqual(expectedAction);
@@ -224,13 +224,13 @@ describe('getRole', () => {
   it('should call success action on success', () => {
     const role = {
       id: 1,
-      name: 'Role1'
+      name: 'Role1',
     };
     mockHttpResponse({ status: 200, body: { data: role } });
 
     const expectedActions = [
       Actions.roles.getRoleIsLoading(),
-      Actions.roles.getRoleSuccess(role)
+      Actions.roles.getRoleSuccess(role),
     ];
 
     const store = createMockStore();
@@ -246,7 +246,7 @@ describe('getRole', () => {
 
     const expectedActions = [
       Actions.roles.getRoleIsLoading(),
-      Actions.roles.getRoleFailure()
+      Actions.roles.getRoleFailure(),
     ];
 
     const store = createMockStore();
@@ -261,7 +261,7 @@ describe('getRole', () => {
 describe('updateRoleIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_ROLE
+      type: actionTypes.PUT_ROLE,
     };
     const action = Actions.roles.updateRoleIsLoading();
     expect(action).toEqual(expectedAction);
@@ -271,12 +271,12 @@ describe('updateRoleIsLoading', () => {
 describe('updateRoleSuccess', () => {
   it('should create the correct action', () => {
     const testRole = {
-      name: 'Role1'
+      name: 'Role1',
     };
 
     const expectedAction = {
       type: actionTypes.PUT_ROLE_SUCCESS,
-      role: testRole
+      role: testRole,
     };
     const action = Actions.roles.updateRoleSuccess(testRole);
     expect(action).toEqual(expectedAction);
@@ -286,7 +286,7 @@ describe('updateRoleSuccess', () => {
 describe('updateRoleFailure', () => {
   it('should update the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_ROLE_FAILURE
+      type: actionTypes.PUT_ROLE_FAILURE,
     };
     const action = Actions.roles.updateRoleFailure();
     expect(action).toEqual(expectedAction);
@@ -307,13 +307,13 @@ describe('updateRole', () => {
 
   it('should call success action on success', () => {
     const role = {
-      name: 'Role1'
+      name: 'Role1',
     };
     mockHttpResponse({ status: 200, body: { data: role } });
 
     const expectedActions = [
       Actions.roles.updateRoleIsLoading(),
-      Actions.roles.updateRoleSuccess(role)
+      Actions.roles.updateRoleSuccess(role),
     ];
 
     const store = createMockStore();
@@ -331,7 +331,7 @@ describe('updateRole', () => {
 
     const expectedActions = [
       Actions.roles.updateRoleIsLoading(),
-      Actions.roles.updateRoleFailure()
+      Actions.roles.updateRoleFailure(),
     ];
 
     const store = createMockStore();
@@ -346,7 +346,7 @@ describe('updateRole', () => {
 describe('deleteRoleIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_ROLE
+      type: actionTypes.DELETE_ROLE,
     };
     const action = Actions.roles.deleteRoleIsLoading();
     expect(action).toEqual(expectedAction);
@@ -359,7 +359,7 @@ describe('deleteRoleSuccess', () => {
 
     const expectedAction = {
       type: actionTypes.DELETE_ROLE_SUCCESS,
-      id: testRoleId
+      id: testRoleId,
     };
     const action = Actions.roles.deleteRoleSuccess(testRoleId);
     expect(action).toEqual(expectedAction);
@@ -369,7 +369,7 @@ describe('deleteRoleSuccess', () => {
 describe('deleteRoleFailure', () => {
   it('should delete the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_ROLE_FAILURE
+      type: actionTypes.DELETE_ROLE_FAILURE,
     };
     const action = Actions.roles.deleteRoleFailure();
     expect(action).toEqual(expectedAction);
@@ -393,7 +393,7 @@ describe('deleteRole', () => {
 
     const expectedActions = [
       Actions.roles.deleteRoleIsLoading(),
-      Actions.roles.deleteRoleSuccess(roleId)
+      Actions.roles.deleteRoleSuccess(roleId),
     ];
 
     const store = createMockStore();
@@ -408,7 +408,7 @@ describe('deleteRole', () => {
     mockHttpResponse({ status: 401, body: {} });
     const expectedActions = [
       Actions.roles.deleteRoleIsLoading(),
-      Actions.roles.deleteRoleFailure()
+      Actions.roles.deleteRoleFailure(),
     ];
 
     const store = createMockStore();

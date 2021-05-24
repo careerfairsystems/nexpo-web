@@ -9,8 +9,8 @@ const testData = {
       description: 'We do music!',
       entries: [
         { id: '1', value: 'JA' },
-        { id: 2, value: '20' }
-      ]
+        { id: 2, value: '20' },
+      ],
     },
     {
       website: 'www.google.com',
@@ -21,8 +21,8 @@ const testData = {
       description: 'We code!',
       entries: [
         { id: 3, value: 'JA' },
-        { id: 4, value: '40' }
-      ]
+        { id: 4, value: '40' },
+      ],
     },
     {
       website: 'www.ibm.com',
@@ -33,8 +33,8 @@ const testData = {
       description: 'We make things!',
       entries: [
         { id: 5, value: 'NEJ' },
-        { id: 6, value: '60' }
-      ]
+        { id: 6, value: '60' },
+      ],
     },
     {
       website: 'www.intel.com',
@@ -45,8 +45,8 @@ const testData = {
       description: 'We do stuff!',
       entries: [
         { id: 7, value: 'NEJ' },
-        { id: 8, value: '80' }
-      ]
+        { id: 8, value: '80' },
+      ],
     },
     {
       website: 'www.jesus.com',
@@ -57,9 +57,9 @@ const testData = {
       description: 'We do wine!',
       entries: [
         { id: 9, value: 'JA' },
-        { id: 10, value: '100' }
-      ]
-    }
+        { id: 10, value: '100' },
+      ],
+    },
   ],
   company: {
     website: 'www.spotify.com',
@@ -70,22 +70,22 @@ const testData = {
     description: 'We do music!',
     entries: [
       { id: '1', value: 'JA' },
-      { id: 2, value: '20' }
-    ]
+      { id: 2, value: '20' },
+    ],
   },
   users: [
     {
       id: '1',
       email: 'admin@test.now',
       firstName: 'Dev',
-      lastName: 'User'
+      lastName: 'User',
     },
     {
       id: 2,
       email: 'student@test.later',
       firstName: 'Test',
-      lastName: 'User'
-    }
+      lastName: 'User',
+    },
   ],
   user: {
     id: '1',
@@ -96,21 +96,21 @@ const testData = {
       {
         id: '1',
         type: 'admin',
-        permissions: ['read_all', 'write_all']
-      }
-    ]
+        permissions: ['read_all', 'write_all'],
+      },
+    ],
   },
   roles: [
     {
       id: 1,
       type: 'admin',
-      permissions: ['read_all', 'write_all']
+      permissions: ['read_all', 'write_all'],
     },
     {
       id: 2,
       type: 'manager',
-      permissions: ['read_users', 'write_users']
-    }
+      permissions: ['read_users', 'write_users'],
+    },
   ],
   role: {
     id: 1,
@@ -122,36 +122,36 @@ const testData = {
         id: '1',
         email: 'admin@test.now',
         firstName: 'Dev',
-        lastName: 'User'
-      }
-    ]
+        lastName: 'User',
+      },
+    ],
   },
   studentSessionApplications: {
-    '1': {
+    1: {
       id: '1',
       companyid: '1',
       studentid: '1',
-      motivation: 'Old motivation'
-    }
+      motivation: 'Old motivation',
+    },
   },
   studentSessions: {
-    '1': {
+    1: {
       id: '1',
       companyid: '1',
       studentid: '1',
       start: '2018-01-01',
       end: '2018-01-01',
-      studentSessionStatus: 0
-    }
+      studentSessionStatus: 0,
+    },
   },
   studentSessionDays: {
-    '1': {
+    1: {
       id: '1',
       companyid: '1',
       studentid: '1',
       start: '2018-01-01',
-      end: '2018-01-01'
-    }
+      end: '2018-01-01',
+    },
   },
   categories: [
     {
@@ -161,8 +161,8 @@ const testData = {
         { title: 'Eluttag', id: '1' },
         { title: 'Internetkoder', id: 2 },
         { title: 'Ståbord', id: 3 },
-        { title: 'Koli', id: 4 }
-      ]
+        { title: 'Koli', id: 4 },
+      ],
     },
     {
       title: 'Avtal',
@@ -171,8 +171,8 @@ const testData = {
         { title: 'Beskrivning', id: 5 },
         { title: 'Länk till document', id: 6 },
         { title: 'Ansvarig', id: 7 },
-        { title: 'Kontakt Uppgifter', id: 8 }
-      ]
+        { title: 'Kontakt Uppgifter', id: 8 },
+      ],
     },
     {
       title: 'Övrigt',
@@ -181,8 +181,8 @@ const testData = {
         { title: 'Udda beställning', id: 9 },
         { title: 'Extra ketchup', id: 10 },
         { title: 'Trevligthetsskala', id: 11 },
-        { title: 'Länk till podio', id: 12 }
-      ]
+        { title: 'Länk till podio', id: 12 },
+      ],
     },
     {
       title: 'Event',
@@ -191,9 +191,9 @@ const testData = {
         { title: 'Lunchföreläsning', id: 13 },
         { title: 'Pub', id: 14 },
         { title: 'Yrkesvaskning', id: 15 },
-        { title: 'Sabrering för nybörjare', id: 16 }
-      ]
-    }
+        { title: 'Sabrering för nybörjare', id: 16 },
+      ],
+    },
   ],
   category: {
     title: 'Logistik',
@@ -203,29 +203,29 @@ const testData = {
         title: 'Eluttag',
         id: '1',
         entries: [
-          { id: '1', value: '1', company: { id: '1', name: 'Spotify' } }
-        ]
+          { id: '1', value: '1', company: { id: '1', name: 'Spotify' } },
+        ],
       },
       {
         title: 'Internetkoder',
         id: 2,
-        entries: [{ id: 2, value: '1', company: { id: 2, name: 'Google' } }]
+        entries: [{ id: 2, value: '1', company: { id: 2, name: 'Google' } }],
       },
       {
         title: 'Ståbord',
         id: 3,
-        entries: [{ id: 3, value: '1', company: { id: 3, name: 'IBM' } }]
+        entries: [{ id: 3, value: '1', company: { id: 3, name: 'IBM' } }],
       },
       {
         title: 'Koli',
         id: 4,
-        entries: [{ id: 4, value: '1', company: { id: 2, name: 'Google' } }]
-      }
-    ]
+        entries: [{ id: 4, value: '1', company: { id: 2, name: 'Google' } }],
+      },
+    ],
   },
   statistics: {
-    nbrApplicatons: 5
-  }
+    nbrApplicatons: 5,
+  },
 };
 
 export default testData;

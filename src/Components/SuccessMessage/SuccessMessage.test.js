@@ -6,7 +6,7 @@ it('should render without crashing', () => {
   const props = {
     message: 'success',
     linkText: 'Wow',
-    linkUrl: 'placeholder.com'
+    linkUrl: 'placeholder.com',
   };
   shallow(<SuccessMessage {...props} />);
 });

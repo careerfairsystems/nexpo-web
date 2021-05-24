@@ -7,8 +7,8 @@ it('should return initial state', () => {
     error: false,
     isLoggedIn: false,
     forgotPassword: {
-      validKey: false
-    }
+      validKey: false,
+    },
   };
   expect(AuthReducer(undefined, { type: 'NONE' })).toEqual(expected);
 });
@@ -27,7 +27,7 @@ describe('get current user failure', () => {
     const initialState = {
       isLoggedIn: true,
       error: false,
-      forgotPassword: { validKey: false }
+      forgotPassword: { validKey: false },
     };
     const state = AuthReducer(initialState, action);
     expect(state).toMatchObject({ isLoggedIn: false });
@@ -37,7 +37,7 @@ describe('get current user failure', () => {
 describe(actionTypes.LOGIN_SUCCESS, () => {
   const action = {
     type: actionTypes.LOGIN_SUCCESS,
-    jwt: 'randomly-generated-string'
+    jwt: 'randomly-generated-string',
   };
 
   it('should set isLoggedIn to true', () => {
@@ -53,7 +53,7 @@ describe(actionTypes.LOGIN_SUCCESS, () => {
 
 describe(actionTypes.LOGIN_FAILURE, () => {
   const action = {
-    type: actionTypes.LOGIN_FAILURE
+    type: actionTypes.LOGIN_FAILURE,
   };
 
   it('should set error to true', () => {
@@ -81,7 +81,7 @@ describe('logout', () => {
     const initialState = {
       isLoggedIn: true,
       error: false,
-      forgotPassword: { validKey: false }
+      forgotPassword: { validKey: false },
     };
     const state = AuthReducer(initialState, Actions.auth.logout());
     expect(state).toMatchObject({ isLoggedIn: false });
@@ -94,13 +94,13 @@ describe('verify forgot password key success', () => {
     const initialState = {
       isLoggedIn: true,
       error: false,
-      forgotPassword: { validKey: false }
+      forgotPassword: { validKey: false },
     };
     const action = Actions.accounts.verifyForgotPasswordKeySuccess();
     const state = AuthReducer(initialState, action);
 
     const expected = {
-      forgotPassword: { validKey: true }
+      forgotPassword: { validKey: true },
     };
     expect(state).toMatchObject(expected);
   });
@@ -111,13 +111,13 @@ describe('verify forgot password key failure', () => {
     const initialState = {
       isLoggedIn: true,
       error: false,
-      forgotPassword: { validKey: true }
+      forgotPassword: { validKey: true },
     };
     const action = Actions.accounts.verifyForgotPasswordKeyFailure();
     const state = AuthReducer(initialState, action);
 
     const expected = {
-      forgotPassword: { validKey: false }
+      forgotPassword: { validKey: false },
     };
     expect(state).toMatchObject(expected);
   });

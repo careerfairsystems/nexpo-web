@@ -7,13 +7,13 @@ import '../Role.css';
  * Responsible for rendering a role. Role id is recieved via url
  */
 type RoleObj = {
-  type: string,
-  permissions: Array<string>,
-  user?: number
+  type: string;
+  permissions: Array<string>;
+  user?: number;
 };
 type Props = {
-  createRole: ({ role: RoleObj }) => Promise<void>,
-  getAllUsers: () => Promise<void>
+  createRole: ({ role: RoleObj }) => Promise<void>;
+  getAllUsers: () => Promise<void>;
 };
 
 const RoleNew = ({ createRole, getAllUsers }: Props) => {

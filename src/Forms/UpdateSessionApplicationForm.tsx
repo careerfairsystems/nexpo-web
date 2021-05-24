@@ -6,20 +6,20 @@ import makeField from './helper';
 
 const TextArea = makeField(Input.TextArea);
 
-const requiredMotivation = value =>
+const requiredMotivation = (value) =>
   value ? undefined : 'Please provide a motivation';
 
 type Props = {
-  handleSubmit: () => Promise<void>,
-  invalid: boolean,
-  pristine: boolean,
-  submitting: boolean
+  handleSubmit: () => Promise<void>;
+  invalid: boolean;
+  pristine: boolean;
+  submitting: boolean;
 };
 const UpdateSessionApplicationForm = ({
   handleSubmit,
   invalid,
   pristine,
-  submitting
+  submitting,
 }: Props) => (
   <Form onSubmit={handleSubmit}>
     <Field
@@ -42,7 +42,7 @@ const UpdateSessionApplicationForm = ({
 
 const mapStateToProps = (state, props) => ({
   formState: state.form.UpdateSessionApplicationForm,
-  form: `updateStudentSessionApplication${props.id}`
+  form: `updateStudentSessionApplication${props.id}`,
 });
 
 const stateful = connect(mapStateToProps);

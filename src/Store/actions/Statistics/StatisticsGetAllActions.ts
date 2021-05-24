@@ -4,36 +4,35 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const getAllStatisticsIsLoading = () => ({
-  type: actionTypes.FETCH_STATISTICS
+  type: actionTypes.FETCH_STATISTICS,
 });
 
 export const getAllStatisticsSuccess = (statistics: {}) => ({
   type: actionTypes.FETCH_STATISTICS_SUCCESS,
-  statistics
+  statistics,
 });
 
 export type GetAllStatisticsFailureAction = {
-  type: string
+  type: string;
 };
 export const getAllStatisticsFailure = (): GetAllStatisticsFailureAction => {
   message.error(
     'Something went wrong when trying to fetch all statistics, please try again later'
   );
   return {
-    type: actionTypes.FETCH_STATISTICS_FAILURE
+    type: actionTypes.FETCH_STATISTICS_FAILURE,
   };
 };
 
-export const getAllStatistics = () => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const getAllStatistics =
+  () => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getAllStatisticsIsLoading());
     return API.statistics
       .getAll()
-      .then(statistics => {
+      .then((statistics) => {
         dispatch(getAllStatisticsSuccess(statistics.data));
       })
       .catch(() => {
         dispatch(getAllStatisticsFailure());
       });
   };
-}

@@ -2,9 +2,9 @@ import React from 'react';
 import Message from '../Message';
 
 type Props = {
-  message: string,
-  linkUrl?: string,
-  linkText?: string
+  message: string;
+  linkUrl?: string;
+  linkText?: string;
 };
 
 /**

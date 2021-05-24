@@ -4,7 +4,7 @@ import RoleNew from './RoleNew';
 
 const mapDispatchToProps = {
   createRole: Actions.roles.createRole,
-  getAllUsers: Actions.users.getAllUsers
+  getAllUsers: Actions.users.getAllUsers,
 };
 
 const stateful = connect(null, mapDispatchToProps);

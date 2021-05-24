@@ -17,16 +17,16 @@ const interestsValues = [
   { id: 4, name: 'Summer job' },
   { id: 5, name: 'Thesis' },
   { id: 6, name: 'Trainee employment' },
-  { id: 7, name: 'Full-time job' }
+  { id: 7, name: 'Full-time job' },
 ];
 
-const renderInterestItem = interest => (
+const renderInterestItem = (interest) => (
   <Select.Option key={interest.id} value={interest.id}>
     {interest.name}
   </Select.Option>
 );
 
-const renderProgrammeItem = programme => (
+const renderProgrammeItem = (programme) => (
   <Select.Option key={programme.id} value={programme.id}>
     {programme.name} - {programme.code}
   </Select.Option>
@@ -35,17 +35,17 @@ const renderProgrammeItem = programme => (
 type Props = {
   initialValues: {
     resumeEnUrl?: {
-      name?: string,
-      url?: string
-    },
+      name?: string;
+      url?: string;
+    };
     resumeSvUrl: {
-      name?: string,
-      url?: string
-    }
-  },
-  handleSubmit: () => Promise<void>,
-  programmes: {},
-  pristine: boolean
+      name?: string;
+      url?: string;
+    };
+  };
+  handleSubmit: () => Promise<void>;
+  programmes: {};
+  pristine: boolean;
 };
 
 const StudentForm = ({ handleSubmit, pristine, programmes }: Props) => (
@@ -102,14 +102,14 @@ const mapStateToProps = (state, props) => {
     programme: currentProgramme,
     interests: currentInterests,
     resumeSvUrl: currentResumeSvUrl,
-    resumeEnUrl: currentResumeEnUrl
+    resumeEnUrl: currentResumeEnUrl,
   } = initialValues;
 
   let programme = null;
   if (!isNil(currentProgramme)) programme = currentProgramme.id;
 
   let interests = null;
-  if (!isNil(currentInterests)) interests = currentInterests.map(v => v.id);
+  if (!isNil(currentInterests)) interests = currentInterests.map((v) => v.id);
 
   let resumeSvUrl = null;
   if (!isNil(currentResumeSvUrl))
@@ -126,9 +126,9 @@ const mapStateToProps = (state, props) => {
       resumeSvUrl,
       resumeEnUrl,
       programme,
-      interests
+      interests,
     },
-    formState: state.form.StudentForm
+    formState: state.form.StudentForm,
   };
 };
 
@@ -138,6 +138,6 @@ export default stateful(
   reduxForm({
     form: 'student',
     enableReinitialize: true,
-    keepDirtyOnReinitialize: true
+    keepDirtyOnReinitialize: true,
   })(StudentForm)
 );

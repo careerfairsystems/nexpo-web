@@ -7,7 +7,7 @@ import {
   authFetch,
   authPut,
   authDelete,
-  handleHttpResponse
+  handleHttpResponse,
 } from './utils';
 
 export default {
@@ -36,5 +36,5 @@ export default {
    * Delete a role
    */
   delete: (id: string) =>
-    authDelete(`/api/roles/${id}`).then(handleHttpResponse)
+    authDelete(`/api/roles/${id}`).then(handleHttpResponse),
 };

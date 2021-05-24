@@ -6,9 +6,9 @@ import { TimePicker } from 'antd';
  * Custom TimePicker that handles the conversion of the moment date value
  */
 type Props = {
-  value: any,
-  onChange: (time?: string) => void,
-  format: string
+  value: any;
+  onChange: (time?: string) => void;
+  format: string;
 };
 
 const MyTimePicker = ({
@@ -20,7 +20,7 @@ const MyTimePicker = ({
   <TimePicker
     value={moment(value, format).isValid() ? moment.utc(value, format) : null}
     format={format}
-    onChange={time => (time ? onChange(time.format(format)) : onChange(null))}
+    onChange={(time) => (time ? onChange(time.format(format)) : onChange(null))}
     minuteStep={5}
     {...rest}
   />

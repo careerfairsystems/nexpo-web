@@ -19,54 +19,54 @@ import ApiReducerVerifyForgotPassword from './ApiReducerVerifyForgotPassword';
 import ApiReducerReplacePassword from './ApiReducerReplacePassword';
 
 export type ApiStatus = {
-  fetching: boolean,
-  success: boolean
+  fetching: boolean;
+  success: boolean;
 };
 
 export type ApiState = {
-  categories: ApiStatus,
-  companies: ApiStatus,
-  mailtemplates: ApiStatus,
-  deadlines: ApiStatus,
-  roles: ApiStatus,
-  users: ApiStatus,
-  programmes: ApiStatus,
-  currentUser: ApiStatus,
-  currentCompany: ApiStatus,
-  studentSession: ApiStatus,
-  forgotPassword: ApiStatus,
-  login: ApiStatus,
+  categories: ApiStatus;
+  companies: ApiStatus;
+  mailtemplates: ApiStatus;
+  deadlines: ApiStatus;
+  roles: ApiStatus;
+  users: ApiStatus;
+  programmes: ApiStatus;
+  currentUser: ApiStatus;
+  currentCompany: ApiStatus;
+  studentSession: ApiStatus;
+  forgotPassword: ApiStatus;
+  login: ApiStatus;
   replacePassword: ApiStatus & {
     errors: {
-      password?: string[],
-      passwordConfirmation?: string[]
-    }
-  },
-  verifyForgotPasswordKey: ApiStatus
+      password?: string[];
+      passwordConfirmation?: string[];
+    };
+  };
+  verifyForgotPasswordKey: ApiStatus;
 };
 
 export const initialStatus: ApiStatus = {
   fetching: false,
   errors: {},
-  success: false
+  success: false,
 };
 
 export const fetching = {
   fetching: true,
   errors: {},
-  success: false
+  success: false,
 };
 
 export const retrieving = {
   fetching: false,
   errors: {},
-  success: true
+  success: true,
 };
 
 export const failure = (error?: { [key: string]: string }) => ({
   fetching: false,
   errors: error || ['There was an error'],
-  success: false
+  success: false,
 });
 
 // $FlowFixMe
@@ -84,7 +84,7 @@ export const ApiReducer = combineReducers({
   forgotPassword: ApiReducerForgotPassword,
   login: ApiReducerLogin,
   verifyForgotPasswordKey: ApiReducerVerifyForgotPassword,
-  replacePassword: ApiReducerReplacePassword
+  replacePassword: ApiReducerReplacePassword,
 });
 
 export default ApiReducer;

@@ -3,19 +3,19 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const deleteCurrentCompanyIsLoading = () => ({
-  type: actionTypes.DELETE_CURRENT_COMPANY
+  type: actionTypes.DELETE_CURRENT_COMPANY,
 });
 
 export const deleteCurrentCompanySuccess = () => ({
-  type: actionTypes.DELETE_CURRENT_COMPANY_SUCCESS
+  type: actionTypes.DELETE_CURRENT_COMPANY_SUCCESS,
 });
 
 export const deleteCurrentCompanyFailure = () => ({
-  type: actionTypes.DELETE_CURRENT_COMPANY_FAILURE
+  type: actionTypes.DELETE_CURRENT_COMPANY_FAILURE,
 });
 
-export const deleteCurrentCompany = () => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const deleteCurrentCompany =
+  () => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteCurrentCompanyIsLoading());
     return API.companies
       .deleteMyCompany()
@@ -26,4 +26,3 @@ export const deleteCurrentCompany = () => {
         dispatch(deleteCurrentCompanyFailure());
       });
   };
-}

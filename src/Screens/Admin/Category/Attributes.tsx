@@ -9,9 +9,9 @@ import type { State } from '../../../Store/reducers';
  * Responsible for rendering a table of attributes and entries
  */
 type Props = {
-  fetching: boolean,
-  attributes?: Array<any>,
-  entries?: Array<any>
+  fetching: boolean;
+  attributes?: Array<any>;
+  entries?: Array<any>;
 };
 export const Attributes = ({ fetching, attributes, entries }: Props) => (
   <div>
@@ -22,7 +22,7 @@ export const Attributes = ({ fetching, attributes, entries }: Props) => (
 
 Attributes.defaultProps = {
   attributes: [],
-  entries: []
+  entries: [],
 };
 
 const stateful = connect((state: State, props) => {
@@ -44,23 +44,23 @@ const stateful = connect((state: State, props) => {
     ({ attribute }) => attributeIds.includes(attribute),
     state.entities.entries
   )
-    .map(entry => ({
+    .map((entry) => ({
       ...entry,
       company: state.entities.companies[entry.company],
-      attribute: state.entities.attributes[entry.attribute]
+      attribute: state.entities.attributes[entry.attribute],
     }))
-    .map(entry => ({
+    .map((entry) => ({
       ...entry,
       key: entry.id,
       companyName: entry.company.name,
-      [entry.attribute.title.toLowerCase()]: entry.value
+      [entry.attribute.title.toLowerCase()]: entry.value,
     }));
 
   const companyColumn = {
     title: 'Company',
     dataIndex: 'companyName',
     key: 'company',
-    fixed: 'left'
+    fixed: 'left',
   };
 
   return {
@@ -69,10 +69,10 @@ const stateful = connect((state: State, props) => {
       attributes.map(({ title }) => ({
         title,
         dataIndex: title.toLowerCase(),
-        key: title.toLowerCase()
+        key: title.toLowerCase(),
       }))
     ),
-    entries
+    entries,
   };
 });
 

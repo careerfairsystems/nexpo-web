@@ -7,34 +7,36 @@ import CurrentUserForm from '../../Forms/CurrentUserForm';
 import StudentForm from '../../Forms/StudentForm';
 
 type UserObj = {
-  email?: string,
-  firstName?: string,
-  lastName?: string,
-  profileImage?: string,
-  phoneNumber?: string
+  email?: string;
+  firstName?: string;
+  lastName?: string;
+  profileImage?: string;
+  phoneNumber?: string;
 };
 type StudentObj = {
-  resumeSvUrl?: string,
-  resumeEnUrl?: string,
-  studentSessionApplications?: Array<{ companyId: number }>,
-  studentSessions?: Array<{ companyId: number }>,
-  programme?: { name: string },
-  year?: string,
-  interests?: [number],
-  master?: string,
-  linkedin?: string
+  resumeSvUrl?: string;
+  resumeEnUrl?: string;
+  studentSessionApplications?: Array<{ companyId: number }>;
+  studentSessions?: Array<{ companyId: number }>;
+  programme?: { name: string };
+  year?: string;
+  interests?: [number];
+  master?: string;
+  linkedin?: string;
 };
 
 type Props = {
-  currentUser?: UserObj,
-  currentStudent?: StudentObj,
-  fetching: boolean,
-  updateCurrentUser: (userObject: { user: UserObj }) => Promise<void>,
-  updateCurrentStudent: (studentObject: { student: StudentObj }) => Promise<void>,
-  getAllProgrammes: () => Promise<void>,
-  deleteCurrentUser: () => Promise<void>,
-  logout: () => Promise<void>,
-  resetForm: (id: string) => Promise<void>
+  currentUser?: UserObj;
+  currentStudent?: StudentObj;
+  fetching: boolean;
+  updateCurrentUser: (userObject: { user: UserObj }) => Promise<void>;
+  updateCurrentStudent: (studentObject: {
+    student: StudentObj;
+  }) => Promise<void>;
+  getAllProgrammes: () => Promise<void>;
+  deleteCurrentUser: () => Promise<void>;
+  logout: () => Promise<void>;
+  resetForm: (id: string) => Promise<void>;
 };
 
 const CurrentUser = ({
@@ -46,7 +48,7 @@ const CurrentUser = ({
   getAllProgrammes,
   deleteCurrentUser,
   logout,
-  resetForm
+  resetForm,
 }: Props) => {
   useEffect(() => {
     getAllProgrammes();
@@ -63,13 +65,12 @@ const CurrentUser = ({
       onOk: () => {
         deleteAndLogoutCurrentUser();
       },
-      onCancel() {}
+      onCancel() {},
     });
   };
 
-  const updateStudent = (values: StudentObj) => {
-    return updateCurrentStudent({ student: values });
-  };
+  const updateStudent = (values: StudentObj) =>
+    updateCurrentStudent({ student: values });
 
   const resetStudentForm = () => {
     resetForm('student');
@@ -126,7 +127,7 @@ const CurrentUser = ({
 
 CurrentUser.defaultProps = {
   currentUser: {},
-  currentStudent: {}
+  currentStudent: {},
 };
 
 export default CurrentUser;

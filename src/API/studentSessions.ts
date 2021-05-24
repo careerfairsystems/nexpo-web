@@ -8,7 +8,7 @@ import {
   authDelete,
   authPut,
   download,
-  handleHttpResponse
+  handleHttpResponse,
 } from './utils';
 
 export default {
@@ -35,7 +35,7 @@ export default {
   /** Updates a student session */
   updateSession: (id: string, status: number) =>
     authPut(`/api/me/student_sessions/${id}`, {
-      studentSession: { studentSessionStatus: status }
+      studentSession: { studentSessionStatus: status },
     }).then(handleHttpResponse),
 
   /** Fetches all reserves for student sessions */
@@ -62,5 +62,5 @@ export default {
   deleteAppl: (id: string) =>
     authDelete(`/api/me/student_session_applications/${id}`).then(
       handleHttpResponse
-    )
+    ),
 };

@@ -11,24 +11,24 @@ import API from '../../../../API';
 import InviteForm from '../../../../Forms/InviteForm';
 
 type Props = {
-  fetching: boolean,
+  fetching: boolean;
   currentCompany: {
-    id?: number,
-    studentSessionDays?: number,
-    name?: string,
-    description?: string,
-    website?: string,
-    logoUrl?: string
-  },
-  getCurrentCompany: () => Promise<void>,
-  resetForm: (id: string) => any
+    id?: number;
+    studentSessionDays?: number;
+    name?: string;
+    description?: string;
+    website?: string;
+    logoUrl?: string;
+  };
+  getCurrentCompany: () => Promise<void>;
+  resetForm: (id: string) => any;
 };
 
 const YourCompanyProfileShow = ({
   fetching,
   currentCompany,
   getCurrentCompany,
-  resetForm
+  resetForm,
 }: Props) => {
   useEffect(() => {
     getCurrentCompany();
@@ -38,9 +38,9 @@ const YourCompanyProfileShow = ({
     API.signup
       .inviteRepresentative({
         email,
-        companyId: currentCompany.id
+        companyId: currentCompany.id,
       })
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
           message.success(`Invitation sent to ${email}`);
           resetForm('invite');

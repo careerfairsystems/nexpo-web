@@ -7,7 +7,7 @@ import type { State } from '../../Store/reducers';
 const mapStateToProps = (state: State) => ({
   keyIsValid: state.auth.forgotPassword.validKey,
   errors: state.api.replacePassword.errors || {},
-  success: state.api.replacePassword.success
+  success: state.api.replacePassword.success,
 });
 
 const mapDispatchToprops = (dispatch: Dispatch<any>, props) => {
@@ -19,10 +19,11 @@ const mapDispatchToprops = (dispatch: Dispatch<any>, props) => {
         Actions.accounts.replaceForgottenPassword({
           key,
           password,
-          passwordConfirmation
+          passwordConfirmation,
         })
       ),
-    verifyKey: () => dispatch(Actions.accounts.verifyForgotPasswordKey({ key }))
+    verifyKey: () =>
+      dispatch(Actions.accounts.verifyForgotPasswordKey({ key })),
   };
 };
 

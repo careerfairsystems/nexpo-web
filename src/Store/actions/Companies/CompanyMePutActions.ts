@@ -5,34 +5,33 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const updateCurrentCompanyIsLoading = () => ({
-  type: actionTypes.PUT_CURRENT_COMPANY
+  type: actionTypes.PUT_CURRENT_COMPANY,
 });
 
 export const updateCurrentCompanySuccess = (company: {}) => {
   message.success('Your company was successfully updated');
   return {
     type: actionTypes.PUT_CURRENT_COMPANY_SUCCESS,
-    company
+    company,
   };
 };
 
 export const updateCurrentCompanyFailure = () => {
   message.error('Something went wrong, please try again later');
   return {
-    type: actionTypes.PUT_CURRENT_COMPANY_FAILURE
+    type: actionTypes.PUT_CURRENT_COMPANY_FAILURE,
   };
 };
 
-export const updateCurrentCompany = (data: {}) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const updateCurrentCompany =
+  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateCurrentCompanyIsLoading());
     return API.companies
       .updateMyCompany(data)
-      .then(company => {
+      .then((company) => {
         dispatch(updateCurrentCompanySuccess(company.data));
       })
       .catch(() => {
         dispatch(updateCurrentCompanyFailure());
       });
   };
-}

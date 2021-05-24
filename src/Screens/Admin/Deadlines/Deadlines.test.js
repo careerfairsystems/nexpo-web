@@ -11,7 +11,7 @@ describe('deadlines', () => {
     props = {
       fetching: false,
       getAllDeadlines: jest.fn(),
-      deleteDeadline: jest.fn()
+      deleteDeadline: jest.fn(),
     };
   });
   it('should render without crashing', () => {
@@ -34,18 +34,18 @@ describe('deadlines', () => {
 
   it('should render deadlines', () => {
     const deadlines = {
-      '1': {
+      1: {
         id: 1,
         name: 'Host Application',
         start: 'DATE',
-        end: 'DATE'
+        end: 'DATE',
       },
-      '2': {
+      2: {
         id: 2,
         name: 'Company Registration',
         start: 'DATE',
-        end: 'DATE'
-      }
+        end: 'DATE',
+      },
     };
     const wrapper = shallow(
       <Deadlines id="1" {...props} deadlines={deadlines} />

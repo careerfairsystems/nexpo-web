@@ -19,14 +19,16 @@ const RootReducer = {
   api: ApiReducer,
   auth: AuthReducer,
   current: CurrentReducer,
-  form: formReducer
+  form: formReducer,
 };
 type $ExtractFunctionReturn = <V>(v: (...args: any) => V) => V;
 export type Reducers = typeof RootReducer;
 // FIXME Convert the flow type to correct TS equivalent
-//export type State = $ObjMap<Reducers, $ExtractFunctionReturn>;
-export type State = any
+// export type State = $ObjMap<Reducers, $ExtractFunctionReturn>;
+export type State = any;
 export type GetState = () => State;
-export type Thunk<A> = (f: (dispatch: Dispatch, getState: GetState) => Promise<void> | void) => A; // eslint-disable-line no-use-before-define
+export type Thunk<A> = (
+  f: (dispatch: Dispatch, getState: GetState) => Promise<void> | void
+) => A; // eslint-disable-line no-use-before-define
 export type Dispatch = ReduxDispatch<any> & Thunk<any>;
 export default RootReducer;

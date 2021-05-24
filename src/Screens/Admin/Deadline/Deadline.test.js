@@ -14,7 +14,7 @@ describe('Deadline', () => {
       fetching: false,
       getDeadline: jest.fn(),
       resetForm: jest.fn(),
-      updateDeadline: jest.fn()
+      updateDeadline: jest.fn(),
     };
   });
 
@@ -23,7 +23,7 @@ describe('Deadline', () => {
       name: 'Test Deadline',
       start: 'DATE',
       end: 'DATE',
-      signature: 'Best Regards\nDevelopers'
+      signature: 'Best Regards\nDevelopers',
     };
     shallow(<Deadline id="1" {...props} deadline={deadline} />);
   });
@@ -45,7 +45,7 @@ describe('Deadline', () => {
       name: 'Test Deadline',
       start: 'DATE',
       end: 'DATE',
-      signature: 'Best Regards\nDevelopers'
+      signature: 'Best Regards\nDevelopers',
     };
     const wrapper = shallow(<Deadline id="1" {...props} deadline={deadline} />);
 
@@ -57,10 +57,10 @@ describe('Deadline', () => {
     const wrapper = shallow(<Deadline id="1" {...props} />);
     const newDate = 'DATE';
     const instance = wrapper.instance();
-    if(instance) instance.updateDeadline({ start: newDate, end: newDate });
+    if (instance) instance.updateDeadline({ start: newDate, end: newDate });
     setTimeout(() => {
       expect(props.createDeadline).toHaveBeenCalledWith({
-        deadline: { start: newDate, end: newDate }
+        deadline: { start: newDate, end: newDate },
       });
     }, 100);
   });
@@ -71,7 +71,7 @@ describe('Deadline', () => {
       name: 'Test Deadline',
       start: 'DATE',
       end: 'DATE',
-      signature: 'Best Regards\nDevelopers'
+      signature: 'Best Regards\nDevelopers',
     };
     const id = '1';
     const wrapper = shallow(
@@ -79,10 +79,10 @@ describe('Deadline', () => {
     );
     const newDate = 'NEW DATE';
     const instance = wrapper.instance();
-    if(instance) instance.updateDeadline({ start: newDate });
+    if (instance) instance.updateDeadline({ start: newDate });
     setTimeout(() => {
       expect(props.updateDeadline).toHaveBeenCalledWith(id, {
-        deadline: { start: newDate }
+        deadline: { start: newDate },
       });
     }, 100);
   });

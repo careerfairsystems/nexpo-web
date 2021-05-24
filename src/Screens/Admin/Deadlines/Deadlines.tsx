@@ -10,17 +10,17 @@ import HtmlTitle from '../../../Components/HtmlTitle';
  * Responsible for rendering a list of deadlines
  */
 type Props = {
-  deadlines?: {},
-  fetching: boolean,
-  getAllDeadlines: () => Promise<void>,
-  deleteDeadline: (id: string) => Promise<void>
+  deadlines?: {};
+  fetching: boolean;
+  getAllDeadlines: () => Promise<void>;
+  deleteDeadline: (id: string) => Promise<void>;
 };
 
 const Deadlines = ({
   deadlines,
   fetching,
   getAllDeadlines,
-  deleteDeadline
+  deleteDeadline,
 }: Props) => {
   useEffect(() => {
     getAllDeadlines();
@@ -33,40 +33,36 @@ const Deadlines = ({
       key: 'name',
       render: (name: string, { id }: { id: string }) => (
         <InvisibleLink to={`/admin/deadlines/${id}`}>{name}</InvisibleLink>
-      )
+      ),
     },
     {
       title: 'Start',
       dataIndex: 'start',
-      key: 'start'
+      key: 'start',
     },
     {
       title: 'End',
       dataIndex: 'end',
-      key: 'end'
+      key: 'end',
     },
     {
       title: 'Action',
       key: 'action',
-      render: (deadline: { id: string }) => {
-        return (
-          <span>
-            <InvisibleLink to={`/admin/deadlines/${deadline.id}`}>
-              Edit
-            </InvisibleLink>
-            <Divider type="vertical" />
-            <Popconfirm
-              title="Sure to delete?"
-              onConfirm={() => deleteDeadline(deadline.id)}
-            >
-              <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>
-                Delete
-              </span>
-            </Popconfirm>
-          </span>
-        );
-      }
-    }
+      render: (deadline: { id: string }) => (
+        <span>
+          <InvisibleLink to={`/admin/deadlines/${deadline.id}`}>
+            Edit
+          </InvisibleLink>
+          <Divider type="vertical" />
+          <Popconfirm
+            title="Sure to delete?"
+            onConfirm={() => deleteDeadline(deadline.id)}
+          >
+            <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>Delete</span>
+          </Popconfirm>
+        </span>
+      ),
+    },
   ];
 
   const renderDeadlines = () => {
@@ -81,9 +77,9 @@ const Deadlines = ({
           columns={deadlineColumns()}
           dataSource={sortBy(
             'name',
-            Object.keys(tempDeadlines).map(i => ({
+            Object.keys(tempDeadlines).map((i) => ({
               ...tempDeadlines[i],
-              key: i
+              key: i,
             }))
           )}
         />
@@ -103,7 +99,7 @@ const Deadlines = ({
 };
 
 Deadlines.defaultProps = {
-  deadlines: {}
+  deadlines: {},
 };
 
 export default Deadlines;

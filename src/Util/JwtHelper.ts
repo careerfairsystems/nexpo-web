@@ -5,7 +5,7 @@
 /**
  * Holds the JWT of the currently signed in user
  */
-let JWT_TOKEN: string = '';
+let JWT_TOKEN = '';
 
 /**
  * Sets the current JWT

@@ -6,15 +6,18 @@ import LoadingSpinner from '../../../Components/LoadingSpinner';
 import NotFound from '../../NotFound';
 
 type Props = {
-  id: string,
+  id: string;
   programme: {
-    email?: string,
-    student?: number
-  },
-  fetching: boolean,
-  getProgramme: (id: string) => Promise<void>,
-  createProgramme: (programmeObject: { programme: {} }) => Promise<void>,
-  updateProgramme: (id: string, programmeObject: { programme: {} }) => Promise<void>
+    email?: string;
+    student?: number;
+  };
+  fetching: boolean;
+  getProgramme: (id: string) => Promise<void>;
+  createProgramme: (programmeObject: { programme: {} }) => Promise<void>;
+  updateProgramme: (
+    id: string,
+    programmeObject: { programme: {} }
+  ) => Promise<void>;
 };
 
 const Programme = ({
@@ -23,13 +26,13 @@ const Programme = ({
   fetching,
   getProgramme,
   createProgramme,
-  updateProgramme
+  updateProgramme,
 }: Props) => {
   useEffect(() => {
     if (id) getProgramme(id);
   }, [getProgramme, id]);
 
-  const handleProgramme = (values: { code?: string, name?: string }) => {
+  const handleProgramme = (values: { code?: string; name?: string }) => {
     if (isEmpty(programme)) {
       createProgramme({ programme: values });
     } else {

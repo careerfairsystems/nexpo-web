@@ -15,7 +15,7 @@ const mapDispatchToProps = {
   getDeadline: Actions.deadlines.getDeadline,
   createDeadline: Actions.deadlines.createDeadline,
   updateDeadline: Actions.deadlines.updateDeadline,
-  resetForm: reset
+  resetForm: reset,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

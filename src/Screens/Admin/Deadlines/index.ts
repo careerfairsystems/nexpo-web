@@ -5,12 +5,12 @@ import type { State } from '../../../Store/reducers';
 
 const mapStateToProps = (state: State) => ({
   deadlines: state.entities.deadlines,
-  fetching: state.api.deadlines.fetching
+  fetching: state.api.deadlines.fetching,
 });
 
 const mapDispatchToProps = {
   deleteDeadline: Actions.deadlines.deleteDeadline,
-  getAllDeadlines: Actions.deadlines.getAllDeadlines
+  getAllDeadlines: Actions.deadlines.getAllDeadlines,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

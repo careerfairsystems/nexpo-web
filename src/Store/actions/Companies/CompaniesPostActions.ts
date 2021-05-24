@@ -6,33 +6,33 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const createCompanyIsLoading = () => ({
-  type: actionTypes.POST_COMPANY
+  type: actionTypes.POST_COMPANY,
 });
 
 export const createCompanySuccess = (company: {}) => {
   message.success('Company successfully created');
   return {
     type: actionTypes.POST_COMPANY_SUCCESS,
-    company
+    company,
   };
 };
 
 export type CreateCompanyFailureAction = {
-  type: string
+  type: string;
 };
 export const createCompanyFailure = (): CreateCompanyFailureAction => {
   message.error('Something went wrong, please try again later');
   return {
-    type: actionTypes.POST_COMPANY_FAILURE
+    type: actionTypes.POST_COMPANY_FAILURE,
   };
 };
 
-export const createCompany = (data: {}) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const createCompany =
+  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createCompanyIsLoading());
     return API.companies
       .create(data)
-      .then(company => {
+      .then((company) => {
         dispatch(createCompanySuccess(company.data));
         dispatch(reset('company'));
       })
@@ -40,37 +40,36 @@ export const createCompany = (data: {}) => {
         dispatch(createCompanyFailure());
       });
   };
-}
 
 export const createCompanyBulkIsLoading = () => ({
-  type: actionTypes.POST_COMPANY_BULK
+  type: actionTypes.POST_COMPANY_BULK,
 });
 
 export const createCompanyBulkSuccess = (company: {}) => {
   message.success('Company successfully created');
   return {
     type: actionTypes.POST_COMPANY_BULK_SUCCESS,
-    company
+    company,
   };
 };
 
 export type CreateCompanyBulkFailureAction = {
-  type: string
+  type: string;
 };
 export const createCompanyBulkFailure = (): CreateCompanyBulkFailureAction => {
   message.error('Something went wrong, please try again later');
   return {
-    type: actionTypes.POST_COMPANY_BULK_FAILURE
+    type: actionTypes.POST_COMPANY_BULK_FAILURE,
   };
 };
 
-export const createBulk = (data: {}) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const createBulk =
+  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createCompanyBulkIsLoading());
     return API.companies
       .createBulk(data)
-      .then(companies => {
-        companies.data.forEach(company => {
+      .then((companies) => {
+        companies.data.forEach((company) => {
           dispatch(createCompanyBulkSuccess(company));
         });
       })
@@ -78,4 +77,3 @@ export const createBulk = (data: {}) => {
         dispatch(createCompanyBulkFailure());
       });
   };
-}

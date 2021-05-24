@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
  */
 
 type Props = {
-  title?: string
+  title?: string;
 };
 const HtmlTitle = ({ title }: Props) => {
   const text = title ? `Nexpo | ${title}` : 'Nexpo';
@@ -18,7 +18,7 @@ const HtmlTitle = ({ title }: Props) => {
 };
 
 HtmlTitle.defaultProps = {
-  title: null
+  title: null,
 };
 
 export default HtmlTitle;

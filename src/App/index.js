@@ -6,11 +6,11 @@ const mapStateToProps = (state, { location, history }) => ({
   isLoggedIn: state.auth.isLoggedIn,
   currentUser: Selectors.users.getCurrentUser(state),
   pathname: location.pathname,
-  redirect: history.push
+  redirect: history.push,
 });
 
 const mapDispatchToProps = {
-  logout: Actions.auth.logout
+  logout: Actions.auth.logout,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

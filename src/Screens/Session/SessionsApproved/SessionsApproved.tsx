@@ -8,36 +8,36 @@ import { toSessionTimeFormat } from '../../../Util/FormatHelper';
 import '../Session.css';
 
 type Company = {
-  name: string,
-  logoUrl: string
+  name: string;
+  logoUrl: string;
 };
 
 type TimeSlot = {
-  start?: string,
-  end?: string,
-  location?: string
+  start?: string;
+  end?: string;
+  location?: string;
 };
 
 type Session = {
-  id: number,
-  studentId: number,
-  companyId: number,
-  studentSessionStatus: number,
-  company: Company,
-  studentSessionTimeSlot: TimeSlot
+  id: number;
+  studentId: number;
+  companyId: number;
+  studentSessionStatus: number;
+  company: Company;
+  studentSessionTimeSlot: TimeSlot;
 };
 
 type Props = {
-  sessions?: Array<Session>,
+  sessions?: Array<Session>;
   companies?: {
-    id?: string,
-    name?: string,
-    description?: string,
-    website?: string
-  },
-  updateSession: (id: number, status: number) => Promise<void>,
-  getAllCompanies: () => Promise<void>,
-  fetching: boolean
+    id?: string;
+    name?: string;
+    description?: string;
+    website?: string;
+  };
+  updateSession: (id: number, status: number) => Promise<void>;
+  getAllCompanies: () => Promise<void>;
+  fetching: boolean;
 };
 
 const StudentSessions = ({
@@ -45,7 +45,7 @@ const StudentSessions = ({
   companies,
   updateSession,
   getAllCompanies,
-  fetching
+  fetching,
 }: Props) => {
   useEffect(() => {
     getAllCompanies();
@@ -55,49 +55,45 @@ const StudentSessions = ({
     if (id) updateSession(id, status);
   };
 
-  const sessionUnanswered = (session: Session) => {
-    return (
+  const sessionUnanswered = (session: Session) => (
+    <div>
       <div>
-        <div>
-          <Button
-            className="sessionButton"
-            type="primary"
-            onClick={() => updateSession(session.id, 1)}
-          >
-            Confirm
-          </Button>
-        </div>
-        <div>
-          <Popconfirm
-            placement="left"
-            title="You cannot edit your response after declining"
-            onConfirm={() => updateSession(session.id, 2)}
-          >
-            <Button type="danger">Decline</Button>
-          </Popconfirm>
-        </div>
+        <Button
+          className="sessionButton"
+          type="primary"
+          onClick={() => updateSession(session.id, 1)}
+        >
+          Confirm
+        </Button>
       </div>
-    );
-  };
+      <div>
+        <Popconfirm
+          placement="left"
+          title="You cannot edit your response after declining"
+          onConfirm={() => updateSession(session.id, 2)}
+        >
+          <Button type="danger">Decline</Button>
+        </Popconfirm>
+      </div>
+    </div>
+  );
 
-  const sessionConfirmed = (session: Session) => {
-    return (
+  const sessionConfirmed = (session: Session) => (
+    <div>
       <div>
-        <div>
-          <p style={{ color: 'green' }}>Confirmed</p>
-        </div>
-        <div>
-          <Popconfirm
-            placement="left"
-            title="You cannot edit your response after declining"
-            onConfirm={() => updateSessionIfId(session.id, 2)}
-          >
-            <Button type="danger">Decline</Button>
-          </Popconfirm>
-        </div>
+        <p style={{ color: 'green' }}>Confirmed</p>
       </div>
-    );
-  };
+      <div>
+        <Popconfirm
+          placement="left"
+          title="You cannot edit your response after declining"
+          onConfirm={() => updateSessionIfId(session.id, 2)}
+        >
+          <Button type="danger">Decline</Button>
+        </Popconfirm>
+      </div>
+    </div>
+  );
 
   const sessionStatusView = (session: Session) => {
     if (session.studentSessionStatus === 2) {
@@ -116,7 +112,7 @@ const StudentSessions = ({
   const renderDescription = ({
     start = '',
     end = '',
-    location = 'Not defined'
+    location = 'Not defined',
   }: TimeSlot) => `${toSessionTimeFormat(start, end)}\nLocation: ${location}`;
 
   const renderSession = (session: Session) => (
@@ -162,7 +158,7 @@ const StudentSessions = ({
 
 StudentSessions.defaultProps = {
   companies: {},
-  sessions: []
+  sessions: [],
 };
 
 export default StudentSessions;

@@ -21,5 +21,5 @@ export default {
   mailtemplates: MailtemplatesActions,
   accounts: AccountActions,
   statistics: StatisticsActions,
-  studentSessions: StudentSessionsActions
+  studentSessions: StudentSessionsActions,
 };

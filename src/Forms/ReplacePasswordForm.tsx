@@ -7,8 +7,8 @@ import makeField, { required, validatePassword } from './helper';
 const TextInput = makeField(Input);
 
 type Props = {
-  handleSubmit: () => Promise<void>,
-  submitting: boolean
+  handleSubmit: () => Promise<void>;
+  submitting: boolean;
 };
 const ReplacePasswordForm = ({ handleSubmit, submitting }: Props) => (
   <Form onSubmit={handleSubmit}>
@@ -35,8 +35,8 @@ const ReplacePasswordForm = ({ handleSubmit, submitting }: Props) => (
   </Form>
 );
 
-const mapStateToProps = state => ({
-  formState: state.form.ReplacePasswordForm
+const mapStateToProps = (state) => ({
+  formState: state.form.ReplacePasswordForm,
 });
 
 const stateful = connect(mapStateToProps);

@@ -6,17 +6,20 @@ import NotFound from '../../NotFound';
 import LoadingSpinner from '../../../Components/LoadingSpinner';
 
 type UpdateValues = {
-  name?: string,
-  start?: string,
-  end?: string
+  name?: string;
+  start?: string;
+  end?: string;
 };
 type Props = {
-  id?: string,
-  deadline: {},
-  createDeadline: ({ deadline: {} }) => Promise<void>,
-  fetching: boolean,
-  getDeadline: (id: string) => Promise<void>,
-  updateDeadline: (id: string, deadlineObject: { deadline: object }) => Promise<void>
+  id?: string;
+  deadline: {};
+  createDeadline: ({ deadline: {} }) => Promise<void>;
+  fetching: boolean;
+  getDeadline: (id: string) => Promise<void>;
+  updateDeadline: (
+    id: string,
+    deadlineObject: { deadline: object }
+  ) => Promise<void>;
 };
 
 const Deadline = ({
@@ -25,7 +28,7 @@ const Deadline = ({
   createDeadline,
   fetching,
   getDeadline,
-  updateDeadline
+  updateDeadline,
 }: Props) => {
   useEffect(() => {
     if (id) getDeadline(id);
@@ -51,7 +54,7 @@ const Deadline = ({
 };
 
 Deadline.defaultProps = {
-  id: ''
+  id: '',
 };
 
 export default Deadline;

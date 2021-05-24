@@ -3,8 +3,8 @@ import type {} from '../..';
 import { setJwt, deleteJwt } from '../../../Util/JwtHelper';
 
 type LOGIN_SUCCESS_ACTION = {
-  type: typeof actionTypes.LOGIN_SUCCESS,
-  jwt: string
+  type: typeof actionTypes.LOGIN_SUCCESS;
+  jwt: string;
 };
 
 type OtherActions = {
@@ -14,24 +14,24 @@ type OtherActions = {
     | typeof actionTypes.LOGOUT
     | typeof actionTypes.FETCH_CURRENT_USER_FAILURE
     | typeof actionTypes.VERIFY_FORGOT_PASSWORD_KEY_SUCCESS
-    | typeof actionTypes.VERIFY_FORGOT_PASSWORD_KEY_FAILURE
+    | typeof actionTypes.VERIFY_FORGOT_PASSWORD_KEY_FAILURE;
 };
 
 export type AuthActions = LOGIN_SUCCESS_ACTION | OtherActions;
 export type AuthState = {
-  error: boolean,
-  isLoggedIn: boolean,
+  error: boolean;
+  isLoggedIn: boolean;
   forgotPassword: {
-    validKey: boolean
-  }
+    validKey: boolean;
+  };
 };
 
 const initialState = {
   error: false,
   isLoggedIn: false,
   forgotPassword: {
-    validKey: false
-  }
+    validKey: false,
+  },
 };
 
 export const AuthReducer = (
@@ -58,13 +58,13 @@ export const AuthReducer = (
     case actionTypes.VERIFY_FORGOT_PASSWORD_KEY_SUCCESS:
       return {
         ...state,
-        forgotPassword: { validKey: true }
+        forgotPassword: { validKey: true },
       };
 
     case actionTypes.VERIFY_FORGOT_PASSWORD_KEY_FAILURE:
       return {
         ...state,
-        forgotPassword: { validKey: false }
+        forgotPassword: { validKey: false },
       };
 
     default:

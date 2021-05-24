@@ -31,16 +31,16 @@ it('can render data', () => {
       '2018-10-12',
       '2018-10-12',
       '2018-10-12',
-      '2018-10-13'
+      '2018-10-13',
     ],
     companyStats: [
       {
         id: 1,
         name: 'Google',
-        nbrApplications: 5
+        nbrApplications: 5,
       },
-      { id: 2, name: 'Apple', nbrApplications: 10 }
-    ]
+      { id: 2, name: 'Apple', nbrApplications: 10 },
+    ],
   };
 
   shallow(<Statistics statistics={statistics} getAllStatistics={func} />);

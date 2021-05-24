@@ -7,7 +7,7 @@ it('renders without crashing', () => {
     component: () => <div>Test</div>,
     currentUser: {},
     fetching: false,
-    isLoggedIn: false
+    isLoggedIn: false,
   };
   shallow(<PrivateRoute {...props} />);
 });

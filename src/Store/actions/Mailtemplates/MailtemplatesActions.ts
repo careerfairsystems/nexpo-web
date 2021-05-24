@@ -9,5 +9,5 @@ export default {
   ...MailtemplatesGetActions,
   ...MailtemplatesGetAllActions,
   ...MailtemplatesPostActions,
-  ...MailtemplatesPutActions
+  ...MailtemplatesPutActions,
 };

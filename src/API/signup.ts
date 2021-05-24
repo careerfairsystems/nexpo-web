@@ -2,10 +2,10 @@ import { handleHttpResponse, authPost, fetchJson } from './utils';
 import 'whatwg-fetch'; // fetch polyfill for unsupported browsers
 
 type finalSignupBody = {
-  password: string,
-  passwordConfirmation: string,
-  firstName: string,
-  lastName: string
+  password: string;
+  passwordConfirmation: string;
+  firstName: string;
+  lastName: string;
 };
 
 export default {
@@ -38,6 +38,6 @@ export default {
   finalizeSignup: (signupKey: string, body: finalSignupBody) =>
     fetchJson(`/api/final_signup/${signupKey}`, {
       data: body,
-      method: 'POST'
-    }).then(handleHttpResponse)
+      method: 'POST',
+    }).then(handleHttpResponse),
 };

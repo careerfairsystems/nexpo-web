@@ -27,7 +27,7 @@ it('renders isLoggedIn without crashing', () => {
       currentUser={{
         email: 'student@test',
         firstName: 'Tester',
-        lastName: 'AB'
+        lastName: 'AB',
       }}
       pathname="/"
       logout={() => undefined}
@@ -48,61 +48,61 @@ const state = {
     forgotPassword: { fetching: false, success: false },
     login: { fetching: false, success: false },
     replacePassword: { fetching: false, success: false },
-    verifyForgotPasswordKey: { fetching: false, success: false }
+    verifyForgotPasswordKey: { fetching: false, success: false },
   },
   entities: {
     users: {
-      '1': {
+      1: {
         id: 1,
         email: 'admin@test',
         firstName: 'X',
         roles: [1, 2],
         student: 1,
-        representative: 1
+        representative: 1,
       },
-      '2': { id: 2, email: 't@it', firstName: 'T', roles: [] }
+      2: { id: 2, email: 't@it', firstName: 'T', roles: [] },
     },
     students: {
-      '1': {
+      1: {
         id: 1,
         resumeEnUrl: null,
         resumeSvUrl: null,
         studentSessionApplications: [1],
         year: 2000,
         programme: 1,
-        user: 1
-      }
+        user: 1,
+      },
     },
     representatives: {
-      '1': { id: 1, company: 1, user: 1 }
+      1: { id: 1, company: 1, user: 1 },
     },
     studentSessionApplications: {
-      '1': {
+      1: {
         id: 1,
         company: 2,
         companyApproved: false,
         studentSessionStatus: 0,
         motivation: 'Please talk to me!',
-        student: 1
-      }
+        student: 1,
+      },
     },
     studentSessions: {
-      '1': {
+      1: {
         id: 1,
         company: 2,
         studentSessionStatus: 0,
-        student: 1
-      }
+        student: 1,
+      },
     },
     roles: {
-      '1': { id: 1, type: 'admin', permissions: ['read_all'], users: [1] },
-      '2': { id: 2, type: 'zzz', permissions: ['read_users'], users: [1] }
+      1: { id: 1, type: 'admin', permissions: ['read_all'], users: [1] },
+      2: { id: 2, type: 'zzz', permissions: ['read_users'], users: [1] },
     },
     programmes: {
-      '1': { id: 1, name: 'D-Guild', code: 'D' }
+      1: { id: 1, name: 'D-Guild', code: 'D' },
     },
     companies: {
-      '1': {
+      1: {
         id: 1,
         name: 'Spotify',
         entries: [1, 2, 3],
@@ -111,39 +111,39 @@ const state = {
             id: 1,
             start: '1970-01-01T00:00:00.000000',
             end: '2000-01-01T00:00:00.000000',
-            location: 'E-huset'
-          }
-        ]
+            location: 'E-huset',
+          },
+        ],
       },
-      '2': { id: 2, name: 'Google', entries: [4, 5] }
+      2: { id: 2, name: 'Google', entries: [4, 5] },
     },
     categories: {
-      '1': { title: 'Logistik', id: 1, attributes: [1, 2] },
-      '2': { title: 'Avtal', id: 2, attributes: [] }
+      1: { title: 'Logistik', id: 1, attributes: [1, 2] },
+      2: { title: 'Avtal', id: 2, attributes: [] },
     },
     attributes: {
-      '1': { id: 1, title: 'Beskrivning', entries: [1, 3, 5] },
-      '2': { id: 2, title: 'Ansvarig', entries: [2, 4] }
+      1: { id: 1, title: 'Beskrivning', entries: [1, 3, 5] },
+      2: { id: 2, title: 'Ansvarig', entries: [2, 4] },
     },
     entries: {
-      '1': { value: '43', id: 1, company: 1, attribute: 1 },
-      '2': { value: '68', id: 2, company: 2, attribute: 2 },
-      '3': { value: '61', id: 3, company: 2, attribute: 1 },
-      '4': { value: '66', id: 4, company: 2, attribute: 2 },
-      '5': { value: '29', id: 5, company: 1, attribute: 1 }
+      1: { value: '43', id: 1, company: 1, attribute: 1 },
+      2: { value: '68', id: 2, company: 2, attribute: 2 },
+      3: { value: '61', id: 3, company: 2, attribute: 1 },
+      4: { value: '66', id: 4, company: 2, attribute: 2 },
+      5: { value: '29', id: 5, company: 1, attribute: 1 },
     },
-    statistics: {}
+    statistics: {},
   },
   auth: {
     error: false,
     isLoggedIn: true,
-    forgotPassword: { validKey: false }
+    forgotPassword: { validKey: false },
   },
   form: {},
-  current: { user: 1 }
+  current: { user: 1 },
 };
 
-const route = path => (
+const route = (path) => (
   <Provider store={createMockStore(state)}>
     <MemoryRouter initialEntries={[path]}>
       <Route component={ConnectedApp} />
@@ -151,7 +151,7 @@ const route = path => (
   </Provider>
 );
 
-const found = wrapper => expect(wrapper.find(NotFound)).toHaveLength(0);
+const found = (wrapper) => expect(wrapper.find(NotFound)).toHaveLength(0);
 
 it('renders routes without crashing', () => {
   found(mount(route('/')));

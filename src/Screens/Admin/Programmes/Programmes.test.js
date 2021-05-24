@@ -12,7 +12,7 @@ describe('Programmes', () => {
       programmes: {},
       fetching: false,
       getAllProgrammes: jest.fn(),
-      deleteProgramme: jest.fn()
+      deleteProgramme: jest.fn(),
     };
   });
 
@@ -36,14 +36,14 @@ describe('Programmes', () => {
 
   it('should render programmes', () => {
     const programmes = {
-      '1': {
+      1: {
         id: 1,
-        name: 'Datateknik'
+        name: 'Datateknik',
       },
-      '2': {
+      2: {
         id: 2,
-        name: 'Annat program'
-      }
+        name: 'Annat program',
+      },
     };
     const wrapper = shallow(
       <Programmes {...props} id="1" programmes={programmes} />

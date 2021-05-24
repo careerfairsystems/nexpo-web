@@ -9,23 +9,23 @@ import '../YourCompany.css';
 const statusLabel = [
   { text: 'Unanswered', color: 'gold' },
   { text: 'Confirmed', color: 'green' },
-  { text: 'Declined', color: 'red' }
+  { text: 'Declined', color: 'red' },
 ];
 
 type Props = {
   currentCompany: {
-    studentSessionDays?: number,
+    studentSessionDays?: number;
     studentSessionTimeSlots?: {
-      start: string,
-      end: string,
-      location: string
-    },
-    name?: string,
-    description?: string,
-    website?: string,
-    logoUrl?: string
-  },
-  getCurrentCompany: () => Promise<void>
+      start: string;
+      end: string;
+      location: string;
+    };
+    name?: string;
+    description?: string;
+    website?: string;
+    logoUrl?: string;
+  };
+  getCurrentCompany: () => Promise<void>;
 };
 
 const YourCompanyTimeSlots = ({ currentCompany, getCurrentCompany }: Props) => {
@@ -35,14 +35,14 @@ const YourCompanyTimeSlots = ({ currentCompany, getCurrentCompany }: Props) => {
 
   if (isEmpty(currentCompany) || isNil(currentCompany)) return <NotFound />;
 
-  const studentSessionStatus = studentSession => {
+  const studentSessionStatus = (studentSession) => {
     if (studentSession) {
       return statusLabel[studentSession.studentSessionStatus].text;
     }
     return 'Not assigned';
   };
 
-  const studentSessionStatusColor = studentSession => {
+  const studentSessionStatusColor = (studentSession) => {
     if (studentSession) {
       return statusLabel[studentSession.studentSessionStatus].color;
     }

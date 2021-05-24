@@ -6,17 +6,17 @@ const defaultBody = { defaultBodyUsed: true };
 
 export const mockHttpResponse = ({
   status,
-  body = defaultBody
+  body = defaultBody,
 }: {
-  status: number,
-  body?: any
+  status: number;
+  body?: any;
 }) => {
   // Build the response we want
   const response = new window.Response(JSON.stringify(body), {
     status,
     headers: {
-      'Content-type': 'application/json'
-    }
+      'Content-type': 'application/json',
+    },
   });
 
   // Mock it

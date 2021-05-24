@@ -11,20 +11,20 @@ import '../Role.css';
  * Responsible for rendering a role. Role id is recieved via url
  */
 type Role = {
-  type: string,
-  permissions: Array<string>,
-  user: number
+  type: string;
+  permissions: Array<string>;
+  user: number;
 };
 
 type Props = {
-  id: string,
-  role: { type?: string },
-  getRole: (id: string) => Promise<void>,
-  getAllUsers: () => Promise<void>,
-  fetchingRoles: boolean,
-  fetchingUsers: boolean,
-  updateRole: (id: string, roleObject: { role: Role }) => Promise<void>,
-  history: { push: (route: string) => any }
+  id: string;
+  role: { type?: string };
+  getRole: (id: string) => Promise<void>;
+  getAllUsers: () => Promise<void>;
+  fetchingRoles: boolean;
+  fetchingUsers: boolean;
+  updateRole: (id: string, roleObject: { role: Role }) => Promise<void>;
+  history: { push: (route: string) => any };
 };
 
 const RoleEdit = ({
@@ -35,7 +35,7 @@ const RoleEdit = ({
   fetchingRoles,
   fetchingUsers,
   updateRole,
-  history
+  history,
 }: Props) => {
   useEffect(() => {
     getRole(id);

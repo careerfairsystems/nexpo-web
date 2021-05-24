@@ -16,7 +16,7 @@ describe('SessionApplication', () => {
       getAllProgrammes: jest.fn(),
       getCurrentUser: jest.fn(),
       resetForm: jest.fn(),
-      updateCurrentStudent: jest.fn()
+      updateCurrentStudent: jest.fn(),
     };
   });
 
@@ -33,10 +33,10 @@ describe('SessionApplication', () => {
     const appl = { companyId: 1, motivation: 'New motivation' };
     const wrapper = shallow(<SessionApplication {...props} />);
     const instance = wrapper.instance();
-    if(instance) instance.createStudentSessionAppl(appl);
+    if (instance) instance.createStudentSessionAppl(appl);
     setTimeout(() => {
       expect(props.createStudentSessionAppl).toHaveBeenCalledWith({
-        studentSessionApplication: appl
+        studentSessionApplication: appl,
       });
     }, 100);
   });

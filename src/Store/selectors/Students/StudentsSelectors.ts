@@ -5,5 +5,5 @@ import * as StudentGetSessionSelector from './StudentGetSessionSelector';
 export default {
   ...StudentGetCurrentSelector,
   ...StudentGetSessionApplSelector,
-  ...StudentGetSessionSelector
+  ...StudentGetSessionSelector,
 };

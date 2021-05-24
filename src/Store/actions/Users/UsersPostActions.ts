@@ -4,37 +4,36 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const createUserIsLoading = () => ({
-  type: actionTypes.POST_USER
+  type: actionTypes.POST_USER,
 });
 
 export const createUserSuccess = (user: {}) => {
   message.success('User successfully created');
   return {
     type: actionTypes.POST_USER_SUCCESS,
-    user
+    user,
   };
 };
 
 export type CreateUserFailureAction = {
-  type: string
+  type: string;
 };
 export const createUserFailure = (): CreateUserFailureAction => {
   message.error('Something went wrong, please try again later');
   return {
-    type: actionTypes.POST_USER_FAILURE
+    type: actionTypes.POST_USER_FAILURE,
   };
 };
 
-export const createUser = (data: {}) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const createUser =
+  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createUserIsLoading());
     return API.users
       .create(data)
-      .then(user => {
+      .then((user) => {
         dispatch(createUserSuccess(user.data));
       })
       .catch(() => {
         dispatch(createUserFailure());
       });
   };
-}

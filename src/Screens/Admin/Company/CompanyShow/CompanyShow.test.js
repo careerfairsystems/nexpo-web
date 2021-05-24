@@ -15,7 +15,7 @@ describe('CompanyShow', () => {
       fetching: false,
       getCompany: jest.fn(),
       resetForm: jest.fn(),
-      updateCompany: jest.fn()
+      updateCompany: jest.fn(),
     };
   });
 
@@ -38,12 +38,12 @@ describe('CompanyShow', () => {
                 firstName: 'Mr',
                 lastName: 'Polis',
                 email: 'potatis@polisen.se',
-                phoneNumber: '112'
-              }
-            }
-          }
-        }
-      ]
+                phoneNumber: '112',
+              },
+            },
+          },
+        },
+      ],
     };
     shallow(<CompanyShow id="1" {...props} company={company} />);
   });
@@ -66,7 +66,7 @@ describe('CompanyShow', () => {
       name: 'Test CompanyShow',
       website: 'testcompany.com',
       describe: 'We do testing!',
-      studentSessionDays: 3
+      studentSessionDays: 3,
     };
     const wrapper = shallow(
       <CompanyShow id="1" {...props} company={company} />
@@ -81,7 +81,7 @@ describe('CompanyShow', () => {
       name: 'Test CompanyShow',
       website: 'testcompany.com',
       describe: 'We do testing!',
-      studentSessionDays: 1
+      studentSessionDays: 1,
     };
     const wrapper = shallow(
       <CompanyShow id="1" {...props} company={company} />
@@ -97,7 +97,7 @@ describe('CompanyShow', () => {
       name: 'Test CompanyShow',
       website: 'testcompany.com',
       describe: 'We do testing!',
-      studentSessionDays: 1
+      studentSessionDays: 1,
     };
     const id = '1';
     const studentId = '1';
@@ -110,14 +110,14 @@ describe('CompanyShow', () => {
       expect(props.createStudentSession).toHaveBeenCalledTimes(0);
     }, 100);
     const instance = wrapper.instance();
-    if(instance) instance.handleSubmit({ studentId }, sessionId);
+    if (instance) instance.handleSubmit({ studentId }, sessionId);
     setTimeout(() => {
       expect(props.createStudentSession).toHaveBeenLastCalledWith({
         studentSession: {
           companyId: id,
           studentId,
-          studentSessionTimeSlotId: sessionId
-        }
+          studentSessionTimeSlotId: sessionId,
+        },
       });
     }, 100);
     setTimeout(() => {

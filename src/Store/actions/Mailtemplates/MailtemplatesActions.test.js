@@ -4,7 +4,7 @@ import { mockHttpResponse, createMockStore } from '../../../TestHelper';
 describe('getAllMailtemplatesIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_MAILTEMPLATES
+      type: actionTypes.FETCH_MAILTEMPLATES,
     };
     const action = Actions.mailtemplates.getAllMailtemplatesIsLoading();
     expect(action).toEqual(expectedAction);
@@ -15,17 +15,16 @@ describe('getAllMailtemplatesSuccess', () => {
   it('should create the correct action', () => {
     const testMailtemplates = [
       {
-        name: 'Mailtemplate1'
-      }
+        name: 'Mailtemplate1',
+      },
     ];
 
     const expectedAction = {
       type: actionTypes.FETCH_MAILTEMPLATES_SUCCESS,
-      mailtemplates: testMailtemplates
+      mailtemplates: testMailtemplates,
     };
-    const action = Actions.mailtemplates.getAllMailtemplatesSuccess(
-      testMailtemplates
-    );
+    const action =
+      Actions.mailtemplates.getAllMailtemplatesSuccess(testMailtemplates);
     expect(action).toEqual(expectedAction);
   });
 });
@@ -33,7 +32,7 @@ describe('getAllMailtemplatesSuccess', () => {
 describe('getAllMailtemplatesFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_MAILTEMPLATES_FAILURE
+      type: actionTypes.FETCH_MAILTEMPLATES_FAILURE,
     };
     const action = Actions.mailtemplates.getAllMailtemplatesFailure();
     expect(action).toEqual(expectedAction);
@@ -58,14 +57,14 @@ describe('getAllMailtemplates', () => {
   it('should call success action on success', () => {
     const mailtemplates = [
       {
-        name: 'Mailtemplate1'
-      }
+        name: 'Mailtemplate1',
+      },
     ];
     mockHttpResponse({ status: 200, body: { data: mailtemplates } });
 
     const expectedActions = [
       Actions.mailtemplates.getAllMailtemplatesIsLoading(),
-      Actions.mailtemplates.getAllMailtemplatesSuccess(mailtemplates)
+      Actions.mailtemplates.getAllMailtemplatesSuccess(mailtemplates),
     ];
 
     const store = createMockStore();
@@ -83,7 +82,7 @@ describe('getAllMailtemplates', () => {
 
     const expectedActions = [
       Actions.mailtemplates.getAllMailtemplatesIsLoading(),
-      Actions.mailtemplates.getAllMailtemplatesFailure()
+      Actions.mailtemplates.getAllMailtemplatesFailure(),
     ];
 
     const store = createMockStore();
@@ -100,7 +99,7 @@ describe('getAllMailtemplates', () => {
 describe('createMailtemplateIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_MAILTEMPLATE
+      type: actionTypes.POST_MAILTEMPLATE,
     };
     const action = Actions.mailtemplates.createMailtemplateIsLoading();
     expect(action).toEqual(expectedAction);
@@ -110,16 +109,15 @@ describe('createMailtemplateIsLoading', () => {
 describe('createMailtemplateSuccess', () => {
   it('should create the correct action', () => {
     const testMailtemplate = {
-      name: 'Mailtemplate1'
+      name: 'Mailtemplate1',
     };
 
     const expectedAction = {
       type: actionTypes.POST_MAILTEMPLATE_SUCCESS,
-      mailtemplate: testMailtemplate
+      mailtemplate: testMailtemplate,
     };
-    const action = Actions.mailtemplates.createMailtemplateSuccess(
-      testMailtemplate
-    );
+    const action =
+      Actions.mailtemplates.createMailtemplateSuccess(testMailtemplate);
     expect(action).toEqual(expectedAction);
   });
 });
@@ -127,7 +125,7 @@ describe('createMailtemplateSuccess', () => {
 describe('createMailtemplateFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_MAILTEMPLATE_FAILURE
+      type: actionTypes.POST_MAILTEMPLATE_FAILURE,
     };
     const action = Actions.mailtemplates.createMailtemplateFailure();
     expect(action).toEqual(expectedAction);
@@ -152,13 +150,13 @@ describe('createMailtemplate', () => {
 
   it('should call success action on success', () => {
     const mailtemplate = {
-      name: 'Mailtemplate1'
+      name: 'Mailtemplate1',
     };
     mockHttpResponse({ status: 200, body: { data: mailtemplate } });
 
     const expectedActions = [
       Actions.mailtemplates.createMailtemplateIsLoading(),
-      Actions.mailtemplates.createMailtemplateSuccess(mailtemplate)
+      Actions.mailtemplates.createMailtemplateSuccess(mailtemplate),
     ];
 
     const store = createMockStore();
@@ -178,7 +176,7 @@ describe('createMailtemplate', () => {
 
     const expectedActions = [
       Actions.mailtemplates.createMailtemplateIsLoading(),
-      Actions.mailtemplates.createMailtemplateFailure()
+      Actions.mailtemplates.createMailtemplateFailure(),
     ];
 
     const store = createMockStore();
@@ -195,7 +193,7 @@ describe('createMailtemplate', () => {
 describe('getMailtemplateIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_MAILTEMPLATE
+      type: actionTypes.FETCH_MAILTEMPLATE,
     };
     const action = Actions.mailtemplates.getMailtemplateIsLoading();
     expect(action).toEqual(expectedAction);
@@ -205,16 +203,15 @@ describe('getMailtemplateIsLoading', () => {
 describe('getMailtemplateSuccess', () => {
   it('should create the correct action', () => {
     const testMailtemplate = {
-      name: 'Mailtemplate1'
+      name: 'Mailtemplate1',
     };
 
     const expectedAction = {
       type: actionTypes.FETCH_MAILTEMPLATE_SUCCESS,
-      mailtemplate: testMailtemplate
+      mailtemplate: testMailtemplate,
     };
-    const action = Actions.mailtemplates.getMailtemplateSuccess(
-      testMailtemplate
-    );
+    const action =
+      Actions.mailtemplates.getMailtemplateSuccess(testMailtemplate);
     expect(action).toEqual(expectedAction);
   });
 });
@@ -222,7 +219,7 @@ describe('getMailtemplateSuccess', () => {
 describe('getMailtemplateFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_MAILTEMPLATE_FAILURE
+      type: actionTypes.FETCH_MAILTEMPLATE_FAILURE,
     };
     const action = Actions.mailtemplates.getMailtemplateFailure();
     expect(action).toEqual(expectedAction);
@@ -246,13 +243,13 @@ describe('getMailtemplate', () => {
 
   it('should call success action on success', () => {
     const mailtemplate = {
-      name: 'Mailtemplate1'
+      name: 'Mailtemplate1',
     };
     mockHttpResponse({ status: 200, body: { data: mailtemplate } });
 
     const expectedActions = [
       Actions.mailtemplates.getMailtemplateIsLoading(),
-      Actions.mailtemplates.getMailtemplateSuccess(mailtemplate)
+      Actions.mailtemplates.getMailtemplateSuccess(mailtemplate),
     ];
 
     const store = createMockStore();
@@ -270,7 +267,7 @@ describe('getMailtemplate', () => {
 
     const expectedActions = [
       Actions.mailtemplates.getMailtemplateIsLoading(),
-      Actions.mailtemplates.getMailtemplateFailure()
+      Actions.mailtemplates.getMailtemplateFailure(),
     ];
 
     const store = createMockStore();
@@ -287,7 +284,7 @@ describe('getMailtemplate', () => {
 describe('updateMailtemplateIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_MAILTEMPLATE
+      type: actionTypes.PUT_MAILTEMPLATE,
     };
     const action = Actions.mailtemplates.updateMailtemplateIsLoading();
     expect(action).toEqual(expectedAction);
@@ -297,16 +294,15 @@ describe('updateMailtemplateIsLoading', () => {
 describe('updateMailtemplateSuccess', () => {
   it('should create the correct action', () => {
     const testMailtemplate = {
-      name: 'Mailtemplate1'
+      name: 'Mailtemplate1',
     };
 
     const expectedAction = {
       type: actionTypes.PUT_MAILTEMPLATE_SUCCESS,
-      mailtemplate: testMailtemplate
+      mailtemplate: testMailtemplate,
     };
-    const action = Actions.mailtemplates.updateMailtemplateSuccess(
-      testMailtemplate
-    );
+    const action =
+      Actions.mailtemplates.updateMailtemplateSuccess(testMailtemplate);
     expect(action).toEqual(expectedAction);
   });
 });
@@ -314,7 +310,7 @@ describe('updateMailtemplateSuccess', () => {
 describe('updateMailtemplateFailure', () => {
   it('should update the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_MAILTEMPLATE_FAILURE
+      type: actionTypes.PUT_MAILTEMPLATE_FAILURE,
     };
     const action = Actions.mailtemplates.updateMailtemplateFailure();
     expect(action).toEqual(expectedAction);
@@ -339,13 +335,13 @@ describe('updateMailtemplate', () => {
 
   it('should call success action on success', () => {
     const mailtemplate = {
-      name: 'Mailtemplate1'
+      name: 'Mailtemplate1',
     };
     mockHttpResponse({ status: 200, body: { data: mailtemplate } });
 
     const expectedActions = [
       Actions.mailtemplates.updateMailtemplateIsLoading(),
-      Actions.mailtemplates.updateMailtemplateSuccess(mailtemplate)
+      Actions.mailtemplates.updateMailtemplateSuccess(mailtemplate),
     ];
 
     const store = createMockStore();
@@ -365,7 +361,7 @@ describe('updateMailtemplate', () => {
 
     const expectedActions = [
       Actions.mailtemplates.updateMailtemplateIsLoading(),
-      Actions.mailtemplates.updateMailtemplateFailure()
+      Actions.mailtemplates.updateMailtemplateFailure(),
     ];
 
     const store = createMockStore();
@@ -382,7 +378,7 @@ describe('updateMailtemplate', () => {
 describe('deleteMailtemplateIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_MAILTEMPLATE
+      type: actionTypes.DELETE_MAILTEMPLATE,
     };
     const action = Actions.mailtemplates.deleteMailtemplateIsLoading();
     expect(action).toEqual(expectedAction);
@@ -393,12 +389,12 @@ describe('deleteMailtemplateSuccess', () => {
   it('should create the correct action', () => {
     const testMailtemplate = {
       id: '1',
-      name: 'Mailtemplate1'
+      name: 'Mailtemplate1',
     };
 
     const expectedAction = {
       type: actionTypes.DELETE_MAILTEMPLATE_SUCCESS,
-      id: testMailtemplate.id
+      id: testMailtemplate.id,
     };
     const action = Actions.mailtemplates.deleteMailtemplateSuccess(
       testMailtemplate.id
@@ -410,7 +406,7 @@ describe('deleteMailtemplateSuccess', () => {
 describe('deleteMailtemplateFailure', () => {
   it('should delete the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_MAILTEMPLATE_FAILURE
+      type: actionTypes.DELETE_MAILTEMPLATE_FAILURE,
     };
     const action = Actions.mailtemplates.deleteMailtemplateFailure();
     expect(action).toEqual(expectedAction);
@@ -435,13 +431,13 @@ describe('deleteMailtemplate', () => {
   it('should call success action on success', () => {
     const mailtemplate = {
       id: '1',
-      name: 'Mailtemplate1'
+      name: 'Mailtemplate1',
     };
     mockHttpResponse({ status: 200, body: { data: '' } });
 
     const expectedActions = [
       Actions.mailtemplates.deleteMailtemplateIsLoading(),
-      Actions.mailtemplates.deleteMailtemplateSuccess(mailtemplate.id)
+      Actions.mailtemplates.deleteMailtemplateSuccess(mailtemplate.id),
     ];
 
     const store = createMockStore();
@@ -458,7 +454,7 @@ describe('deleteMailtemplate', () => {
     mockHttpResponse({ status: 401, body: {} });
     const expectedActions = [
       Actions.mailtemplates.deleteMailtemplateIsLoading(),
-      Actions.mailtemplates.deleteMailtemplateFailure()
+      Actions.mailtemplates.deleteMailtemplateFailure(),
     ];
 
     const store = createMockStore();

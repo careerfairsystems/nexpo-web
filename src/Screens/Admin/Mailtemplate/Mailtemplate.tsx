@@ -6,23 +6,25 @@ import NotFound from '../../NotFound';
 import LoadingSpinner from '../../../Components/LoadingSpinner';
 
 type MailTemplateObj = {
-  id?: string,
-  name: string,
-  subject: string,
-  content: string,
-  signature: string
+  id?: string;
+  name: string;
+  subject: string;
+  content: string;
+  signature: string;
 };
 
 type Props = {
-  id?: string,
-  mailtemplate: { mailtemplate: MailTemplateObj } | {},
-  createMailtemplate: (mailTemplateObject: { mailtemplate: MailTemplateObj }) => Promise<void>,
-  fetching: boolean,
-  getMailtemplate: (id: string) => Promise<void>,
+  id?: string;
+  mailtemplate: { mailtemplate: MailTemplateObj } | {};
+  createMailtemplate: (mailTemplateObject: {
+    mailtemplate: MailTemplateObj;
+  }) => Promise<void>;
+  fetching: boolean;
+  getMailtemplate: (id: string) => Promise<void>;
   updateMailtemplate: (
     id: string,
     mailTemplateObject: { mailtemplate: MailTemplateObj }
-  ) => Promise<void>
+  ) => Promise<void>;
 };
 
 const Mailtemplate = ({
@@ -31,7 +33,7 @@ const Mailtemplate = ({
   createMailtemplate,
   fetching,
   getMailtemplate,
-  updateMailtemplate
+  updateMailtemplate,
 }: Props) => {
   useEffect(() => {
     if (id) getMailtemplate(id);
@@ -60,7 +62,7 @@ const Mailtemplate = ({
 };
 
 Mailtemplate.defaultProps = {
-  id: ''
+  id: '',
 };
 
 export default Mailtemplate;

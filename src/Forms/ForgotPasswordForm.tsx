@@ -6,8 +6,8 @@ import makeField, { required, validatePassword } from './helper';
 
 const TextInput = makeField(Input);
 type Props = {
-  handleSubmit: () => Promise<void>,
-  submitting: boolean
+  handleSubmit: () => Promise<void>;
+  submitting: boolean;
 };
 const ForgotPasswordForm = ({ handleSubmit, submitting }: Props) => (
   <Form onSubmit={handleSubmit}>
@@ -26,8 +26,8 @@ const ForgotPasswordForm = ({ handleSubmit, submitting }: Props) => (
   </Form>
 );
 
-const mapStateToProps = state => ({
-  formState: state.form.ForgotPasswordForm
+const mapStateToProps = (state) => ({
+  formState: state.form.ForgotPasswordForm,
 });
 
 const stateful = connect(mapStateToProps);

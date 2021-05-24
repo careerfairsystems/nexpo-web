@@ -8,35 +8,35 @@ import '../YourCompany.css';
 
 type StudentObj = {
   user: {
-    email: string,
-    firstName: string,
-    lastName: string
-  },
-  resumeSvUrl: string,
-  resumeEnUrl: string,
-  linkedIn: string,
-  master: string,
-  year: number,
+    email: string;
+    firstName: string;
+    lastName: string;
+  };
+  resumeSvUrl: string;
+  resumeEnUrl: string;
+  linkedIn: string;
+  master: string;
+  year: number;
   programme: {
-    code: string,
-    name: string
-  },
-  interests: Array<{ id: number, name: string }>
+    code: string;
+    name: string;
+  };
+  interests: Array<{ id: number; name: string }>;
 };
 
 type Application = {
-  id: number,
-  score: number,
-  motivation: string,
-  student: StudentObj
+  id: number;
+  score: number;
+  motivation: string;
+  student: StudentObj;
 };
 
 type Props = {
-  currentCompany: { studentSessionApplications?: Array<Application> },
-  fetching: boolean,
-  updating: boolean,
-  getCurrentCompany: () => Promise<void>,
-  updateStudentSessionAppl: (number, {}) => Promise<void>
+  currentCompany: { studentSessionApplications?: Array<Application> };
+  fetching: boolean;
+  updating: boolean;
+  getCurrentCompany: () => Promise<void>;
+  updateStudentSessionAppl: (number, {}) => Promise<void>;
 };
 
 const YourCompanyApplications = ({
@@ -44,7 +44,7 @@ const YourCompanyApplications = ({
   fetching,
   updating,
   getCurrentCompany,
-  updateStudentSessionAppl
+  updateStudentSessionAppl,
 }: Props) => {
   useEffect(() => {
     getCurrentCompany();
@@ -52,21 +52,21 @@ const YourCompanyApplications = ({
 
   const scoreSessionApplication = (id: number, value: number) => {
     updateStudentSessionAppl(id, {
-      studentSessionApplication: { score: value }
+      studentSessionApplication: { score: value },
     });
   };
 
   const renderSessionApplication = (application: Application) => (
     <List.Item
       actions={[
-        <Button onClick={_ => scoreSessionApplication(application.id, 0)}>
+        <Button onClick={(_) => scoreSessionApplication(application.id, 0)}>
           Reset Score
         </Button>,
         <>
           Score:{' '}
           <Rate
             value={application.score}
-            onChange={value => scoreSessionApplication(application.id, value)}
+            onChange={(value) => scoreSessionApplication(application.id, value)}
           />
         </>,
         <a
@@ -86,13 +86,13 @@ const YourCompanyApplications = ({
           disabled={!application.student.linkedIn}
         >
           LinkedIn
-        </a>
+        </a>,
       ]}
     >
       <List.Item.Meta
         title={[
           application.student.user.firstName,
-          application.student.user.lastName
+          application.student.user.lastName,
         ].join(' ')}
         description={[
           `Email: ${application.student.user.email}`,
@@ -109,9 +109,9 @@ const YourCompanyApplications = ({
           }`,
           `Interests: ${
             application.student.interests.length !== 0
-              ? application.student.interests.map(i => i.name).join(', ')
+              ? application.student.interests.map((i) => i.name).join(', ')
               : 'Not set'
-          }`
+          }`,
         ].join('   |   ')}
       />
       {application.motivation}

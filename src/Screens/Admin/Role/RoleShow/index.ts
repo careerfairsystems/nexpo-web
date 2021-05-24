@@ -9,7 +9,7 @@ const mapStateToProps = (state, props) => {
   const roleId = props.match.params.id;
 
   const {
-    roles: [role]
+    roles: [role],
   } = denormalize(
     { roles: [roleId] },
     { roles: Schema.rolesSchema() },
@@ -20,7 +20,7 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = {
-  getRole: Actions.roles.getRole
+  getRole: Actions.roles.getRole,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

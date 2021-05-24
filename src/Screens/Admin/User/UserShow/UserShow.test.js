@@ -11,7 +11,7 @@ it('should render without crashing', () => {
     updateUser: jest.fn(),
     createUser: jest.fn(),
     fetching: false,
-    resetForm: jest.fn()
+    resetForm: jest.fn(),
   };
   shallow(<UserShow id="1" {...props} />);
 });
@@ -23,7 +23,7 @@ it('should render NotFound if there is no user', () => {
     updateUser: jest.fn(),
     createUser: jest.fn(),
     fetching: false,
-    resetForm: jest.fn()
+    resetForm: jest.fn(),
   };
   const wrapper = shallow(<UserShow id="1" {...props} />);
 
@@ -37,7 +37,7 @@ it('should render LoadingSpinner if fetching is true', () => {
     updateUser: jest.fn(),
     createUser: jest.fn(),
     fetching: true,
-    resetForm: jest.fn()
+    resetForm: jest.fn(),
   };
   const wrapper = shallow(<UserShow id="1" {...props} />);
 
@@ -49,18 +49,18 @@ it('displayName and roles should function correctly', () => {
     email: 'admin@test',
     firstName: 'Dev',
     lastName: 'X',
-    roles: [{ type: 'admin' }]
+    roles: [{ type: 'admin' }],
   };
   const props = {
     getUser: jest.fn(),
     updateUser: jest.fn(),
     createUser: jest.fn(),
     fetching: false,
-    resetForm: jest.fn()
+    resetForm: jest.fn(),
   };
   const wrapper = shallow(<UserShow id="1" user={user} {...props} />);
   const instance = wrapper.instance();
-  if(instance) {
+  if (instance) {
     const displayName = instance.displayName();
     const roles = instance.roles();
     expect(roles).toEqual('admin');

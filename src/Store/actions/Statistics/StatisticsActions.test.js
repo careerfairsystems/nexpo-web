@@ -4,7 +4,7 @@ import { mockHttpResponse, createMockStore } from '../../../TestHelper';
 describe('getAllStatisticsIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_STATISTICS
+      type: actionTypes.FETCH_STATISTICS,
     };
     const action = Actions.statistics.getAllStatisticsIsLoading();
     expect(action).toEqual(expectedAction);
@@ -17,7 +17,7 @@ describe('getAllStatisticsSuccess', () => {
 
     const expectedAction = {
       type: actionTypes.FETCH_STATISTICS_SUCCESS,
-      statistics: testStatistic
+      statistics: testStatistic,
     };
     const action = Actions.statistics.getAllStatisticsSuccess(testStatistic);
     expect(action).toEqual(expectedAction);
@@ -27,7 +27,7 @@ describe('getAllStatisticsSuccess', () => {
 describe('getAllStatisticsFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_STATISTICS_FAILURE
+      type: actionTypes.FETCH_STATISTICS_FAILURE,
     };
     const action = Actions.statistics.getAllStatisticsFailure();
     expect(action).toEqual(expectedAction);
@@ -49,14 +49,14 @@ describe('getAllStatistics', () => {
 
   it('should call success action on success', () => {
     const statistics = {
-      numberApplications: 10
+      numberApplications: 10,
     };
 
     mockHttpResponse({ status: 200, body: { data: statistics } });
 
     const expectedActions = [
       Actions.statistics.getAllStatisticsIsLoading(),
-      Actions.statistics.getAllStatisticsSuccess(statistics)
+      Actions.statistics.getAllStatisticsSuccess(statistics),
     ];
 
     const store = createMockStore();
@@ -72,7 +72,7 @@ describe('getAllStatistics', () => {
 
     const expectedActions = [
       Actions.statistics.getAllStatisticsIsLoading(),
-      Actions.statistics.getAllStatisticsFailure()
+      Actions.statistics.getAllStatisticsFailure(),
     ];
 
     const store = createMockStore();

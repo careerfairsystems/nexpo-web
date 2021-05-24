@@ -10,7 +10,7 @@ const FieldSelect = makeField(Select);
 const CompanyStudentSessionForm = ({
   handleSubmit,
   submitting,
-  options
+  options,
 }: FormProps) => (
   <Form onSubmit={handleSubmit} layout="inline">
     <Field
@@ -38,7 +38,7 @@ const CompanyStudentSessionForm = ({
 
 const mapStateToProps = (state, props) => ({
   formState: state.form[`CompanyStudentSession${props.id}`] || {},
-  form: `CompanyStudentSession${props.id}`
+  form: `CompanyStudentSession${props.id}`,
 });
 
 const stateful = connect(mapStateToProps);

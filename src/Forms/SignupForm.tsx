@@ -7,8 +7,8 @@ import makeField, { required } from './helper';
 const TextInput = makeField(Input);
 
 type Props = {
-  handleSubmit: () => Promise<void>,
-  submitting: boolean
+  handleSubmit: () => Promise<void>;
+  submitting: boolean;
 };
 const SignupForm = ({ handleSubmit, submitting }: Props) => (
   <Form onSubmit={handleSubmit}>
@@ -27,8 +27,8 @@ const SignupForm = ({ handleSubmit, submitting }: Props) => (
   </Form>
 );
 
-const mapStateToProps = state => ({
-  formState: state.form.SignupForm
+const mapStateToProps = (state) => ({
+  formState: state.form.SignupForm,
 });
 
 const stateful = connect(mapStateToProps);

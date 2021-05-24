@@ -5,7 +5,7 @@ import HtmlTitle from '../../../Components/HtmlTitle';
 import API from '../../../API';
 
 type Props = {
-  createBulkStudentSessions: () => Promise<void>
+  createBulkStudentSessions: () => Promise<void>;
 };
 
 const StudentSessions = ({ createBulkStudentSessions }: Props) => (

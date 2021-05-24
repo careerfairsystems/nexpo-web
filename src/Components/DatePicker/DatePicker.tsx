@@ -5,9 +5,9 @@ import { DatePicker } from 'antd';
  * Custom DatePicker that handles the conversion of the moment date value
  */
 type Props = {
-  value: any,
-  onChange: (date?: string) => void,
-  format: string
+  value: any;
+  onChange: (date?: string) => void;
+  format: string;
 };
 const MyDatePicker = ({
   value,
@@ -18,7 +18,7 @@ const MyDatePicker = ({
   <DatePicker
     value={moment(value, format).isValid() ? moment.utc(value, format) : null}
     format={format}
-    onChange={date => (date ? onChange(date.toISOString()) : onChange(null))}
+    onChange={(date) => (date ? onChange(date.toISOString()) : onChange(null))}
     {...rest}
   />
 );

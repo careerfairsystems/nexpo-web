@@ -18,10 +18,10 @@ describe('current company edit should function correctly', () => {
         length: 0,
         listen: jest.fn(),
         replace: jest.fn(),
-        location: { hash: '', pathname: '', search: '' }
+        location: { hash: '', pathname: '', search: '' },
       },
       getCurrentCompany: jest.fn(),
-      updateCurrentCompany: jest.fn()
+      updateCurrentCompany: jest.fn(),
     };
   });
 

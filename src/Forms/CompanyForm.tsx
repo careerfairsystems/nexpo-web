@@ -13,14 +13,14 @@ const TextInput = makeField(Input);
 const TextArea = makeField(Input.TextArea);
 
 type Props = FormProps & {
-  onCancel?: (event: Event) => any
+  onCancel?: (event: Event) => any;
 };
 
 const CompanyForm = ({
   handleSubmit,
   onCancel,
   submitting,
-  formState
+  formState,
 }: Props) => (
   <Form onSubmit={handleSubmit}>
     <Field
@@ -64,7 +64,7 @@ const CompanyForm = ({
 );
 
 CompanyForm.defaultProps = {
-  onCancel: null
+  onCancel: null,
 };
 
 const mapStateToProps = (state, props) => {
@@ -82,9 +82,9 @@ const mapStateToProps = (state, props) => {
       endTime: '16:00',
       timeslotLength: 30,
       breakLength: 0,
-      logoUrl
+      logoUrl,
     },
-    formState: state.form.company || {}
+    formState: state.form.company || {},
   };
 };
 

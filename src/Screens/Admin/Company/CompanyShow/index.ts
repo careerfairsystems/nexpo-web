@@ -10,7 +10,7 @@ const mapStateToProps = (state, props) => {
   const { fetching } = state.api.companies;
 
   const {
-    companies: [company]
+    companies: [company],
   } = denormalize(
     { companies: [companyId] },
     { companies: Schema.companiesSchema() },
@@ -25,7 +25,7 @@ const mapDispatchToProps = {
   createStudentSession: Actions.studentSessions.createStudentSession,
   createBulkStudentSessions: Actions.studentSessions.createBulkStudentSessions,
   deleteStudentSession: Actions.studentSessions.deleteStudentSession,
-  resetForm: reset
+  resetForm: reset,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

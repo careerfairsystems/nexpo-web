@@ -4,37 +4,36 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const updateProgrammeIsLoading = () => ({
-  type: actionTypes.PUT_PROGRAMME
+  type: actionTypes.PUT_PROGRAMME,
 });
 
 export const updateProgrammeSuccess = (programme: {}) => {
   message.success('Programme successfully updated');
   return {
     type: actionTypes.PUT_PROGRAMME_SUCCESS,
-    programme
+    programme,
   };
 };
 
 export type UpdateProgrammeFailureAction = {
-  type: string
+  type: string;
 };
 export const updateProgrammeFailure = (): UpdateProgrammeFailureAction => {
   message.error('Something went wrong, please try again later');
   return {
-    type: actionTypes.PUT_PROGRAMME_FAILURE
+    type: actionTypes.PUT_PROGRAMME_FAILURE,
   };
 };
 
-export const updateProgramme = (id: string, data: {}) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const updateProgramme =
+  (id: string, data: {}) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateProgrammeIsLoading());
     return API.programmes
       .update(id, data)
-      .then(programme => {
+      .then((programme) => {
         dispatch(updateProgrammeSuccess(programme.data));
       })
       .catch(() => {
         dispatch(updateProgrammeFailure());
       });
   };
-}

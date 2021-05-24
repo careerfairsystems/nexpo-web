@@ -11,31 +11,26 @@ import './Message.css';
  */
 const iconStyle = {
   width: 'auto',
-  fontSize: 200
+  fontSize: 200,
 };
 const styles = {
   error: {
     ...iconStyle,
-    color: '#f44336'
+    color: '#f44336',
   },
   success: {
     ...iconStyle,
-    color: '#4caf50'
-  }
+    color: '#4caf50',
+  },
 };
 type Props = {
-  type: 'error' | 'success',
-  message: string,
-  linkUrl?: string,
-  linkText?: string
+  type: 'error' | 'success';
+  message: string;
+  linkUrl?: string;
+  linkText?: string;
 };
 
-const Message = ({
-  message,
-  linkUrl,
-  linkText,
-  type
-}: Props) => {
+const Message = ({ message, linkUrl, linkText, type }: Props) => {
   let icon = null;
   switch (type) {
     case 'error':
@@ -63,7 +58,7 @@ const Message = ({
 
 Message.defaultProps = {
   linkUrl: null,
-  linkText: ''
+  linkText: '',
 };
 
 export default Message;

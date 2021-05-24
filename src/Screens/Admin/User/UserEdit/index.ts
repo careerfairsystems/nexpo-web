@@ -9,7 +9,7 @@ const mapStateToProps = (state, props) => {
   const { fetching } = state.api.users;
 
   const {
-    users: [user]
+    users: [user],
   } = denormalize(
     { users: [userId] },
     { users: Schema.usersSchema() },
@@ -21,7 +21,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = {
   getUser: Actions.users.getUser,
-  updateUser: Actions.users.updateUser
+  updateUser: Actions.users.updateUser,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

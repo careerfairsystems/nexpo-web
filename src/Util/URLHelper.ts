@@ -29,5 +29,5 @@ export const toExternal = (url?: string) => {
 
 export default {
   getParameterByName,
-  toExternal
+  toExternal,
 };

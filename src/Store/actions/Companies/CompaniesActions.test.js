@@ -5,7 +5,7 @@ import { mockHttpResponse, createMockStore } from '../../../TestHelper';
 describe('getAllCompaniesIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_COMPANIES
+      type: actionTypes.FETCH_COMPANIES,
     };
     const action = Actions.companies.getAllCompaniesIsLoading();
     expect(action).toEqual(expectedAction);
@@ -16,13 +16,13 @@ describe('getAllCompaniesSuccess', () => {
   it('should create the correct action', () => {
     const testCompanies = [
       {
-        name: 'Company1'
-      }
+        name: 'Company1',
+      },
     ];
 
     const expectedAction = {
       type: actionTypes.FETCH_COMPANIES_SUCCESS,
-      companies: testCompanies
+      companies: testCompanies,
     };
     const action = Actions.companies.getAllCompaniesSuccess(testCompanies);
     expect(action).toEqual(expectedAction);
@@ -32,7 +32,7 @@ describe('getAllCompaniesSuccess', () => {
 describe('getAllCompaniesFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_COMPANIES_FAILURE
+      type: actionTypes.FETCH_COMPANIES_FAILURE,
     };
     const action = Actions.companies.getAllCompaniesFailure();
     expect(action).toEqual(expectedAction);
@@ -55,14 +55,14 @@ describe('getAllCompanies', () => {
   it('should call success action on success', () => {
     const companies = [
       {
-        name: 'Company1'
-      }
+        name: 'Company1',
+      },
     ];
     mockHttpResponse({ status: 200, body: { data: companies } });
 
     const expectedActions = [
       Actions.companies.getAllCompaniesIsLoading(),
-      Actions.companies.getAllCompaniesSuccess(companies)
+      Actions.companies.getAllCompaniesSuccess(companies),
     ];
 
     const store = createMockStore();
@@ -78,7 +78,7 @@ describe('getAllCompanies', () => {
 
     const expectedActions = [
       Actions.companies.getAllCompaniesIsLoading(),
-      Actions.companies.getAllCompaniesFailure()
+      Actions.companies.getAllCompaniesFailure(),
     ];
 
     const store = createMockStore();
@@ -93,7 +93,7 @@ describe('getAllCompanies', () => {
 describe('createCompanyIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_COMPANY
+      type: actionTypes.POST_COMPANY,
     };
     const action = Actions.companies.createCompanyIsLoading();
     expect(action).toEqual(expectedAction);
@@ -103,12 +103,12 @@ describe('createCompanyIsLoading', () => {
 describe('createCompanySuccess', () => {
   it('should create the correct action', () => {
     const testCompany = {
-      name: 'Company1'
+      name: 'Company1',
     };
 
     const expectedAction = {
       type: actionTypes.POST_COMPANY_SUCCESS,
-      company: testCompany
+      company: testCompany,
     };
     const action = Actions.companies.createCompanySuccess(testCompany);
     expect(action).toEqual(expectedAction);
@@ -118,7 +118,7 @@ describe('createCompanySuccess', () => {
 describe('createCompanyFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_COMPANY_FAILURE
+      type: actionTypes.POST_COMPANY_FAILURE,
     };
     const action = Actions.companies.createCompanyFailure();
     expect(action).toEqual(expectedAction);
@@ -141,14 +141,14 @@ describe('createCompany', () => {
 
   it('should call success action on success', () => {
     const company = {
-      name: 'Company1'
+      name: 'Company1',
     };
     mockHttpResponse({ status: 200, body: { data: company } });
 
     const expectedActions = [
       Actions.companies.createCompanyIsLoading(),
       Actions.companies.createCompanySuccess(company),
-      reset('company')
+      reset('company'),
     ];
 
     const store = createMockStore();
@@ -166,7 +166,7 @@ describe('createCompany', () => {
 
     const expectedActions = [
       Actions.companies.createCompanyIsLoading(),
-      Actions.companies.createCompanyFailure()
+      Actions.companies.createCompanyFailure(),
     ];
 
     const store = createMockStore();
@@ -181,7 +181,7 @@ describe('createCompany', () => {
 describe('getCompanyIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_COMPANY
+      type: actionTypes.FETCH_COMPANY,
     };
     const action = Actions.companies.getCompanyIsLoading();
     expect(action).toEqual(expectedAction);
@@ -191,12 +191,12 @@ describe('getCompanyIsLoading', () => {
 describe('getCompanySuccess', () => {
   it('should create the correct action', () => {
     const testCompany = {
-      name: 'Company1'
+      name: 'Company1',
     };
 
     const expectedAction = {
       type: actionTypes.FETCH_COMPANY_SUCCESS,
-      company: testCompany
+      company: testCompany,
     };
     const action = Actions.companies.getCompanySuccess(testCompany);
     expect(action).toEqual(expectedAction);
@@ -206,7 +206,7 @@ describe('getCompanySuccess', () => {
 describe('getCompanyFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_COMPANY_FAILURE
+      type: actionTypes.FETCH_COMPANY_FAILURE,
     };
     const action = Actions.companies.getCompanyFailure();
     expect(action).toEqual(expectedAction);
@@ -226,13 +226,13 @@ describe('getCompany', () => {
 
   it('should call success action on success', () => {
     const company = {
-      name: 'Company1'
+      name: 'Company1',
     };
     mockHttpResponse({ status: 200, body: { data: company } });
 
     const expectedActions = [
       Actions.companies.getCompanyIsLoading(),
-      Actions.companies.getCompanySuccess(company)
+      Actions.companies.getCompanySuccess(company),
     ];
 
     const store = createMockStore();
@@ -248,7 +248,7 @@ describe('getCompany', () => {
 
     const expectedActions = [
       Actions.companies.getCompanyIsLoading(),
-      Actions.companies.getCompanyFailure()
+      Actions.companies.getCompanyFailure(),
     ];
 
     const store = createMockStore();
@@ -263,7 +263,7 @@ describe('getCompany', () => {
 describe('updateCompanyIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_COMPANY
+      type: actionTypes.PUT_COMPANY,
     };
     const action = Actions.companies.updateCompanyIsLoading();
     expect(action).toEqual(expectedAction);
@@ -273,12 +273,12 @@ describe('updateCompanyIsLoading', () => {
 describe('updateCompanySuccess', () => {
   it('should create the correct action', () => {
     const testCompany = {
-      name: 'Company1'
+      name: 'Company1',
     };
 
     const expectedAction = {
       type: actionTypes.PUT_COMPANY_SUCCESS,
-      company: testCompany
+      company: testCompany,
     };
     const action = Actions.companies.updateCompanySuccess(testCompany);
     expect(action).toEqual(expectedAction);
@@ -288,7 +288,7 @@ describe('updateCompanySuccess', () => {
 describe('updateCompanyFailure', () => {
   it('should update the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_COMPANY_FAILURE
+      type: actionTypes.PUT_COMPANY_FAILURE,
     };
     const action = Actions.companies.updateCompanyFailure();
     expect(action).toEqual(expectedAction);
@@ -313,13 +313,13 @@ describe('updateCompany', () => {
 
   it('should call success action on success', () => {
     const company = {
-      name: 'Company1'
+      name: 'Company1',
     };
     mockHttpResponse({ status: 200, body: { data: company } });
 
     const expectedActions = [
       Actions.companies.updateCompanyIsLoading(),
-      Actions.companies.updateCompanySuccess(company)
+      Actions.companies.updateCompanySuccess(company),
     ];
 
     const store = createMockStore();
@@ -339,7 +339,7 @@ describe('updateCompany', () => {
 
     const expectedActions = [
       Actions.companies.updateCompanyIsLoading(),
-      Actions.companies.updateCompanyFailure()
+      Actions.companies.updateCompanyFailure(),
     ];
 
     const store = createMockStore();
@@ -356,7 +356,7 @@ describe('updateCompany', () => {
 describe('deleteCompanyIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_COMPANY
+      type: actionTypes.DELETE_COMPANY,
     };
     const action = Actions.companies.deleteCompanyIsLoading();
     expect(action).toEqual(expectedAction);
@@ -366,12 +366,12 @@ describe('deleteCompanyIsLoading', () => {
 describe('deleteCompanySuccess', () => {
   it('should create the correct action', () => {
     const testCompany = {
-      id: '1'
+      id: '1',
     };
 
     const expectedAction = {
       type: actionTypes.DELETE_COMPANY_SUCCESS,
-      id: testCompany.id
+      id: testCompany.id,
     };
     const action = Actions.companies.deleteCompanySuccess(testCompany.id);
     expect(action).toEqual(expectedAction);
@@ -381,7 +381,7 @@ describe('deleteCompanySuccess', () => {
 describe('deleteCompanyFailure', () => {
   it('should delete the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_COMPANY_FAILURE
+      type: actionTypes.DELETE_COMPANY_FAILURE,
     };
     const action = Actions.companies.deleteCompanyFailure();
     expect(action).toEqual(expectedAction);
@@ -403,14 +403,14 @@ describe('deleteCompany', () => {
 
   it('should call success action on success', () => {
     const company = {
-      id: '1'
+      id: '1',
     };
 
     mockHttpResponse({ status: 200, body: { data: company } });
 
     const expectedActions = [
       Actions.companies.deleteCompanyIsLoading(),
-      Actions.companies.deleteCompanySuccess(company.id)
+      Actions.companies.deleteCompanySuccess(company.id),
     ];
 
     const store = createMockStore();
@@ -425,7 +425,7 @@ describe('deleteCompany', () => {
     mockHttpResponse({ status: 401, body: {} });
     const expectedActions = [
       Actions.companies.deleteCompanyIsLoading(),
-      Actions.companies.deleteCompanyFailure()
+      Actions.companies.deleteCompanyFailure(),
     ];
 
     const store = createMockStore();

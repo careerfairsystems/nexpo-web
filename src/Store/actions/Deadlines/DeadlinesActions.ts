@@ -9,5 +9,5 @@ export default {
   ...DeadlinesGetActions,
   ...DeadlinesGetAllActions,
   ...DeadlinesPostActions,
-  ...DeadlinesPutActions
+  ...DeadlinesPutActions,
 };

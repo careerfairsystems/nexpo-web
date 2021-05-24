@@ -4,36 +4,35 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const getCompanyIsLoading = () => ({
-  type: actionTypes.FETCH_COMPANY
+  type: actionTypes.FETCH_COMPANY,
 });
 
 export const getCompanySuccess = (company: {}) => ({
   type: actionTypes.FETCH_COMPANY_SUCCESS,
-  company
+  company,
 });
 
 export type GetCompanyFailureAction = {
-  type: string
+  type: string;
 };
 export const getCompanyFailure = (): GetCompanyFailureAction => {
   message.error(
     'Something went wrong when trying to fetch company, please try again later'
   );
   return {
-    type: actionTypes.FETCH_COMPANY_FAILURE
+    type: actionTypes.FETCH_COMPANY_FAILURE,
   };
 };
 
-export const getCompany = (id: string) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const getCompany =
+  (id: string) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getCompanyIsLoading());
     return API.companies
       .get(id)
-      .then(company => {
+      .then((company) => {
         dispatch(getCompanySuccess(company.data));
       })
       .catch(() => {
         dispatch(getCompanyFailure());
       });
   };
-}

@@ -9,9 +9,9 @@ import UploadButton from './UploadButton';
 const TextInput = makeField(Input);
 
 type Props = {
-  handleSubmit: () => Promise<void>,
-  pristine: boolean,
-  submitting: boolean
+  handleSubmit: () => Promise<void>;
+  pristine: boolean;
+  submitting: boolean;
 };
 const CurrentUserForm = ({ handleSubmit, pristine, submitting }: Props) => (
   <Form onSubmit={handleSubmit}>
@@ -42,12 +42,12 @@ const mapStateToProps = (state, props) => {
     profileImage = {
       uid: '-1',
       name: 'profileImage',
-      url: currentProfileImage
+      url: currentProfileImage,
     };
 
   return {
     initialValues: { ...initialValues, profileImage },
-    formState: state.form.CurrentCompanyForm
+    formState: state.form.CurrentCompanyForm,
   };
 };
 

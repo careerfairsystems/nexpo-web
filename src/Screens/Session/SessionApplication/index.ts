@@ -7,7 +7,7 @@ import type { State } from '../../../Store/reducers';
 const mapStateToProps = (state: State) => ({
   currentStudent: Selectors.students.getCurrentStudent(state),
   currentUser: Selectors.users.getCurrentUser(state),
-  fetching: state.api.currentUser.fetching
+  fetching: state.api.currentUser.fetching,
 });
 
 const mapDispatchToProps = {
@@ -17,7 +17,7 @@ const mapDispatchToProps = {
   getCurrentUser: Actions.users.getCurrentUser,
   updateCurrentStudent: Actions.users.updateCurrentStudent,
   updateCurrentUser: Actions.users.updateCurrentUser,
-  resetForm: reset
+  resetForm: reset,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

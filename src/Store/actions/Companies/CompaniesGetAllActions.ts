@@ -4,36 +4,34 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const getAllCompaniesIsLoading = () => ({
-  type: actionTypes.FETCH_COMPANIES
+  type: actionTypes.FETCH_COMPANIES,
 });
 
 export const getAllCompaniesSuccess = (companies: Array<{}>) => ({
   type: actionTypes.FETCH_COMPANIES_SUCCESS,
-  companies
+  companies,
 });
 
 export type GetAllCompaniesFailureAction = {
-  type: string
+  type: string;
 };
 export const getAllCompaniesFailure = (): GetAllCompaniesFailureAction => {
   message.error(
     'Something went wrong when trying to fetch all companies, please try again later'
   );
   return {
-    type: actionTypes.FETCH_COMPANIES_FAILURE
+    type: actionTypes.FETCH_COMPANIES_FAILURE,
   };
 };
 
-export const getAllCompanies = () => {
-  return (dispatch: Dispatch<{ type: string }>) => {
-    dispatch(getAllCompaniesIsLoading());
-    return API.companies
-      .getAll()
-      .then(companies => {
-        dispatch(getAllCompaniesSuccess(companies.data));
-      })
-      .catch(() => {
-        dispatch(getAllCompaniesFailure());
-      });
-  };
-}
+export const getAllCompanies = () => (dispatch: Dispatch<{ type: string }>) => {
+  dispatch(getAllCompaniesIsLoading());
+  return API.companies
+    .getAll()
+    .then((companies) => {
+      dispatch(getAllCompaniesSuccess(companies.data));
+    })
+    .catch(() => {
+      dispatch(getAllCompaniesFailure());
+    });
+};

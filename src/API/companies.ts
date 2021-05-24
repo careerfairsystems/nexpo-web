@@ -8,7 +8,7 @@ import {
   authFetch,
   authFormPut,
   authDelete,
-  handleHttpResponse
+  handleHttpResponse,
 } from './utils';
 
 export default {
@@ -61,5 +61,5 @@ export default {
    * Delete a company
    */
   delete: (id: string) =>
-    authDelete(`/api/companies/${id}`).then(handleHttpResponse)
+    authDelete(`/api/companies/${id}`).then(handleHttpResponse),
 };

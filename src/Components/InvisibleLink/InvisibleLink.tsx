@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
  * Depends on React router
  */
 type Props = {
-  to: string,
-  children?: Node
+  to: string;
+  children?: Node;
 };
 const InvisibleLink = ({ to, children }: Props) => {
   const style = {
-    textDecoration: 'none'
+    textDecoration: 'none',
   };
 
   return (
@@ -20,10 +20,10 @@ const InvisibleLink = ({ to, children }: Props) => {
       {children}
     </Link>
   );
-}
+};
 
 InvisibleLink.defaultProps = {
-  children: undefined
+  children: undefined,
 };
 
 export default InvisibleLink;

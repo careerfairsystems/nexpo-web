@@ -7,21 +7,21 @@ import API from '../../../../API';
 import FinalizeSignupForm from '../../../../Forms/FinalizeSignupForm';
 
 type Props = {
-  signupKey: string
+  signupKey: string;
 };
 
 const DefaultState = {
   email: '',
   noSuchKey: false,
-  finished: false
+  finished: false,
 };
 
 type SignUpValues = {
-  password: string,
-  passwordConfirmation: string,
-  firstName: string,
-  lastName: string,
-  phoneNumber: string
+  password: string;
+  passwordConfirmation: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
 };
 
 /**
@@ -33,7 +33,7 @@ const FinalizeSignup = ({ signupKey }: Props) => {
   const fetchCurrentSignup = () => {
     API.signup
       .getCurrentSignup(signupKey)
-      .then(res => setState({ ...state, email: res.data.email }))
+      .then((res) => setState({ ...state, email: res.data.email }))
       .catch(() => setState({ ...state, noSuchKey: true }));
   };
 
@@ -48,7 +48,7 @@ const FinalizeSignup = ({ signupKey }: Props) => {
         'passwordConfirmation',
         'firstName',
         'lastName',
-        'phoneNumber'
+        'phoneNumber',
       ],
       values
     );
@@ -56,7 +56,7 @@ const FinalizeSignup = ({ signupKey }: Props) => {
     return API.signup
       .finalizeSignup(signupKey, params)
       .then(() => setState({ ...state, finished: true }))
-      .catch(err => {
+      .catch((err) => {
         // This error will be shown in the form
         throw new SubmissionError({ ...err.errors });
       });

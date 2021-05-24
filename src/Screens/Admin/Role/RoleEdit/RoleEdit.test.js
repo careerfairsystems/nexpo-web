@@ -10,13 +10,13 @@ describe('RoleEdit', () => {
   beforeEach(() => {
     props = {
       role: { type: 'admin', permissions: ['read_all', 'write_all'] },
-      users: { '1': { id: 1, email: 'admin@test' } },
+      users: { 1: { id: 1, email: 'admin@test' } },
       getRole: jest.fn(),
       getAllUsers: jest.fn(),
       fetchingUsers: false,
       fetchingRoles: false,
       updateRole: jest.fn(),
-      history: { push: jest.fn() }
+      history: { push: jest.fn() },
     };
   });
 
@@ -61,11 +61,10 @@ describe('RoleEdit', () => {
     const values = { user: 1, type: 'admin', permissions: ['read_all'] };
     const wrapper = shallow(<RoleEdit id={id} {...props} />);
     const instance = wrapper.instance();
-    if(instance) instance.updateRole(values);
+    if (instance) instance.updateRole(values);
     setTimeout(() => {
       expect(props.updateRole).toHaveBeenCalledWith(id, { role: values });
       expect(props.history.push).toHaveBeenCalledWith(`/admin/roles/${id}`);
     }, 100);
-    
   });
 });

@@ -10,7 +10,7 @@ const routePermissions = {
     'read_users',
     'read_events',
     'read_sessions',
-    'read_hosts'
+    'read_hosts',
   ],
   categories: ['read_all', 'read_categories'],
   companies: ['read_all', 'read_companies'],
@@ -18,18 +18,18 @@ const routePermissions = {
   users: ['read_all', 'read_users'],
   events: ['read_all', 'read_events'],
   sessions: ['read_all', 'read_sessions'],
-  hosts: ['read_all', 'read_hosts']
+  hosts: ['read_all', 'read_hosts'],
 };
 
 const routeAccess = {
   company: 'representative',
-  session: 'student'
+  session: 'student',
 };
 
-const getBasePath = route => route.split('/').filter(i => i)[0];
+const getBasePath = (route) => route.split('/').filter((i) => i)[0];
 
 export const hasPermission = (
-  currentUser?: { roles?: Array<{ type: string, permissions: Array<string> }> },
+  currentUser?: { roles?: Array<{ type: string; permissions: Array<string> }> },
   route: string
 ) => {
   const basePath = getBasePath(route);
@@ -40,8 +40,8 @@ export const hasPermission = (
   }
   if (permissionsNeeded) {
     const { roles = [] } = currentUser;
-    return roles.some(role =>
-      role.permissions.some(p => permissionsNeeded.includes(p))
+    return roles.some((role) =>
+      role.permissions.some((p) => permissionsNeeded.includes(p))
     );
   }
   return true;

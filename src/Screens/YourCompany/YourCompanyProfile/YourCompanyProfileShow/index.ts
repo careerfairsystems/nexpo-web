@@ -6,12 +6,12 @@ import type { State } from '../../../../Store/reducers/index';
 
 const mapStateToProps = (state: State) => ({
   currentCompany: Selectors.companies.getCurrentCompany(state),
-  fetching: state.api.currentCompany.fetching
+  fetching: state.api.currentCompany.fetching,
 });
 
 const mapDispatchToProps = {
   getCurrentCompany: Actions.companies.getCurrentCompany,
-  resetForm: reset
+  resetForm: reset,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

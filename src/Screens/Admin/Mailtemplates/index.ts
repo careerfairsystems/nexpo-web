@@ -5,12 +5,12 @@ import type { State } from '../../../Store/reducers';
 
 const mapStateToProps = (state: State) => ({
   mailtemplates: state.entities.mailtemplates,
-  fetching: state.api.mailtemplates.fetching
+  fetching: state.api.mailtemplates.fetching,
 });
 
 const mapDispatchToProps = {
   deleteMailtemplate: Actions.mailtemplates.deleteMailtemplate,
-  getAllMailtemplates: Actions.mailtemplates.getAllMailtemplates
+  getAllMailtemplates: Actions.mailtemplates.getAllMailtemplates,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

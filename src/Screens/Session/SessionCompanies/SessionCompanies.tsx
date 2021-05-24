@@ -8,16 +8,16 @@ import InvisibleLink from '../../../Components/InvisibleLink';
 import '../Session.css';
 
 type Company = {
-  name: string,
-  website: string,
-  logoUrl: string,
-  description: string
+  name: string;
+  website: string;
+  logoUrl: string;
+  description: string;
 };
 
 type Props = {
-  fetching: boolean,
-  companies: { [string]: Company },
-  getAllCompanies: () => Promise<void>
+  fetching: boolean;
+  companies: { [string]: Company };
+  getAllCompanies: () => Promise<void>;
 };
 
 const SessionCompanies = ({ fetching, companies, getAllCompanies }: Props) => {
@@ -36,7 +36,7 @@ const SessionCompanies = ({ fetching, companies, getAllCompanies }: Props) => {
         />
       }
       actions={[
-        <InvisibleLink to="/session/application">Apply now</InvisibleLink>
+        <InvisibleLink to="/session/application">Apply now</InvisibleLink>,
       ]}
     >
       <List.Item.Meta

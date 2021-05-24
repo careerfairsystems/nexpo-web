@@ -8,12 +8,12 @@ const mapStateToProps = (state: State, props) => {
 
   return {
     id: categoryId,
-    category: state.entities.categories[categoryId] || {}
+    category: state.entities.categories[categoryId] || {},
   };
 };
 
 const mapDispatchToProps = {
-  getCategory: Actions.categories.getCategory
+  getCategory: Actions.categories.getCategory,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

@@ -8,12 +8,12 @@ export const getCurrentCompany = (state: State) => {
 
   const {
     representative: {
-      company: { id: companyId }
-    }
+      company: { id: companyId },
+    },
   } = currentUser;
 
   const {
-    companies: [company]
+    companies: [company],
   } = denormalize(
     { companies: [companyId] },
     { companies: Schema.companiesSchema() },

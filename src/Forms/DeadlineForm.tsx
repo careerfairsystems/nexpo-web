@@ -14,7 +14,7 @@ const MyDatePicker = makeField((props: FieldProps) =>
 );
 
 type Props = {
-  handleSubmit: () => Promise<void>
+  handleSubmit: () => Promise<void>;
 };
 const DeadlineForm = ({ handleSubmit }: Props) => (
   <Form onSubmit={handleSubmit}>
@@ -25,8 +25,8 @@ const DeadlineForm = ({ handleSubmit }: Props) => (
   </Form>
 );
 
-const mapStateToProps = state => ({
-  formState: state.form.DeadlineForm
+const mapStateToProps = (state) => ({
+  formState: state.form.DeadlineForm,
 });
 
 const stateful = connect(mapStateToProps);

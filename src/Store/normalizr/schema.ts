@@ -3,31 +3,31 @@
  */
 import { schema } from 'normalizr';
 
-const merge = key => (entityA, entityB) => ({
+const merge = (key) => (entityA, entityB) => ({
   ...entityA,
   ...entityB,
-  [key]: [...(entityA[key] || []), ...(entityB[key] || [])]
+  [key]: [...(entityA[key] || []), ...(entityB[key] || [])],
 });
 
-const belongsTo = key => (value, parent) => ({
+const belongsTo = (key) => (value, parent) => ({
   ...value,
-  [key]: parent.id
+  [key]: parent.id,
 });
 
-const hasMany = key => (value, parent) => ({
+const hasMany = (key) => (value, parent) => ({
   ...value,
-  [key]: [parent.id]
+  [key]: [parent.id],
 });
 
 type Entity = (
   key: string,
   definition?: {},
-  options?: { model?: Function, merge?: Function }
+  options?: { model?: Function; merge?: Function }
 ) => schema.Entity;
 const entity: Entity = (key, definition = {}, options = {}) =>
   new schema.Entity(key, definition, {
     mergeStrategy: options.merge,
-    processStrategy: options.model
+    processStrategy: options.model,
   });
 
 const mailtemplateSchema = () => entity('mailtemplates');
@@ -52,7 +52,7 @@ const sessionApplicationSchema = () => {
   );
   const application = entity('studentSessionApplications', {
     company,
-    student
+    student,
   });
   return application;
 };
@@ -66,7 +66,7 @@ const studentSessionSchema = () => {
   const student = entity('students', {}, { model: hasMany('studentSessions') });
   const session = entity('studentSessions', {
     company,
-    student
+    student,
   });
   return session;
 };
@@ -124,7 +124,7 @@ const companySchema = () => {
     entries: [entry],
     users: [user],
     studentSessionTimeSlots: [studentSessionTimeSlot],
-    studentSessionApplications: [studentSessionApplication]
+    studentSessionApplications: [studentSessionApplication],
   });
 
   return company;
@@ -173,7 +173,7 @@ const userSchema = () => {
     {
       programme,
       studentSessionApplications: [sessionApplication],
-      studentSessions: [studentSession]
+      studentSessions: [studentSession],
     },
     { model: belongsTo('user') }
   );
@@ -211,5 +211,5 @@ export default {
   userSchema,
   usersSchema,
   studentSchema,
-  studentsSchema
+  studentsSchema,
 };

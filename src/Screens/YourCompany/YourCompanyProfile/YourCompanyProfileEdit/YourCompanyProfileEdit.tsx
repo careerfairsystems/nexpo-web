@@ -6,23 +6,23 @@ import CurrentCompanyForm from '../../../../Forms/CurrentCompanyForm';
 import LoadingSpinner from '../../../../Components/LoadingSpinner';
 
 type CurrentCompany = {
-  id?: number,
-  name?: string,
-  studentSessionDays?: number
+  id?: number;
+  name?: string;
+  studentSessionDays?: number;
 };
 
 type CompanyForm = {
-  website: string,
-  description: string,
-  logoUrl: File
+  website: string;
+  description: string;
+  logoUrl: File;
 };
 
 type Props = {
-  fetching: boolean,
-  history: RouterHistory,
-  currentCompany: CurrentCompany,
-  getCurrentCompany: () => Promise<void>,
-  updateCurrentCompany: ({ company: CompanyForm }) => Promise<void>
+  fetching: boolean;
+  history: RouterHistory;
+  currentCompany: CurrentCompany;
+  getCurrentCompany: () => Promise<void>;
+  updateCurrentCompany: ({ company: CompanyForm }) => Promise<void>;
 };
 
 const YourCompanyProfileEdit = ({
@@ -30,15 +30,14 @@ const YourCompanyProfileEdit = ({
   history,
   currentCompany,
   getCurrentCompany,
-  updateCurrentCompany
+  updateCurrentCompany,
 }: Props) => {
   useEffect(() => {
     getCurrentCompany();
   }, [getCurrentCompany]);
 
-  const updatingCurrentCompany = (values: CompanyForm) => {
-    return updateCurrentCompany({ company: values });
-  };
+  const updatingCurrentCompany = (values: CompanyForm) =>
+    updateCurrentCompany({ company: values });
 
   const onSuccess = () => {
     history.push('/company/profile');

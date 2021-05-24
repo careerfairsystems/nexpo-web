@@ -26,22 +26,22 @@ const permissions = [
   'read_sessions',
   'write_sessions',
   'read_hosts',
-  'write_hosts'
+  'write_hosts',
 ];
 
 const renderPermissionItem = (permission: string) => (
   <Select.Option key={permission}>{permission}</Select.Option>
 );
 
-const renderUserItem = user => (
+const renderUserItem = (user) => (
   <Select.Option key={user.id} value={user.id}>
     {user.email}
   </Select.Option>
 );
 
 type Props = FormProps & {
-  users: {},
-  handleSubmit: () => Promise<void>
+  users: {};
+  handleSubmit: () => Promise<void>;
 };
 const RoleForm = ({ handleSubmit, users }: Props) => (
   <Form onSubmit={handleSubmit}>
@@ -69,9 +69,9 @@ const RoleForm = ({ handleSubmit, users }: Props) => (
   </Form>
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   users: state.entities.users,
-  formState: state.form.RoleForm
+  formState: state.form.RoleForm,
 });
 
 const stateful = connect(mapStateToProps);

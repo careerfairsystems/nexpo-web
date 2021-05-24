@@ -16,12 +16,12 @@ describe('SessionApplications', () => {
           studentSessionStatus: 0,
           company: {
             name: 'Google',
-            logoUrl: 'www.google.com/profile.jpg'
+            logoUrl: 'www.google.com/profile.jpg',
           },
           studentSessionTimeSlot: {
             start: '2018-01-01',
-            end: '2018-01-01'
-          }
+            end: '2018-01-01',
+          },
         },
         {
           id: 2,
@@ -30,18 +30,18 @@ describe('SessionApplications', () => {
           studentSessionStatus: 0,
           company: {
             name: 'Victor AB',
-            logoUrl: 'www.victorab.com/profile.jpg'
+            logoUrl: 'www.victorab.com/profile.jpg',
           },
           studentSessionTimeSlot: {
             start: '2018-01-01',
-            end: '2018-01-01'
-          }
-        }
+            end: '2018-01-01',
+          },
+        },
       ],
       companies: {},
       fetching: false,
       getAllCompanies: jest.fn(),
-      updateSession: jest.fn()
+      updateSession: jest.fn(),
     };
   });
 
@@ -60,7 +60,7 @@ describe('SessionApplications', () => {
     const status = 1;
     expect(props.updateSession).toHaveBeenCalledTimes(0);
     const instance = wrapper.instance();
-    if(instance) instance.updateSession(id, status);
+    if (instance) instance.updateSession(id, status);
     setTimeout(() => {
       expect(props.updateSession).toHaveBeenCalledWith(id, status);
       expect(props.updateSession).toHaveBeenCalledTimes(1);

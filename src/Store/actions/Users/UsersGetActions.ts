@@ -4,36 +4,35 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const getUserIsLoading = () => ({
-  type: actionTypes.FETCH_USER
+  type: actionTypes.FETCH_USER,
 });
 
 export const getUserSuccess = (user: {}) => ({
   type: actionTypes.FETCH_USER_SUCCESS,
-  user
+  user,
 });
 
 export type GetUserFailureAction = {
-  type: string
+  type: string;
 };
 export const getUserFailure = (): GetUserFailureAction => {
   message.error(
     'Something went wrong when trying to fetch user, please try again later'
   );
   return {
-    type: actionTypes.FETCH_USER_FAILURE
+    type: actionTypes.FETCH_USER_FAILURE,
   };
 };
 
-export const getUser = (id: string) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const getUser =
+  (id: string) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getUserIsLoading());
     return API.users
       .get(id)
-      .then(user => {
+      .then((user) => {
         dispatch(getUserSuccess(user.data));
       })
       .catch(() => {
         dispatch(getUserFailure());
       });
   };
-}

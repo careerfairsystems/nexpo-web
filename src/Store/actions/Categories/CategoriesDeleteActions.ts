@@ -4,29 +4,29 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const deleteCategoryIsLoading = () => ({
-  type: actionTypes.DELETE_CATEGORY
+  type: actionTypes.DELETE_CATEGORY,
 });
 
 export const deleteCategorySuccess = (id: string) => {
   message.success('Category successfully deleted');
   return {
     type: actionTypes.DELETE_CATEGORY_SUCCESS,
-    id
+    id,
   };
 };
 
 export type DestroyCategoryFailureAction = {
-  type: string
+  type: string;
 };
 export const deleteCategoryFailure = (): DestroyCategoryFailureAction => {
   message.error('Something went wrong, please try again later');
   return {
-    type: actionTypes.DELETE_CATEGORY_FAILURE
+    type: actionTypes.DELETE_CATEGORY_FAILURE,
   };
 };
 
-export const deleteCategory = (id: string) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const deleteCategory =
+  (id: string) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteCategoryIsLoading());
     return API.categories
       .delete(id)
@@ -37,4 +37,3 @@ export const deleteCategory = (id: string) => {
         dispatch(deleteCategoryFailure());
       });
   };
-}

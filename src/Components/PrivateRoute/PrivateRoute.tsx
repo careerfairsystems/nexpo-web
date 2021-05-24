@@ -10,15 +10,15 @@ import LoadingSpinner from '../LoadingSpinner';
  */
 
 type Props = {
-  component: React.ComponentType<{}>,
+  component: React.ComponentType<{}>;
   currentUser: {
-    email?: string,
-    firstName?: string,
-    lastName?: string,
-    roles?: Array<{ type: string, permissions: Array<string> }>
-  },
-  fetching: boolean,
-  isLoggedIn: boolean
+    email?: string;
+    firstName?: string;
+    lastName?: string;
+    roles?: Array<{ type: string; permissions: Array<string> }>;
+  };
+  fetching: boolean;
+  isLoggedIn: boolean;
 };
 
 const PrivateRoute = ({
@@ -30,7 +30,7 @@ const PrivateRoute = ({
 }: Props) => (
   <Route
     {...rest}
-    render={props => {
+    render={(props) => {
       if (fetching) return <LoadingSpinner />;
       if (isLoggedIn && hasPermission(currentUser, props.location.pathname))
         return <Component {...props} />;

@@ -5,11 +5,11 @@ import type { State } from '../../../Store/reducers';
 
 const mapStateToProps = (state: State) => ({
   companies: state.entities.companies,
-  fetching: state.api.companies.fetching
+  fetching: state.api.companies.fetching,
 });
 
 const mapDispatchToProps = {
-  getAllCompanies: Actions.companies.getAllCompanies
+  getAllCompanies: Actions.companies.getAllCompanies,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

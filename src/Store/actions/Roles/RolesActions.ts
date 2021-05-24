@@ -9,5 +9,5 @@ export default {
   ...RolesGetActions,
   ...RolesGetAllActions,
   ...RolesPostActions,
-  ...RolesPutActions
+  ...RolesPutActions,
 };

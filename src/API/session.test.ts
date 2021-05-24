@@ -9,24 +9,24 @@ describe('login', () => {
     const response = { test: 'success' };
     mockHttpResponse({
       status: 200,
-      body: response
+      body: response,
     });
 
     expect.assertions(1);
 
-    return method().then(res => expect(res).toEqual(response));
+    return method().then((res) => expect(res).toEqual(response));
   });
 
   it('should return a rejected promise on failure', () => {
     const response = { test: 'failure' };
     mockHttpResponse({
       status: 404,
-      body: response
+      body: response,
     });
 
     expect.assertions(1);
 
-    return method().catch(err => expect(err).toBeInstanceOf(ApiError));
+    return method().catch((err) => expect(err).toBeInstanceOf(ApiError));
   });
 });
 
@@ -35,26 +35,26 @@ describe('forgotPassword', () => {
     const response = { test: 'success' };
     mockHttpResponse({
       status: 200,
-      body: response
+      body: response,
     });
     expect.assertions(1);
 
     return API.session
       .forgotPassword({ email: 'test' })
-      .then(res => expect(res).toEqual(response));
+      .then((res) => expect(res).toEqual(response));
   });
 
   it('should return a rejected promise on failure', () => {
     const response = { test: 'failure' };
     mockHttpResponse({
       status: 404,
-      body: response
+      body: response,
     });
     expect.assertions(1);
 
     return API.session
       .forgotPassword({ email: 'test' })
-      .catch(err => expect(err).toBeInstanceOf(ApiError));
+      .catch((err) => expect(err).toBeInstanceOf(ApiError));
   });
 });
 describe('verifyForgotPasswordKey', () => {
@@ -62,26 +62,26 @@ describe('verifyForgotPasswordKey', () => {
     const response = { test: 'success' };
     mockHttpResponse({
       status: 200,
-      body: response
+      body: response,
     });
     expect.assertions(1);
 
     return API.session
       .verifyForgotPasswordKey({ key: 'random-string' })
-      .then(res => expect(res).toEqual(response));
+      .then((res) => expect(res).toEqual(response));
   });
 
   it('should return a rejected promise on failure', () => {
     const response = { test: 'failure' };
     mockHttpResponse({
       status: 404,
-      body: response
+      body: response,
     });
     expect.assertions(1);
 
     return API.session
       .verifyForgotPasswordKey({ key: 'random-string' })
-      .catch(err => expect(err).toBeInstanceOf(ApiError));
+      .catch((err) => expect(err).toBeInstanceOf(ApiError));
   });
 });
 
@@ -90,25 +90,25 @@ describe('replaceForgottenPassword', () => {
     const response = { test: 'success' };
     mockHttpResponse({
       status: 200,
-      body: response
+      body: response,
     });
     expect.assertions(1);
 
     const params = {
       key: 'random-string',
       password: 'random-password',
-      passwordConfirmation: 'random-password'
+      passwordConfirmation: 'random-password',
     };
     return API.session
       .replaceForgottenPassword(params)
-      .then(res => expect(res).toEqual(response));
+      .then((res) => expect(res).toEqual(response));
   });
 
   it('should return a rejected promise on failure', () => {
     const response = { test: 'failure' };
     mockHttpResponse({
       status: 404,
-      body: response
+      body: response,
     });
     expect.assertions(1);
 
@@ -116,8 +116,8 @@ describe('replaceForgottenPassword', () => {
       .replaceForgottenPassword({
         key: '1',
         password: '',
-        passwordConfirmation: ''
+        passwordConfirmation: '',
       })
-      .catch(err => expect(err).toBeInstanceOf(ApiError));
+      .catch((err) => expect(err).toBeInstanceOf(ApiError));
   });
 });

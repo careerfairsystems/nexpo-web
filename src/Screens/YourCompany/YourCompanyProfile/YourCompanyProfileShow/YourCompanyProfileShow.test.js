@@ -6,7 +6,7 @@ describe('current company show should function correctly', () => {
   let props;
   beforeEach(() => {
     props = {
-      resetForm: jest.fn()
+      resetForm: jest.fn(),
     };
   });
 

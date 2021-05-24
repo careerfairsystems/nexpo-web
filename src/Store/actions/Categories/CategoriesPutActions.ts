@@ -4,37 +4,36 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const updateCategoryIsLoading = () => ({
-  type: actionTypes.PUT_CATEGORY
+  type: actionTypes.PUT_CATEGORY,
 });
 
 export const updateCategorySuccess = (category: {}) => {
   message.success('Category successfully updated');
   return {
     type: actionTypes.PUT_CATEGORY_SUCCESS,
-    category
+    category,
   };
 };
 
 export type UpdateCategoryFailureAction = {
-  type: string
+  type: string;
 };
 export const updateCategoryFailure = (): UpdateCategoryFailureAction => {
   message.error('Something went wrong, please try again later');
   return {
-    type: actionTypes.PUT_CATEGORY_FAILURE
+    type: actionTypes.PUT_CATEGORY_FAILURE,
   };
 };
 
-export const updateCategory = (id: string, data: {}) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const updateCategory =
+  (id: string, data: {}) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateCategoryIsLoading());
     return API.categories
       .update(id, data)
-      .then(category => {
+      .then((category) => {
         dispatch(updateCategorySuccess(category.data));
       })
       .catch(() => {
         dispatch(updateCategoryFailure());
       });
   };
-}

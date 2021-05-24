@@ -22,7 +22,7 @@ it('should render NotFound if there is no category', () => {
 it('should set html title', () => {
   const func = jest.fn();
   const category = {
-    title: 'Test Category'
+    title: 'Test Category',
   };
   const wrapper = shallow(
     <Category id="1" category={category} getCategory={func} />
@@ -34,7 +34,7 @@ it('should set html title', () => {
 it('should render category information', () => {
   const func = jest.fn();
   const category = {
-    title: 'Test Category'
+    title: 'Test Category',
   };
   const wrapper = shallow(
     <Category id="1" category={category} getCategory={func} />

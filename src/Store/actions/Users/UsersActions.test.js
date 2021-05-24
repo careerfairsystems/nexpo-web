@@ -4,7 +4,7 @@ import { mockHttpResponse, createMockStore } from '../../../TestHelper';
 describe('get current user start', () => {
   it('should create an empty action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_CURRENT_USER
+      type: actionTypes.FETCH_CURRENT_USER,
     };
     expect(Actions.users.getCurrentUserIsLoading()).toEqual(expectedAction);
   });
@@ -15,7 +15,7 @@ describe('get current user success', () => {
     const testUser = { name: 'TestUser' };
     const expectedAction = {
       type: actionTypes.FETCH_CURRENT_USER_SUCCESS,
-      user: testUser
+      user: testUser,
     };
     expect(Actions.users.getCurrentUserSuccess(testUser)).toEqual(
       expectedAction
@@ -26,7 +26,7 @@ describe('get current user success', () => {
 describe('get current user failure', () => {
   it('should create an empty action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_CURRENT_USER_FAILURE
+      type: actionTypes.FETCH_CURRENT_USER_FAILURE,
     };
     expect(Actions.users.getCurrentUserFailure()).toEqual(expectedAction);
   });
@@ -46,13 +46,13 @@ describe('get current user', () => {
   it('should call success action on success', () => {
     const testUser = { id: '1', name: 'Test User' };
     const httpResponseBody = {
-      data: testUser
+      data: testUser,
     };
     mockHttpResponse({ status: 200, body: httpResponseBody });
 
     const expectedActions = [
       Actions.users.getCurrentUserIsLoading(),
-      Actions.users.getCurrentUserSuccess(testUser)
+      Actions.users.getCurrentUserSuccess(testUser),
     ];
 
     const store = createMockStore();
@@ -68,7 +68,7 @@ describe('get current user', () => {
 
     const expectedActions = [
       Actions.users.getCurrentUserIsLoading(),
-      Actions.users.getCurrentUserFailure()
+      Actions.users.getCurrentUserFailure(),
     ];
 
     const store = createMockStore();
@@ -83,7 +83,7 @@ describe('get current user', () => {
 describe('getCurrentUserIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_CURRENT_USER
+      type: actionTypes.FETCH_CURRENT_USER,
     };
     const action = Actions.users.getCurrentUserIsLoading();
     expect(action).toEqual(expectedAction);
@@ -93,12 +93,12 @@ describe('getCurrentUserIsLoading', () => {
 describe('getCurrentUserSuccess', () => {
   it('should create the correct action', () => {
     const testCurrentUser = {
-      name: 'CurrentUser1'
+      name: 'CurrentUser1',
     };
 
     const expectedAction = {
       type: actionTypes.FETCH_CURRENT_USER_SUCCESS,
-      user: testCurrentUser
+      user: testCurrentUser,
     };
     const action = Actions.users.getCurrentUserSuccess(testCurrentUser);
     expect(action).toEqual(expectedAction);
@@ -108,7 +108,7 @@ describe('getCurrentUserSuccess', () => {
 describe('getCurrentUserFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_CURRENT_USER_FAILURE
+      type: actionTypes.FETCH_CURRENT_USER_FAILURE,
     };
     const action = Actions.users.getCurrentUserFailure();
     expect(action).toEqual(expectedAction);
@@ -128,13 +128,13 @@ describe('getCurrentUser', () => {
 
   it('should call success action on success', () => {
     const user = {
-      name: 'CurrentUser1'
+      name: 'CurrentUser1',
     };
     mockHttpResponse({ status: 200, body: { data: user } });
 
     const expectedActions = [
       Actions.users.getCurrentUserIsLoading(),
-      Actions.users.getCurrentUserSuccess(user)
+      Actions.users.getCurrentUserSuccess(user),
     ];
 
     const store = createMockStore();
@@ -150,7 +150,7 @@ describe('getCurrentUser', () => {
 
     const expectedActions = [
       Actions.users.getCurrentUserIsLoading(),
-      Actions.users.getCurrentUserFailure()
+      Actions.users.getCurrentUserFailure(),
     ];
 
     const store = createMockStore();
@@ -165,7 +165,7 @@ describe('getCurrentUser', () => {
 describe('updateCurrentUserIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_CURRENT_USER
+      type: actionTypes.PUT_CURRENT_USER,
     };
     const action = Actions.users.updateCurrentUserIsLoading();
     expect(action).toEqual(expectedAction);
@@ -175,12 +175,12 @@ describe('updateCurrentUserIsLoading', () => {
 describe('updateCurrentUserSuccess', () => {
   it('should create the correct action', () => {
     const testCurrentUser = {
-      name: 'CurrentUser1'
+      name: 'CurrentUser1',
     };
 
     const expectedAction = {
       type: actionTypes.PUT_CURRENT_USER_SUCCESS,
-      user: testCurrentUser
+      user: testCurrentUser,
     };
     const action = Actions.users.updateCurrentUserSuccess(testCurrentUser);
     expect(action).toEqual(expectedAction);
@@ -190,7 +190,7 @@ describe('updateCurrentUserSuccess', () => {
 describe('updateCurrentUserFailure', () => {
   it('should update the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_CURRENT_USER_FAILURE
+      type: actionTypes.PUT_CURRENT_USER_FAILURE,
     };
     const action = Actions.users.updateCurrentUserFailure();
     expect(action).toEqual(expectedAction);
@@ -213,13 +213,13 @@ describe('updateCurrentUser', () => {
 
   it('should call success action on success', () => {
     const user = {
-      name: 'CurrentUser1'
+      name: 'CurrentUser1',
     };
     mockHttpResponse({ status: 200, body: { data: user } });
 
     const expectedActions = [
       Actions.users.updateCurrentUserIsLoading(),
-      Actions.users.updateCurrentUserSuccess(user)
+      Actions.users.updateCurrentUserSuccess(user),
     ];
 
     const store = createMockStore();
@@ -237,7 +237,7 @@ describe('updateCurrentUser', () => {
 
     const expectedActions = [
       Actions.users.updateCurrentUserIsLoading(),
-      Actions.users.updateCurrentUserFailure()
+      Actions.users.updateCurrentUserFailure(),
     ];
 
     const store = createMockStore();
@@ -252,7 +252,7 @@ describe('updateCurrentUser', () => {
 describe('deleteCurrentUserIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_CURRENT_USER
+      type: actionTypes.DELETE_CURRENT_USER,
     };
     const action = Actions.users.deleteCurrentUserIsLoading();
     expect(action).toEqual(expectedAction);
@@ -262,7 +262,7 @@ describe('deleteCurrentUserIsLoading', () => {
 describe('deleteCurrentUserSuccess', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_CURRENT_USER_SUCCESS
+      type: actionTypes.DELETE_CURRENT_USER_SUCCESS,
     };
     const action = Actions.users.deleteCurrentUserSuccess();
     expect(action).toEqual(expectedAction);
@@ -272,7 +272,7 @@ describe('deleteCurrentUserSuccess', () => {
 describe('deleteCurrentUserFailure', () => {
   it('should delete the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_CURRENT_USER_FAILURE
+      type: actionTypes.DELETE_CURRENT_USER_FAILURE,
     };
     const action = Actions.users.deleteCurrentUserFailure();
     expect(action).toEqual(expectedAction);
@@ -298,7 +298,7 @@ describe('deleteCurrentUser', () => {
 
     const expectedActions = [
       Actions.users.deleteCurrentUserIsLoading(),
-      Actions.users.deleteCurrentUserSuccess()
+      Actions.users.deleteCurrentUserSuccess(),
     ];
 
     const store = createMockStore();
@@ -313,7 +313,7 @@ describe('deleteCurrentUser', () => {
     mockHttpResponse({ status: 401, body: {} });
     const expectedActions = [
       Actions.users.deleteCurrentUserIsLoading(),
-      Actions.users.deleteCurrentUserFailure()
+      Actions.users.deleteCurrentUserFailure(),
     ];
 
     const store = createMockStore();
@@ -328,7 +328,7 @@ describe('deleteCurrentUser', () => {
 describe('getAllUsersIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_USERS
+      type: actionTypes.FETCH_USERS,
     };
     const action = Actions.users.getAllUsersIsLoading();
     expect(action).toEqual(expectedAction);
@@ -340,13 +340,13 @@ describe('getAllUsersSuccess', () => {
     const testUsers = [
       {
         id: 1,
-        name: 'User1'
-      }
+        name: 'User1',
+      },
     ];
 
     const expectedAction = {
       type: actionTypes.FETCH_USERS_SUCCESS,
-      users: testUsers
+      users: testUsers,
     };
     const action = Actions.users.getAllUsersSuccess(testUsers);
     expect(action).toEqual(expectedAction);
@@ -356,7 +356,7 @@ describe('getAllUsersSuccess', () => {
 describe('getAllUsersFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_USERS_FAILURE
+      type: actionTypes.FETCH_USERS_FAILURE,
     };
     const action = Actions.users.getAllUsersFailure();
     expect(action).toEqual(expectedAction);
@@ -377,14 +377,14 @@ describe('getAllUsers', () => {
   it('should call success action on success', () => {
     const users = [
       {
-        name: 'User1'
-      }
+        name: 'User1',
+      },
     ];
     mockHttpResponse({ status: 200, body: { data: users } });
 
     const expectedActions = [
       Actions.users.getAllUsersIsLoading(),
-      Actions.users.getAllUsersSuccess(users)
+      Actions.users.getAllUsersSuccess(users),
     ];
 
     const store = createMockStore();
@@ -400,7 +400,7 @@ describe('getAllUsers', () => {
 
     const expectedActions = [
       Actions.users.getAllUsersIsLoading(),
-      Actions.users.getAllUsersFailure()
+      Actions.users.getAllUsersFailure(),
     ];
 
     const store = createMockStore();
@@ -415,7 +415,7 @@ describe('getAllUsers', () => {
 describe('createUserIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_USER
+      type: actionTypes.POST_USER,
     };
     const action = Actions.users.createUserIsLoading();
     expect(action).toEqual(expectedAction);
@@ -425,12 +425,12 @@ describe('createUserIsLoading', () => {
 describe('createUserSuccess', () => {
   it('should create the correct action', () => {
     const testUser = {
-      name: 'User1'
+      name: 'User1',
     };
 
     const expectedAction = {
       type: actionTypes.POST_USER_SUCCESS,
-      user: testUser
+      user: testUser,
     };
     const action = Actions.users.createUserSuccess(testUser);
     expect(action).toEqual(expectedAction);
@@ -440,7 +440,7 @@ describe('createUserSuccess', () => {
 describe('createUserFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_USER_FAILURE
+      type: actionTypes.POST_USER_FAILURE,
     };
     const action = Actions.users.createUserFailure();
     expect(action).toEqual(expectedAction);
@@ -461,13 +461,13 @@ describe('createUser', () => {
 
   it('should call success action on success', () => {
     const user = {
-      name: 'User1'
+      name: 'User1',
     };
     mockHttpResponse({ status: 200, body: { data: user } });
 
     const expectedActions = [
       Actions.users.createUserIsLoading(),
-      Actions.users.createUserSuccess(user)
+      Actions.users.createUserSuccess(user),
     ];
 
     const store = createMockStore();
@@ -485,7 +485,7 @@ describe('createUser', () => {
 
     const expectedActions = [
       Actions.users.createUserIsLoading(),
-      Actions.users.createUserFailure()
+      Actions.users.createUserFailure(),
     ];
 
     const store = createMockStore();
@@ -500,7 +500,7 @@ describe('createUser', () => {
 describe('getUserIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_USER
+      type: actionTypes.FETCH_USER,
     };
     const action = Actions.users.getUserIsLoading();
     expect(action).toEqual(expectedAction);
@@ -510,12 +510,12 @@ describe('getUserIsLoading', () => {
 describe('getUserSuccess', () => {
   it('should create the correct action', () => {
     const testUser = {
-      name: 'User1'
+      name: 'User1',
     };
 
     const expectedAction = {
       type: actionTypes.FETCH_USER_SUCCESS,
-      user: testUser
+      user: testUser,
     };
     const action = Actions.users.getUserSuccess(testUser);
     expect(action).toEqual(expectedAction);
@@ -525,7 +525,7 @@ describe('getUserSuccess', () => {
 describe('getUserFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_USER_FAILURE
+      type: actionTypes.FETCH_USER_FAILURE,
     };
     const action = Actions.users.getUserFailure();
     expect(action).toEqual(expectedAction);
@@ -545,13 +545,13 @@ describe('getUser', () => {
 
   it('should call success action on success', () => {
     const user = {
-      name: 'User1'
+      name: 'User1',
     };
     mockHttpResponse({ status: 200, body: { data: user } });
 
     const expectedActions = [
       Actions.users.getUserIsLoading(),
-      Actions.users.getUserSuccess(user)
+      Actions.users.getUserSuccess(user),
     ];
 
     const store = createMockStore();
@@ -567,7 +567,7 @@ describe('getUser', () => {
 
     const expectedActions = [
       Actions.users.getUserIsLoading(),
-      Actions.users.getUserFailure()
+      Actions.users.getUserFailure(),
     ];
 
     const store = createMockStore();
@@ -582,7 +582,7 @@ describe('getUser', () => {
 describe('updateUserIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_USER
+      type: actionTypes.PUT_USER,
     };
     const action = Actions.users.updateUserIsLoading();
     expect(action).toEqual(expectedAction);
@@ -592,12 +592,12 @@ describe('updateUserIsLoading', () => {
 describe('updateUserSuccess', () => {
   it('should create the correct action', () => {
     const testUser = {
-      name: 'User1'
+      name: 'User1',
     };
 
     const expectedAction = {
       type: actionTypes.PUT_USER_SUCCESS,
-      user: testUser
+      user: testUser,
     };
     const action = Actions.users.updateUserSuccess(testUser);
     expect(action).toEqual(expectedAction);
@@ -607,7 +607,7 @@ describe('updateUserSuccess', () => {
 describe('updateUserFailure', () => {
   it('should update the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_USER_FAILURE
+      type: actionTypes.PUT_USER_FAILURE,
     };
     const action = Actions.users.updateUserFailure();
     expect(action).toEqual(expectedAction);
@@ -628,13 +628,13 @@ describe('updateUser', () => {
 
   it('should call success action on success', () => {
     const user = {
-      name: 'User1'
+      name: 'User1',
     };
     mockHttpResponse({ status: 200, body: { data: user } });
 
     const expectedActions = [
       Actions.users.updateUserIsLoading(),
-      Actions.users.updateUserSuccess(user)
+      Actions.users.updateUserSuccess(user),
     ];
 
     const store = createMockStore();
@@ -652,7 +652,7 @@ describe('updateUser', () => {
 
     const expectedActions = [
       Actions.users.updateUserIsLoading(),
-      Actions.users.updateUserFailure()
+      Actions.users.updateUserFailure(),
     ];
 
     const store = createMockStore();
@@ -667,7 +667,7 @@ describe('updateUser', () => {
 describe('deleteUserIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_USER
+      type: actionTypes.DELETE_USER,
     };
     const action = Actions.users.deleteUserIsLoading();
     expect(action).toEqual(expectedAction);
@@ -678,12 +678,12 @@ describe('deleteUserSuccess', () => {
   it('should create the correct action', () => {
     const testUser = {
       id: '1',
-      name: 'User1'
+      name: 'User1',
     };
 
     const expectedAction = {
       type: actionTypes.DELETE_USER_SUCCESS,
-      id: testUser.id
+      id: testUser.id,
     };
     const action = Actions.users.deleteUserSuccess(testUser.id);
     expect(action).toEqual(expectedAction);
@@ -693,7 +693,7 @@ describe('deleteUserSuccess', () => {
 describe('deleteUserFailure', () => {
   it('should delete the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_USER_FAILURE
+      type: actionTypes.DELETE_USER_FAILURE,
     };
     const action = Actions.users.deleteUserFailure();
     expect(action).toEqual(expectedAction);
@@ -714,13 +714,13 @@ describe('deleteUser', () => {
   it('should call success action on success', () => {
     const user = {
       id: '1',
-      name: 'User1'
+      name: 'User1',
     };
     mockHttpResponse({ status: 200, body: '' });
 
     const expectedActions = [
       Actions.users.deleteUserIsLoading(),
-      Actions.users.deleteUserSuccess(user.id)
+      Actions.users.deleteUserSuccess(user.id),
     ];
 
     const store = createMockStore();
@@ -735,7 +735,7 @@ describe('deleteUser', () => {
     mockHttpResponse({ status: 401, body: {} });
     const expectedActions = [
       Actions.users.deleteUserIsLoading(),
-      Actions.users.deleteUserFailure()
+      Actions.users.deleteUserFailure(),
     ];
 
     const store = createMockStore();

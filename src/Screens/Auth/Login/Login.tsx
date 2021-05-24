@@ -12,17 +12,12 @@ import LoginForm from '../../../Forms/LoginForm';
  * - By passing isAuthenticated prop, this component will redirect back to where user came from
  */
 type Props = {
-  location: Location,
-  isLoggedIn: boolean,
-  login: ({ email: string, password: string }) => Promise<void>
+  location: Location;
+  isLoggedIn: boolean;
+  login: ({ email: string, password: string }) => Promise<void>;
 };
 
-const Login = ({
-  location,
-  isLoggedIn,
-  login
-}: Props) => {
-
+const Login = ({ location, isLoggedIn, login }: Props) => {
   // Url that redirected here
   const { from } = location.state || { from: { pathname: '/' } };
 
@@ -49,6 +44,6 @@ const Login = ({
       </div>
     </div>
   );
-}
+};
 
 export default Login;

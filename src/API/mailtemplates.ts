@@ -7,7 +7,7 @@ import {
   authFetch,
   authPut,
   authDelete,
-  handleHttpResponse
+  handleHttpResponse,
 } from './utils';
 
 export default {
@@ -38,5 +38,5 @@ export default {
    * Delete a mail template
    */
   delete: (id: string) =>
-    authDelete(`/api/mailtemplates/${id}`).then(handleHttpResponse)
+    authDelete(`/api/mailtemplates/${id}`).then(handleHttpResponse),
 };

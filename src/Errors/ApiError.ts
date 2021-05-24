@@ -3,11 +3,11 @@
  */
 
 type ErrorResponse = {
-  error: string,
-  errors: { password?: string, passwordConfirmation?: string }
+  error: string;
+  errors: { password?: string; passwordConfirmation?: string };
 };
 class ApiError extends Error {
-  errors: { password?: string, passwordConfirmation?: string };
+  errors: { password?: string; passwordConfirmation?: string };
 
   constructor(response: ErrorResponse, ...params: Array<any>) {
     super(...params);

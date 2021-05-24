@@ -13,7 +13,7 @@ describe('companies', () => {
       getAllCompanies: jest.fn(),
       deleteCompany: jest.fn(),
       createBulkStudentSessions: jest.fn(),
-      createBulk: jest.fn()
+      createBulk: jest.fn(),
     };
   });
 
@@ -37,18 +37,18 @@ describe('companies', () => {
 
   it('should render companies', () => {
     const companies = {
-      '1': {
+      1: {
         id: 1,
         name: 'Spotify',
         description: 'We do music!',
-        website: 'www.spotify.com'
+        website: 'www.spotify.com',
       },
-      '2': {
+      2: {
         id: 2,
         name: 'Google',
         description: 'We code!',
-        website: 'www.google.com'
-      }
+        website: 'www.google.com',
+      },
     };
     const wrapper = shallow(
       <Companies id="1" {...props} companies={companies} />

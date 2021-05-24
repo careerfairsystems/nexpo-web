@@ -8,13 +8,13 @@ import StudentHome from './StudentHome';
 type Props = {
   currentUser?: {
     representative?: {
-      id: number
-    },
+      id: number;
+    };
     student?: {
-      id: number
-    }
-  },
-  fetching?: boolean
+      id: number;
+    };
+  };
+  fetching?: boolean;
 };
 
 const Home = ({ currentUser = {}, fetching }: Props) => {
@@ -30,7 +30,7 @@ const Home = ({ currentUser = {}, fetching }: Props) => {
 
 Home.defaultProps = {
   currentUser: {},
-  fetching: false
+  fetching: false,
 };
 
 export default Home;

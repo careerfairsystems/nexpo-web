@@ -4,29 +4,29 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const deleteUserIsLoading = () => ({
-  type: actionTypes.DELETE_USER
+  type: actionTypes.DELETE_USER,
 });
 
 export const deleteUserSuccess = (id: string) => {
   message.success('User successfully deleted');
   return {
     type: actionTypes.DELETE_USER_SUCCESS,
-    id
+    id,
   };
 };
 
 export type DestroyUserFailureAction = {
-  type: string
+  type: string;
 };
 export const deleteUserFailure = (): DestroyUserFailureAction => {
   message.error('Something went wrong, please try again later');
   return {
-    type: actionTypes.DELETE_USER_FAILURE
+    type: actionTypes.DELETE_USER_FAILURE,
   };
 };
 
-export const deleteUser = (id: string) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const deleteUser =
+  (id: string) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteUserIsLoading());
     return API.users
       .delete(id)
@@ -37,4 +37,3 @@ export const deleteUser = (id: string) => {
         dispatch(deleteUserFailure());
       });
   };
-}

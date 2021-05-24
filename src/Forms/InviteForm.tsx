@@ -7,7 +7,7 @@ import makeField from './helper';
 const TextInput = makeField(Input);
 
 type Props = {
-  handleSubmit: () => Promise<void>
+  handleSubmit: () => Promise<void>;
 };
 const InviteForm = ({ handleSubmit }: Props) => (
   <Form onSubmit={handleSubmit} layout="inline">
@@ -22,8 +22,8 @@ const InviteForm = ({ handleSubmit }: Props) => (
   </Form>
 );
 
-const mapStateToProps = state => ({
-  formState: state.form.InviteForm
+const mapStateToProps = (state) => ({
+  formState: state.form.InviteForm,
 });
 
 const stateful = connect(mapStateToProps);

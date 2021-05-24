@@ -5,8 +5,8 @@ import { Form } from 'antd';
 
 const FormItem = Form.Item;
 type PasswordValues = {
-  password?: string,
-  passwordConfirmation?: string
+  password?: string;
+  passwordConfirmation?: string;
 };
 
 export const validatePassword = (values: PasswordValues) => {
@@ -22,34 +22,28 @@ export const required = (value: string) =>
   trim(value) ? undefined : "Field can't be empty";
 
 type Props = FieldProps & {
-  accept: string,
-  children: Node,
-  format: string,
-  label: string
+  accept: string;
+  children: Node;
+  format: string;
+  label: string;
 };
-const makeField = (Component: React.ComponentType<any>) => ({
-  input,
-  meta,
-  children,
-  hasFeedback,
-  label,
-  required,
-  ...rest
-}: Props) => {
-  const hasError = meta.touched && meta.invalid;
-  return (
-    <FormItem
-      label={label}
-      required={required}
-      validateStatus={hasError ? 'error' : 'success'}
-      hasFeedback={hasFeedback && hasError}
-      help={hasError && meta.error}
-    >
-      <Component label={label} {...input} {...rest}>
-        {children}
-      </Component>
-    </FormItem>
-  );
-};
+const makeField =
+  (Component: React.ComponentType<any>) =>
+  ({ input, meta, children, hasFeedback, label, required, ...rest }: Props) => {
+    const hasError = meta.touched && meta.invalid;
+    return (
+      <FormItem
+        label={label}
+        required={required}
+        validateStatus={hasError ? 'error' : 'success'}
+        hasFeedback={hasFeedback && hasError}
+        help={hasError && meta.error}
+      >
+        <Component label={label} {...input} {...rest}>
+          {children}
+        </Component>
+      </FormItem>
+    );
+  };
 
 export default makeField;

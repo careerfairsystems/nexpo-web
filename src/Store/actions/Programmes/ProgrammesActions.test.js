@@ -4,7 +4,7 @@ import { mockHttpResponse, createMockStore } from '../../../TestHelper';
 describe('getAllProgrammesIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_PROGRAMMES
+      type: actionTypes.FETCH_PROGRAMMES,
     };
     const action = Actions.programmes.getAllProgrammesIsLoading();
     expect(action).toEqual(expectedAction);
@@ -15,13 +15,13 @@ describe('getAllProgrammesSuccess', () => {
   it('should create the correct action', () => {
     const testProgrammes = [
       {
-        name: 'Programme1'
-      }
+        name: 'Programme1',
+      },
     ];
 
     const expectedAction = {
       type: actionTypes.FETCH_PROGRAMMES_SUCCESS,
-      programmes: testProgrammes
+      programmes: testProgrammes,
     };
     const action = Actions.programmes.getAllProgrammesSuccess(testProgrammes);
     expect(action).toEqual(expectedAction);
@@ -31,7 +31,7 @@ describe('getAllProgrammesSuccess', () => {
 describe('getAllProgrammesFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_PROGRAMMES_FAILURE
+      type: actionTypes.FETCH_PROGRAMMES_FAILURE,
     };
     const action = Actions.programmes.getAllProgrammesFailure();
     expect(action).toEqual(expectedAction);
@@ -54,14 +54,14 @@ describe('getAllProgrammes', () => {
   it('should call success action on success', () => {
     const programmes = [
       {
-        name: 'Programme1'
-      }
+        name: 'Programme1',
+      },
     ];
     mockHttpResponse({ status: 200, body: { data: programmes } });
 
     const expectedActions = [
       Actions.programmes.getAllProgrammesIsLoading(),
-      Actions.programmes.getAllProgrammesSuccess(programmes)
+      Actions.programmes.getAllProgrammesSuccess(programmes),
     ];
 
     const store = createMockStore();
@@ -77,7 +77,7 @@ describe('getAllProgrammes', () => {
 
     const expectedActions = [
       Actions.programmes.getAllProgrammesIsLoading(),
-      Actions.programmes.getAllProgrammesFailure()
+      Actions.programmes.getAllProgrammesFailure(),
     ];
 
     const store = createMockStore();
@@ -92,7 +92,7 @@ describe('getAllProgrammes', () => {
 describe('createProgrammeIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_PROGRAMME
+      type: actionTypes.POST_PROGRAMME,
     };
     const action = Actions.programmes.createProgrammeIsLoading();
     expect(action).toEqual(expectedAction);
@@ -102,12 +102,12 @@ describe('createProgrammeIsLoading', () => {
 describe('createProgrammeSuccess', () => {
   it('should create the correct action', () => {
     const testProgramme = {
-      name: 'Programme1'
+      name: 'Programme1',
     };
 
     const expectedAction = {
       type: actionTypes.POST_PROGRAMME_SUCCESS,
-      programme: testProgramme
+      programme: testProgramme,
     };
     const action = Actions.programmes.createProgrammeSuccess(testProgramme);
     expect(action).toEqual(expectedAction);
@@ -117,7 +117,7 @@ describe('createProgrammeSuccess', () => {
 describe('createProgrammeFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_PROGRAMME_FAILURE
+      type: actionTypes.POST_PROGRAMME_FAILURE,
     };
     const action = Actions.programmes.createProgrammeFailure();
     expect(action).toEqual(expectedAction);
@@ -140,13 +140,13 @@ describe('createProgramme', () => {
 
   it('should call success action on success', () => {
     const programme = {
-      name: 'Programme1'
+      name: 'Programme1',
     };
     mockHttpResponse({ status: 200, body: { data: programme } });
 
     const expectedActions = [
       Actions.programmes.createProgrammeIsLoading(),
-      Actions.programmes.createProgrammeSuccess(programme)
+      Actions.programmes.createProgrammeSuccess(programme),
     ];
 
     const store = createMockStore();
@@ -164,7 +164,7 @@ describe('createProgramme', () => {
 
     const expectedActions = [
       Actions.programmes.createProgrammeIsLoading(),
-      Actions.programmes.createProgrammeFailure()
+      Actions.programmes.createProgrammeFailure(),
     ];
 
     const store = createMockStore();
@@ -179,7 +179,7 @@ describe('createProgramme', () => {
 describe('getProgrammeIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_PROGRAMME
+      type: actionTypes.FETCH_PROGRAMME,
     };
     const action = Actions.programmes.getProgrammeIsLoading();
     expect(action).toEqual(expectedAction);
@@ -189,12 +189,12 @@ describe('getProgrammeIsLoading', () => {
 describe('getProgrammeSuccess', () => {
   it('should create the correct action', () => {
     const testProgramme = {
-      name: 'Programme1'
+      name: 'Programme1',
     };
 
     const expectedAction = {
       type: actionTypes.FETCH_PROGRAMME_SUCCESS,
-      programme: testProgramme
+      programme: testProgramme,
     };
     const action = Actions.programmes.getProgrammeSuccess(testProgramme);
     expect(action).toEqual(expectedAction);
@@ -204,7 +204,7 @@ describe('getProgrammeSuccess', () => {
 describe('getProgrammeFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.FETCH_PROGRAMME_FAILURE
+      type: actionTypes.FETCH_PROGRAMME_FAILURE,
     };
     const action = Actions.programmes.getProgrammeFailure();
     expect(action).toEqual(expectedAction);
@@ -226,13 +226,13 @@ describe('getProgramme', () => {
 
   it('should call success action on success', () => {
     const programme = {
-      name: 'Programme1'
+      name: 'Programme1',
     };
     mockHttpResponse({ status: 200, body: { data: programme } });
 
     const expectedActions = [
       Actions.programmes.getProgrammeIsLoading(),
-      Actions.programmes.getProgrammeSuccess(programme)
+      Actions.programmes.getProgrammeSuccess(programme),
     ];
 
     const store = createMockStore();
@@ -248,7 +248,7 @@ describe('getProgramme', () => {
 
     const expectedActions = [
       Actions.programmes.getProgrammeIsLoading(),
-      Actions.programmes.getProgrammeFailure()
+      Actions.programmes.getProgrammeFailure(),
     ];
 
     const store = createMockStore();
@@ -263,7 +263,7 @@ describe('getProgramme', () => {
 describe('updateProgrammeIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_PROGRAMME
+      type: actionTypes.PUT_PROGRAMME,
     };
     const action = Actions.programmes.updateProgrammeIsLoading();
     expect(action).toEqual(expectedAction);
@@ -273,12 +273,12 @@ describe('updateProgrammeIsLoading', () => {
 describe('updateProgrammeSuccess', () => {
   it('should create the correct action', () => {
     const testProgramme = {
-      name: 'Programme1'
+      name: 'Programme1',
     };
 
     const expectedAction = {
       type: actionTypes.PUT_PROGRAMME_SUCCESS,
-      programme: testProgramme
+      programme: testProgramme,
     };
     const action = Actions.programmes.updateProgrammeSuccess(testProgramme);
     expect(action).toEqual(expectedAction);
@@ -288,7 +288,7 @@ describe('updateProgrammeSuccess', () => {
 describe('updateProgrammeFailure', () => {
   it('should update the correct action', () => {
     const expectedAction = {
-      type: actionTypes.PUT_PROGRAMME_FAILURE
+      type: actionTypes.PUT_PROGRAMME_FAILURE,
     };
     const action = Actions.programmes.updateProgrammeFailure();
     expect(action).toEqual(expectedAction);
@@ -313,13 +313,13 @@ describe('updateProgramme', () => {
 
   it('should call success action on success', () => {
     const programme = {
-      name: 'Programme1'
+      name: 'Programme1',
     };
     mockHttpResponse({ status: 200, body: { data: programme } });
 
     const expectedActions = [
       Actions.programmes.updateProgrammeIsLoading(),
-      Actions.programmes.updateProgrammeSuccess(programme)
+      Actions.programmes.updateProgrammeSuccess(programme),
     ];
 
     const store = createMockStore();
@@ -339,7 +339,7 @@ describe('updateProgramme', () => {
 
     const expectedActions = [
       Actions.programmes.updateProgrammeIsLoading(),
-      Actions.programmes.updateProgrammeFailure()
+      Actions.programmes.updateProgrammeFailure(),
     ];
 
     const store = createMockStore();
@@ -356,7 +356,7 @@ describe('updateProgramme', () => {
 describe('deleteProgrammeIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_PROGRAMME
+      type: actionTypes.DELETE_PROGRAMME,
     };
     const action = Actions.programmes.deleteProgrammeIsLoading();
     expect(action).toEqual(expectedAction);
@@ -369,7 +369,7 @@ describe('deleteProgrammeSuccess', () => {
 
     const expectedAction = {
       type: actionTypes.DELETE_PROGRAMME_SUCCESS,
-      id: testProgrammeId
+      id: testProgrammeId,
     };
     const action = Actions.programmes.deleteProgrammeSuccess(testProgrammeId);
     expect(action).toEqual(expectedAction);
@@ -379,7 +379,7 @@ describe('deleteProgrammeSuccess', () => {
 describe('deleteProgrammeFailure', () => {
   it('should delete the correct action', () => {
     const expectedAction = {
-      type: actionTypes.DELETE_PROGRAMME_FAILURE
+      type: actionTypes.DELETE_PROGRAMME_FAILURE,
     };
     const action = Actions.programmes.deleteProgrammeFailure();
     expect(action).toEqual(expectedAction);
@@ -401,13 +401,13 @@ describe('deleteProgramme', () => {
 
   it('should call success action on success', () => {
     const programme = {
-      id: '1'
+      id: '1',
     };
     mockHttpResponse({ status: 200, body: { data: programme.id } });
 
     const expectedActions = [
       Actions.programmes.deleteProgrammeIsLoading(),
-      Actions.programmes.deleteProgrammeSuccess(programme.id)
+      Actions.programmes.deleteProgrammeSuccess(programme.id),
     ];
 
     const store = createMockStore();
@@ -422,7 +422,7 @@ describe('deleteProgramme', () => {
     mockHttpResponse({ status: 401, body: {} });
     const expectedActions = [
       Actions.programmes.deleteProgrammeIsLoading(),
-      Actions.programmes.deleteProgrammeFailure()
+      Actions.programmes.deleteProgrammeFailure(),
     ];
 
     const store = createMockStore();

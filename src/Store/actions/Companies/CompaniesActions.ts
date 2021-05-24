@@ -15,5 +15,5 @@ export default {
   ...CompaniesPutActions,
   ...CompanyMeDeleteActions,
   ...CompanyMeGetActions,
-  ...CompanyMePutActions
+  ...CompanyMePutActions,
 };

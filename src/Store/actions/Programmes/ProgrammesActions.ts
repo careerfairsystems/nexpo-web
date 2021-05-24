@@ -9,5 +9,5 @@ export default {
   ...ProgrammesGetActions,
   ...ProgrammesGetAllActions,
   ...ProgrammesPostActions,
-  ...ProgrammesPutActions
+  ...ProgrammesPutActions,
 };

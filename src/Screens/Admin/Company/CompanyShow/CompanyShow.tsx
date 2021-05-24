@@ -11,7 +11,7 @@ import {
   reduce,
   getOr,
   flatten,
-  flow
+  flow,
 } from 'lodash/fp';
 import { List, Avatar, Button, Tag, Popconfirm, Select } from 'antd';
 import { CSVLink } from 'react-csv';
@@ -26,51 +26,51 @@ import '../Company.css';
 import CompanyStudentSessionForm from '../../../../Forms/CompanyStudentSessionForm';
 
 type Company = {
-  id?: string,
-  name?: string,
-  website?: string,
-  description?: string,
-  logoUrl?: string,
+  id?: string;
+  name?: string;
+  website?: string;
+  description?: string;
+  logoUrl?: string;
 
-  studentSessionDays?: number,
-  studentSessionApplications?: Array<any>,
+  studentSessionDays?: number;
+  studentSessionApplications?: Array<any>;
   studentSessionTimeSlots?: Array<{
-    id: number,
-    start: string,
-    end: string,
-    location: string,
+    id: number;
+    start: string;
+    end: string;
+    location: string;
     studentSession: {
       student: {
         user: {
-          firstName?: string,
-          lastName?: string,
-          email?: string,
-          phoneNumber?: string
-        }
-      }
-    }
-  }>,
-  topStudents?: Array<{ id: number, firstName: string, lastName: string }>
+          firstName?: string;
+          lastName?: string;
+          email?: string;
+          phoneNumber?: string;
+        };
+      };
+    };
+  }>;
+  topStudents?: Array<{ id: number; firstName: string; lastName: string }>;
 };
 
 /**
  * Responsible for rendering a company. Company id is recieved via url
  */
 type Props = {
-  id: string,
-  createStudentSession: (studentSession: object) => Promise<void>,
-  deleteStudentSession: (id: string) => Promise<void>,
-  company: Company,
-  fetching: boolean,
-  getCompany: (id: string) => Promise<void>,
+  id: string;
+  createStudentSession: (studentSession: object) => Promise<void>;
+  deleteStudentSession: (id: string) => Promise<void>;
+  company: Company;
+  fetching: boolean;
+  getCompany: (id: string) => Promise<void>;
   match?: {
-    path: string
-  }
+    path: string;
+  };
 };
 const statusLabel = [
   { text: 'Unanswered', color: 'gold' },
   { text: 'Confirmed', color: 'green' },
-  { text: 'Declined', color: 'red' }
+  { text: 'Declined', color: 'red' },
 ];
 
 const CompanyShow = ({
@@ -80,7 +80,7 @@ const CompanyShow = ({
   company,
   fetching,
   getCompany,
-  match
+  match,
 }: Props) => {
   useEffect(() => {
     getCompany(id);
@@ -91,8 +91,8 @@ const CompanyShow = ({
       studentSession: {
         companyId: company.id,
         studentId: values.studentId,
-        studentSessionTimeSlotId: id
-      }
+        studentSessionTimeSlotId: id,
+      },
     });
   };
 
@@ -121,17 +121,17 @@ const CompanyShow = ({
     description,
     topStudents = [],
     studentSessionTimeSlots = [],
-    studentSessionApplications = []
+    studentSessionApplications = [],
   } = company;
 
-  const studentSessionStatus = studentSession => {
+  const studentSessionStatus = (studentSession) => {
     if (studentSession) {
       return statusLabel[studentSession.studentSessionStatus].text;
     }
     return 'Not assigned';
   };
 
-  const studentSessionStatusColor = studentSession => {
+  const studentSessionStatusColor = (studentSession) => {
     if (studentSession) {
       return statusLabel[studentSession.studentSessionStatus].color;
     }
@@ -150,17 +150,17 @@ const CompanyShow = ({
   );
 
   const options = map(
-    s => (
+    (s) => (
       <Select.Option key={s.id}>{`${s.firstName} ${s.lastName}`}</Select.Option>
     ),
     topStudents
   );
 
   const data = flow(
-    //sortBy(['location', 'start']),
+    // sortBy(['location', 'start']),
     map(({ studentSession, ...rest }) => ({
       ...getOr({}, 'student.user', studentSession),
-      ...rest
+      ...rest,
     })),
     reduce((acc, curr) => {
       const prev = last(acc) || {};
@@ -176,7 +176,7 @@ const CompanyShow = ({
           start,
           end,
           location: curr.location,
-          firstName: `Break (${breaktime} min)`
+          firstName: `Break (${breaktime} min)`,
         });
       }
 
@@ -192,11 +192,11 @@ const CompanyShow = ({
         values.map(({ start, firstName, lastName, email, phoneNumber }) => [
           [moment(start).format('HH:mm'), [firstName, lastName].join(' ')],
           ['', email],
-          ['', phoneNumber && `=""${phoneNumber}""`]
+          ['', phoneNumber && `=""${phoneNumber}""`],
         ])
       ),
       [],
-      []
+      [],
     ]),
     flatten
   )(studentSessionTimeSlots);
@@ -259,13 +259,13 @@ const CompanyShow = ({
                   <CompanyStudentSessionForm
                     options={options}
                     id={itemId}
-                    onSubmit={values => handleSubmit(values, itemId)}
+                    onSubmit={(values) => handleSubmit(values, itemId)}
                     initialValues={{
-                      studentId: options[0] ? options[0].key : null
+                      studentId: options[0] ? options[0].key : null,
                     }}
                   />
                 )}
-              </>
+              </>,
             ]}
           >
             <List.Item.Meta
@@ -295,8 +295,8 @@ const CompanyShow = ({
 
 CompanyShow.defaultProps = {
   match: {
-    path: ''
-  }
+    path: '',
+  },
 };
 
 export default CompanyShow;

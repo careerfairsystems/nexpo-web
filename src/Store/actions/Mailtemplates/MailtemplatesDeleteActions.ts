@@ -4,29 +4,30 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const deleteMailtemplateIsLoading = () => ({
-  type: actionTypes.DELETE_MAILTEMPLATE
+  type: actionTypes.DELETE_MAILTEMPLATE,
 });
 
 export const deleteMailtemplateSuccess = (id: string) => {
   message.success('Mailtemplate successfully deleted');
   return {
     type: actionTypes.DELETE_MAILTEMPLATE_SUCCESS,
-    id
+    id,
   };
 };
 
 export type DestroyMailtemplateFailureAction = {
-  type: string
+  type: string;
 };
-export const deleteMailtemplateFailure = (): DestroyMailtemplateFailureAction => {
-  message.error('Something went wrong, please try again later');
-  return {
-    type: actionTypes.DELETE_MAILTEMPLATE_FAILURE
+export const deleteMailtemplateFailure =
+  (): DestroyMailtemplateFailureAction => {
+    message.error('Something went wrong, please try again later');
+    return {
+      type: actionTypes.DELETE_MAILTEMPLATE_FAILURE,
+    };
   };
-};
 
-export const deleteMailtemplate = (id: string) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const deleteMailtemplate =
+  (id: string) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteMailtemplateIsLoading());
     return API.mailtemplates
       .delete(id)
@@ -37,4 +38,3 @@ export const deleteMailtemplate = (id: string) => {
         dispatch(deleteMailtemplateFailure());
       });
   };
-}

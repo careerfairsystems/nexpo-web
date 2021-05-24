@@ -13,14 +13,14 @@ describe('Programme', () => {
       fetching: false,
       getProgramme: jest.fn(),
       createProgramme: jest.fn(),
-      updateProgramme: jest.fn()
+      updateProgramme: jest.fn(),
     };
   });
 
   it('should render without crashing', () => {
     const programme = {
       name: 'D-Guild',
-      code: 'D'
+      code: 'D',
     };
     shallow(<Programme id="1" {...props} programme={programme} />);
   });
@@ -40,7 +40,7 @@ describe('Programme', () => {
   it('should render programme form', () => {
     const programme = {
       name: 'D-Guild',
-      code: 'D'
+      code: 'D',
     };
     const wrapper = shallow(
       <Programme id="1" {...props} programme={programme} />
@@ -54,10 +54,10 @@ describe('Programme', () => {
     const wrapper = shallow(<Programme id="1" {...props} />);
     const newCode = 'D';
     const instance = wrapper.instance();
-    if(instance) instance.updateProgramme({ code: newCode });
+    if (instance) instance.updateProgramme({ code: newCode });
     setTimeout(() => {
       expect(props.createProgramme).toHaveBeenCalledWith({
-        programme: { code: newCode }
+        programme: { code: newCode },
       });
     }, 100);
   });
@@ -66,7 +66,7 @@ describe('Programme', () => {
   it('updateProgramme functions correctly', () => {
     const programme = {
       name: 'D-Guild',
-      code: 'F'
+      code: 'F',
     };
 
     const id = '1';
@@ -75,10 +75,10 @@ describe('Programme', () => {
     );
     const newName = 'F-Guild';
     const instance = wrapper.instance();
-    if(instance) instance.updateProgramme({ name: newName });
+    if (instance) instance.updateProgramme({ name: newName });
     setTimeout(() => {
       expect(props.updateProgramme).toHaveBeenCalledWith(id, {
-        programme: { name: newName }
+        programme: { name: newName },
       });
     }, 100);
   });

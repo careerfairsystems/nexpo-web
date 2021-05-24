@@ -11,27 +11,27 @@ const TextArea = makeField(Input.TextArea);
 
 const { Option } = Select;
 
-const companyOption = company => (
+const companyOption = (company) => (
   <Option key={company.id} value={company.id}>
     {company.name}
   </Option>
 );
-const requiredCompany = value =>
+const requiredCompany = (value) =>
   value ? undefined : 'Please provide a company';
-const requiredMotivation = value =>
+const requiredMotivation = (value) =>
   value ? undefined : 'Please provide a motivation';
 
 type Props = {
-  availableCompanies: Array<any>,
-  handleSubmit: () => Promise<void>,
-  submitting: boolean,
-  disabled: boolean
+  availableCompanies: Array<any>;
+  handleSubmit: () => Promise<void>;
+  submitting: boolean;
+  disabled: boolean;
 };
 const StudentSessionForm = ({
   handleSubmit,
   availableCompanies,
   submitting,
-  disabled
+  disabled,
 }: Props) => (
   <Form onSubmit={handleSubmit}>
     <Field
@@ -61,9 +61,9 @@ const StudentSessionForm = ({
   </Form>
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   availableCompanies: Selectors.companies.getNotAppliedTo(state),
-  formState: state.form.StudentSessionForm
+  formState: state.form.StudentSessionForm,
 });
 
 const stateful = connect(mapStateToProps);

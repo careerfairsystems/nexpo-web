@@ -8,16 +8,16 @@ import { camelCaseKeys } from '../../../Util/FormatHelper';
 import { actionTypes } from '../..';
 
 type FETCH_COMPANIES_SUCCESS = {
-  type: typeof actionTypes.FETCH_COMPANIES_SUCCESS,
-  companies: Array<{}>
+  type: typeof actionTypes.FETCH_COMPANIES_SUCCESS;
+  companies: Array<{}>;
 };
 
 type CompanyActions = {
   type:
     | typeof actionTypes.FETCH_COMPANY_SUCCESS
     | typeof actionTypes.POST_COMPANY_SUCCESS
-    | typeof actionTypes.PUT_COMPANY_SUCCESS,
-  company: { id: number, name: string }
+    | typeof actionTypes.PUT_COMPANY_SUCCESS;
+  company: { id: number; name: string };
 };
 type DeleteAction = {
   type:
@@ -28,115 +28,115 @@ type DeleteAction = {
     | typeof actionTypes.DELETE_CATEGORY_SUCCESS
     | typeof actionTypes.DELETE_PROGRAMME_SUCCESS
     | typeof actionTypes.DELETE_MAILTEMPLATE_SUCCESS
-    | typeof actionTypes.DELETE_DEADLINE_SUCCESS,
-  id: number
+    | typeof actionTypes.DELETE_DEADLINE_SUCCESS;
+  id: number;
 };
 
 type FetchRoles = {
-  type: typeof actionTypes.FETCH_ROLES_SUCCESS,
-  roles: Array<{}>
+  type: typeof actionTypes.FETCH_ROLES_SUCCESS;
+  roles: Array<{}>;
 };
 type RoleActions = {
   type:
     | typeof actionTypes.FETCH_ROLE_SUCCESS
     | typeof actionTypes.POST_ROLE_SUCCESS
-    | typeof actionTypes.PUT_ROLE_SUCCESS,
-  role: { id: number, name: string }
+    | typeof actionTypes.PUT_ROLE_SUCCESS;
+  role: { id: number; name: string };
 };
 
 type CreateStudentSessionAppl = {
-  type: typeof actionTypes.POST_STUDENT_SESSION_APPL_SUCCESS,
-  user: {}
+  type: typeof actionTypes.POST_STUDENT_SESSION_APPL_SUCCESS;
+  user: {};
 };
 
 type UpdateStudentSessionAppl = {
-  type: typeof actionTypes.PUT_STUDENT_SESSION_APPL_SUCCESS,
-  sessionApplication: {}
+  type: typeof actionTypes.PUT_STUDENT_SESSION_APPL_SUCCESS;
+  sessionApplication: {};
 };
 
 type UsersActions = {
-  type: typeof actionTypes.FETCH_USERS_SUCCESS,
-  users: Array<{}>
+  type: typeof actionTypes.FETCH_USERS_SUCCESS;
+  users: Array<{}>;
 };
 
 type UserActions = {
   type:
     | typeof actionTypes.FETCH_USER_SUCCESS
     | typeof actionTypes.POST_USER_SUCCESS
-    | typeof actionTypes.PUT_USER_SUCCESS,
-  user: {}
+    | typeof actionTypes.PUT_USER_SUCCESS;
+  user: {};
 };
 type CategoriesActions = {
-  type: typeof actionTypes.FETCH_CATEGORIES_SUCCESS,
-  categories: Array<{}>
+  type: typeof actionTypes.FETCH_CATEGORIES_SUCCESS;
+  categories: Array<{}>;
 };
 
 type CategoryActions = {
   type:
     | typeof actionTypes.FETCH_CATEGORY_SUCCESS
     | typeof actionTypes.POST_CATEGORY_SUCCESS
-    | typeof actionTypes.PUT_CATEGORY_SUCCESS,
-  category: {}
+    | typeof actionTypes.PUT_CATEGORY_SUCCESS;
+  category: {};
 };
 type ProgrammesActions = {
-  type: typeof actionTypes.FETCH_PROGRAMMES_SUCCESS,
-  programmes: Array<{}>
+  type: typeof actionTypes.FETCH_PROGRAMMES_SUCCESS;
+  programmes: Array<{}>;
 };
 
 type ProgrammeActions = {
   type:
     | typeof actionTypes.FETCH_PROGRAMME_SUCCESS
     | typeof actionTypes.POST_PROGRAMME_SUCCESS
-    | typeof actionTypes.PUT_PROGRAMME_SUCCESS,
-  programme: {}
+    | typeof actionTypes.PUT_PROGRAMME_SUCCESS;
+  programme: {};
 };
 type MailTemplatesActions = {
-  type: typeof actionTypes.FETCH_MAILTEMPLATES_SUCCESS,
-  mailtemplates: Array<{}>
+  type: typeof actionTypes.FETCH_MAILTEMPLATES_SUCCESS;
+  mailtemplates: Array<{}>;
 };
 
 type MailTemplateActions = {
   type:
     | typeof actionTypes.FETCH_MAILTEMPLATE_SUCCESS
     | typeof actionTypes.POST_MAILTEMPLATE_SUCCESS
-    | typeof actionTypes.PUT_MAILTEMPLATE_SUCCESS,
-  mailtemplate: {}
+    | typeof actionTypes.PUT_MAILTEMPLATE_SUCCESS;
+  mailtemplate: {};
 };
 type DeadlinesActions = {
-  type: typeof actionTypes.FETCH_DEADLINES_SUCCESS,
-  deadlines: Array<{}>
+  type: typeof actionTypes.FETCH_DEADLINES_SUCCESS;
+  deadlines: Array<{}>;
 };
 
 type DeadlineActions = {
   type:
     | typeof actionTypes.FETCH_DEADLINE_SUCCESS
     | typeof actionTypes.POST_DEADLINE_SUCCESS
-    | typeof actionTypes.PUT_DEADLINE_SUCCESS,
-  deadline: {}
+    | typeof actionTypes.PUT_DEADLINE_SUCCESS;
+  deadline: {};
 };
 
 type CurrentUserActions = {
   type:
     | typeof actionTypes.FETCH_CURRENT_USER_SUCCESS
-    | typeof actionTypes.PUT_CURRENT_USER_SUCCESS,
-  user: {}
+    | typeof actionTypes.PUT_CURRENT_USER_SUCCESS;
+  user: {};
 };
 
 type CurrentUserDelete = {
-  type: typeof actionTypes.DELETE_CURRENT_USER_SUCCESS
+  type: typeof actionTypes.DELETE_CURRENT_USER_SUCCESS;
 };
 
 type CurrentStudentActions = {
-  type: typeof actionTypes.PUT_CURRENT_STUDENT_SUCCESS,
-  student: {}
+  type: typeof actionTypes.PUT_CURRENT_STUDENT_SUCCESS;
+  student: {};
 };
 type CurrentCompanyActions = {
-  type: typeof actionTypes.FETCH_CURRENT_COMPANY_SUCCESS,
-  company: {}
+  type: typeof actionTypes.FETCH_CURRENT_COMPANY_SUCCESS;
+  company: {};
 };
 type StatisticsActions = {
-  type: typeof actionTypes.FETCH_STATISTICS_SUCCESS,
-  statistics: {}
+  type: typeof actionTypes.FETCH_STATISTICS_SUCCESS;
+  statistics: {};
 };
 
 export type EntitiesAction =
@@ -164,20 +164,20 @@ export type EntitiesAction =
   | StatisticsActions;
 
 export type EntitiesState = {
-  categories: {},
-  attributes: {},
-  companies: {},
-  entries: {},
-  deadlines: {},
-  mailtemplates: {},
-  programmes: {},
-  roles: {},
-  users: {},
-  statistics: {},
-  studentSessions: {},
-  studentSessionTimeSlots: {},
-  studentSessionApplications: {},
-  students: {}
+  categories: {};
+  attributes: {};
+  companies: {};
+  entries: {};
+  deadlines: {};
+  mailtemplates: {};
+  programmes: {};
+  roles: {};
+  users: {};
+  statistics: {};
+  studentSessions: {};
+  studentSessionTimeSlots: {};
+  studentSessionApplications: {};
+  students: {};
 };
 
 const initialState = {
@@ -194,7 +194,7 @@ const initialState = {
   studentSessions: {},
   studentSessionTimeSlots: {},
   studentSessionApplications: {},
-  students: {}
+  students: {},
 };
 
 const handleMerge = (prev, next) => {
@@ -288,16 +288,16 @@ export const EntitiesReducer = (
           [id]: {
             ...student,
             studentSessionApplications: studentAppls.filter(
-              applId => applId !== action.id
-            )
-          }
+              (applId) => applId !== action.id
+            ),
+          },
         };
       }, {});
 
       return {
         ...state,
         studentSessionApplications: omit([`${action.id}`], appls),
-        students
+        students,
       };
     }
     case actionTypes.FETCH_CATEGORIES_SUCCESS: {
@@ -342,7 +342,7 @@ export const EntitiesReducer = (
     case actionTypes.DELETE_MAILTEMPLATE_SUCCESS: {
       return {
         ...state,
-        mailtemplates: omit([`${action.id}`], state.mailtemplates)
+        mailtemplates: omit([`${action.id}`], state.mailtemplates),
       };
     }
     case actionTypes.FETCH_DEADLINES_SUCCESS: {

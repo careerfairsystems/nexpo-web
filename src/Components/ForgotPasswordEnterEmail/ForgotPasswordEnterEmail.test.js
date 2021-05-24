@@ -6,7 +6,7 @@ import SuccessMessage from '../SuccessMessage';
 
 it('can render without crashing', () => {
   const props = {
-    callBackend: jest.fn()
+    callBackend: jest.fn(),
   };
   shallow(<ForgotPasswordEnterEmail {...props} />);
 });
@@ -14,7 +14,7 @@ it('can render without crashing', () => {
 it('renders SuccessMessage on success', () => {
   const props = {
     callBackend: jest.fn(),
-    success: true
+    success: true,
   };
   const wrapper = shallow(<ForgotPasswordEnterEmail {...props} />);
   expect(wrapper.find(SuccessMessage)).toHaveLength(1);
@@ -22,7 +22,7 @@ it('renders SuccessMessage on success', () => {
 
 it('renders a ForgotPasswordForm', () => {
   const props = {
-    callBackend: jest.fn()
+    callBackend: jest.fn(),
   };
   const wrapper = shallow(<ForgotPasswordEnterEmail {...props} />);
   expect(wrapper.find(ForgotPasswordForm)).toHaveLength(1);
@@ -30,7 +30,7 @@ it('renders a ForgotPasswordForm', () => {
 
 it('calls callBackend on ForgotPasswordForm onSubmit', () => {
   const props = {
-    callBackend: jest.fn()
+    callBackend: jest.fn(),
   };
   const wrapper = shallow(<ForgotPasswordEnterEmail {...props} />);
   const email1 = 'admin@test';
@@ -38,20 +38,14 @@ it('calls callBackend on ForgotPasswordForm onSubmit', () => {
   setTimeout(() => {
     expect(props.callBackend).toHaveBeenCalledTimes(0);
   }, 100);
-  wrapper
-    .find(ForgotPasswordForm)
-    .props()
-    .onSubmit({ email: email1 });
+  wrapper.find(ForgotPasswordForm).props().onSubmit({ email: email1 });
 
   setTimeout(() => {
     expect(props.callBackend).toHaveBeenCalledTimes(1);
     expect(props.callBackend).lastCalledWith({ email: email1 });
   }, 100);
-  wrapper
-    .find(ForgotPasswordForm)
-    .props()
-    .onSubmit({ email: email2 });
-  
+  wrapper.find(ForgotPasswordForm).props().onSubmit({ email: email2 });
+
   setTimeout(() => {
     expect(props.callBackend).toHaveBeenCalledTimes(2);
     expect(props.callBackend).lastCalledWith({ email: email2 });

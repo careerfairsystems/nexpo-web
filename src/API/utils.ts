@@ -4,18 +4,18 @@ import { snakeCaseKeys, toFormData } from '../Util/FormatHelper';
 import 'whatwg-fetch'; // fetch polyfill for unsupported browsers
 
 export type Response = {
-  ok: boolean,
-  type: any,
-  error?: string,
-  errors?: Error,
-  json: () => Promise<any>,
-  headers: Headers,
-  text: () => Promise<any>
+  ok: boolean;
+  type: any;
+  error?: string;
+  errors?: Error;
+  json: () => Promise<any>;
+  headers: Headers;
+  text: () => Promise<any>;
 };
 
 type ErrorResponse = {
-  error: string,
-  errors: { password?: string, passwordConfirmation?: string }
+  error: string;
+  errors: { password?: string; passwordConfirmation?: string };
 };
 
 /**
@@ -50,8 +50,8 @@ export const authPost = (url: string, data: {}): Promise<Response> =>
     headers: new Headers({
       Authorization: `Bearer ${getJwt()}`,
       Accept: 'application/json',
-      'Content-Type': 'application/json'
-    })
+      'Content-Type': 'application/json',
+    }),
   });
 
 export const authFormPost = (url: string, data: {}): Promise<Response> =>
@@ -60,8 +60,8 @@ export const authFormPost = (url: string, data: {}): Promise<Response> =>
     body: toFormData(data),
     headers: new Headers({
       Authorization: `Bearer ${getJwt()}`,
-      Accept: 'application/json'
-    })
+      Accept: 'application/json',
+    }),
   });
 
 export const authPatch = (url: string, data: {}): Promise<Response> =>
@@ -71,16 +71,16 @@ export const authPatch = (url: string, data: {}): Promise<Response> =>
     headers: new Headers({
       Authorization: `Bearer ${getJwt()}`,
       Accept: 'application/json',
-      'Content-Type': 'application/json'
-    })
+      'Content-Type': 'application/json',
+    }),
   });
 
 export const authFetch = (url: string): Promise<Response> =>
   fetch(url, {
     headers: new Headers({
       Authorization: `Bearer ${getJwt()}`,
-      Accept: 'application/json'
-    })
+      Accept: 'application/json',
+    }),
   });
 
 export const authPut = (url: string, data: {}): Promise<Response> =>
@@ -90,8 +90,8 @@ export const authPut = (url: string, data: {}): Promise<Response> =>
     headers: new Headers({
       Authorization: `Bearer ${getJwt()}`,
       Accept: 'application/json',
-      'Content-Type': 'application/json'
-    })
+      'Content-Type': 'application/json',
+    }),
   });
 
 export const authFormPut = (url: string, data: {}): Promise<Response> =>
@@ -100,23 +100,23 @@ export const authFormPut = (url: string, data: {}): Promise<Response> =>
     body: toFormData(data),
     headers: new Headers({
       Authorization: `Bearer ${getJwt()}`,
-      Accept: 'application/json'
-    })
+      Accept: 'application/json',
+    }),
   });
 
 export const authDelete = (url: string): Promise<Response> =>
   fetch(url, {
     method: 'DELETE',
     headers: new Headers({
-      Authorization: `Bearer ${getJwt()}`
-    })
+      Authorization: `Bearer ${getJwt()}`,
+    }),
   });
 
 export const download = async (url: string, filename: string) => {
   const response = await fetch(url, {
     headers: new Headers({
-      Authorization: `Bearer ${getJwt()}`
-    })
+      Authorization: `Bearer ${getJwt()}`,
+    }),
   });
   const blob = await response.blob();
   const element = document.createElement('a');
@@ -127,14 +127,14 @@ export const download = async (url: string, filename: string) => {
 
 export const fetchJson = (
   url: string,
-  { data, method }: { data: {}, method: string }
+  { data, method }: { data: {}; method: string }
 ): Promise<Response> =>
   fetch(url, {
     method,
     body: JSON.stringify(snakeCaseKeys(data)),
     headers: new Headers({
-      'Content-Type': 'application/json'
-    })
+      'Content-Type': 'application/json',
+    }),
   });
 
 export default {
@@ -145,5 +145,5 @@ export default {
   authFormPost,
   authFormPut,
   fetchJson,
-  handleHttpResponse
+  handleHttpResponse,
 };

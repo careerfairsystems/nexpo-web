@@ -9,17 +9,17 @@ export const FilterIcon = (filtered: boolean) => (
 type InputEvent = SyntheticKeyboardEvent<HTMLInputElement>;
 
 type Props = {
-  clearFilters: () => void,
-  confirm: () => void,
-  selectedKeys: Array<string>,
-  setSelectedKeys: (keys?: Array<string>) => void
+  clearFilters: () => void;
+  confirm: () => void;
+  selectedKeys: Array<string>;
+  setSelectedKeys: (keys?: Array<string>) => void;
 };
 
 const FilterSearch = ({
   setSelectedKeys,
   selectedKeys,
   confirm,
-  clearFilters
+  clearFilters,
 }: Props) => (
   <div className="custom-filter-dropdown">
     <Input

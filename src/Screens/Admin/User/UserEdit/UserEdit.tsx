@@ -12,17 +12,17 @@ import '../User.css';
  * Responsible for rendering a user. User id is recieved via url
  */
 type UserObj = {
-  firstName?: string,
-  lastName?: string,
-  phoneNumber?: string
+  firstName?: string;
+  lastName?: string;
+  phoneNumber?: string;
 };
 type Props = {
-  id?: string,
-  user: { name?: string },
-  fetching: boolean,
-  getUser: (id: string) => Promise<void>,
-  history: { push: (route: string) => any },
-  updateUser: (id: string, userObject: { user: UserObj }) => Promise<void>
+  id?: string;
+  user: { name?: string };
+  fetching: boolean;
+  getUser: (id: string) => Promise<void>;
+  history: { push: (route: string) => any };
+  updateUser: (id: string, userObject: { user: UserObj }) => Promise<void>;
 };
 
 const UserEdit = ({
@@ -31,7 +31,7 @@ const UserEdit = ({
   fetching,
   getUser,
   history,
-  updateUser
+  updateUser,
 }: Props) => {
   useEffect(() => {
     if (id) getUser(id);
@@ -59,7 +59,7 @@ const UserEdit = ({
 };
 
 UserEdit.defaultProps = {
-  id: ''
+  id: '',
 };
 
 export default UserEdit;

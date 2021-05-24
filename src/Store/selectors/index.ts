@@ -5,5 +5,5 @@ import CompaniesSelectors from './Companies';
 export default {
   users: UsersSelectors,
   students: StudentsSelectors,
-  companies: CompaniesSelectors
+  companies: CompaniesSelectors,
 };

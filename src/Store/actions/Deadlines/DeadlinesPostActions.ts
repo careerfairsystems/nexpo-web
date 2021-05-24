@@ -4,37 +4,36 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const createDeadlineIsLoading = () => ({
-  type: actionTypes.POST_DEADLINE
+  type: actionTypes.POST_DEADLINE,
 });
 
 export const createDeadlineSuccess = (deadline: {}) => {
   message.success('Deadline successfully created');
   return {
     type: actionTypes.POST_DEADLINE_SUCCESS,
-    deadline
+    deadline,
   };
 };
 
 export type CreateDeadlineFailureAction = {
-  type: string
+  type: string;
 };
 export const createDeadlineFailure = (): CreateDeadlineFailureAction => {
   message.error('Something went wrong, please try again later');
   return {
-    type: actionTypes.POST_DEADLINE_FAILURE
+    type: actionTypes.POST_DEADLINE_FAILURE,
   };
 };
 
-export const createDeadline = (data: {}) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const createDeadline =
+  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createDeadlineIsLoading());
     return API.deadlines
       .create(data)
-      .then(deadline => {
+      .then((deadline) => {
         dispatch(createDeadlineSuccess(deadline.data));
       })
       .catch(() => {
         dispatch(createDeadlineFailure());
       });
   };
-}

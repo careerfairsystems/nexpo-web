@@ -11,7 +11,7 @@ const mapStateToProps = (state: State) => {
     const { roles } = currentUser;
     return {
       roles: map('type', roles),
-      permissions: uniq(flatten(map('permissions', roles)))
+      permissions: uniq(flatten(map('permissions', roles))),
     };
   }
 

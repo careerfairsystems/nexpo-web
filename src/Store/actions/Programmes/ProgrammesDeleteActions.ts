@@ -4,29 +4,29 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const deleteProgrammeIsLoading = () => ({
-  type: actionTypes.DELETE_PROGRAMME
+  type: actionTypes.DELETE_PROGRAMME,
 });
 
 export const deleteProgrammeSuccess = (id: string) => {
   message.success('Programme successfully deleted');
   return {
     type: actionTypes.DELETE_PROGRAMME_SUCCESS,
-    id
+    id,
   };
 };
 
 export type DestroyProgrammeFailureAction = {
-  type: string
+  type: string;
 };
 export const deleteProgrammeFailure = (): DestroyProgrammeFailureAction => {
   message.error('Something went wrong, please try again later');
   return {
-    type: actionTypes.DELETE_PROGRAMME_FAILURE
+    type: actionTypes.DELETE_PROGRAMME_FAILURE,
   };
 };
 
-export const deleteProgramme = (id: string) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const deleteProgramme =
+  (id: string) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteProgrammeIsLoading());
     return API.programmes
       .delete(id)
@@ -37,4 +37,3 @@ export const deleteProgramme = (id: string) => {
         dispatch(deleteProgrammeFailure());
       });
   };
-}

@@ -6,7 +6,7 @@ import makeField, { required, validatePassword } from './helper';
 
 const TextInput = makeField(Input);
 const CheckBoxField = makeField(Checkbox);
-const requiredGDPR = value =>
+const requiredGDPR = (value) =>
   value ? undefined : 'You must agree to be able to sign up';
 
 const gdprText =
@@ -19,8 +19,8 @@ const agreeText2 =
   'I agree that Teknologkåren vid LTH will treat my personal data provided by this application in connection with ARKAD.';
 
 type Props = {
-  handleSubmit: () => Promise<void>,
-  submitting: boolean
+  handleSubmit: () => Promise<void>;
+  submitting: boolean;
 };
 const FinalizeSignupForm = ({ handleSubmit, submitting }: Props) => (
   <Form onSubmit={handleSubmit} style={{ maxWidth: 600 }}>
@@ -78,8 +78,8 @@ const FinalizeSignupForm = ({ handleSubmit, submitting }: Props) => (
   </Form>
 );
 
-const mapStateToProps = state => ({
-  formState: state.form.FinalizeSignupForm
+const mapStateToProps = (state) => ({
+  formState: state.form.FinalizeSignupForm,
 });
 
 const stateful = connect(mapStateToProps);
@@ -88,6 +88,6 @@ export default stateful(
   reduxForm({
     form: 'finalizeSignup',
     validate: validatePassword,
-    enableReinitialize: true
+    enableReinitialize: true,
   })(FinalizeSignupForm)
 );

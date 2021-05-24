@@ -12,11 +12,11 @@ import FilterSearch, { FilterIcon } from '../../../Components/FilterSearch';
  * Responsible for rendering a list of companies
  */
 type Props = {
-  companies?: {},
-  fetching: boolean,
-  getAllCompanies: () => Promise<void>,
-  deleteCompany: (id: string) => Promise<void>,
-  createBulk: (data: object) => Promise<void>
+  companies?: {};
+  fetching: boolean;
+  getAllCompanies: () => Promise<void>;
+  deleteCompany: (id: string) => Promise<void>;
+  createBulk: (data: object) => Promise<void>;
 };
 
 const Companies = ({
@@ -24,7 +24,7 @@ const Companies = ({
   fetching,
   getAllCompanies,
   deleteCompany,
-  createBulk
+  createBulk,
 }: Props) => {
   useEffect(() => {
     getAllCompanies();
@@ -41,20 +41,22 @@ const Companies = ({
         toLower(record.name).includes(toLower(value)),
       render: (name: string, { id }: { id: string }) => (
         <InvisibleLink to={`/admin/companies/${id}`}>{name}</InvisibleLink>
-      )
+      ),
     },
     {
       title: 'Website',
       dataIndex: 'website',
       key: 'website',
-      render: (website: string) => <a href={toExternal(website)}>{website}</a>
+      render: (website: string) => <a href={toExternal(website)}>{website}</a>,
     },
     {
       title: 'Description',
       dataIndex: 'description',
       key: 'description',
       render: (description: string) =>
-        size(description) > 42 ? `${description.slice(0, 42)} ...` : description
+        size(description) > 42
+          ? `${description.slice(0, 42)} ...`
+          : description,
     },
     {
       title: 'Action',
@@ -78,8 +80,8 @@ const Companies = ({
             <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>Delete</span>
           </Popconfirm>
         </span>
-      )
-    }
+      ),
+    },
   ];
 
   const csvToObj = (text: string) => {
@@ -91,7 +93,7 @@ const Companies = ({
       'email',
       'hostMail',
       'hostName',
-      'hostPhoneNumber'
+      'hostPhoneNumber',
     ];
 
     for (let i = 1; i < lines.length - 1; i += 1) {
@@ -99,10 +101,10 @@ const Companies = ({
       const representative = {};
       const currentLine = lines[i].split(',');
 
-      [0, 2].forEach(j => {
+      [0, 2].forEach((j) => {
         representative[headers[j]] = currentLine[j];
       });
-      [0, 1, 3, 4, 5].forEach(j => {
+      [0, 1, 3, 4, 5].forEach((j) => {
         company[headers[j]] = currentLine[j];
       });
       company.description = '.';
@@ -125,9 +127,9 @@ const Companies = ({
           columns={companyColumns()}
           dataSource={sortBy(
             'name',
-            Object.keys(tempComanies).map(i => ({
+            Object.keys(tempComanies).map((i) => ({
               ...tempComanies[i],
-              key: i
+              key: i,
             }))
           )}
         />
@@ -143,9 +145,9 @@ const Companies = ({
             key="uploadButton"
             accept=".csv"
             showUploadList={false}
-            beforeUpload={file => {
+            beforeUpload={(file) => {
               const reader = new FileReader();
-              reader.onload = e => {
+              reader.onload = (e) => {
                 const obj = csvToObj(e.target.result);
                 createBulk(obj);
               };
@@ -175,7 +177,7 @@ const Companies = ({
 };
 
 Companies.defaultProps = {
-  companies: {}
+  companies: {},
 };
 
 export default Companies;

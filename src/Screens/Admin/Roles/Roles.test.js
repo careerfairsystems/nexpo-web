@@ -9,12 +9,12 @@ describe('Roles', () => {
   beforeEach(() => {
     props = {
       roles: {
-        '1': { id: 1, type: 'admin', permissions: ['read_all', 'write_all'] },
-        '2': { id: 2, type: 'pleb' }
+        1: { id: 1, type: 'admin', permissions: ['read_all', 'write_all'] },
+        2: { id: 2, type: 'pleb' },
       },
       getAllRoles: jest.fn(),
       fetching: false,
-      deleteRole: jest.fn()
+      deleteRole: jest.fn(),
     };
   });
 

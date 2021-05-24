@@ -13,5 +13,5 @@ export default {
   ...StudentSessionDeleteActions,
   ...StudentSessionApplPostActions,
   ...StudentSessionApplPutActions,
-  ...StudentSessionApplDeleteActions
+  ...StudentSessionApplDeleteActions,
 };

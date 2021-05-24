@@ -7,7 +7,7 @@ import {
   sortBy,
   entries,
   map,
-  flow
+  flow,
 } from 'lodash/fp';
 
 /**
@@ -21,7 +21,7 @@ import {
   VictoryLabel,
   VictoryLine,
   VictoryTooltip,
-  VictoryVoronoiContainer
+  VictoryVoronoiContainer,
 } from 'victory';
 import moment from 'moment';
 // import ColumnGroup from 'antd/lib/table/ColumnGroup';
@@ -34,12 +34,12 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    key: 'name'
+    key: 'name',
   },
   {
     title: 'Number of Applications',
     dataIndex: 'nbrApplications',
-    key: 'nbrApplications'
+    key: 'nbrApplications',
   },
   {
     title: 'Number of Scored Applications (%)',
@@ -53,42 +53,42 @@ const columns = [
           0
         )}%)`}
       </>
-    )
-  }
+    ),
+  },
 ];
-const sortDates = date => moment(date.x).format('x');
+const sortDates = (date) => moment(date.x).format('x');
 
-const dateFormat = d => moment(d).format('YYYY-MM-DD');
-const getData = applicationsPerDay => {
+const dateFormat = (d) => moment(d).format('YYYY-MM-DD');
+const getData = (applicationsPerDay) => {
   let countPerDay = 0;
   return flow(
     groupBy(dateFormat),
     entries,
-    map(e => ({ x: e[0], y: e[1].length })),
+    map((e) => ({ x: e[0], y: e[1].length })),
     sortBy(sortDates),
     map(({ x, y }) => {
       countPerDay += y;
       return {
         x,
-        y: countPerDay
+        y: countPerDay,
       };
     })
   )(applicationsPerDay);
 };
 
 type Props = {
-  getAllStatistics: () => Promise<void>,
+  getAllStatistics: () => Promise<void>;
   statistics: {
-    applicationsPerDay?: Array<string>,
+    applicationsPerDay?: Array<string>;
     companyStats?: Array<{
-      name?: string,
-      id: number,
-      nbrApplications: number
-    }>,
-    nbrStudents?: number,
-    nbrSearchingStudents?: number,
-    wordsPerAppl?: number
-  }
+      name?: string;
+      id: number;
+      nbrApplications: number;
+    }>;
+    nbrStudents?: number;
+    nbrSearchingStudents?: number;
+    wordsPerAppl?: number;
+  };
 };
 
 const Statistics = ({ getAllStatistics, statistics }: Props) => {
@@ -101,7 +101,7 @@ const Statistics = ({ getAllStatistics, statistics }: Props) => {
     nbrSearchingStudents = '',
     nbrStudents = '',
     applicationsPerDay = [],
-    wordsPerAppl = 0
+    wordsPerAppl = 0,
   } = statistics;
   const data = getData(applicationsPerDay);
   const nbrApplications = applicationsPerDay.length;
@@ -186,7 +186,7 @@ const Statistics = ({ getAllStatistics, statistics }: Props) => {
           'desc',
           companyStats.map((stat, i) => ({
             key: i,
-            ...stat
+            ...stat,
           }))
         )}
       />

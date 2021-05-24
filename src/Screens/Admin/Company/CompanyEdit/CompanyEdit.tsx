@@ -15,23 +15,23 @@ import '../Company.css';
  */
 
 type NewCompanyValues = {
-  name?: string,
-  website?: string,
-  description?: string,
+  name?: string;
+  website?: string;
+  description?: string;
   logoUrl?: {
-    uid: number,
-    filename: string
-  }
+    uid: number;
+    filename: string;
+  };
 };
 
 type Props = {
-  id: string,
-  company: { name?: string, website?: string, description?: string },
-  fetching: boolean,
-  getCompany: (id: string) => Promise<void>,
-  history: { push: (route: string) => any },
-  resetForm: (form: string) => any,
-  updateCompany: (id: string, NewCompanyValues) => Promise<void>
+  id: string;
+  company: { name?: string; website?: string; description?: string };
+  fetching: boolean;
+  getCompany: (id: string) => Promise<void>;
+  history: { push: (route: string) => any };
+  resetForm: (form: string) => any;
+  updateCompany: (id: string, NewCompanyValues) => Promise<void>;
 };
 
 const CompanyEdit = ({
@@ -41,7 +41,7 @@ const CompanyEdit = ({
   getCompany,
   history,
   resetForm,
-  updateCompany
+  updateCompany,
 }: Props) => {
   useEffect(() => {
     getCompany(id);
@@ -54,7 +54,7 @@ const CompanyEdit = ({
   const invite = (email: string) => {
     API.signup
       .initialRepresentativeSignup({ email, companyId: toInteger(id) })
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
           message.success(`Invitation sent to ${email}`);
           resetForm('invite');

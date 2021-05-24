@@ -8,7 +8,7 @@ import {
   authPut,
   authFormPut,
   authDelete,
-  handleHttpResponse
+  handleHttpResponse,
 } from './utils';
 
 export default {
@@ -58,5 +58,5 @@ export default {
    * Delete a user
    */
   delete: (id: string) =>
-    authDelete(`/api/users/${id}`).then(handleHttpResponse)
+    authDelete(`/api/users/${id}`).then(handleHttpResponse),
 };

@@ -4,37 +4,36 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const createProgrammeIsLoading = () => ({
-  type: actionTypes.POST_PROGRAMME
+  type: actionTypes.POST_PROGRAMME,
 });
 
 export const createProgrammeSuccess = (programme: {}) => {
   message.success('Programme successfully created');
   return {
     type: actionTypes.POST_PROGRAMME_SUCCESS,
-    programme
+    programme,
   };
 };
 
 export type CreateProgrammeFailureAction = {
-  type: string
+  type: string;
 };
 export const createProgrammeFailure = (): CreateProgrammeFailureAction => {
   message.error('Something went wrong, please try again later');
   return {
-    type: actionTypes.POST_PROGRAMME_FAILURE
+    type: actionTypes.POST_PROGRAMME_FAILURE,
   };
 };
 
-export const createProgramme = (data: {}) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const createProgramme =
+  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createProgrammeIsLoading());
     return API.programmes
       .create(data)
-      .then(programme => {
+      .then((programme) => {
         dispatch(createProgrammeSuccess(programme.data));
       })
       .catch(() => {
         dispatch(createProgrammeFailure());
       });
   };
-}

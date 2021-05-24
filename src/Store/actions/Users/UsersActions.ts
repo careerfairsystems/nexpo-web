@@ -17,5 +17,5 @@ export default {
   ...UsersGetActions,
   ...UsersGetAllActions,
   ...UsersPostActions,
-  ...UsersPutActions
+  ...UsersPutActions,
 };

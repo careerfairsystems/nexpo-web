@@ -10,14 +10,14 @@ const mapStateToProps = (state, props) => {
     id: roleId,
     role,
     fetchingRoles: state.api.roles.fetching,
-    fetchingUsers: state.api.users.fetching
+    fetchingUsers: state.api.users.fetching,
   };
 };
 
 const mapDispatchToProps = {
   getRole: Actions.roles.getRole,
   updateRole: Actions.roles.updateRole,
-  getAllUsers: Actions.users.getAllUsers
+  getAllUsers: Actions.users.getAllUsers,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

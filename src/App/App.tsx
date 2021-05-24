@@ -26,7 +26,7 @@ import { CompanyNew, CompanyEdit, CompanyShow } from '../Screens/Admin/Company';
 import YourCompanyHome from '../Screens/YourCompany/YourCompanyHome';
 import {
   YourCompanyProfileShow,
-  YourCompanyProfileEdit
+  YourCompanyProfileEdit,
 } from '../Screens/YourCompany/YourCompanyProfile';
 import YourCompanyApplications from '../Screens/YourCompany/YourCompanyApplications';
 import YourCompanyTimeSlots from '../Screens/YourCompany/YourCompanyTimeSlots';
@@ -48,8 +48,8 @@ import { hasAccess, hasPermission } from '../Util/PermissionsHelper';
 const { Header, Content, Footer } = Layout;
 
 type RouteItem = {
-  path: string,
-  component: React.ComponentType
+  path: string;
+  component: React.ComponentType;
 };
 
 const privateRoutes: Array<RouteItem> = [
@@ -91,7 +91,7 @@ const privateRoutes: Array<RouteItem> = [
   { path: '/company/profile/edit', component: YourCompanyProfileEdit },
   { path: '/company/applications', component: YourCompanyApplications },
   { path: '/company/timeslots', component: YourCompanyTimeSlots },
-  { path: '/company/scans', component: YourCompanyScans }
+  { path: '/company/scans', component: YourCompanyScans },
 ];
 
 const routes = (
@@ -108,28 +108,28 @@ const routes = (
 );
 
 type Props = {
-  isLoggedIn: boolean,
+  isLoggedIn: boolean;
   currentUser?: {
-    email?: string,
-    firstName?: string,
-    lastName?: string,
-    roles?: Array<{ type: string, permissions: Array<string> }>
-  },
-  logout: () => void,
-  redirect: (route: string) => void,
-  pathname: string
+    email?: string;
+    firstName?: string;
+    lastName?: string;
+    roles?: Array<{ type: string; permissions: Array<string> }>;
+  };
+  logout: () => void;
+  redirect: (route: string) => void;
+  pathname: string;
 };
 
 type SubMenuProps = {
-  route: string,
-  title: string,
-  menus?: Array<React.Component>
+  route: string;
+  title: string;
+  menus?: Array<React.Component>;
 };
 
 type MenuItemProps = {
-  route: string,
-  title: string,
-  disabled?: boolean
+  route: string;
+  title: string;
+  disabled?: boolean;
 };
 
 /**
@@ -140,7 +140,7 @@ const App = ({
   currentUser,
   logout,
   redirect,
-  pathname
+  pathname,
 }: Props) => {
   const loggedInMenuItem = () => {
     const { email, firstName, lastName } = currentUser || {};
@@ -152,13 +152,13 @@ const App = ({
       <Menu.Item key="/user">
         {displayName} <Icon type="user" />
       </Menu.Item>,
-      <Menu.Item key="/logout">Logout</Menu.Item>
+      <Menu.Item key="/logout">Logout</Menu.Item>,
     ];
   };
 
   const loggedOutMenuItem = () => [
     <Menu.Item key="/login">Login</Menu.Item>,
-    <Menu.Item key="/signup">Sign Up</Menu.Item>
+    <Menu.Item key="/signup">Sign Up</Menu.Item>,
   ];
 
   const restrictedSubMenu = ({
@@ -204,7 +204,7 @@ const App = ({
   const paths: Array<string> = pathname.split('/').filter((i: string) => i);
   const breadcrumbItems: Array<React$Element<any>> = paths.map(
     (item: string, index: number) => {
-      const url: string = `/${paths.slice(0, index + 1).join('/')}`;
+      const url = `/${paths.slice(0, index + 1).join('/')}`;
       return (
         <Breadcrumb.Item key={url}>
           <Link to={url}>{startCase(item)}</Link>
@@ -234,41 +234,41 @@ const App = ({
               menus: [
                 restrictedMenuItem({
                   route: 'admin/companies',
-                  title: 'Companies'
+                  title: 'Companies',
                 }),
                 restrictedMenuItem({
                   route: 'admin/sessions',
-                  title: 'Student Session'
+                  title: 'Student Session',
                 }),
                 restrictedMenuItem({
                   route: 'admin/categories',
-                  title: 'Categories'
+                  title: 'Categories',
                 }),
                 restrictedMenuItem({
                   route: 'admin/roles',
-                  title: 'Roles'
+                  title: 'Roles',
                 }),
                 restrictedMenuItem({
                   route: 'admin/users',
-                  title: 'Users'
+                  title: 'Users',
                 }),
                 restrictedMenuItem({
                   route: 'admin/programmes',
-                  title: 'Programmes'
+                  title: 'Programmes',
                 }),
                 restrictedMenuItem({
                   route: 'admin/mailtemplates',
-                  title: 'Mailtemplates'
+                  title: 'Mailtemplates',
                 }),
                 restrictedMenuItem({
                   route: 'admin/deadlines',
-                  title: 'Deadlines'
+                  title: 'Deadlines',
                 }),
                 restrictedMenuItem({
                   route: 'admin/statistics',
-                  title: 'Statistics'
-                })
-              ]
+                  title: 'Statistics',
+                }),
+              ],
             })}
             {restrictedSubMenu({
               route: 'session',
@@ -278,21 +278,21 @@ const App = ({
                   route: 'session/application',
                   title: 'Apply',
                   disabled:
-                    process.env.REACT_APP_STUDENT_SESSION_ENABLED !== 'true'
+                    process.env.REACT_APP_STUDENT_SESSION_ENABLED !== 'true',
                 }),
                 restrictedMenuItem({
                   route: 'session/applications',
-                  title: 'View Applications'
+                  title: 'View Applications',
                 }),
                 restrictedMenuItem({
                   route: 'session/companies',
-                  title: 'View Companies'
+                  title: 'View Companies',
                 }),
                 restrictedMenuItem({
                   route: 'session/approved',
-                  title: 'View Approved Applications'
-                })
-              ]
+                  title: 'View Approved Applications',
+                }),
+              ],
             })}
             {restrictedSubMenu({
               route: 'company',
@@ -300,21 +300,21 @@ const App = ({
               menus: [
                 restrictedMenuItem({
                   route: 'company/profile',
-                  title: 'Company Profile'
+                  title: 'Company Profile',
                 }),
                 restrictedMenuItem({
                   route: 'company/applications',
-                  title: 'Applications'
+                  title: 'Applications',
                 }),
                 restrictedMenuItem({
                   route: 'company/timeslots',
-                  title: 'Time Slots'
+                  title: 'Time Slots',
                 }),
                 restrictedMenuItem({
                   route: 'company/scans',
-                  title: 'Student Scans'
-                })
-              ]
+                  title: 'Student Scans',
+                }),
+              ],
             })}
             {isLoggedIn ? loggedInMenuItem() : loggedOutMenuItem()}
           </Menu>

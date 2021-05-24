@@ -6,27 +6,33 @@ const convertKeys: Function = (obj: any, convert: Function) => {
     return obj;
   }
   if (Array.isArray(obj)) {
-    return obj.map(v => convertKeys(v, convert));
+    return obj.map((v) => convertKeys(v, convert));
   }
 
   const convertKey = (acc: any, key: string) => ({
     ...acc,
-    [convert(key)]: convertKeys(obj[key], convert)
+    [convert(key)]: convertKeys(obj[key], convert),
   });
 
   return reduce(convertKey, {}, Object.keys(obj));
 };
 
-export const camelCaseKeys: Function = (obj: any) => convertKeys(obj, camelCase);
-export const snakeCaseKeys: Function = (obj: any) => convertKeys(obj, snakeCase);
+export const camelCaseKeys: Function = (obj: any) =>
+  convertKeys(obj, camelCase);
+export const snakeCaseKeys: Function = (obj: any) =>
+  convertKeys(obj, snakeCase);
 
 const dateFormats = ['YYYY-MM-DD', 'YYYY-MM-DD HH:mm'];
 
-export const toFormData = (obj: object, form?: FormData, namespace?: string) => {
+export const toFormData = (
+  obj: object,
+  form?: FormData,
+  namespace?: string
+) => {
   const fd = form || new FormData();
   let formKey;
 
-  Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach((key) => {
     const snakeKey = snakeCase(key);
     const value = obj[key];
     if (namespace) {
@@ -56,7 +62,7 @@ export const toTimeFormat = (time?: string) => moment.utc(time).format('HH:mm');
 export const toSessionTimeFormat = (start?: string, end?: string) =>
   [
     `Date: ${moment.utc(start).format('ddd, MMM D')}`,
-    `Time: ${toTimeFormat(start)} - ${toTimeFormat(end)}`
+    `Time: ${toTimeFormat(start)} - ${toTimeFormat(end)}`,
   ].join('\n');
 
 export default {
@@ -64,5 +70,5 @@ export default {
   camelCaseKeys,
   snakeCaseKeys,
   toFormData,
-  toSessionTimeFormat
+  toSessionTimeFormat,
 };

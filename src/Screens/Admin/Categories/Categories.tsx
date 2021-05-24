@@ -6,10 +6,10 @@ import InvisibleLink from '../../../Components/InvisibleLink';
 import LoadingSpinner from '../../../Components/LoadingSpinner';
 import HtmlTitle from '../../../Components/HtmlTitle';
 
-const setKeys = entries =>
-  Object.keys(entries).map(i => ({
+const setKeys = (entries) =>
+  Object.keys(entries).map((i) => ({
     ...entries[i],
-    key: i
+    key: i,
   }));
 
 const categoryColumns = [
@@ -19,12 +19,12 @@ const categoryColumns = [
     key: 'title',
     render: (title, { id }) => (
       <InvisibleLink to={`/admin/categories/${id}`}>{title}</InvisibleLink>
-    )
+    ),
   },
   {
     title: 'Action',
     key: 'action',
-    render: category => (
+    render: (category) => (
       <span>
         <InvisibleLink to={`/admin/categories/${category.id}`}>
           Show
@@ -34,8 +34,8 @@ const categoryColumns = [
         <Divider type="vertical" />
         <InvisibleLink to="#">Delete</InvisibleLink>
       </span>
-    )
-  }
+    ),
+  },
 ];
 
 const attributeColumns = [
@@ -51,65 +51,64 @@ const attributeColumns = [
         <Divider type="vertical" />
         <InvisibleLink to="#category-delete">Delete</InvisibleLink>
       </span>
-    )
-  }
+    ),
+  },
 ];
 
-const expandedRowRender = attributes => category => (
-  <Table
-    columns={attributeColumns}
-    dataSource={setKeys(
-      denormalize(
-        { attributes: category.attributes },
-        Schema.categorySchema(),
-        {
-          attributes
-        }
-      ).attributes
-    )}
-    showHeader={false}
-    pagination={false}
-  />
-);
+const expandedRowRender = (attributes) => (category) =>
+  (
+    <Table
+      columns={attributeColumns}
+      dataSource={setKeys(
+        denormalize(
+          { attributes: category.attributes },
+          Schema.categorySchema(),
+          {
+            attributes,
+          }
+        ).attributes
+      )}
+      showHeader={false}
+      pagination={false}
+    />
+  );
 
 /**
  * Responsible for rendering a list of categories
  */
 type Props = {
-  categories?: {},
-  attributes?: {},
-  fetching: boolean,
-  getAllCategories: () => Promise<void>
+  categories?: {};
+  attributes?: {};
+  fetching: boolean;
+  getAllCategories: () => Promise<void>;
 };
 const Categories = ({
   categories,
   attributes,
   fetching,
-  getAllCategories
+  getAllCategories,
 }: Props) => {
   useEffect(() => {
     getAllCategories();
   }, [getAllCategories]);
 
-  const renderCategories = () => {
-    return (
-      <div>
-        <HtmlTitle title="Categories" />
+  const renderCategories = () => (
+    <div>
+      <HtmlTitle title="Categories" />
 
-        <h1>Categories</h1>
+      <h1>Categories</h1>
 
-        <Table
-          columns={categoryColumns}
-          dataSource={setKeys(categories || {})}
-          expandedRowRender={expandedRowRender(attributes)}
-          expandRowByClick
-        />
-        <Button onClick={() => null} type="primary">
-          New category
-        </Button>
-      </div>
-    );
-  };
+      <Table
+        columns={categoryColumns}
+        dataSource={setKeys(categories || {})}
+        expandedRowRender={expandedRowRender(attributes)}
+        expandRowByClick
+      />
+      <Button onClick={() => null} type="primary">
+        New category
+      </Button>
+    </div>
+  );
 
   if (fetching) {
     return <LoadingSpinner />;
@@ -119,7 +118,7 @@ const Categories = ({
 
 Categories.defaultProps = {
   categories: {},
-  attributes: {}
+  attributes: {},
 };
 
 export default Categories;

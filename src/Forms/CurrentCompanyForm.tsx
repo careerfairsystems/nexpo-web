@@ -10,9 +10,9 @@ const TextInput = makeField(Input);
 const TextArea = makeField(Input.TextArea);
 
 type Props = {
-  handleSubmit: () => Promise<void>,
-  onCancel?: (event: Event) => any,
-  submitting: boolean
+  handleSubmit: () => Promise<void>;
+  onCancel?: (event: Event) => any;
+  submitting: boolean;
 };
 const CurrentCompanyForm = ({ handleSubmit, onCancel, submitting }: Props) => (
   <Form onSubmit={handleSubmit}>
@@ -44,7 +44,7 @@ const CurrentCompanyForm = ({ handleSubmit, onCancel, submitting }: Props) => (
 );
 
 CurrentCompanyForm.defaultProps = {
-  onCancel: null
+  onCancel: null,
 };
 
 const mapStateToProps = (state, props) => {
@@ -57,7 +57,7 @@ const mapStateToProps = (state, props) => {
 
   return {
     initialValues: { ...initialValues, logoUrl },
-    formState: state.form.CurrentCompanyForm
+    formState: state.form.CurrentCompanyForm,
   };
 };
 

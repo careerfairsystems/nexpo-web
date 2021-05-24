@@ -9,5 +9,5 @@ export default {
   ...CategoriesGetActions,
   ...CategoriesGetAllActions,
   ...CategoriesPostActions,
-  ...CategoriesPutActions
+  ...CategoriesPutActions,
 };

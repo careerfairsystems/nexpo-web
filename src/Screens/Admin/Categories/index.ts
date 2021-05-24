@@ -6,12 +6,12 @@ import type { State } from '../../../Store/reducers';
 const mapStateToProps = (state: State) => ({
   categories: state.entities.categories,
   attributes: state.entities.attributes,
-  fetching: state.api.categories.fetching
+  fetching: state.api.categories.fetching,
 });
 
 const mapDispatchToProps = {
   getAllCategories: Actions.categories.getAllCategories,
-  createCategory: Actions.categories.createCategory
+  createCategory: Actions.categories.createCategory,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

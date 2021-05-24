@@ -4,36 +4,35 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const getProgrammeIsLoading = () => ({
-  type: actionTypes.FETCH_PROGRAMME
+  type: actionTypes.FETCH_PROGRAMME,
 });
 
 export const getProgrammeSuccess = (programme: {}) => ({
   type: actionTypes.FETCH_PROGRAMME_SUCCESS,
-  programme
+  programme,
 });
 
 export type GetProgrammeFailureAction = {
-  type: string
+  type: string;
 };
 export const getProgrammeFailure = (): GetProgrammeFailureAction => {
   message.error(
     'Something went wrong when trying to fetch Programme, please try again later'
   );
   return {
-    type: actionTypes.FETCH_PROGRAMME_FAILURE
+    type: actionTypes.FETCH_PROGRAMME_FAILURE,
   };
 };
 
-export const getProgramme = (id: string) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const getProgramme =
+  (id: string) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getProgrammeIsLoading());
     return API.programmes
       .get(id)
-      .then(programme => {
+      .then((programme) => {
         dispatch(getProgrammeSuccess(programme.data));
       })
       .catch(() => {
         dispatch(getProgrammeFailure());
       });
   };
-}

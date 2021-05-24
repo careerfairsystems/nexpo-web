@@ -11,7 +11,7 @@ export const getNotAppliedTo = (state: State) => {
   const notAppliedTo = sortBy(
     'name',
     filter(
-      c => c.studentSessionDays && !companiesAppliedTo.includes(c.id),
+      (c) => c.studentSessionDays && !companiesAppliedTo.includes(c.id),
       companies
     )
   );

@@ -16,7 +16,7 @@ describe('UserEdit', () => {
       createUser: jest.fn(),
       fetching: false,
       resetForm: jest.fn(),
-      history: { push: jest.fn() }
+      history: { push: jest.fn() },
     };
   });
   it('should render without crashing', () => {
@@ -40,7 +40,7 @@ describe('UserEdit', () => {
     const values = { phoneNumber: '1331337' };
     const wrapper = shallow(<UserEdit id={id} {...props} />);
     const instance = wrapper.instance();
-    if(instance) instance.updateUser(values);
+    if (instance) instance.updateUser(values);
     setTimeout(() => {
       expect(props.updateUser).toHaveBeenCalledWith(id, { user: values });
       expect(props.history.push).toHaveBeenCalledWith(`/admin/users/${id}`);

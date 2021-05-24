@@ -10,7 +10,7 @@ import {
   forgotPasswordSuccess,
   replaceForgottenPasswordRequest,
   replaceForgottenPasswordSuccess,
-  replaceForgottenPasswordFailure
+  replaceForgottenPasswordFailure,
 } from '../../actions/Accounts/AccountsActions';
 
 it('should set the correct initial state', () => {
@@ -18,73 +18,73 @@ it('should set the correct initial state', () => {
     categories: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     companies: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     deadlines: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     mailtemplates: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     users: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     roles: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     programmes: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     currentUser: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     currentCompany: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     studentSession: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     forgotPassword: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     login: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     replacePassword: {
       fetching: false,
       errors: {},
-      success: false
+      success: false,
     },
     verifyForgotPasswordKey: {
       fetching: false,
       errors: {},
-      success: false
-    }
+      success: false,
+    },
   };
   const state = ApiReducer(undefined, {});
   expect(state).toEqual(initialState);
@@ -96,15 +96,15 @@ describe('fetch companies', () => {
       companies: {
         fetching: false,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
     const expected = {
       companies: {
         fetching: true,
         errors: {},
-        success: false
-      }
+        success: false,
+      },
     };
     const state = ApiReducer(
       startState,
@@ -118,15 +118,15 @@ describe('fetch companies', () => {
       companies: {
         fetching: true,
         errors: {},
-        success: false
-      }
+        success: false,
+      },
     };
     const expected = {
       companies: {
         fetching: false,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
     const state = ApiReducer(
       startState,
@@ -140,15 +140,15 @@ describe('fetch companies', () => {
       companies: {
         fetching: true,
         errors: undefined,
-        success: true
-      }
+        success: true,
+      },
     };
     const expected = {
       companies: {
         fetching: false,
         errors: ['There was an error'],
-        success: false
-      }
+        success: false,
+      },
     };
     const state = ApiReducer(
       startState,
@@ -164,15 +164,15 @@ describe('fetch users', () => {
       users: {
         fetching: false,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
     const expected = {
       users: {
         fetching: true,
         errors: {},
-        success: false
-      }
+        success: false,
+      },
     };
     const state = ApiReducer(startState, Actions.users.getAllUsersIsLoading());
     expect(state).toMatchObject(expected);
@@ -183,15 +183,15 @@ describe('fetch users', () => {
       users: {
         fetching: true,
         errors: {},
-        success: false
-      }
+        success: false,
+      },
     };
     const expected = {
       users: {
         fetching: false,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
     const state = ApiReducer(startState, Actions.users.getAllUsersSuccess([]));
     expect(state).toMatchObject(expected);
@@ -202,15 +202,15 @@ describe('fetch users', () => {
       users: {
         fetching: true,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
     const expected = {
       users: {
         fetching: false,
         errors: ['There was an error'],
-        success: false
-      }
+        success: false,
+      },
     };
     const state = ApiReducer(startState, Actions.users.getAllUsersFailure());
     expect(state).toMatchObject(expected);
@@ -223,15 +223,15 @@ describe('fetch roles', () => {
       roles: {
         fetching: false,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
     const expected = {
       roles: {
         fetching: true,
         errors: {},
-        success: false
-      }
+        success: false,
+      },
     };
     const state = ApiReducer(startState, Actions.roles.getAllRolesIsLoading());
     expect(state).toMatchObject(expected);
@@ -242,15 +242,15 @@ describe('fetch roles', () => {
       roles: {
         fetching: true,
         errors: {},
-        success: false
-      }
+        success: false,
+      },
     };
     const expected = {
       roles: {
         fetching: false,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
     const state = ApiReducer(startState, Actions.roles.getAllRolesSuccess([]));
     expect(state).toMatchObject(expected);
@@ -261,15 +261,15 @@ describe('fetch roles', () => {
       roles: {
         fetching: true,
         errors: undefined,
-        success: true
-      }
+        success: true,
+      },
     };
     const expected = {
       roles: {
         fetching: false,
         errors: ['There was an error'],
-        success: false
-      }
+        success: false,
+      },
     };
     const state = ApiReducer(startState, Actions.roles.getAllRolesFailure());
     expect(state).toMatchObject(expected);
@@ -282,15 +282,15 @@ describe('fetch categories', () => {
       categories: {
         fetching: false,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
     const expected = {
       categories: {
         fetching: true,
         errors: {},
-        success: false
-      }
+        success: false,
+      },
     };
     const state = ApiReducer(
       startState,
@@ -304,15 +304,15 @@ describe('fetch categories', () => {
       categories: {
         fetching: true,
         errors: {},
-        success: false
-      }
+        success: false,
+      },
     };
     const expected = {
       categories: {
         fetching: false,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
     const state = ApiReducer(
       startState,
@@ -326,15 +326,15 @@ describe('fetch categories', () => {
       categories: {
         fetching: true,
         errors: undefined,
-        success: true
-      }
+        success: true,
+      },
     };
     const expected = {
       categories: {
         fetching: false,
         errors: ['There was an error'],
-        success: false
-      }
+        success: false,
+      },
     };
     const state = ApiReducer(
       startState,
@@ -347,10 +347,10 @@ describe('fetch categories', () => {
 describe('forgotPassword action', () => {
   it('should handle request action', () => {
     const startState = {
-      forgotPassword: { fetching: false, errors: {}, success: true }
+      forgotPassword: { fetching: false, errors: {}, success: true },
     };
     const expected = {
-      forgotPassword: { fetching: true, errors: {}, success: false }
+      forgotPassword: { fetching: true, errors: {}, success: false },
     };
     const state = ApiReducer(startState, forgotPasswordRequest());
     expect(state).toMatchObject(expected);
@@ -358,10 +358,10 @@ describe('forgotPassword action', () => {
 
   it('should handle success action', () => {
     const startState = {
-      forgotPassword: { fetching: true, errors: {}, success: false }
+      forgotPassword: { fetching: true, errors: {}, success: false },
     };
     const expected = {
-      forgotPassword: { fetching: false, errors: {}, success: true }
+      forgotPassword: { fetching: false, errors: {}, success: true },
     };
     const state = ApiReducer(startState, forgotPasswordSuccess());
     expect(state).toMatchObject(expected);
@@ -374,15 +374,15 @@ describe('replace forgotten password action', () => {
       replacePassword: {
         fetching: false,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
     const expected = {
       replacePassword: {
         fetching: true,
         errors: {},
-        success: false
-      }
+        success: false,
+      },
     };
     const state = ApiReducer(startState, replaceForgottenPasswordRequest());
     expect(state).toMatchObject(expected);
@@ -393,15 +393,15 @@ describe('replace forgotten password action', () => {
       replacePassword: {
         fetching: true,
         errors: {},
-        success: false
-      }
+        success: false,
+      },
     };
     const expected = {
       replacePassword: {
         fetching: false,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
     const state = ApiReducer(startState, replaceForgottenPasswordSuccess());
     expect(state).toMatchObject(expected);
@@ -412,19 +412,19 @@ describe('replace forgotten password action', () => {
       replacePassword: {
         fetching: true,
         errors: {},
-        success: true
-      }
+        success: true,
+      },
     };
 
     const errors = {
-      password: ['some-error']
+      password: ['some-error'],
     };
     const expected = {
       replacePassword: {
         fetching: false,
         errors,
-        success: false
-      }
+        success: false,
+      },
     };
     const state = ApiReducer(
       startState,

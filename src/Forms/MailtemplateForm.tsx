@@ -8,7 +8,7 @@ const TextInput = makeField(Input);
 const TextArea = makeField(Input.TextArea);
 
 type Props = {
-  handleSubmit: () => Promise<void>
+  handleSubmit: () => Promise<void>;
 };
 
 const MailtemplateForm = ({ handleSubmit }: Props) => (
@@ -26,8 +26,8 @@ const MailtemplateForm = ({ handleSubmit }: Props) => (
   </Form>
 );
 
-const mapStateToProps = state => ({
-  formState: state.form.MailtemplateForm
+const mapStateToProps = (state) => ({
+  formState: state.form.MailtemplateForm,
 });
 
 const stateful = connect(mapStateToProps);

@@ -4,36 +4,34 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const getAllDeadlinesIsLoading = () => ({
-  type: actionTypes.FETCH_DEADLINES
+  type: actionTypes.FETCH_DEADLINES,
 });
 
 export const getAllDeadlinesSuccess = (deadlines: Array<{}>) => ({
   type: actionTypes.FETCH_DEADLINES_SUCCESS,
-  deadlines
+  deadlines,
 });
 
 export type GetAllDeadlinesFailureAction = {
-  type: string
+  type: string;
 };
 export const getAllDeadlinesFailure = (): GetAllDeadlinesFailureAction => {
   message.error(
     'Something went wrong when trying to fetch all deadlines, please try again later'
   );
   return {
-    type: actionTypes.FETCH_DEADLINES_FAILURE
+    type: actionTypes.FETCH_DEADLINES_FAILURE,
   };
 };
 
-export const getAllDeadlines = () => {
-  return (dispatch: Dispatch<{ type: string }>) => {
-    dispatch(getAllDeadlinesIsLoading());
-    return API.deadlines
-      .getAll()
-      .then(deadlines => {
-        dispatch(getAllDeadlinesSuccess(deadlines.data));
-      })
-      .catch(() => {
-        dispatch(getAllDeadlinesFailure());
-      });
-  };
-}
+export const getAllDeadlines = () => (dispatch: Dispatch<{ type: string }>) => {
+  dispatch(getAllDeadlinesIsLoading());
+  return API.deadlines
+    .getAll()
+    .then((deadlines) => {
+      dispatch(getAllDeadlinesSuccess(deadlines.data));
+    })
+    .catch(() => {
+      dispatch(getAllDeadlinesFailure());
+    });
+};

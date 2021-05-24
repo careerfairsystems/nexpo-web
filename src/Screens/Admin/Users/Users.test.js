@@ -11,7 +11,7 @@ describe('users', () => {
     props = {
       fetching: false,
       getAllUsers: jest.fn(),
-      deleteUser: jest.fn()
+      deleteUser: jest.fn(),
     };
   });
 
@@ -35,18 +35,18 @@ describe('users', () => {
 
   it('should render users', () => {
     const users = {
-      '1': {
+      1: {
         id: 1,
         firstName: 'First',
         lastName: 'Last',
-        email: 'first.name@domain.com'
+        email: 'first.name@domain.com',
       },
-      '2': {
+      2: {
         id: 2,
         firstName: 'Dev',
         lastName: 'Dev',
-        email: 'admin@test.now'
-      }
+        email: 'admin@test.now',
+      },
     };
     const wrapper = shallow(<Users id="1" {...props} users={users} />);
 

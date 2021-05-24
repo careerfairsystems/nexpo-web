@@ -10,7 +10,7 @@ describe('userform should function correctly', () => {
   beforeEach(() => {
     props = {
       currentStudent: {
-        resumeSvUrl: 'oldPlaceholder.com'
+        resumeSvUrl: 'oldPlaceholder.com',
       },
       currentUser: {
         id: 1,
@@ -18,7 +18,7 @@ describe('userform should function correctly', () => {
         lastName: 'Smith',
         phoneNumber: '11111',
         foodPreferences: 'Cake',
-        roles: []
+        roles: [],
       },
       fetching: false,
       getCurrentUser: jest.fn(),
@@ -27,7 +27,7 @@ describe('userform should function correctly', () => {
       logout: jest.fn(),
       resetForm: jest.fn(),
       updateCurrentUser: jest.fn(),
-      updateCurrentStudent: jest.fn()
+      updateCurrentStudent: jest.fn(),
     };
   });
 
@@ -53,7 +53,7 @@ describe('userform should function correctly', () => {
     const phoneNumber = '13371337';
     const values = { firstName, lastName, phoneNumber, foodPreferences };
     const instance = wrapper.instance();
-    if(instance) instance.updateUser(values);
+    if (instance) instance.updateUser(values);
     setTimeout(() => {
       expect(updateCurrentUser).toHaveBeenCalledTimes(1);
       expect(updateCurrentUser).toHaveBeenCalledWith({ user: values });
@@ -65,10 +65,10 @@ describe('userform should function correctly', () => {
     const { updateCurrentStudent } = props;
     const resumeEnUrl = 'placeholder.com';
     const instance = wrapper.instance();
-    if(instance) instance.updateStudent({ resumeEnUrl });
+    if (instance) instance.updateStudent({ resumeEnUrl });
     setTimeout(() => {
       expect(updateCurrentStudent).toHaveBeenCalledWith({
-        student: { resumeEnUrl }
+        student: { resumeEnUrl },
       });
     }, 100);
   });
@@ -77,7 +77,7 @@ describe('userform should function correctly', () => {
     const wrapper = shallow(<CurrentUser {...props} />);
     const { deleteCurrentUser, logout } = props;
     const instance = wrapper.instance();
-    if(instance) instance.deleteCurrentUser();
+    if (instance) instance.deleteCurrentUser();
     setTimeout(() => {
       expect(deleteCurrentUser).toHaveBeenCalledTimes(1);
       expect(logout).toHaveBeenCalledTimes(1);

@@ -14,18 +14,12 @@ const MyDatePicker = makeField(DatePicker);
 const MyTimePicker = makeField(TimePicker);
 
 type Props = FieldsProps & {
-  fieldValues?: {}
+  fieldValues?: {};
 };
 
 const generateTimeSlots = (fields, values) => {
-  const {
-    date,
-    startTime,
-    endTime,
-    timeslotLength,
-    breakLength,
-    location
-  } = values;
+  const { date, startTime, endTime, timeslotLength, breakLength, location } =
+    values;
   if (!date || !startTime || !endTime) return;
 
   const current = moment.utc(`${date} ${startTime}`, 'YYYY-MM-DD HH:mm');
@@ -37,7 +31,7 @@ const generateTimeSlots = (fields, values) => {
       key: current.toISOString(),
       start: moment.utc(current),
       end: moment.utc(current).add(sessionLength, 'minutes'),
-      location
+      location,
     });
     current.add(sessionLength, 'minutes');
   }
@@ -48,7 +42,7 @@ const columns = [
     title: 'Start Time',
     key: 'start',
     dataIndex: 'field',
-    render: timeSlot => (
+    render: (timeSlot) => (
       <Field
         name={`${timeSlot}.start`}
         type="text"
@@ -58,13 +52,13 @@ const columns = [
         validate={required}
         required
       />
-    )
+    ),
   },
   {
     title: 'End Time',
     key: 'end',
     dataIndex: 'field',
-    render: timeSlot => (
+    render: (timeSlot) => (
       <Field
         name={`${timeSlot}.end`}
         type="text"
@@ -74,13 +68,13 @@ const columns = [
         validate={required}
         required
       />
-    )
+    ),
   },
   {
     title: 'Location',
     key: 'location',
     dataIndex: 'field',
-    render: timeSlot => (
+    render: (timeSlot) => (
       <Field
         name={`${timeSlot}.location`}
         type="text"
@@ -88,7 +82,7 @@ const columns = [
         validate={required}
         required
       />
-    )
+    ),
   },
   {
     title: 'Action',
@@ -106,8 +100,8 @@ const columns = [
         )}
         {!id && <Button onClick={() => fields.remove(index)}>Delete</Button>}
       </>
-    )
-  }
+    ),
+  },
 ];
 
 const DynamicTimeSlots = ({ fields, fieldValues }: Props) => (
@@ -154,9 +148,9 @@ const DynamicTimeSlots = ({ fields, fieldValues }: Props) => (
             field,
             key: obj.id,
             ...obj,
-            fields
+            fields,
           }),
-          fields.map(i => i)
+          fields.map((i) => i)
         ),
         sortBy('start')
       )(fields.getAll())}
@@ -167,7 +161,7 @@ const DynamicTimeSlots = ({ fields, fieldValues }: Props) => (
 );
 
 DynamicTimeSlots.defaultProps = {
-  fieldValues: {}
+  fieldValues: {},
 };
 
 export default DynamicTimeSlots;

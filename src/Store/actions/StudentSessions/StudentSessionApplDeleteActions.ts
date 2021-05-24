@@ -4,29 +4,30 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const deleteStudentSessionApplIsLoading = () => ({
-  type: actionTypes.DELETE_STUDENT_SESSION_APPL
+  type: actionTypes.DELETE_STUDENT_SESSION_APPL,
 });
 
 export const deleteStudentSessionApplSuccess = (id: string) => {
   message.success('Your Application was successfully deleted.');
   return {
     type: actionTypes.DELETE_STUDENT_SESSION_APPL_SUCCESS,
-    id
+    id,
   };
 };
 
 export type deleteStudentSessionApplFailureAction = {
-  type: string
+  type: string;
 };
-export const deleteStudentSessionApplFailure = (): deleteStudentSessionApplFailureAction => {
-  message.warning('Something went wrong, please try again later');
-  return {
-    type: actionTypes.DELETE_STUDENT_SESSION_APPL_FAILURE
+export const deleteStudentSessionApplFailure =
+  (): deleteStudentSessionApplFailureAction => {
+    message.warning('Something went wrong, please try again later');
+    return {
+      type: actionTypes.DELETE_STUDENT_SESSION_APPL_FAILURE,
+    };
   };
-};
 
-export const deleteStudentSessionAppl = (id: string) => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const deleteStudentSessionAppl =
+  (id: string) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteStudentSessionApplIsLoading());
     return API.studentSessions
       .deleteAppl(id)
@@ -37,4 +38,3 @@ export const deleteStudentSessionAppl = (id: string) => {
         dispatch(deleteStudentSessionApplFailure());
       });
   };
-}

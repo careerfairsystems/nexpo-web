@@ -7,7 +7,7 @@ import {
   authFetch,
   authFormPut,
   authDelete,
-  handleHttpResponse
+  handleHttpResponse,
 } from './utils';
 
 export default {
@@ -38,5 +38,5 @@ export default {
    * Delete a deadline
    */
   delete: (id: string) =>
-    authDelete(`/api/deadlines/${id}`).then(handleHttpResponse)
+    authDelete(`/api/deadlines/${id}`).then(handleHttpResponse),
 };

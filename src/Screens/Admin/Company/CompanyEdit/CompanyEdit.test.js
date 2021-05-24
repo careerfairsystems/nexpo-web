@@ -14,10 +14,10 @@ describe('CompanyEdit', () => {
       fetching: false,
       getCompany: jest.fn(),
       history: {
-        push: jest.fn()
+        push: jest.fn(),
       },
       resetForm: jest.fn(),
-      updateCompany: jest.fn()
+      updateCompany: jest.fn(),
     };
   });
 
@@ -26,7 +26,7 @@ describe('CompanyEdit', () => {
       name: 'Test CompanyEdit',
       website: 'testcompany.com',
       description: 'We do testing!',
-      studentSessionDays: 0
+      studentSessionDays: 0,
     };
     shallow(<CompanyEdit id="1" {...props} company={company} />);
   });
@@ -48,7 +48,7 @@ describe('CompanyEdit', () => {
       name: 'Test CompanyEdit',
       website: 'testcompany.com',
       description: 'We do testing!',
-      studentSessionDays: 3
+      studentSessionDays: 3,
     };
     const wrapper = shallow(
       <CompanyEdit id="1" {...props} company={company} />
@@ -62,7 +62,7 @@ describe('CompanyEdit', () => {
       name: 'Test CompanyEdit',
       website: 'testcompany.com',
       description: 'We do testing!',
-      studentSessionDays: 1
+      studentSessionDays: 1,
     };
     const wrapper = shallow(
       <CompanyEdit id="1" {...props} company={company} />
@@ -77,7 +77,7 @@ describe('CompanyEdit', () => {
       name: 'Test CompanyEdit',
       website: 'testcompany.com',
       description: 'We do testing!',
-      studentSessionDays: 2
+      studentSessionDays: 2,
     };
     const id = '1';
     const wrapper = shallow(
@@ -85,10 +85,10 @@ describe('CompanyEdit', () => {
     );
     const newDescription = 'Our company is awesome';
     const instance = wrapper.instance();
-    if(instance) instance.updateCompany({ description: newDescription });
+    if (instance) instance.updateCompany({ description: newDescription });
     setTimeout(() => {
       expect(props.updateCompany).toHaveBeenCalledWith(id, {
-        company: { description: newDescription }
+        company: { description: newDescription },
       });
     }, 100);
   });

@@ -4,15 +4,11 @@ import ForgotPasswordForm from '../../Forms/ForgotPasswordForm';
 import SuccessMessage from '../SuccessMessage';
 
 type Props = {
-  callBackend: ({ email: string }) => () => Promise<void>,
-  success?: boolean
+  callBackend: ({ email: string }) => () => Promise<void>;
+  success?: boolean;
 };
 
-const ForgotPasswordEnterEmail = ({
-  callBackend,
-  success
-}: Props) => {
-  
+const ForgotPasswordEnterEmail = ({ callBackend, success }: Props) => {
   const queryBackend = (values: { email: string }) => {
     const { email } = values;
     callBackend({ email });
@@ -43,10 +39,10 @@ const ForgotPasswordEnterEmail = ({
       </div>
     </div>
   );
-}
+};
 
 ForgotPasswordEnterEmail.defaultProps = {
   success: false,
-}
+};
 
 export default ForgotPasswordEnterEmail;

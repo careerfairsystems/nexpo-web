@@ -4,26 +4,26 @@ import SuccessMessage from '../SuccessMessage';
 import { NotFound } from '../../Screens/NotFound/NotFound';
 
 type PasswordObj = {
-  password: string,
-  passwordConfirmation: string
+  password: string;
+  passwordConfirmation: string;
 };
 
 type Props = {
-  sendNewPasswordToBackend: (password: PasswordObj) => Promise<object>,
-  verifyKey: () => Promise<object>,
-  keyIsValid: boolean,
+  sendNewPasswordToBackend: (password: PasswordObj) => Promise<object>;
+  verifyKey: () => Promise<object>;
+  keyIsValid: boolean;
   errors?: {
-    password?: string[],
-    passwordConfirmation?: string[]
-  },
-  success?: boolean
+    password?: string[];
+    passwordConfirmation?: string[];
+  };
+  success?: boolean;
 };
 
 const ReplaceForgottenPassword = ({
   sendNewPasswordToBackend,
   verifyKey,
   keyIsValid,
-  success
+  success,
 }: Props) => {
   useEffect(() => {
     verifyKey();
@@ -33,7 +33,7 @@ const ReplaceForgottenPassword = ({
     const { password, passwordConfirmation } = values;
     return sendNewPasswordToBackend({
       password,
-      passwordConfirmation
+      passwordConfirmation,
     });
   };
 
@@ -60,7 +60,7 @@ const ReplaceForgottenPassword = ({
 
 ReplaceForgottenPassword.defaultProps = {
   errors: {},
-  success: false
+  success: false,
 };
 
 export default ReplaceForgottenPassword;

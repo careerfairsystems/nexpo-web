@@ -13,7 +13,7 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = {
   getProgramme: Actions.programmes.getProgramme,
   createProgramme: Actions.programmes.createProgramme,
-  updateProgramme: Actions.programmes.updateProgramme
+  updateProgramme: Actions.programmes.updateProgramme,
 };
 
 const stateful = connect(mapStateToProps, mapDispatchToProps);

@@ -3,28 +3,27 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 
 export const getCurrentCompanyIsLoading = () => ({
-  type: actionTypes.FETCH_CURRENT_COMPANY
+  type: actionTypes.FETCH_CURRENT_COMPANY,
 });
 
 export const getCurrentCompanySuccess = (company: {}) => ({
   type: actionTypes.FETCH_CURRENT_COMPANY_SUCCESS,
-  company
+  company,
 });
 
 export const getCurrentCompanyFailure = () => ({
-  type: actionTypes.FETCH_CURRENT_COMPANY_FAILURE
+  type: actionTypes.FETCH_CURRENT_COMPANY_FAILURE,
 });
 
-export const getCurrentCompany = () => {
-  return (dispatch: Dispatch<{ type: string }>) => {
+export const getCurrentCompany =
+  () => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getCurrentCompanyIsLoading());
     return API.companies
       .getMyCompany()
-      .then(company => {
+      .then((company) => {
         dispatch(getCurrentCompanySuccess(company.data));
       })
       .catch(() => {
         dispatch(getCurrentCompanyFailure());
       });
   };
-}

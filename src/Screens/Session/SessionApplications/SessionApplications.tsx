@@ -7,30 +7,32 @@ import UpdateSessionApplicationForm from '../../../Forms/UpdateSessionApplicatio
 import '../Session.css';
 
 type Company = {
-  name: string,
-  logoUrl: string
+  name: string;
+  logoUrl: string;
 };
 
 type Application = {
-  id: string,
-  company: Company,
-  motivation: string
+  id: string;
+  company: Company;
+  motivation: string;
 };
 
 type Props = {
-  applications?: Array<Application>,
-  companies?: any,
-  getAllCompanies: () => Promise<void>,
-  deleteStudentSessionAppl: (id: string) => Promise<void>,
-  fetching: boolean,
+  applications?: Array<Application>;
+  companies?: any;
+  getAllCompanies: () => Promise<void>;
+  deleteStudentSessionAppl: (id: string) => Promise<void>;
+  fetching: boolean;
   updateStudentSessionAppl: (
     id: string,
-    studentSessionApplicationObject: { studentSessionApplication: { motivation: string } }
-  ) => Promise<void>
+    studentSessionApplicationObject: {
+      studentSessionApplication: { motivation: string };
+    }
+  ) => Promise<void>;
 };
 
 const DefaultState = {
-  editing: {}
+  editing: {},
 };
 
 const SessionApplications = ({
@@ -39,7 +41,7 @@ const SessionApplications = ({
   getAllCompanies,
   deleteStudentSessionAppl,
   fetching,
-  updateStudentSessionAppl
+  updateStudentSessionAppl,
 }: Props) => {
   const [state, setState] = useState(DefaultState);
 
@@ -69,7 +71,7 @@ const SessionApplications = ({
         <UpdateSessionApplicationForm
           initialValues={{ motivation }}
           id={id}
-          onSubmit={values => updateStudentSessionApplication(id, values)}
+          onSubmit={(values) => updateStudentSessionApplication(id, values)}
         />
       );
     return `Motivation: ${motivation}`;
@@ -92,7 +94,7 @@ const SessionApplications = ({
             onConfirm={() => deleteStudentSessionAppl(application.id)}
           >
             <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>Delete</span>
-          </Popconfirm>
+          </Popconfirm>,
         ]}
       >
         <List.Item.Meta
@@ -135,7 +137,7 @@ const SessionApplications = ({
 
 SessionApplications.defaultProps = {
   companies: {},
-  applications: []
+  applications: [],
 };
 
 export default SessionApplications;

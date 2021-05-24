@@ -9,17 +9,17 @@ import HtmlTitle from '../../../Components/HtmlTitle';
  * Responsible for rendering a list of programmes
  */
 type Props = {
-  programmes?: {},
-  fetching: boolean,
-  deleteProgramme: (id: string) => Promise<void>,
-  getAllProgrammes: () => Promise<void>
+  programmes?: {};
+  fetching: boolean;
+  deleteProgramme: (id: string) => Promise<void>;
+  getAllProgrammes: () => Promise<void>;
 };
 
 const Programmes = ({
   programmes,
   fetching,
   deleteProgramme,
-  getAllProgrammes
+  getAllProgrammes,
 }: Props) => {
   useEffect(() => {
     getAllProgrammes();
@@ -32,30 +32,26 @@ const Programmes = ({
       key: 'name',
       render: (name: string, { id }: { id: string }) => (
         <InvisibleLink to={`/admin/programmes/${id}`}>{name}</InvisibleLink>
-      )
+      ),
     },
     {
       title: 'Action',
       key: 'action',
-      render: (programme: { id: string }) => {
-        return (
-          <span>
-            <InvisibleLink to={`/admin/programmes/${programme.id}`}>
-              Edit
-            </InvisibleLink>
-            <Divider type="vertical" />
-            <Popconfirm
-              title="Sure to delete?"
-              onConfirm={() => deleteProgramme(programme.id)}
-            >
-              <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>
-                Delete
-              </span>
-            </Popconfirm>
-          </span>
-        );
-      }
-    }
+      render: (programme: { id: string }) => (
+        <span>
+          <InvisibleLink to={`/admin/programmes/${programme.id}`}>
+            Edit
+          </InvisibleLink>
+          <Divider type="vertical" />
+          <Popconfirm
+            title="Sure to delete?"
+            onConfirm={() => deleteProgramme(programme.id)}
+          >
+            <span style={{ color: '#ff4d4f', cursor: 'pointer' }}>Delete</span>
+          </Popconfirm>
+        </span>
+      ),
+    },
   ];
 
   const renderProgrammes = () => {
@@ -68,9 +64,9 @@ const Programmes = ({
 
         <Table
           columns={programmeColumns()}
-          dataSource={Object.keys(tempProgrammes).map(i => ({
+          dataSource={Object.keys(tempProgrammes).map((i) => ({
             ...tempProgrammes[i],
-            key: i
+            key: i,
           }))}
         />
 
@@ -90,7 +86,7 @@ const Programmes = ({
 };
 
 Programmes.defaultProps = {
-  programmes: {}
+  programmes: {},
 };
 
 export default Programmes;

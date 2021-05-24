@@ -5,7 +5,7 @@ import { mockHttpResponse, createMockStore } from '../../../TestHelper';
 describe('createStudentSessionApplIsLoading', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_STUDENT_SESSION_APPL
+      type: actionTypes.POST_STUDENT_SESSION_APPL,
     };
     const action = Actions.studentSessions.createStudentSessionApplIsLoading();
     expect(action).toEqual(expectedAction);
@@ -15,16 +15,15 @@ describe('createStudentSessionApplIsLoading', () => {
 describe('createStudentSessionApplSuccess', () => {
   it('should create the correct action', () => {
     const user = {
-      name: 'Test User'
+      name: 'Test User',
     };
 
     const expectedAction = {
       type: actionTypes.POST_STUDENT_SESSION_APPL_SUCCESS,
-      user
+      user,
     };
-    const action = Actions.studentSessions.createStudentSessionApplSuccess(
-      user
-    );
+    const action =
+      Actions.studentSessions.createStudentSessionApplSuccess(user);
     expect(action).toEqual(expectedAction);
   });
 });
@@ -32,7 +31,7 @@ describe('createStudentSessionApplSuccess', () => {
 describe('createStudentSessionApplFailure', () => {
   it('should create the correct action', () => {
     const expectedAction = {
-      type: actionTypes.POST_STUDENT_SESSION_APPL_FAILURE
+      type: actionTypes.POST_STUDENT_SESSION_APPL_FAILURE,
     };
     const action = Actions.studentSessions.createStudentSessionApplFailure();
     expect(action).toEqual(expectedAction);
@@ -57,14 +56,14 @@ describe('createStudentSessionAppl', () => {
 
   it('should call success action on success', () => {
     const application = {
-      name: 'StudentSessionAppl1'
+      name: 'StudentSessionAppl1',
     };
     mockHttpResponse({ status: 200, body: { data: application } });
 
     const expectedActions = [
       Actions.studentSessions.createStudentSessionApplIsLoading(),
       Actions.studentSessions.createStudentSessionApplSuccess(application),
-      reset('studentSession')
+      reset('studentSession'),
     ];
 
     const store = createMockStore();
@@ -84,7 +83,7 @@ describe('createStudentSessionAppl', () => {
 
     const expectedActions = [
       Actions.studentSessions.createStudentSessionApplIsLoading(),
-      Actions.studentSessions.createStudentSessionApplFailure()
+      Actions.studentSessions.createStudentSessionApplFailure(),
     ];
 
     const store = createMockStore();
@@ -120,7 +119,7 @@ describe('deleteStudentSessionAppl', () => {
 
     const expectedActions = [
       Actions.studentSessions.deleteStudentSessionApplIsLoading(),
-      Actions.studentSessions.deleteStudentSessionApplFailure()
+      Actions.studentSessions.deleteStudentSessionApplFailure(),
     ];
 
     const store = createMockStore();
@@ -139,7 +138,7 @@ describe('deleteStudentSessionAppl', () => {
 
     const expectedActions = [
       Actions.studentSessions.deleteStudentSessionApplIsLoading(),
-      Actions.studentSessions.deleteStudentSessionApplSuccess(application.id)
+      Actions.studentSessions.deleteStudentSessionApplSuccess(application.id),
     ];
 
     const store = createMockStore();
@@ -179,7 +178,7 @@ describe('updateStudentSessionAppl', () => {
     const data = { motivation: 'New motivation' };
     const expectedActions = [
       Actions.studentSessions.updateStudentSessionApplIsLoading(),
-      Actions.studentSessions.updateStudentSessionApplFailure()
+      Actions.studentSessions.updateStudentSessionApplFailure(),
     ];
 
     const store = createMockStore();
@@ -200,19 +199,19 @@ describe('updateStudentSessionAppl', () => {
       motivation: 'Old motivation',
       id: '1',
       companyid: '1',
-      studentid: '1'
+      studentid: '1',
     };
     mockHttpResponse({
       status: 200,
-      body: { data: { ...appl, ...data } }
+      body: { data: { ...appl, ...data } },
     });
 
     const expectedActions = [
       Actions.studentSessions.updateStudentSessionApplIsLoading(),
       Actions.studentSessions.updateStudentSessionApplSuccess({
         ...appl,
-        ...data
-      })
+        ...data,
+      }),
     ];
 
     const store = createMockStore();
@@ -254,7 +253,7 @@ describe('updateStudentSession', () => {
     const status = 1;
     const expectedActions = [
       Actions.studentSessions.updateStudentSessionIsLoading(),
-      Actions.studentSessions.updateStudentSessionFailure()
+      Actions.studentSessions.updateStudentSessionFailure(),
     ];
 
     const store = createMockStore();
@@ -276,19 +275,19 @@ describe('updateStudentSession', () => {
       motivation: 'Old motivation',
       id: '1',
       companyid: '1',
-      studentid: '1'
+      studentid: '1',
     };
     mockHttpResponse({
       status: 200,
-      body: { data: { ...appl, ...data } }
+      body: { data: { ...appl, ...data } },
     });
 
     const expectedActions = [
       Actions.studentSessions.updateStudentSessionIsLoading(),
       Actions.studentSessions.updateStudentSessionSuccess({
         ...appl,
-        ...data
-      })
+        ...data,
+      }),
     ];
 
     const store = createMockStore();

@@ -8,21 +8,21 @@ import SessionForm from '../../../Forms/SessionForm';
 import '../Session.css';
 
 type Application = {
-  companyId: number,
-  motivation: string
+  companyId: number;
+  motivation: string;
 };
 type Props = {
-  fetching: boolean,
+  fetching: boolean;
   currentUser: {
-    email?: string,
-    student?: object
-  },
-  getAllCompanies: () => Promise<void>,
-  getAllProgrammes: () => Promise<void>,
+    email?: string;
+    student?: object;
+  };
+  getAllCompanies: () => Promise<void>;
+  getAllProgrammes: () => Promise<void>;
   createStudentSessionAppl: (studentSessionApplicationObject: {
-    studentSessionApplication: Application
-  }) => Promise<void>,
-  resetForm: (form: string) => Promise<void>
+    studentSessionApplication: Application;
+  }) => Promise<void>;
+  resetForm: (form: string) => Promise<void>;
 };
 
 const SessionApplication = ({
@@ -31,7 +31,7 @@ const SessionApplication = ({
   getAllCompanies,
   getAllProgrammes,
   createStudentSessionAppl,
-  resetForm
+  resetForm,
 }: Props) => {
   useEffect(() => {
     getAllCompanies();
@@ -44,7 +44,7 @@ const SessionApplication = ({
 
   const createStudentSessionApplication = (data: Application) => {
     createStudentSessionAppl({
-      studentSessionApplication: data
+      studentSessionApplication: data,
     });
     resetStudentForm();
   };

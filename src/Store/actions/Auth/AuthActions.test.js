@@ -6,7 +6,7 @@ describe('login success', () => {
     const jwt = 'random string';
     const expectedAction = {
       type: actionTypes.LOGIN_SUCCESS,
-      jwt
+      jwt,
     };
     expect(Actions.auth.loginSuccess(jwt)).toEqual(expectedAction);
   });
@@ -31,18 +31,18 @@ describe('login action', () => {
     const jwt = 'random-string';
     const expectedActions = [
       Actions.auth.loginSuccess(jwt),
-      Actions.users.getCurrentUserIsLoading()
+      Actions.users.getCurrentUserIsLoading(),
     ];
 
     const httpResponse = {
-      data: { jwt }
+      data: { jwt },
     };
     mockHttpResponse({ status: 200, body: httpResponse });
 
     const store = createMockStore();
     const params = {
       email: 'test-user@student.lu.se',
-      password: 'test-password'
+      password: 'test-password',
     };
     return store.dispatch(Actions.auth.login(params)).then(() => {
       const calledActions = store.getActions();

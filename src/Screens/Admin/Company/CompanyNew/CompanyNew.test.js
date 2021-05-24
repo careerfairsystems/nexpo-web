@@ -10,7 +10,7 @@ describe('CompanyNew', () => {
       fetching: false,
       getCompany: jest.fn(),
       resetForm: jest.fn(),
-      updateCompany: jest.fn()
+      updateCompany: jest.fn(),
     };
   });
 
@@ -24,10 +24,10 @@ describe('CompanyNew', () => {
     const name = 'Testify';
     const description = 'Our company is awesome';
     const instance = wrapper.instance();
-    if(instance) instance.createCompany({ name, description });
+    if (instance) instance.createCompany({ name, description });
     setTimeout(() => {
       expect(props.createCompany).toHaveBeenCalledWith({
-        company: { name, description }
+        company: { name, description },
       });
     }, 100);
   });
