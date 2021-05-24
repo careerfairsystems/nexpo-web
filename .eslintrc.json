@@ -12,33 +12,23 @@
     "es6": true,
     "node": true
   },
+  // Enable plugins
+  "plugins": [
+    "@typescript-eslint", // Add typescript support
+    "react", // Load react linting
+    "prettier" // Enable prettier to be run as eslint rules
+  ],
   // Extend other configs with recommended settings
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "airbnb-typescript",
-    "prettier",
-    "prettier/react",
-    "prettier/standard"
+    "eslint:recommended", // Base config recommended to all projects
+    "plugin:@typescript-eslint/recommended", // Recommended for typescript projects
+    "plugin:react/recommended", // React specific rules
+    "airbnb-typescript", // A generally good config to extend
+    "plugin:prettier/recommended" // Load prettier plugin and let prettier handle formatting errors
   ],
-  // Enable plugins
-  "plugins": ["react", "prettier"],
   // Specify rules that override defaults and the ones in the extended configs
   "rules": {
     "import/no-named-as-default": 0,
-    // Discourage the use of double quotes
-    "quotes": [
-      "error",
-      "single",
-      {
-        "avoidEscape": true
-      }
-    ],
-    "react/jsx-filename-extension": [
-      "error",
-      { "extensions": [".js", ".jsx", ".tsx"] }
-    ],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
