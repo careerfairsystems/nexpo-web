@@ -15,17 +15,18 @@
   // Extend other configs with recommended settings
   "extends": [
     "eslint:recommended",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "airbnb-typescript"
-    //"prettier",
-    //"prettier/react",
-    //"prettier/standard"
+    "airbnb-typescript",
+    "prettier",
+    "prettier/react",
+    "prettier/standard"
   ],
   // Enable plugins
-  //"plugins": ["prettier"],
+  "plugins": ["react", "prettier"],
   // Specify rules that override defaults and the ones in the extended configs
   "rules": {
-    //"import/no-named-as-default": 0,
+    "import/no-named-as-default": 0,
     // Discourage the use of double quotes
     "quotes": [
       "error",
@@ -36,7 +37,7 @@
     ],
     "react/jsx-filename-extension": [
       "error",
-      { "extensions": [".js", ".jsx"] }
+      { "extensions": [".js", ".jsx", ".tsx"] }
     ],
     "jsx-a11y/anchor-is-valid": [
       "error",
