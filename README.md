@@ -1,18 +1,22 @@
 [![Build Status](https://travis-ci.org/careerfairsystems/nexpo.svg?branch=master)](https://travis-ci.org/careerfairsystems/nexpo)
 [![codebeat badge](https://codebeat.co/badges/144efba7-bfd8-47d6-807f-a5eda28a9590)](https://codebeat.co/projects/github-com-careerfairsystems-nexpo-master)
 [![codecov](https://codecov.io/gh/careerfairsystems/nexpo/branch/master/graph/badge.svg)](https://codecov.io/gh/careerfairsystems/nexpo)
+
 # Welcome
+
 Welcome to Nexpo - Next generation Expo!
 
 This project aims to to supply [ARKAD](https://arkad.tlth.se) with an inhouse project management system.
 
-
 ## Development
+
 Development is fairly straightforward but require some dependencies:
+
 - `yarn` is needed for package management and to run scripts
 - A version of the backend is needed and the easiest way is to create one with `docker` so you need to have that installed as well
 
 ### Set up backend
+
 1. Clone the backend repository where you want to store it: `git clone https://github.com/careerfairsystems/nexpo-backend`
 2. Enter the created folder: `cd nexpo-backend`
 3. Switch branch to the docker-enabled version: `git checkout docker`
@@ -22,25 +26,27 @@ Development is fairly straightforward but require some dependencies:
 7. Done! You can now use this command to **start** the backend: `docker-compose up -d` and to **stop** the backend: `docker-compose down` and you don't have to repeat all the steps next time you want to use the backend
 
 ### Set up the frontend
+
 There are currently two ways of running the frontend, with Docker or locally
+
 #### With Docker
+
 1. Run `docker-compose up`
 2. The server should now be available on http://localhost:3000
 
 #### Locally
+
 1. Clone this repo: `git clone https://github.com/careerfairsystems/nexpo-web`
 2. Change directory to the created folder: `cd nexpp-web`
 3. Install all the dependencies: `yarn install`
-4. Run the development server: `yarn start` *Note:* You might get a message about needing to update the browserlist database, if that happens, just stop the server with Ctrl+C and then run the command suggested.
+4. Run the development server: `yarn start` _Note:_ You might get a message about needing to update the browserlist database, if that happens, just stop the server with Ctrl+C and then run the command suggested.
 5. To stop the server, simply press Ctrl+C. You can access the app on localhost:3000, the first time you access it can be very slow (30+ seconds) but the next will be fast.
 
-
-******* ATTENTION *******
+**\*\*\*** ATTENTION **\*\*\***
 The content below is outdated and from a time where the backend and frontend were entwined together. It can no longer be called relevant and we need to update it. Not everything is outdated though so if you wonder something you can take a look at it but don't think of it as the ultimate truth.
 
-
-
 # Table of Contents
+
 <!-- To update table of contents: npm run update-toc-readme -->
 
 <details>
@@ -48,10 +54,9 @@ The content below is outdated and from a time where the backend and frontend wer
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [System Requirements](#system-requirements)
 - [Technical Description](#technical-description)
-    - [Folder structure](#folder-structure-frontend)
+  - [Folder structure](#folder-structure-frontend)
 - [Development](#development)
   - [Setup environment](#setup-environment)
   - [Reset Linux environment](#reset-linux-environment)
@@ -72,13 +77,16 @@ The content below is outdated and from a time where the backend and frontend wer
 </details>
 
 # System Requirements
+
 The system requires these programs to be installed. The project intends to always follow stable releases. The system is verified to work with the following setup
+
 - Elixir 1.8.2 [Installation instructions](https://elixir-lang.org/install.html)
 - Erlang OTP 22.0.7 - Installed automatically with Elixir
 - Node 11.9.0 [Installation instructions](https://nodejs.org/en/download/)
 - PostgreSQL 10.10 [Installation instruction](https://wiki.postgresql.org/wiki/Detailed_installation_guides)
 
 > When updating system requirements, make sure you update accordingly the following locations
+
 - Node
   - [phoenix_static_buildpack.config](phoenix_static_buildpack.config)
   - [package.json](package.json)
@@ -89,12 +97,12 @@ The system requires these programs to be installed. The project intends to alway
   - [elixir_buildpack.config](elixir_buildpack.config)
   - [.travis.yml](.travis.yml)
 
-
 # Technical Description
 
 The frontend is configured with [Create React App](https://github.com/facebookincubator/create-react-app). It handles all build configuration which makes our lifes much easier. Do not eject from the default configuration. Create React App has a fantastic [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ### Folder structure frontend
+
 <details>
  <summary>Structure</summary>
 
@@ -161,30 +169,34 @@ The frontend is configured with [Create React App](https://github.com/facebookin
 |-- package.json
 |-- README.md
 ```
+
 </details>
 
 </details>
 
 # Development
+
 ## Setup environment
+
 1. Make sure you have installed all [system requirements](#system-requirements). Then open a terminal and do the following steps
 2. Install the following programs
-    - ```npm``` - version 5 or higher. [Installation instructions](https://www.npmjs.com/get-npm)
+   - `npm` - version 5 or higher. [Installation instructions](https://www.npmjs.com/get-npm)
 3. Navigate yourself to the project root using the terminal.
 4. Based on your running dist do one of the following:
-    - Mac:
-      - Execute ```make install-mac```
-    - Linux:
-      - Open the following file: ```config/dev.exs```
-      - After ```poolsize: 10 ```, add ```username: "nexpo", password: "nexpo"```. Do not forget to add a ```,``` after poolsize.
-      - Do the same thing for ```config/test```
-      - Execute ```make install-linux```
+   - Mac:
+     - Execute `make install-mac`
+   - Linux:
+     - Open the following file: `config/dev.exs`
+     - After `poolsize: 10 `, add `username: "nexpo", password: "nexpo"`. Do not forget to add a `,` after poolsize.
+     - Do the same thing for `config/test`
+     - Execute `make install-linux`
 5. Grab a cup of coffee!
-6. Start the stack with ```npm run dev```
+6. Start the stack with `npm run dev`
 
 ## Implement things
 
 ### Development lifecycle
+
 1. Checkout and pull latest from master
 2. Make a local branch with `git checkout -b featurename`
 3. Install dependencies (if necessary) with `yarn add`
@@ -194,16 +206,19 @@ The frontend is configured with [Create React App](https://github.com/facebookin
 7. Create your feature with [TDD](#recap-of-tdd)
 8. Commit, and make a pull request
 9. Wait for pull request to be accepted by someone
-    - Review others pull requests
+   - Review others pull requests
 10. If pull request is merged, and all tests pass, your feature is automatically deployed to production
 
 ### Testing
+
 This project is developed with [TDD](https://en.wikipedia.org/wiki/Test-driven_development). \
 This means that all code should be tested. We are urging all developers to follow this for the following reasons
+
 - You will know for sure if you break anything when touching the code
 - We are changing developers every year. You will make everything easier for the next team!
 
 #### Recap of TDD:
+
 1. Write a test
 2. Make sure it fails
 3. Implement code that makes it pass
@@ -211,24 +226,25 @@ This means that all code should be tested. We are urging all developers to follo
 
 These are some commands to help you run all tests
 
-| Command                      | Description                     |
-|------------------------------|---------------------------------|
-| `yarn test`                  | Runs all tests                  |
-| `yarn testwatch-frontend`    | Starts testwatcher for frontend |
+| Command                   | Description                     |
+| ------------------------- | ------------------------------- |
+| `yarn test`               | Runs all tests                  |
+| `yarn testwatch-frontend` | Starts testwatcher for frontend |
 
 #### Writing tests for frontend
-- All tests should be beside what is it testing. If there is a component named ```Component```, its test should be beside it and named ```Component.test.js```
+
+- All tests should be beside what is it testing. If there is a component named `Component`, its test should be beside it and named `Component.test.js`
 - The frontend is configured with [jest](https://facebook.github.io/jest/) as its testrunner.
 - For react tests, the project is configured with [enzyme](https://github.com/airbnb/enzyme). This makes it easy to unit test a component
 - There are test helpers in [/priv/react_app/src/TestHelper](/priv/react_app/src/TestHelper)
 
 ## Helpful things
 
-
 ## Dev servers
-| Command                | Description                |
-|------------------------|----------------------------|
-| `yarn start`           | Start frontend             |
+
+| Command      | Description    |
+| ------------ | -------------- |
+| `yarn start` | Start frontend |
 
 - Backend server is running on localhost:4000
   - Visit [localhost:4000/sent_emails](http://localhost:4000/sent_emails) to see emails sent in development
@@ -237,31 +253,34 @@ These are some commands to help you run all tests
 
 ## Helpful scripts
 
-
 ## Documentation
 
 ## Setup your Editor
+
 ### VS Code
-* Install [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-* Install [Eslint](https://github.com/Microsoft/vscode-eslint)
-* Install [Flow Language Support](https://marketplace.visualstudio.com/items?itemName=flowtype.flow-for-vscode)
+
+- Install [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- Install [Eslint](https://github.com/Microsoft/vscode-eslint)
+- Install [Flow Language Support](https://marketplace.visualstudio.com/items?itemName=flowtype.flow-for-vscode)
 
 ### Atom
-* Install [Prettier](https://atom.io/packages/prettier-atom)
-* Install [Eslint](https://atom.io/packages/linter-eslint)
-* Install [Flow](https://atom.io/packages/linter-flow)
+
+- Install [Prettier](https://atom.io/packages/prettier-atom)
+- Install [Eslint](https://atom.io/packages/linter-eslint)
+- Install [Flow](https://atom.io/packages/linter-flow)
 
 ### Update your settings
-* Enable "Set Editor Format On Save"
-* Disable JavaScript format and validate
-* Disable Typescript format and validate
-* Enable "Prettier Eslint Integration"
-* Enable "Flow Use NPM Packaged Flow"
-* Enable "Flow Run On All Files"
+
+- Enable "Set Editor Format On Save"
+- Disable JavaScript format and validate
+- Disable Typescript format and validate
+- Enable "Prettier Eslint Integration"
+- Enable "Flow Use NPM Packaged Flow"
+- Enable "Flow Run On All Files"
 
 # Deployment
 
-
 # Who do I contact?
+
 - Add Astons information here
 - [Mustafa Albayati](mailto:albayati96@gmail.com) (Head Of IT 2020)
