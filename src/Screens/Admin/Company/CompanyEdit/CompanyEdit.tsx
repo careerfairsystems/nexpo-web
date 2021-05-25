@@ -31,7 +31,7 @@ type Props = {
   getCompany: (id: string) => Promise<void>;
   history: { push: (route: string) => any };
   resetForm: (form: string) => any;
-  updateCompany: (id: string, NewCompanyValues) => Promise<void>;
+  updateCompany: (id: string, companyValues: NewCompanyValues) => Promise<void>;
 };
 
 const CompanyEdit = ({

@@ -10,4 +10,4 @@ const sentryDsn = process.env.REACT_APP_SENTRY_DSN;
 // TODO: Config Sentry with user context when there is login functionality
 const setupErrorTracking = () => Raven.config(sentryDsn).install();
 
-export { setupErrorTracking };
+export default setupErrorTracking;

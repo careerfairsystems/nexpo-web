@@ -20,7 +20,8 @@ export default {
   /**
    * Updates the current user
    */
-  updateMe: (data: {}) => authFormPut('/api/me', data).then(handleHttpResponse),
+  updateMe: (data: Record<string, unknown>) =>
+    authFormPut('/api/me', data).then(handleHttpResponse),
 
   /**
    * Delete the current user
@@ -30,13 +31,14 @@ export default {
   /**
    * Updates the current user's student
    */
-  updateMyStudent: (data: {}) =>
+  updateMyStudent: (data: Record<string, unknown>) =>
     authFormPut('/api/me/student', data).then(handleHttpResponse),
 
   /**
    * Create a user
    */
-  create: (data: {}) => authPost('/api/users', data).then(handleHttpResponse),
+  create: (data: Record<string, unknown>) =>
+    authPost('/api/users', data).then(handleHttpResponse),
 
   /**
    * Fetches all users
@@ -51,7 +53,7 @@ export default {
   /**
    * Updates a user
    */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: Record<string, unknown>) =>
     authPut(`/api/users/${id}`, data).then(handleHttpResponse),
 
   /**

@@ -40,12 +40,12 @@ const RoleShow = ({ id, role, getRole }: Props) => {
         <List
           dataSource={role.users}
           bordered
-          renderItem={({ id, firstName, lastName, email }) => (
+          renderItem={({ userId, firstName, lastName, email }) => (
             <List.Item>
               <List.Item.Meta
                 avatar={
-                  <InvisibleLink to={`/admin/users/${id}`}>
-                    <Avatar size="large">{id}</Avatar>
+                  <InvisibleLink to={`/admin/users/${userId}`}>
+                    <Avatar size="large">{userId}</Avatar>
                   </InvisibleLink>
                 }
                 title={[firstName, lastName].join(' ')}

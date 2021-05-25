@@ -13,10 +13,12 @@ type Props = {
   };
   fetching: boolean;
   getProgramme: (id: string) => Promise<void>;
-  createProgramme: (programmeObject: { programme: {} }) => Promise<void>;
+  createProgramme: (programmeObject: {
+    programme: Record<string, unknown>;
+  }) => Promise<void>;
   updateProgramme: (
     id: string,
-    programmeObject: { programme: {} }
+    programmeObject: { programme: Record<string, unknown> }
   ) => Promise<void>;
 };
 

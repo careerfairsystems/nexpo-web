@@ -10,7 +10,7 @@ import HtmlTitle from '../../../Components/HtmlTitle';
  * Responsible for rendering a list of mailtemplates
  */
 type Props = {
-  mailtemplates?: {};
+  mailtemplates?: Record<string, unknown>;
   fetching: boolean;
   getAllMailtemplates: () => Promise<void>;
   deleteMailtemplate: (id: string) => Promise<void>;
@@ -48,7 +48,7 @@ const Mailtemplates = ({
     {
       title: 'Action',
       key: 'action',
-      render: (mailtemplate: { id: string }) => (
+      render: ({ mailtemplate }: { mailtemplate: { id: string } }) => (
         <span>
           <InvisibleLink to={`/admin/mailtemplates/${mailtemplate.id}`}>
             Edit

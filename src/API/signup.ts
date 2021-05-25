@@ -1,7 +1,7 @@
 import { handleHttpResponse, authPost, fetchJson } from './utils';
 import 'whatwg-fetch'; // fetch polyfill for unsupported browsers
 
-type finalSignupBody = {
+type FinalSignupBody = {
   password: string;
   passwordConfirmation: string;
   firstName: string;
@@ -20,13 +20,13 @@ export default {
   /**
    * Initiates a representative signup
    */
-  initialRepresentativeSignup: (data: {}) =>
+  initialRepresentativeSignup: (data: Record<string, unknown>) =>
     authPost('/api/initial_representative_signup', data),
 
   /**
    * Initiates a representative signup for a co-worker
    */
-  inviteRepresentative: (data: {}) =>
+  inviteRepresentative: (data: Record<string, unknown>) =>
     authPost('/api/me/company/invite_representative', data),
 
   /**
@@ -35,7 +35,7 @@ export default {
   getCurrentSignup: (signupKey: string) =>
     fetch(`/api/initial_signup/${signupKey}`).then(handleHttpResponse),
 
-  finalizeSignup: (signupKey: string, body: finalSignupBody) =>
+  finalizeSignup: (signupKey: string, body: FinalSignupBody) =>
     fetchJson(`/api/final_signup/${signupKey}`, {
       data: body,
       method: 'POST',

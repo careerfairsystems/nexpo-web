@@ -8,7 +8,7 @@ export const createRoleIsLoading = () => ({
   type: actionTypes.POST_ROLE,
 });
 
-export const createRoleSuccess = (role: {}) => {
+export const createRoleSuccess = (role: Record<string, unknown>) => {
   message.success('Role successfully created');
   return {
     type: actionTypes.POST_ROLE_SUCCESS,
@@ -27,7 +27,7 @@ export const createRoleFailure = (): CreateRoleFailureAction => {
 };
 
 export const createRole =
-  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (data: Record<string, unknown>) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createRoleIsLoading());
     return API.roles
       .create(data)

@@ -115,7 +115,6 @@ type Props = {
     lastName?: string;
     roles?: Array<{ type: string; permissions: Array<string> }>;
   };
-  logout: () => void;
   redirect: (route: string) => void;
   pathname: string;
 };
@@ -135,13 +134,7 @@ type MenuItemProps = {
 /**
  * The base of the application. Defines the basic layout
  */
-const App = ({
-  isLoggedIn,
-  currentUser,
-  logout,
-  redirect,
-  pathname,
-}: Props) => {
+const App = ({ isLoggedIn, currentUser, redirect, pathname }: Props) => {
   const loggedInMenuItem = () => {
     const { email, firstName, lastName } = currentUser || {};
 
@@ -334,6 +327,10 @@ const App = ({
       </Layout>
     </div>
   );
+};
+
+App.defaultProps = {
+  currentUser: {},
 };
 
 export default App;

@@ -7,7 +7,7 @@ export const updateCurrentUserIsLoading = () => ({
   type: actionTypes.PUT_CURRENT_USER,
 });
 
-export const updateCurrentUserSuccess = (user: {}) => {
+export const updateCurrentUserSuccess = (user: Record<string, unknown>) => {
   message.success('Your profile was successfully updated');
   return {
     type: actionTypes.PUT_CURRENT_USER_SUCCESS,
@@ -23,7 +23,7 @@ export const updateCurrentUserFailure = () => {
 };
 
 export const updateCurrentUser =
-  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (data: Record<string, unknown>) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateCurrentUserIsLoading());
     return API.users
       .updateMe(data)

@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { BrowserRouter, Route } from 'react-router-dom';
-import { setupErrorTracking } from './Util/ErrorTracking';
+import setupErrorTracking from './Util/ErrorTracking';
 
 import App from './App';
 import './index.css';

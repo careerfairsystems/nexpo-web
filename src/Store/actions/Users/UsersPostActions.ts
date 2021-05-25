@@ -7,7 +7,7 @@ export const createUserIsLoading = () => ({
   type: actionTypes.POST_USER,
 });
 
-export const createUserSuccess = (user: {}) => {
+export const createUserSuccess = (user: Record<string, unknown>) => {
   message.success('User successfully created');
   return {
     type: actionTypes.POST_USER_SUCCESS,
@@ -26,7 +26,7 @@ export const createUserFailure = (): CreateUserFailureAction => {
 };
 
 export const createUser =
-  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (data: Record<string, unknown>) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createUserIsLoading());
     return API.users
       .create(data)

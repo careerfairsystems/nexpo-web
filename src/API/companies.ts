@@ -20,7 +20,7 @@ export default {
   /**
    * Updates the current company
    */
-  updateMyCompany: (data: {}) =>
+  updateMyCompany: (data: Record<string, unknown>) =>
     authFormPut('/api/me/company', data).then(handleHttpResponse),
 
   /**
@@ -31,13 +31,13 @@ export default {
   /**
    * Create a company
    */
-  create: (data: {}) =>
+  create: (data: Record<string, unknown>) =>
     authFormPost('/api/companies', data).then(handleHttpResponse),
 
   /**
    * Create multiple companies
    */
-  createBulk: (data: {}) =>
+  createBulk: (data: Record<string, unknown>) =>
     authPost('/api/companies/create_bulk', data).then(handleHttpResponse),
 
   /**
@@ -54,7 +54,7 @@ export default {
   /**
    * Updates a company
    */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: Record<string, unknown>) =>
     authFormPut(`/api/companies/${id}`, data).then(handleHttpResponse),
 
   /**

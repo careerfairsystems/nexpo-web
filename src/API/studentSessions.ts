@@ -13,7 +13,7 @@ import {
 
 export default {
   /** Create a student session */
-  create: (data: {}) =>
+  create: (data: Record<string, unknown>) =>
     authPost('/api/student_sessions', data).then(handleHttpResponse),
 
   /** Creates multiple student sessions */
@@ -21,7 +21,7 @@ export default {
     authPatch('/api/student_sessions/', {}).then(handleHttpResponse),
 
   /** Updates a student session */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: Record<string, unknown>) =>
     authPut(`/api/student_sessions/${id}`, data).then(handleHttpResponse),
 
   /** Delete a student session */
@@ -47,13 +47,13 @@ export default {
     download('/api/student_session_info', 'student_sessions.csv'),
 
   /** Create a student session application */
-  createAppl: (data: {}) =>
+  createAppl: (data: Record<string, unknown>) =>
     authPost('/api/student_session_applications', data).then(
       handleHttpResponse
     ),
 
   /** Update a student session application */
-  updateAppl: (id: string, data: {}) =>
+  updateAppl: (id: string, data: Record<string, unknown>) =>
     authPut(`/api/me/student_session_applications/${id}`, data).then(
       handleHttpResponse
     ),

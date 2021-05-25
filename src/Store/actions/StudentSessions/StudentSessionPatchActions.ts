@@ -9,7 +9,9 @@ export function createBulkStudentSessionsIsLoading() {
   };
 }
 
-export function createBulkStudentSessionsSuccess(studentSessions: {}) {
+export function createBulkStudentSessionsSuccess(
+  studentSessions: Record<string, unknown>
+) {
   message.success('Student Sessions was successfully bulk created.');
   return {
     type: actionTypes.POST_BULK_STUDENT_SESSION_SUCCESS,

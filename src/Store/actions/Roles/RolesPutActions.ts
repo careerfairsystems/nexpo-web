@@ -7,7 +7,7 @@ export const updateRoleIsLoading = () => ({
   type: actionTypes.PUT_ROLE,
 });
 
-export const updateRoleSuccess = (role: {}) => {
+export const updateRoleSuccess = (role: Record<string, unknown>) => {
   message.success('Role successfully updated');
   return {
     type: actionTypes.PUT_ROLE_SUCCESS,
@@ -26,7 +26,8 @@ export const updateRoleFailure = (): UpdateRoleFailureAction => {
 };
 
 export const updateRole =
-  (id: string, data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (id: string, data: Record<string, unknown>) =>
+  (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateRoleIsLoading());
     return API.roles
       .update(id, data)

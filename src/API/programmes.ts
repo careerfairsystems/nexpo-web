@@ -14,7 +14,7 @@ export default {
   /**
    * Create a Programme
    */
-  create: (data: {}) =>
+  create: (data: Record<string, unknown>) =>
     authPost('/api/programmes', data).then(handleHttpResponse),
 
   /**
@@ -31,7 +31,7 @@ export default {
   /**
    * Updates a Programme
    */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: Record<string, unknown>) =>
     authPut(`/api/programmes/${id}`, data).then(handleHttpResponse),
 
   /**

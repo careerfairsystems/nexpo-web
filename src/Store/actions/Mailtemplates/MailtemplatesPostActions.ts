@@ -7,7 +7,9 @@ export const createMailtemplateIsLoading = () => ({
   type: actionTypes.POST_MAILTEMPLATE,
 });
 
-export const createMailtemplateSuccess = (mailtemplate: {}) => {
+export const createMailtemplateSuccess = (
+  mailtemplate: Record<string, unknown>
+) => {
   message.success('Mailtemplate successfully created');
   return {
     type: actionTypes.POST_MAILTEMPLATE_SUCCESS,
@@ -27,7 +29,7 @@ export const createMailtemplateFailure =
   };
 
 export const createMailtemplate =
-  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (data: Record<string, unknown>) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createMailtemplateIsLoading());
     return API.mailtemplates
       .create(data)

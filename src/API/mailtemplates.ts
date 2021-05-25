@@ -14,7 +14,7 @@ export default {
   /**
    * Create a mail template
    */
-  create: (data: {}) =>
+  create: (data: Record<string, unknown>) =>
     authPost('/api/mailtemplates', data).then(handleHttpResponse),
 
   /**
@@ -31,7 +31,7 @@ export default {
   /**
    * Updates a mail template
    */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: Record<string, unknown>) =>
     authPut(`/api/mailtemplates/${id}`, data).then(handleHttpResponse),
 
   /**

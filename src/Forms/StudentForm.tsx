@@ -33,18 +33,8 @@ const renderProgrammeItem = (programme) => (
 );
 
 type Props = {
-  initialValues: {
-    resumeEnUrl?: {
-      name?: string;
-      url?: string;
-    };
-    resumeSvUrl: {
-      name?: string;
-      url?: string;
-    };
-  };
   handleSubmit: () => Promise<void>;
-  programmes: {};
+  programmes: Record<string, unknown>;
   pristine: boolean;
 };
 

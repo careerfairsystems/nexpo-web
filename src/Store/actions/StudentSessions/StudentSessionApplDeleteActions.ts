@@ -15,11 +15,11 @@ export const deleteStudentSessionApplSuccess = (id: string) => {
   };
 };
 
-export type deleteStudentSessionApplFailureAction = {
+export type DeleteStudentSessionApplFailureAction = {
   type: string;
 };
 export const deleteStudentSessionApplFailure =
-  (): deleteStudentSessionApplFailureAction => {
+  (): DeleteStudentSessionApplFailureAction => {
     message.warning('Something went wrong, please try again later');
     return {
       type: actionTypes.DELETE_STUDENT_SESSION_APPL_FAILURE,

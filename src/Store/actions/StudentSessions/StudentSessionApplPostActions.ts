@@ -8,7 +8,9 @@ export const createStudentSessionApplIsLoading = () => ({
   type: actionTypes.POST_STUDENT_SESSION_APPL,
 });
 
-export const createStudentSessionApplSuccess = (user: {}) => {
+export const createStudentSessionApplSuccess = (
+  user: Record<string, unknown>
+) => {
   message.success('Your Application was successfully saved.');
   return {
     type: actionTypes.POST_STUDENT_SESSION_APPL_SUCCESS,
@@ -31,7 +33,7 @@ export const createStudentSessionApplFailure =
   };
 
 export const createStudentSessionAppl =
-  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (data: Record<string, unknown>) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createStudentSessionApplIsLoading());
     return API.studentSessions
       .createAppl(data)

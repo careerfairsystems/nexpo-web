@@ -24,7 +24,7 @@ const categoryColumns = [
   {
     title: 'Action',
     key: 'action',
-    render: (category) => (
+    render: ({ category }: { category: { id: string } }) => (
       <span>
         <InvisibleLink to={`/admin/categories/${category.id}`}>
           Show
@@ -55,30 +55,32 @@ const attributeColumns = [
   },
 ];
 
-const expandedRowRender = (attributes) => (category) =>
-  (
-    <Table
-      columns={attributeColumns}
-      dataSource={setKeys(
-        denormalize(
-          { attributes: category.attributes },
-          Schema.categorySchema(),
-          {
-            attributes,
-          }
-        ).attributes
-      )}
-      showHeader={false}
-      pagination={false}
-    />
-  );
+const expandedRowRender =
+  (attributes) =>
+  ({ category }: { category: { attributes } }) =>
+    (
+      <Table
+        columns={attributeColumns}
+        dataSource={setKeys(
+          denormalize(
+            { attributes: category.attributes },
+            Schema.categorySchema(),
+            {
+              attributes,
+            }
+          ).attributes
+        )}
+        showHeader={false}
+        pagination={false}
+      />
+    );
 
 /**
  * Responsible for rendering a list of categories
  */
 type Props = {
-  categories?: {};
-  attributes?: {};
+  categories?: Record<string, unknown>;
+  attributes?: Record<string, unknown>;
   fetching: boolean;
   getAllCategories: () => Promise<void>;
 };

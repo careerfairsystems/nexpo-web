@@ -7,7 +7,7 @@ export const updateCompanyIsLoading = () => ({
   type: actionTypes.PUT_COMPANY,
 });
 
-export const updateCompanySuccess = (company: {}) => {
+export const updateCompanySuccess = (company: Record<string, unknown>) => {
   message.success('Company successfully updated');
   return {
     type: actionTypes.PUT_COMPANY_SUCCESS,
@@ -26,7 +26,8 @@ export const updateCompanyFailure = (): UpdateCompanyFailureAction => {
 };
 
 export const updateCompany =
-  (id: string, data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (id: string, data: Record<string, unknown>) =>
+  (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateCompanyIsLoading());
     return API.companies
       .update(id, data)

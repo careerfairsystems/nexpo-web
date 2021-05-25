@@ -15,7 +15,7 @@ type Props = {
   fetching: boolean;
   currentUser: {
     email?: string;
-    student?: object;
+    student?: Record<string, unknown>;
   };
   getAllCompanies: () => Promise<void>;
   getAllProgrammes: () => Promise<void>;

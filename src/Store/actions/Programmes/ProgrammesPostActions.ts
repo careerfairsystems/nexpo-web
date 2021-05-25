@@ -7,7 +7,7 @@ export const createProgrammeIsLoading = () => ({
   type: actionTypes.POST_PROGRAMME,
 });
 
-export const createProgrammeSuccess = (programme: {}) => {
+export const createProgrammeSuccess = (programme: Record<string, unknown>) => {
   message.success('Programme successfully created');
   return {
     type: actionTypes.POST_PROGRAMME_SUCCESS,
@@ -26,7 +26,7 @@ export const createProgrammeFailure = (): CreateProgrammeFailureAction => {
 };
 
 export const createProgramme =
-  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (data: Record<string, unknown>) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createProgrammeIsLoading());
     return API.programmes
       .create(data)

@@ -9,7 +9,7 @@ import HtmlTitle from '../../../Components/HtmlTitle';
  * Responsible for rendering a list of programmes
  */
 type Props = {
-  programmes?: {};
+  programmes?: Record<string, unknown>;
   fetching: boolean;
   deleteProgramme: (id: string) => Promise<void>;
   getAllProgrammes: () => Promise<void>;
@@ -37,7 +37,7 @@ const Programmes = ({
     {
       title: 'Action',
       key: 'action',
-      render: (programme: { id: string }) => (
+      render: ({ programme }: { programme: { id: string } }) => (
         <span>
           <InvisibleLink to={`/admin/programmes/${programme.id}`}>
             Edit

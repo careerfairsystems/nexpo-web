@@ -21,7 +21,7 @@ const RootReducer = {
   current: CurrentReducer,
   form: formReducer,
 };
-type $ExtractFunctionReturn = <V>(v: (...args: any) => V) => V;
+// type $ExtractFunctionReturn = <V>(v: (...args: any) => V) => V;
 export type Reducers = typeof RootReducer;
 // FIXME Convert the flow type to correct TS equivalent
 // export type State = $ObjMap<Reducers, $ExtractFunctionReturn>;

@@ -10,7 +10,7 @@ export function createStudentSessionIsLoading() {
   };
 }
 
-export function createStudentSessionSuccess(company: {}) {
+export function createStudentSessionSuccess(company: Record<string, unknown>) {
   message.success('Student Session was successfully created.');
   return {
     type: actionTypes.POST_STUDENT_SESSION_SUCCESS,
@@ -29,15 +29,16 @@ export function createStudentSessionFailure(): CreateStudentSessionFailureAction
   };
 }
 
-export const createStudentSession = (data: {}) => (dispatch: Dispatch) => {
-  dispatch(createStudentSessionIsLoading());
-  return API.studentSessions
-    .create(data)
-    .then((company) => {
-      dispatch(createStudentSessionSuccess(company.data));
-      dispatch(reset('studentSession'));
-    })
-    .catch(() => {
-      dispatch(createStudentSessionFailure());
-    });
-};
+export const createStudentSession =
+  (data: Record<string, unknown>) => (dispatch: Dispatch) => {
+    dispatch(createStudentSessionIsLoading());
+    return API.studentSessions
+      .create(data)
+      .then((company) => {
+        dispatch(createStudentSessionSuccess(company.data));
+        dispatch(reset('studentSession'));
+      })
+      .catch(() => {
+        dispatch(createStudentSessionFailure());
+      });
+  };

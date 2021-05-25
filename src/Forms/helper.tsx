@@ -29,6 +29,7 @@ type Props = FieldProps & {
 };
 const makeField =
   (Component: React.ComponentType<any>) =>
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   ({ input, meta, children, hasFeedback, label, required, ...rest }: Props) => {
     const hasError = meta.touched && meta.invalid;
     return (

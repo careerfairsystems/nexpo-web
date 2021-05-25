@@ -10,7 +10,7 @@ import HtmlTitle from '../../../Components/HtmlTitle';
  * Responsible for rendering a list of deadlines
  */
 type Props = {
-  deadlines?: {};
+  deadlines?: Record<string, unknown>;
   fetching: boolean;
   getAllDeadlines: () => Promise<void>;
   deleteDeadline: (id: string) => Promise<void>;
@@ -48,7 +48,7 @@ const Deadlines = ({
     {
       title: 'Action',
       key: 'action',
-      render: (deadline: { id: string }) => (
+      render: ({ deadline }: { deadline: { id: string } }) => (
         <span>
           <InvisibleLink to={`/admin/deadlines/${deadline.id}`}>
             Edit

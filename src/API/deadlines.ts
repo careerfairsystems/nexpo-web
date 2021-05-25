@@ -14,7 +14,7 @@ export default {
   /**
    * Create a deadline
    */
-  create: (data: {}) =>
+  create: (data: Record<string, unknown>) =>
     authFormPost('/api/deadlines', data).then(handleHttpResponse),
 
   /**
@@ -31,7 +31,7 @@ export default {
   /**
    * Updates a deadline
    */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: Record<string, unknown>) =>
     authFormPut(`/api/deadlines/${id}`, data).then(handleHttpResponse),
 
   /**

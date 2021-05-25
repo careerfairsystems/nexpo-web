@@ -5,7 +5,7 @@ import makeField from './helper';
 
 type Props = {
   accept: string;
-  value: {} | string;
+  value: Record<string, unknown> | string;
   onChange: (file?: File) => Promise<void>;
 };
 

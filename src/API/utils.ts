@@ -43,7 +43,10 @@ export const handleHttpResponse = (
   });
 };
 
-export const authPost = (url: string, data: {}): Promise<Response> =>
+export const authPost = (
+  url: string,
+  data: Record<string, unknown>
+): Promise<Response> =>
   fetch(url, {
     method: 'POST',
     body: JSON.stringify(snakeCaseKeys(data)),
@@ -54,7 +57,10 @@ export const authPost = (url: string, data: {}): Promise<Response> =>
     }),
   });
 
-export const authFormPost = (url: string, data: {}): Promise<Response> =>
+export const authFormPost = (
+  url: string,
+  data: Record<string, unknown>
+): Promise<Response> =>
   fetch(url, {
     method: 'POST',
     body: toFormData(data),
@@ -64,7 +70,10 @@ export const authFormPost = (url: string, data: {}): Promise<Response> =>
     }),
   });
 
-export const authPatch = (url: string, data: {}): Promise<Response> =>
+export const authPatch = (
+  url: string,
+  data: Record<string, unknown>
+): Promise<Response> =>
   fetch(url, {
     method: 'PATCH',
     body: JSON.stringify(snakeCaseKeys(data)),
@@ -83,7 +92,10 @@ export const authFetch = (url: string): Promise<Response> =>
     }),
   });
 
-export const authPut = (url: string, data: {}): Promise<Response> =>
+export const authPut = (
+  url: string,
+  data: Record<string, unknown>
+): Promise<Response> =>
   fetch(url, {
     method: 'PUT',
     body: JSON.stringify(snakeCaseKeys(data)),
@@ -94,7 +106,10 @@ export const authPut = (url: string, data: {}): Promise<Response> =>
     }),
   });
 
-export const authFormPut = (url: string, data: {}): Promise<Response> =>
+export const authFormPut = (
+  url: string,
+  data: Record<string, unknown>
+): Promise<Response> =>
   fetch(url, {
     method: 'PUT',
     body: toFormData(data),
@@ -127,7 +142,7 @@ export const download = async (url: string, filename: string) => {
 
 export const fetchJson = (
   url: string,
-  { data, method }: { data: {}; method: string }
+  { data, method }: { data: Record<string, unknown>; method: string }
 ): Promise<Response> =>
   fetch(url, {
     method,

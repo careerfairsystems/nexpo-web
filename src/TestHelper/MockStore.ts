@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 /**
@@ -5,6 +6,5 @@ import thunk from 'redux-thunk';
  */
 const middlewares = [thunk];
 const createNewMockStore = configureMockStore(middlewares);
-export const createMockStore = (initialState?: {}) =>
-  // $FlowFixMe
+export const createMockStore = (initialState?: Record<string, unknown>) =>
   createNewMockStore(initialState);

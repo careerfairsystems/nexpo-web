@@ -40,7 +40,7 @@ const renderUserItem = (user) => (
 );
 
 type Props = FormProps & {
-  users: {};
+  users: Record<string, unknown>;
   handleSubmit: () => Promise<void>;
 };
 const RoleForm = ({ handleSubmit, users }: Props) => (

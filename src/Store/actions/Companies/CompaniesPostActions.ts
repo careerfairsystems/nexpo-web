@@ -9,7 +9,7 @@ export const createCompanyIsLoading = () => ({
   type: actionTypes.POST_COMPANY,
 });
 
-export const createCompanySuccess = (company: {}) => {
+export const createCompanySuccess = (company: Record<string, unknown>) => {
   message.success('Company successfully created');
   return {
     type: actionTypes.POST_COMPANY_SUCCESS,
@@ -28,7 +28,7 @@ export const createCompanyFailure = (): CreateCompanyFailureAction => {
 };
 
 export const createCompany =
-  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (data: Record<string, unknown>) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createCompanyIsLoading());
     return API.companies
       .create(data)
@@ -45,7 +45,7 @@ export const createCompanyBulkIsLoading = () => ({
   type: actionTypes.POST_COMPANY_BULK,
 });
 
-export const createCompanyBulkSuccess = (company: {}) => {
+export const createCompanyBulkSuccess = (company: Record<string, unknown>) => {
   message.success('Company successfully created');
   return {
     type: actionTypes.POST_COMPANY_BULK_SUCCESS,
@@ -64,7 +64,7 @@ export const createCompanyBulkFailure = (): CreateCompanyBulkFailureAction => {
 };
 
 export const createBulk =
-  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (data: Record<string, unknown>) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createCompanyBulkIsLoading());
     return API.companies
       .createBulk(data)

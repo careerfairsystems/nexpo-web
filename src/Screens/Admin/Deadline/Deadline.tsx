@@ -12,13 +12,17 @@ type UpdateValues = {
 };
 type Props = {
   id?: string;
-  deadline: {};
-  createDeadline: ({ deadline: {} }) => Promise<void>;
+  deadline: Record<string, unknown>;
+  createDeadline: ({
+    deadline,
+  }: {
+    deadline: Record<string, unknown>;
+  }) => Promise<void>;
   fetching: boolean;
   getDeadline: (id: string) => Promise<void>;
   updateDeadline: (
     id: string,
-    deadlineObject: { deadline: object }
+    deadlineObject: { deadline: Record<string, unknown> }
   ) => Promise<void>;
 };
 

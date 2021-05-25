@@ -7,7 +7,7 @@ export const createCategoryIsLoading = () => ({
   type: actionTypes.POST_CATEGORY,
 });
 
-export const createCategorySuccess = (category: {}) => {
+export const createCategorySuccess = (category: Record<string, unknown>) => {
   message.success('Category successfully created');
   return {
     type: actionTypes.POST_CATEGORY_SUCCESS,
@@ -26,7 +26,7 @@ export const createCategoryFailure = (): CreateCategoryFailureAction => {
 };
 
 export const createCategory =
-  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (data: Record<string, unknown>) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createCategoryIsLoading());
     return API.categories
       .create(data)

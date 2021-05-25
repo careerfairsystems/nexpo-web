@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import ReplacePasswordForm from '../../Forms/ReplacePasswordForm';
 import SuccessMessage from '../SuccessMessage';
-import { NotFound } from '../../Screens/NotFound/NotFound';
+import NotFound from '../../Screens/NotFound';
 
 type PasswordObj = {
   password: string;
@@ -9,13 +9,11 @@ type PasswordObj = {
 };
 
 type Props = {
-  sendNewPasswordToBackend: (password: PasswordObj) => Promise<object>;
-  verifyKey: () => Promise<object>;
+  sendNewPasswordToBackend: (
+    password: PasswordObj
+  ) => Promise<Record<string, unknown>>;
+  verifyKey: () => Promise<Record<string, unknown>>;
   keyIsValid: boolean;
-  errors?: {
-    password?: string[];
-    passwordConfirmation?: string[];
-  };
   success?: boolean;
 };
 
@@ -59,7 +57,6 @@ const ReplaceForgottenPassword = ({
 };
 
 ReplaceForgottenPassword.defaultProps = {
-  errors: {},
   success: false,
 };
 

@@ -7,7 +7,7 @@ export const updateCategoryIsLoading = () => ({
   type: actionTypes.PUT_CATEGORY,
 });
 
-export const updateCategorySuccess = (category: {}) => {
+export const updateCategorySuccess = (category: Record<string, unknown>) => {
   message.success('Category successfully updated');
   return {
     type: actionTypes.PUT_CATEGORY_SUCCESS,
@@ -26,7 +26,8 @@ export const updateCategoryFailure = (): UpdateCategoryFailureAction => {
 };
 
 export const updateCategory =
-  (id: string, data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (id: string, data: Record<string, unknown>) =>
+  (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateCategoryIsLoading());
     return API.categories
       .update(id, data)

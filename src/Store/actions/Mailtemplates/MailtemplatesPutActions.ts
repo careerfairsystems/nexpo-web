@@ -7,7 +7,9 @@ export const updateMailtemplateIsLoading = () => ({
   type: actionTypes.PUT_MAILTEMPLATE,
 });
 
-export const updateMailtemplateSuccess = (mailtemplate: {}) => {
+export const updateMailtemplateSuccess = (
+  mailtemplate: Record<string, unknown>
+) => {
   message.success('Mailtemplate successfully updated');
   return {
     type: actionTypes.PUT_MAILTEMPLATE_SUCCESS,
@@ -27,7 +29,8 @@ export const updateMailtemplateFailure =
   };
 
 export const updateMailtemplate =
-  (id: string, data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (id: string, data: Record<string, unknown>) =>
+  (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateMailtemplateIsLoading());
     return API.mailtemplates
       .update(id, data)

@@ -7,7 +7,9 @@ export const getAllCompaniesIsLoading = () => ({
   type: actionTypes.FETCH_COMPANIES,
 });
 
-export const getAllCompaniesSuccess = (companies: Array<{}>) => ({
+export const getAllCompaniesSuccess = (
+  companies: Array<Record<string, unknown>>
+) => ({
   type: actionTypes.FETCH_COMPANIES_SUCCESS,
   companies,
 });

@@ -7,7 +7,9 @@ export const updateStudentSessionIsLoading = () => ({
   type: actionTypes.PUT_STUDENT_SESSION,
 });
 
-export const updateStudentSessionSuccess = (studentSession: {}) => {
+export const updateStudentSessionSuccess = (
+  studentSession: Record<string, unknown>
+) => {
   message.success('Your Session was successfully updated.');
   return {
     type: actionTypes.PUT_STUDENT_SESSION_SUCCESS,

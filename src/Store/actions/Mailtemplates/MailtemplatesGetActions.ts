@@ -7,7 +7,9 @@ export const getMailtemplateIsLoading = () => ({
   type: actionTypes.FETCH_MAILTEMPLATE,
 });
 
-export const getMailtemplateSuccess = (mailtemplate: {}) => ({
+export const getMailtemplateSuccess = (
+  mailtemplate: Record<string, unknown>
+) => ({
   type: actionTypes.FETCH_MAILTEMPLATE_SUCCESS,
   mailtemplate,
 });

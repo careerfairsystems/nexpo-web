@@ -7,7 +7,7 @@ export const updateDeadlineIsLoading = () => ({
   type: actionTypes.PUT_DEADLINE,
 });
 
-export const updateDeadlineSuccess = (deadline: {}) => {
+export const updateDeadlineSuccess = (deadline: Record<string, unknown>) => {
   message.success('Deadline successfully updated');
   return {
     type: actionTypes.PUT_DEADLINE_SUCCESS,
@@ -26,7 +26,8 @@ export const updateDeadlineFailure = (): UpdateDeadlineFailureAction => {
 };
 
 export const updateDeadline =
-  (id: string, data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (id: string, data: Record<string, unknown>) =>
+  (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateDeadlineIsLoading());
     return API.deadlines
       .update(id, data)

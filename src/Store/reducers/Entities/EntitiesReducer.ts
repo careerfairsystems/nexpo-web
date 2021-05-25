@@ -9,7 +9,7 @@ import { actionTypes } from '../..';
 
 type FETCH_COMPANIES_SUCCESS = {
   type: typeof actionTypes.FETCH_COMPANIES_SUCCESS;
-  companies: Array<{}>;
+  companies: Array<Record<string, unknown>>;
 };
 
 type CompanyActions = {
@@ -34,7 +34,7 @@ type DeleteAction = {
 
 type FetchRoles = {
   type: typeof actionTypes.FETCH_ROLES_SUCCESS;
-  roles: Array<{}>;
+  roles: Array<Record<string, unknown>>;
 };
 type RoleActions = {
   type:
@@ -46,17 +46,17 @@ type RoleActions = {
 
 type CreateStudentSessionAppl = {
   type: typeof actionTypes.POST_STUDENT_SESSION_APPL_SUCCESS;
-  user: {};
+  user: Record<string, unknown>;
 };
 
 type UpdateStudentSessionAppl = {
   type: typeof actionTypes.PUT_STUDENT_SESSION_APPL_SUCCESS;
-  sessionApplication: {};
+  sessionApplication: Record<string, unknown>;
 };
 
 type UsersActions = {
   type: typeof actionTypes.FETCH_USERS_SUCCESS;
-  users: Array<{}>;
+  users: Array<Record<string, unknown>>;
 };
 
 type UserActions = {
@@ -64,11 +64,11 @@ type UserActions = {
     | typeof actionTypes.FETCH_USER_SUCCESS
     | typeof actionTypes.POST_USER_SUCCESS
     | typeof actionTypes.PUT_USER_SUCCESS;
-  user: {};
+  user: Record<string, unknown>;
 };
 type CategoriesActions = {
   type: typeof actionTypes.FETCH_CATEGORIES_SUCCESS;
-  categories: Array<{}>;
+  categories: Array<Record<string, unknown>>;
 };
 
 type CategoryActions = {
@@ -76,11 +76,11 @@ type CategoryActions = {
     | typeof actionTypes.FETCH_CATEGORY_SUCCESS
     | typeof actionTypes.POST_CATEGORY_SUCCESS
     | typeof actionTypes.PUT_CATEGORY_SUCCESS;
-  category: {};
+  category: Record<string, unknown>;
 };
 type ProgrammesActions = {
   type: typeof actionTypes.FETCH_PROGRAMMES_SUCCESS;
-  programmes: Array<{}>;
+  programmes: Array<Record<string, unknown>>;
 };
 
 type ProgrammeActions = {
@@ -88,11 +88,11 @@ type ProgrammeActions = {
     | typeof actionTypes.FETCH_PROGRAMME_SUCCESS
     | typeof actionTypes.POST_PROGRAMME_SUCCESS
     | typeof actionTypes.PUT_PROGRAMME_SUCCESS;
-  programme: {};
+  programme: Record<string, unknown>;
 };
 type MailTemplatesActions = {
   type: typeof actionTypes.FETCH_MAILTEMPLATES_SUCCESS;
-  mailtemplates: Array<{}>;
+  mailtemplates: Array<Record<string, unknown>>;
 };
 
 type MailTemplateActions = {
@@ -100,11 +100,11 @@ type MailTemplateActions = {
     | typeof actionTypes.FETCH_MAILTEMPLATE_SUCCESS
     | typeof actionTypes.POST_MAILTEMPLATE_SUCCESS
     | typeof actionTypes.PUT_MAILTEMPLATE_SUCCESS;
-  mailtemplate: {};
+  mailtemplate: Record<string, unknown>;
 };
 type DeadlinesActions = {
   type: typeof actionTypes.FETCH_DEADLINES_SUCCESS;
-  deadlines: Array<{}>;
+  deadlines: Array<Record<string, unknown>>;
 };
 
 type DeadlineActions = {
@@ -112,14 +112,14 @@ type DeadlineActions = {
     | typeof actionTypes.FETCH_DEADLINE_SUCCESS
     | typeof actionTypes.POST_DEADLINE_SUCCESS
     | typeof actionTypes.PUT_DEADLINE_SUCCESS;
-  deadline: {};
+  deadline: Record<string, unknown>;
 };
 
 type CurrentUserActions = {
   type:
     | typeof actionTypes.FETCH_CURRENT_USER_SUCCESS
     | typeof actionTypes.PUT_CURRENT_USER_SUCCESS;
-  user: {};
+  user: Record<string, unknown>;
 };
 
 type CurrentUserDelete = {
@@ -128,15 +128,15 @@ type CurrentUserDelete = {
 
 type CurrentStudentActions = {
   type: typeof actionTypes.PUT_CURRENT_STUDENT_SUCCESS;
-  student: {};
+  student: Record<string, unknown>;
 };
 type CurrentCompanyActions = {
   type: typeof actionTypes.FETCH_CURRENT_COMPANY_SUCCESS;
-  company: {};
+  company: Record<string, unknown>;
 };
 type StatisticsActions = {
   type: typeof actionTypes.FETCH_STATISTICS_SUCCESS;
-  statistics: {};
+  statistics: Record<string, unknown>;
 };
 
 export type EntitiesAction =
@@ -164,20 +164,20 @@ export type EntitiesAction =
   | StatisticsActions;
 
 export type EntitiesState = {
-  categories: {};
-  attributes: {};
-  companies: {};
-  entries: {};
-  deadlines: {};
-  mailtemplates: {};
-  programmes: {};
-  roles: {};
-  users: {};
-  statistics: {};
-  studentSessions: {};
-  studentSessionTimeSlots: {};
-  studentSessionApplications: {};
-  students: {};
+  categories: Record<string, unknown>;
+  attributes: Record<string, unknown>;
+  companies: Record<string, unknown>;
+  entries: Record<string, unknown>;
+  deadlines: Record<string, unknown>;
+  mailtemplates: Record<string, unknown>;
+  programmes: Record<string, unknown>;
+  roles: Record<string, unknown>;
+  users: Record<string, unknown>;
+  statistics: Record<string, unknown>;
+  studentSessions: Record<string, unknown>;
+  studentSessionTimeSlots: Record<string, unknown>;
+  studentSessionApplications: Record<string, unknown>;
+  students: Record<string, unknown>;
 };
 
 const initialState = {

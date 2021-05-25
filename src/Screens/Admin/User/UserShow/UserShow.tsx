@@ -33,12 +33,9 @@ type Props = {
   };
   fetching: boolean;
   getUser: (id: string) => Promise<void>;
-  match?: {
-    path?: string;
-  };
 };
 
-const UserShow = ({ id, user, fetching, getUser, match }: Props) => {
+const UserShow = ({ id, user, fetching, getUser }: Props) => {
   useEffect(() => {
     if (id) getUser(id);
   }, [getUser, id]);
@@ -100,9 +97,6 @@ UserShow.defaultProps = {
   id: '',
   user: {
     student: {},
-  },
-  match: {
-    path: '',
   },
 };
 

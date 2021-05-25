@@ -7,7 +7,7 @@ export const createDeadlineIsLoading = () => ({
   type: actionTypes.POST_DEADLINE,
 });
 
-export const createDeadlineSuccess = (deadline: {}) => {
+export const createDeadlineSuccess = (deadline: Record<string, unknown>) => {
   message.success('Deadline successfully created');
   return {
     type: actionTypes.POST_DEADLINE_SUCCESS,
@@ -26,7 +26,7 @@ export const createDeadlineFailure = (): CreateDeadlineFailureAction => {
 };
 
 export const createDeadline =
-  (data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (data: Record<string, unknown>) => (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createDeadlineIsLoading());
     return API.deadlines
       .create(data)

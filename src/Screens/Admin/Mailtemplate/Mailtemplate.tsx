@@ -15,7 +15,7 @@ type MailTemplateObj = {
 
 type Props = {
   id?: string;
-  mailtemplate: { mailtemplate: MailTemplateObj } | {};
+  mailtemplate: { mailtemplate: MailTemplateObj } | Record<string, unknown>;
   createMailtemplate: (mailTemplateObject: {
     mailtemplate: MailTemplateObj;
   }) => Promise<void>;

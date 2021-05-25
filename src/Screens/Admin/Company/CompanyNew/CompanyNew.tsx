@@ -16,7 +16,7 @@ type Company = {
 };
 
 type Props = {
-  createCompany: ({ company: Company }) => Promise<void>;
+  createCompany: ({ company }: { company: Company }) => Promise<void>;
 };
 
 const CompanyNew = ({ createCompany }: Props) => (

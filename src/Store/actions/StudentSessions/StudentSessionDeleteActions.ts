@@ -9,7 +9,7 @@ export function deleteStudentSessionIsLoading() {
   };
 }
 
-export function deleteStudentSessionSuccess(company: {}) {
+export function deleteStudentSessionSuccess(company: Record<string, unknown>) {
   message.success('Student Session was successfully deleted.');
   return {
     type: actionTypes.DELETE_STUDENT_SESSION_SUCCESS,

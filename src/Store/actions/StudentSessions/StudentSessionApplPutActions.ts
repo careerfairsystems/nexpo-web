@@ -7,7 +7,9 @@ export const updateStudentSessionApplIsLoading = () => ({
   type: actionTypes.PUT_STUDENT_SESSION_APPL,
 });
 
-export const updateStudentSessionApplSuccess = (sessionApplication: {}) => {
+export const updateStudentSessionApplSuccess = (
+  sessionApplication: Record<string, unknown>
+) => {
   message.success('Your Application was successfully updated.');
   return {
     type: actionTypes.PUT_STUDENT_SESSION_APPL_SUCCESS,
@@ -27,7 +29,8 @@ export const updateStudentSessionApplFailure =
   };
 
 export const updateStudentSessionAppl =
-  (id: string, data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (id: string, data: Record<string, unknown>) =>
+  (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateStudentSessionApplIsLoading());
     return API.studentSessions
       .updateAppl(id, data)

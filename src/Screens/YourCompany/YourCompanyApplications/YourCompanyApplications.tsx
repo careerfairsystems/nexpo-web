@@ -36,7 +36,10 @@ type Props = {
   fetching: boolean;
   updating: boolean;
   getCurrentCompany: () => Promise<void>;
-  updateStudentSessionAppl: (number, {}) => Promise<void>;
+  updateStudentSessionAppl: (
+    id: number,
+    data: Record<string, unknown>
+  ) => Promise<void>;
 };
 
 const YourCompanyApplications = ({
@@ -59,7 +62,7 @@ const YourCompanyApplications = ({
   const renderSessionApplication = (application: Application) => (
     <List.Item
       actions={[
-        <Button onClick={(_) => scoreSessionApplication(application.id, 0)}>
+        <Button onClick={() => scoreSessionApplication(application.id, 0)}>
           Reset Score
         </Button>,
         <>

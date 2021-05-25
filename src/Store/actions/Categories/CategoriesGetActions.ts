@@ -7,7 +7,7 @@ export const getCategoryIsLoading = () => ({
   type: actionTypes.FETCH_CATEGORY,
 });
 
-export const getCategorySuccess = (category: {}) => ({
+export const getCategorySuccess = (category: Record<string, unknown>) => ({
   type: actionTypes.FETCH_CATEGORY_SUCCESS,
   category,
 });

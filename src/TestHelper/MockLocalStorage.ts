@@ -2,7 +2,7 @@
  * Mocks localStorage so we can use it in testing
  */
 class LocalStorageMock {
-  store: {};
+  store: Record<string, unknown>;
 
   constructor() {
     this.store = {};

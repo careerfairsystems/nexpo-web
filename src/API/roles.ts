@@ -14,7 +14,8 @@ export default {
   /**
    * Create a role
    */
-  create: (data: {}) => authPost('/api/roles', data).then(handleHttpResponse),
+  create: (data: Record<string, unknown>) =>
+    authPost('/api/roles', data).then(handleHttpResponse),
 
   /**
    * Fetches all roles
@@ -29,7 +30,7 @@ export default {
   /**
    * Updates a role
    */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: Record<string, unknown>) =>
     authPut(`/api/roles/${id}`, data).then(handleHttpResponse),
 
   /**

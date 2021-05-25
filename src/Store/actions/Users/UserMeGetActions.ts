@@ -7,7 +7,7 @@ export const getCurrentUserIsLoading = () => ({
   type: actionTypes.FETCH_CURRENT_USER,
 });
 
-export const getCurrentUserSuccess = (user: {}) => ({
+export const getCurrentUserSuccess = (user: Record<string, unknown>) => ({
   type: actionTypes.FETCH_CURRENT_USER_SUCCESS,
   user,
 });

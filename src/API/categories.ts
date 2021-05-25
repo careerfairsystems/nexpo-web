@@ -14,7 +14,7 @@ export default {
   /**
    * Create a category
    */
-  create: (data: {}) =>
+  create: (data: Record<string, unknown>) =>
     authPost('/api/categories', data).then(handleHttpResponse),
 
   /**
@@ -31,7 +31,7 @@ export default {
   /**
    * Updates a category
    */
-  update: (id: string, data: {}) =>
+  update: (id: string, data: Record<string, unknown>) =>
     authPut(`/api/categories/${id}`, data).then(handleHttpResponse),
 
   /**

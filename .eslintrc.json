@@ -28,7 +28,24 @@
   ],
   // Specify rules that override defaults and the ones in the extended configs
   "rules": {
-    "import/no-named-as-default": 0,
+    "import/no-cycle": "off", // Temporary fix while porting to typescript
+    "@typescript-eslint/naming-convention": [
+      // Fix for reducer types beeing UPPER_CASE, change in the future
+      "error",
+      { "selector": "typeLike", "format": ["PascalCase", "UPPER_CASE"] }
+    ],
+    "@typescript-eslint/ban-types": [
+      // Allow the use of Function type for now, replace later with exact definitions
+      "error",
+      {
+        "types": {
+          "Function": false
+        },
+        "extendDefaults": true
+      }
+    ],
+    "react/jsx-props-no-spreading": "off", // Disable checking for spreading until we find an alternative
+    "import/no-named-as-default": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
       {

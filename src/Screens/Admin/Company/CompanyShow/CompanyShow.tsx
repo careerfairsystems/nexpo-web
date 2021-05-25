@@ -58,14 +58,13 @@ type Company = {
  */
 type Props = {
   id: string;
-  createStudentSession: (studentSession: object) => Promise<void>;
+  createStudentSession: (
+    studentSession: Record<string, unknown>
+  ) => Promise<void>;
   deleteStudentSession: (id: string) => Promise<void>;
   company: Company;
   fetching: boolean;
   getCompany: (id: string) => Promise<void>;
-  match?: {
-    path: string;
-  };
 };
 const statusLabel = [
   { text: 'Unanswered', color: 'gold' },
@@ -80,18 +79,17 @@ const CompanyShow = ({
   company,
   fetching,
   getCompany,
-  match,
 }: Props) => {
   useEffect(() => {
     getCompany(id);
   }, [getCompany, id]);
 
-  const handleSubmit = (values: { studentId: string }, id: number) => {
+  const handleSubmit = (values: { studentId: string }, timeSlotId: number) => {
     createStudentSession({
       studentSession: {
         companyId: company.id,
         studentId: values.studentId,
-        studentSessionTimeSlotId: id,
+        studentSessionTimeSlotId: timeSlotId,
       },
     });
   };
@@ -291,12 +289,6 @@ const CompanyShow = ({
       </InvisibleLink>
     </div>
   );
-};
-
-CompanyShow.defaultProps = {
-  match: {
-    path: '',
-  },
 };
 
 export default CompanyShow;

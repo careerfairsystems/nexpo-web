@@ -7,7 +7,7 @@ export const getAllUsersIsLoading = () => ({
   type: actionTypes.FETCH_USERS,
 });
 
-export const getAllUsersSuccess = (users: Array<{}>) => ({
+export const getAllUsersSuccess = (users: Array<Record<string, unknown>>) => ({
   type: actionTypes.FETCH_USERS_SUCCESS,
   users,
 });

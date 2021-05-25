@@ -4,13 +4,11 @@
 
 /**
  * Allows extraction of url parameters
- * @param {String} queryName
- * @param {String} url
  */
 export const getParameterByName = (
   queryName: string,
   url: string = window.location.href
-) => {
+): string | null => {
   const name = queryName.replace(/[[\]]/g, '\\$&');
   const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`);
   const results = regex.exec(url);
@@ -19,7 +17,7 @@ export const getParameterByName = (
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 };
 
-export const toExternal = (url?: string) => {
+export const toExternal = (url?: string): string | undefined => {
   if (!url) return url;
   if (url.match(/^[a-zA-Z]*:\/\/|^\/\//)) {
     return url;

@@ -7,7 +7,9 @@ export const getAllStatisticsIsLoading = () => ({
   type: actionTypes.FETCH_STATISTICS,
 });
 
-export const getAllStatisticsSuccess = (statistics: {}) => ({
+export const getAllStatisticsSuccess = (
+  statistics: Record<string, unknown>
+) => ({
   type: actionTypes.FETCH_STATISTICS_SUCCESS,
   statistics,
 });

@@ -7,7 +7,7 @@ export const updateProgrammeIsLoading = () => ({
   type: actionTypes.PUT_PROGRAMME,
 });
 
-export const updateProgrammeSuccess = (programme: {}) => {
+export const updateProgrammeSuccess = (programme: Record<string, unknown>) => {
   message.success('Programme successfully updated');
   return {
     type: actionTypes.PUT_PROGRAMME_SUCCESS,
@@ -26,7 +26,8 @@ export const updateProgrammeFailure = (): UpdateProgrammeFailureAction => {
 };
 
 export const updateProgramme =
-  (id: string, data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (id: string, data: Record<string, unknown>) =>
+  (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateProgrammeIsLoading());
     return API.programmes
       .update(id, data)

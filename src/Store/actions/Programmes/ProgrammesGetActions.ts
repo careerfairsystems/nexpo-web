@@ -7,7 +7,7 @@ export const getProgrammeIsLoading = () => ({
   type: actionTypes.FETCH_PROGRAMME,
 });
 
-export const getProgrammeSuccess = (programme: {}) => ({
+export const getProgrammeSuccess = (programme: Record<string, unknown>) => ({
   type: actionTypes.FETCH_PROGRAMME_SUCCESS,
   programme,
 });

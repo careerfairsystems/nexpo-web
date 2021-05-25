@@ -7,7 +7,7 @@ export const updateUserIsLoading = () => ({
   type: actionTypes.PUT_USER,
 });
 
-export const updateUserSuccess = (user: {}) => {
+export const updateUserSuccess = (user: Record<string, unknown>) => {
   message.success('User successfully updated');
   return {
     type: actionTypes.PUT_USER_SUCCESS,
@@ -26,7 +26,8 @@ export const updateUserFailure = (): UpdateUserFailureAction => {
 };
 
 export const updateUser =
-  (id: string, data: {}) => (dispatch: Dispatch<{ type: string }>) => {
+  (id: string, data: Record<string, unknown>) =>
+  (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateUserIsLoading());
     return API.users
       .update(id, data)

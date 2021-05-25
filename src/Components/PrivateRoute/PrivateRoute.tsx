@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
 import { hasPermission } from '../../Util/PermissionsHelper';
 import LoadingSpinner from '../LoadingSpinner';
 
@@ -10,7 +10,7 @@ import LoadingSpinner from '../LoadingSpinner';
  */
 
 type Props = {
-  component: React.ComponentType<{}>;
+  component: React.ComponentType<Record<string, unknown>>;
   currentUser: {
     email?: string;
     firstName?: string;
@@ -30,7 +30,7 @@ const PrivateRoute = ({
 }: Props) => (
   <Route
     {...rest}
-    render={(props) => {
+    render={(props: RouteComponentProps) => {
       if (fetching) return <LoadingSpinner />;
       if (isLoggedIn && hasPermission(currentUser, props.location.pathname))
         return <Component {...props} />;

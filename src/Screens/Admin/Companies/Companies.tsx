@@ -12,11 +12,11 @@ import FilterSearch, { FilterIcon } from '../../../Components/FilterSearch';
  * Responsible for rendering a list of companies
  */
 type Props = {
-  companies?: {};
+  companies?: Record<string, unknown>;
   fetching: boolean;
   getAllCompanies: () => Promise<void>;
   deleteCompany: (id: string) => Promise<void>;
-  createBulk: (data: object) => Promise<void>;
+  createBulk: (data: Record<string, unknown>) => Promise<void>;
 };
 
 const Companies = ({
@@ -61,7 +61,7 @@ const Companies = ({
     {
       title: 'Action',
       key: 'action',
-      render: (company: { id: string }) => (
+      render: ({ company }: { company: { id: string } }) => (
         <span>
           <InvisibleLink to={`/admin/companies/${company.id}`}>
             Show

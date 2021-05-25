@@ -11,7 +11,7 @@ import FilterSearch, { FilterIcon } from '../../../Components/FilterSearch';
  * Responsible for rendering a list of users
  */
 type Props = {
-  users?: {};
+  users?: Record<string, unknown>;
   fetching: boolean;
   getAllUsers: () => Promise<void>;
   deleteUser: (id: string) => Promise<void>;
@@ -48,7 +48,7 @@ const Users = ({ users, fetching, getAllUsers, deleteUser }: Props) => {
       {
         title: 'Action',
         key: 'action',
-        render: (user) => (
+        render: ({ user }: { user: { id: string } }) => (
           <span>
             <InvisibleLink to={`/admin/users/${user.id}`}>Show</InvisibleLink>
             <Divider type="vertical" />

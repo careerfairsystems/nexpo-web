@@ -10,7 +10,7 @@ import HtmlTitle from '../../../Components/HtmlTitle';
  * Responsible for rendering a list of roles
  */
 type Props = {
-  roles: {};
+  roles: Record<string, unknown>;
   fetching: boolean;
   getAllRoles: () => Promise<void>;
   deleteRole: (id: string) => Promise<void>;
@@ -34,14 +34,14 @@ const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) => {
       title: 'Permissions',
       dataIndex: 'permissions',
       key: 'permissions',
-      render: (permissions: Array<string>) => (
+      render: ({ permissions }: { permissions: Array<string> }) => (
         <span>{permissions.join(', ')}</span>
       ),
     },
     {
       title: 'Action',
       key: 'action',
-      render: (role: { id: string }) => (
+      render: ({ role }: { role: { id: string } }) => (
         <span>
           <InvisibleLink to={`/admin/roles/${role.id}`}>Show</InvisibleLink>
           <Divider type="vertical" />

@@ -45,4 +45,8 @@ const InitialSignup = ({ finished }: Props) => {
   );
 };
 
+InitialSignup.defaultProps = {
+  finished: false,
+};
+
 export default InitialSignup;

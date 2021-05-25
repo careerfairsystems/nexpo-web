@@ -5,6 +5,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import type { Store as ReduxStore } from 'redux';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import reducers from './reducers';
 import Actions from './actions';
 import * as actionTypes from './ActionTypes';
@@ -17,7 +18,6 @@ let store;
 
 const middlewares = [thunk];
 if (process.env.NODE_ENV === 'development') {
-  const { logger } = require('redux-logger');
   middlewares.push(logger);
 }
 

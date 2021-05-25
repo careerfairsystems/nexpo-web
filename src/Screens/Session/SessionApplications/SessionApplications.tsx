@@ -19,7 +19,6 @@ type Application = {
 
 type Props = {
   applications?: Array<Application>;
-  companies?: any;
   getAllCompanies: () => Promise<void>;
   deleteStudentSessionAppl: (id: string) => Promise<void>;
   fetching: boolean;
@@ -37,7 +36,6 @@ const DefaultState = {
 
 const SessionApplications = ({
   applications,
-  companies,
   getAllCompanies,
   deleteStudentSessionAppl,
   fetching,
@@ -136,7 +134,6 @@ const SessionApplications = ({
 };
 
 SessionApplications.defaultProps = {
-  companies: {},
   applications: [],
 };
 

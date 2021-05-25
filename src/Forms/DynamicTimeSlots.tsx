@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { zipWith, sortBy, flow } from 'lodash/fp';
 import { Table, Input, Checkbox, Button } from 'antd';
@@ -14,7 +15,7 @@ const MyDatePicker = makeField(DatePicker);
 const MyTimePicker = makeField(TimePicker);
 
 type Props = FieldsProps & {
-  fieldValues?: {};
+  fieldValues?: Record<string, unknown>;
 };
 
 const generateTimeSlots = (fields, values) => {

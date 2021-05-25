@@ -29,12 +29,6 @@ type Session = {
 
 type Props = {
   sessions?: Array<Session>;
-  companies?: {
-    id?: string;
-    name?: string;
-    description?: string;
-    website?: string;
-  };
   updateSession: (id: number, status: number) => Promise<void>;
   getAllCompanies: () => Promise<void>;
   fetching: boolean;
@@ -42,7 +36,6 @@ type Props = {
 
 const StudentSessions = ({
   sessions,
-  companies,
   updateSession,
   getAllCompanies,
   fetching,
@@ -157,7 +150,6 @@ const StudentSessions = ({
 };
 
 StudentSessions.defaultProps = {
-  companies: {},
   sessions: [],
 };
 

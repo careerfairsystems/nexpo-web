@@ -7,7 +7,7 @@ export const getDeadlineIsLoading = () => ({
   type: actionTypes.FETCH_DEADLINE,
 });
 
-export const getDeadlineSuccess = (deadline: {}) => ({
+export const getDeadlineSuccess = (deadline: Record<string, unknown>) => ({
   type: actionTypes.FETCH_DEADLINE_SUCCESS,
   deadline,
 });

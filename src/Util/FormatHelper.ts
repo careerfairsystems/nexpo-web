@@ -1,7 +1,13 @@
 import { isObject, reduce, camelCase, snakeCase, has } from 'lodash/fp';
 import moment from 'moment';
 
-const convertKeys: Function = (obj: any, convert: Function) => {
+/**
+ * Convert all keys in an object by a function
+ * @param obj the object to traverse
+ * @param convert the convertion funtion
+ * @returns the object with all the keys converted with the convert function
+ */
+const convertKeys = (obj: any, convert: (key: string) => string) => {
   if (!isObject(obj)) {
     return obj;
   }
@@ -17,18 +23,16 @@ const convertKeys: Function = (obj: any, convert: Function) => {
   return reduce(convertKey, {}, Object.keys(obj));
 };
 
-export const camelCaseKeys: Function = (obj: any) =>
-  convertKeys(obj, camelCase);
-export const snakeCaseKeys: Function = (obj: any) =>
-  convertKeys(obj, snakeCase);
+export const camelCaseKeys = (obj: any) => convertKeys(obj, camelCase);
+export const snakeCaseKeys = (obj: any) => convertKeys(obj, snakeCase);
 
 const dateFormats = ['YYYY-MM-DD', 'YYYY-MM-DD HH:mm'];
 
 export const toFormData = (
-  obj: object,
+  obj: Record<string, unknown>,
   form?: FormData,
   namespace?: string
-) => {
+): FormData => {
   const fd = form || new FormData();
   let formKey;
 

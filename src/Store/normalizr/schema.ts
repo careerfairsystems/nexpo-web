@@ -21,7 +21,7 @@ const hasMany = (key) => (value, parent) => ({
 
 type Entity = (
   key: string,
-  definition?: {},
+  definition?: Record<string, unknown>,
   options?: { model?: Function; merge?: Function }
 ) => schema.Entity;
 const entity: Entity = (key, definition = {}, options = {}) =>

@@ -7,7 +7,9 @@ export const getAllProgrammesIsLoading = () => ({
   type: actionTypes.FETCH_PROGRAMMES,
 });
 
-export const getAllProgrammesSuccess = (programmes: Array<{}>) => ({
+export const getAllProgrammesSuccess = (
+  programmes: Array<Record<string, unknown>>
+) => ({
   type: actionTypes.FETCH_PROGRAMMES_SUCCESS,
   programmes,
 });
