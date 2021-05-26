@@ -12,7 +12,7 @@ type RoleObj = {
   user?: number;
 };
 type Props = {
-  createRole: ({ role: RoleObj }) => Promise<void>;
+  createRole: ({ role }: { role: RoleObj }) => Promise<void>;
   getAllUsers: () => Promise<void>;
 };
 

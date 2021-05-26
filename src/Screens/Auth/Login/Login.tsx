@@ -14,7 +14,13 @@ import LoginForm from '../../../Forms/LoginForm';
 type Props = {
   location: Location;
   isLoggedIn: boolean;
-  login: ({ email: string, password: string }) => Promise<void>;
+  login: ({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }) => Promise<void>;
 };
 
 const Login = ({ location, isLoggedIn, login }: Props) => {

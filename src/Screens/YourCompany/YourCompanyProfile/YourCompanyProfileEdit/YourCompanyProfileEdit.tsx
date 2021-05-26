@@ -22,7 +22,11 @@ type Props = {
   history: RouterHistory;
   currentCompany: CurrentCompany;
   getCurrentCompany: () => Promise<void>;
-  updateCurrentCompany: ({ company: CompanyForm }) => Promise<void>;
+  updateCurrentCompany: ({
+    company,
+  }: {
+    company: CompanyForm;
+  }) => Promise<void>;
 };
 
 const YourCompanyProfileEdit = ({

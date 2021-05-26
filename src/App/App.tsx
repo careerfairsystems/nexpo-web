@@ -122,7 +122,7 @@ type Props = {
 type SubMenuProps = {
   route: string;
   title: string;
-  menus?: Array<React.Component>;
+  menus?: Array<JSX.Element | null>;
 };
 
 type MenuItemProps = {
@@ -195,7 +195,7 @@ const App = ({ isLoggedIn, currentUser, redirect, pathname }: Props) => {
   };
 
   const paths: Array<string> = pathname.split('/').filter((i: string) => i);
-  const breadcrumbItems: Array<React$Element<any>> = paths.map(
+  const breadcrumbItems: Array<JSX.Element> = paths.map(
     (item: string, index: number) => {
       const url = `/${paths.slice(0, index + 1).join('/')}`;
       return (
