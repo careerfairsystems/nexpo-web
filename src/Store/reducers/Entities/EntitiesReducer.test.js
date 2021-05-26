@@ -2,6 +2,7 @@
  *   This file tests the reducers handling incoming actions.
  *   See http://redux.js.org/docs/recipes/WritingTests.html for writing action and reducer tests.
  */
+// eslint-disable-next-line import/no-unresolved
 import { omit } from 'lodash/fp';
 import { normalize } from 'normalizr';
 

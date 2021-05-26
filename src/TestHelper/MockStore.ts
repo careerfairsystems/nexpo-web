@@ -6,5 +6,7 @@ import thunk from 'redux-thunk';
  */
 const middlewares = [thunk];
 const createNewMockStore = configureMockStore(middlewares);
-export const createMockStore = (initialState?: Record<string, unknown>) =>
+const createMockStore = (initialState?: Record<string, unknown>) =>
   createNewMockStore(initialState);
+
+export default createMockStore;

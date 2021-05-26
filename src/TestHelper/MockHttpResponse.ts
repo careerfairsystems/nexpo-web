@@ -4,7 +4,7 @@
 
 const defaultBody = { defaultBodyUsed: true };
 
-export const mockHttpResponse = ({
+const mockHttpResponse = ({
   status,
   body = defaultBody,
 }: {
@@ -22,3 +22,5 @@ export const mockHttpResponse = ({
   // Mock it
   window.fetch = jest.fn().mockImplementation(() => Promise.resolve(response));
 };
+
+export default mockHttpResponse;

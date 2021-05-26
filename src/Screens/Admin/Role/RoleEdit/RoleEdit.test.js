@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+// eslint-disable-next-line import/no-unresolved
 import { capitalize } from 'lodash/fp';
 import RoleEdit from './RoleEdit';
 import NotFound from '../../../NotFound';

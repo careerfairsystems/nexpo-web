@@ -29,9 +29,12 @@ const runInEnvironment = (env: string, func: Function) => {
 /**
  * Build the mocks
  */
-// eslint-disable-next-line import/prefer-default-export
-export const mockEnvironment = {
-  runInProduction: (func: any) => runInEnvironment('production', func),
-  runInDevelopment: (func: any) => runInEnvironment('development', func),
-  runInTest: (func: any) => runInEnvironment('test', func),
+const mockEnvironment = {
+  runInProduction: (func: Function): void =>
+    runInEnvironment('production', func),
+  runInDevelopment: (func: Function): void =>
+    runInEnvironment('development', func),
+  runInTest: (func: Function): void => runInEnvironment('test', func),
 };
+
+export default mockEnvironment;

@@ -12,19 +12,21 @@ class LocalStorageMock {
     this.store = {};
   }
 
-  getItem(key) {
+  getItem(key: string) {
     return this.store[key] || null;
   }
 
-  setItem(key, value) {
+  setItem(key: string, value) {
     this.store[key] = value.toString();
   }
 
-  removeItem(key) {
+  removeItem(key: string) {
     delete this.store[key];
   }
 }
 
-export const mockLocalStorage = () => {
+const mockLocalStorage = (): void => {
   global.localStorage = new LocalStorageMock();
 };
+
+export default mockLocalStorage;

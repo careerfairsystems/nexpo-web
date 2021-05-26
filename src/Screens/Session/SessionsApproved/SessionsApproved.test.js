@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { stat } from 'fs';
 import LoadingSpinner from '../../../Components/LoadingSpinner';
 import SessionApplications from './SessionsApproved';
 
