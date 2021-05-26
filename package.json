@@ -67,10 +67,9 @@
     "lint": "eslint ./src",
     "lint-fix": "eslint ./src --fix",
     "build": "npm run build-css && react-scripts build",
-    "test": "npm run test-ci",
-    "test-js": "react-scripts test",
+    "test": "npm run build-css && react-scripts test --watchAll=false",
     "test-watch": "npm-run-all -p watch-css test-js",
-    "test-ci": "npm run build-css && CI=true npm run test-js",
+    "test-js": "react-scripts test",
     "test-coverage": "npm run test-js -- --coverage",
     "eject": "react-scripts eject"
   },
