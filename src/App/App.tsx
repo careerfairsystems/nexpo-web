@@ -49,7 +49,7 @@ const { Header, Content, Footer } = Layout;
 
 type RouteItem = {
   path: string;
-  component: React.ComponentType;
+  component: React.ComponentType<any>;
 };
 
 const privateRoutes: Array<RouteItem> = [
