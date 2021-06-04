@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Col, Row, Table, Button } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
 import {
   orderBy,
   divide,
@@ -33,7 +34,7 @@ const toPercent = (n, d, decimals = 2) =>
 const columns = [
   {
     title: 'Name',
-    dataIndex: 'name',
+    dataIndex: ['name'],
     key: 'name'
   },
   {
@@ -174,7 +175,7 @@ const Statistics = ({ getAllStatistics, statistics }: Props) : React$Element<any
       <br />
       <br />
       <br />
-      <Button icon="download" onClick={API.studentSessions.downloadReserves}>
+      <Button icon={DownloadOutlined} onClick={API.studentSessions.downloadReserves}>
         Download reserves
       </Button>
       <br />

@@ -1,7 +1,8 @@
 import React from 'react';
 // import type { Element } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-import { Breadcrumb, Icon, Menu, Layout } from 'antd';
+import { Breadcrumb, Menu, Layout } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import { startCase } from 'lodash/fp';
 import Home from '../Screens/Home';
 import Info from '../Screens/Info';
@@ -151,7 +152,7 @@ const App = ({
 
     return [
       <Menu.Item key="/user">
-        {displayName} <Icon type="user" />
+        {displayName} <UserOutlined /> 
       </Menu.Item>,
       <Menu.Item key="/logout">Logout</Menu.Item>
     ];

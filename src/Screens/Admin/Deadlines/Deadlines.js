@@ -29,7 +29,7 @@ const Deadlines = ({
   const deadlineColumns = () => [
     {
       title: 'Name',
-      dataIndex: 'name',
+      dataIndex: ['name'],
       key: 'name',
       render: (name: string, { id }: { id: string }) => (
         <InvisibleLink to={`/admin/deadlines/${id}`}>{name}</InvisibleLink>

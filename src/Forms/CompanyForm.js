@@ -3,7 +3,9 @@ import { Field, FieldArray, reduxForm } from 'redux-form';
 import type { FormProps } from 'redux-form/lib/types.js.flow';
 import { connect } from 'react-redux';
 import { isNil } from 'lodash/fp';
-import { Button, Form, Input } from 'antd';
+import { Button, Input } from 'antd';
+import {Form} from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
 
 import makeField, { required } from './helper';
 import UploadButton from './UploadButton';

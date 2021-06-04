@@ -1,6 +1,7 @@
 import React from 'react';
 import { isEmpty } from 'lodash/fp';
-import { message, Button, Icon, Upload } from 'antd';
+import { message, Button, Upload } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 import makeField from './helper';
 
 type Props = {
@@ -22,7 +23,7 @@ const UploadButton = ({ accept = '', value, onChange }: Props) => (
     onRemove={() => onChange(null)}
   >
     <Button>
-      <Icon type="upload" />
+      <UploadOutlined />
       Upload
     </Button>
   </Upload>

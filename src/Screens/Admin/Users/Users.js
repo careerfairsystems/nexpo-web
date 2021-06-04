@@ -26,7 +26,7 @@ const Users = ({ users, fetching, getAllUsers, deleteUser }: Props) : React$Elem
     const userColumns = [
       {
         title: 'Email',
-        dataIndex: 'email',
+        dataIndex: ['email'],
         key: 'email',
         filterDropdown: FilterSearch,
         filterIcon: FilterIcon,

@@ -2,7 +2,9 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { isNil } from 'lodash/fp';
-import { Button, Form, Input } from 'antd';
+import { Button, Input } from 'antd';
+import {Form} from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
 import makeField, { required } from './helper';
 import UploadButton from './UploadButton';
 

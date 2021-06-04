@@ -2,7 +2,9 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import type { FormProps } from 'redux-form/lib/types.js.flow';
 import { connect } from 'react-redux';
-import { Button, Form, Select } from 'antd';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Button, Select } from 'antd';
 import makeField from './helper';
 
 const FieldSelect = makeField(Select);

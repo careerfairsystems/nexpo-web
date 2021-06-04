@@ -55,7 +55,7 @@ const columns = [
   {
     title: 'Start Time',
     key: 'start',
-    dataIndex: 'field',
+    dataIndex: ['field'],
     render: timeSlot => (
       <Field
         name={`${timeSlot}.start`}

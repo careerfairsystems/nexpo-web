@@ -3,7 +3,9 @@ import { Field, reduxForm } from 'redux-form';
 import type { FieldProps } from 'redux-form/es/FieldProps.types.js.flow'
 
 import { connect } from 'react-redux';
-import { Button, Form, Input } from 'antd';
+import { Button, Input } from 'antd';
+import {Form} from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
 import DatePicker from '../Components/DatePicker';
 
 import makeField from './helper';

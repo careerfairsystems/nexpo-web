@@ -28,7 +28,7 @@ const Programmes = ({
   const programmeColumns = () => [
     {
       title: 'Name',
-      dataIndex: 'name',
+      dataIndex: ['name'],
       key: 'name',
       render: (name: string, { id }: { id: string }) => (
         <InvisibleLink to={`/admin/programmes/${id}`}>{name}</InvisibleLink>

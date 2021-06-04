@@ -15,7 +15,7 @@ const setKeys = entries =>
 const categoryColumns = [
   {
     title: 'Title',
-    dataIndex: 'title',
+    dataIndex: ['title'],
     key: 'title',
     render: (title, { id }) => (
       <InvisibleLink to={`/admin/categories/${id}`}>{title}</InvisibleLink>
@@ -39,7 +39,7 @@ const categoryColumns = [
 ];
 
 const attributeColumns = [
-  { title: 'Title', dataIndex: 'title', key: 'title' },
+  { title: 'Title', dataIndex: ['title'], key: 'title' },
   {
     title: 'Action',
     key: 'action',

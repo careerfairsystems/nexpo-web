@@ -29,7 +29,7 @@ const Mailtemplates = ({
   const mailtemplateColumns = () => [
     {
       title: 'Name',
-      dataIndex: 'name',
+      dataIndex: ['name'],
       key: 'name',
       render: (name: string, { id }: { id: string }) => (
         <InvisibleLink to={`/admin/mailtemplates/${id}`}>{name}</InvisibleLink>

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Icon, Upload, Table, Button, Popconfirm, Divider } from 'antd';
+import { Upload, Table, Button, Popconfirm, Divider } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 import { size, sortBy, toLower } from 'lodash/fp';
 
 import { toExternal } from '../../../Util/URLHelper';
@@ -33,7 +34,7 @@ const Companies = ({
   const companyColumns = () => [
     {
       title: 'Name',
-      dataIndex: 'name',
+      dataIndex: ['name'],
       key: 'name',
       filterDropdown: FilterSearch,
       filterIcon: FilterIcon,
@@ -155,7 +156,7 @@ const Companies = ({
             }}
           >
             <Button>
-              <Icon type="upload" />
+              <UploadOutlined />
               Create Multiple Companies
             </Button>
           </Upload>

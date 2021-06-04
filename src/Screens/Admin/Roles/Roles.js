@@ -24,7 +24,7 @@ const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) : React$Elem
   const roleColumns = () => [
     {
       title: 'Type',
-      dataIndex: 'type',
+      dataIndex: ['type'],
       key: 'type',
       render: (type: string, { id }: { id: string }) => (
         <InvisibleLink to={`/admin/roles/${id}`}>{type}</InvisibleLink>

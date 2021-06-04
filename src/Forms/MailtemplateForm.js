@@ -1,7 +1,10 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Button, Form, Input, Icon } from 'antd';
+import { MailOutlined } from '@ant-design/icons';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Button, Input } from 'antd';
 import makeField from './helper';
 
 const TextInput = makeField(Input);
@@ -18,7 +21,7 @@ const MailtemplateForm = ({ handleSubmit }: Props) => (
       name="subject"
       label="Subject:"
       component={TextInput}
-      prefix={<Icon type="mail" />}
+      prefix={<MailOutlined />}
     />
     <Field name="content" label="Content:" component={TextArea} />
     <Field name="signature" label="Signature:" component={TextArea} />

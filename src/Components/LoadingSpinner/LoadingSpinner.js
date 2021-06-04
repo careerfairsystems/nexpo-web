@@ -1,7 +1,8 @@
 import React from 'react';
-import { Spin, Icon } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 
-const antIcon = <Icon type="loading" style={{ fontSize: 100 }} spin />;
+const antIcon = <LoadingOutlined style={{ fontSize: 100 }} spin />;
 const LoadingSpinner = () : React$Element<any> => (
   <div>
     <Spin tip="Loading..." indicator={antIcon} size="large" />

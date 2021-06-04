@@ -2,7 +2,9 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { map } from 'lodash/fp';
-import { Button, Form, Input, Select } from 'antd';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Button, Input, Select } from 'antd';
 import type { FormProps } from 'redux-form/lib/types.js.flow';
 
 import makeField from './helper';
