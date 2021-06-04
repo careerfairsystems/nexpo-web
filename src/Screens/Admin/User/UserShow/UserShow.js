@@ -12,25 +12,28 @@ import '../User.css';
 /**
  * Responsible for rendering a user. User id is recieved via url
  */
+
+export type UserProps = {
+  id?: string,
+  email?: string,
+  firstName?: string,
+  lastName?: string,
+  foodPreferences?: string,
+  phoneNumber?: string,
+  roles?: Array<{ type: string }>,
+  student?: {
+    resumeSvUrl: string,
+    resumeEnUrl: string,
+    studentSessionApplications: Array<{ companyId: number }>,
+    studentSessions: Array<{ companyId: number }>,
+    programme: { name: string },
+    year: string
+  }
+}
+
 type Props = {
   id?: string,
-  user?: {
-    id?: string,
-    email?: string,
-    firstName?: string,
-    lastName?: string,
-    foodPreferences?: string,
-    phoneNumber?: string,
-    roles?: Array<{ type: string }>,
-    student?: {
-      resumeSvUrl: string,
-      resumeEnUrl: string,
-      studentSessionApplications: Array<{ companyId: number }>,
-      studentSessions: Array<{ companyId: number }>,
-      programme: { name: string },
-      year: string
-    }
-  },
+  user?: UserProps,
   fetching: boolean,
   getUser: string => Promise<void>,
   match?: {
@@ -38,20 +41,20 @@ type Props = {
   }
 };
 
-const UserShow = ({ id, user, fetching, getUser, match }: Props) => {
+const UserShow = ({ id, user, fetching, getUser, match }: Props) : React$Element<any> => {
   useEffect(() => {
     if (id) getUser(id);
   }, [getUser, id]);
 
-  const { firstName, lastName, email, phoneNumber, foodPreferences, student } =
+  const { firstName, lastName, email, roles, phoneNumber, foodPreferences, student } =
     user || {};
 
   const displayName = () => {
     return firstName ? [firstName, lastName].join(' ') : email;
   };
 
-  const roles = () => {
-    return isEmpty(roles) ? 'None' : map('type', roles).join(', ');
+  const rolesFunc = () => {
+    return roles && isEmpty(roles) ? 'None' : Array.prototype.map.call(roles, ({type}) => map(name => name, type)).join(', ');
   };
 
   const renderStudent = () => {
@@ -87,7 +90,7 @@ const UserShow = ({ id, user, fetching, getUser, match }: Props) => {
       <h1 className="centering">{displayName()}</h1>
       <p>Email: {email}</p>
       <p>Phone number: {phoneNumber}</p>
-      <p>Roles: {roles()}</p>
+      <p>Roles: {rolesFunc()}</p>
       <p>Food Preferences: {foodPreferences}</p>
       {student && renderStudent()}
       <InvisibleLink to={`/admin/users/${id || ''}/edit`}>
@@ -102,7 +105,7 @@ const UserShow = ({ id, user, fetching, getUser, match }: Props) => {
 UserShow.defaultProps = {
   id: '',
   user: {
-    student: {}
+    student: undefined
   },
   match: {
     path: ''

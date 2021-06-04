@@ -4,11 +4,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const createStudentSessionApplIsLoading = () => ({
+export const createStudentSessionApplIsLoading = () : any => ({
   type: actionTypes.POST_STUDENT_SESSION_APPL
 });
 
-export const createStudentSessionApplSuccess = (user: {}) => {
+export const createStudentSessionApplSuccess = (user: {}) : any => {
   message.success('Your Application was successfully saved.');
   return {
     type: actionTypes.POST_STUDENT_SESSION_APPL_SUCCESS,
@@ -29,7 +29,7 @@ export const createStudentSessionApplFailure = (): CreateStudentSessionApplFailu
   };
 };
 
-export const createStudentSessionAppl = (data: {}) => {
+export const createStudentSessionAppl = (data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createStudentSessionApplIsLoading());
     return API.studentSessions

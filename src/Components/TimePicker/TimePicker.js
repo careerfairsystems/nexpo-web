@@ -16,13 +16,13 @@ const MyTimePicker = ({
   onChange,
   format = 'HH:mm',
   ...rest
-}: Props) => (
+}: Props) : React$Element<any> => (
   <TimePicker
     value={moment(value, format).isValid() ? moment.utc(value, format) : null}
     format={format}
     onChange={time => (time ? onChange(time.format(format)) : onChange(null))}
     minuteStep={5}
-    {...rest}
+    {...(rest: $Rest<Props, any>)}
   />
 );
 

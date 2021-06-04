@@ -50,7 +50,7 @@ const YourCompanyScans = ({
   currentCompany,
   fetching,
   getCurrentCompany
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getCurrentCompany();
   }, [getCurrentCompany]);

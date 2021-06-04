@@ -11,6 +11,6 @@ const mapDispatchToProps = {
   getAllStatistics: Actions.statistics.getAllStatistics
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(Statistics);
 
-export default stateful(Statistics);
+export default stateful;

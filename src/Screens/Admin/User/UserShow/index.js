@@ -24,6 +24,6 @@ const mapDispatchToProps = {
   updateUser: Actions.users.updateUser
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(UserShow);
 
-export default stateful(UserShow);
+export default stateful;

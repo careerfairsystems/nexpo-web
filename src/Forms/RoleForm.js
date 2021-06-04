@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { map } from 'lodash/fp';
 import { Button, Form, Input, Select } from 'antd';
-import type { FormProps } from 'redux-form';
+import type { FormProps } from 'redux-form/lib/types.js.flow';
 
 import makeField from './helper';
 
@@ -29,21 +29,26 @@ const permissions = [
   'write_hosts'
 ];
 
-const renderPermissionItem = permission => (
+type UserProps = {
+  id : string, 
+  email : string
+}
+
+const renderPermissionItem = (permission : any) => (
   <Select.Option key={permission}>{permission}</Select.Option>
 );
 
-const renderUserItem = user => (
-  <Select.Option key={user.id} value={user.id}>
-    {user.email}
+const renderUserItem = ({id, email} : UserProps) => (
+  <Select.Option key={id} value={id}>
+    {email}
   </Select.Option>
 );
 
 type Props = {
-  ...FormProps,
-  users: {},
+  users: UserProps[],
   handleSubmit: () => Promise<void>
-};
+} & FormProps;
+
 const RoleForm = ({ handleSubmit, users }: Props) => (
   <Form onSubmit={handleSubmit}>
     <Field name="type" label="Type:" component={TextInput} />
@@ -75,6 +80,6 @@ const mapStateToProps = state => ({
   formState: state.form.RoleForm
 });
 
-const stateful = connect(mapStateToProps);
+const stateful : any = connect(mapStateToProps)(reduxForm({ form: 'role' })(RoleForm));
 
-export default stateful(reduxForm({ form: 'role' })(RoleForm));
+export default stateful;

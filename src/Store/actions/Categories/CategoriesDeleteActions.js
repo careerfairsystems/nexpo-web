@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const deleteCategoryIsLoading = () => ({
+export const deleteCategoryIsLoading = () : any => ({
   type: actionTypes.DELETE_CATEGORY
 });
 
-export const deleteCategorySuccess = (id: string) => {
+export const deleteCategorySuccess = (id: string) : any => {
   message.success('Category successfully deleted');
   return {
     type: actionTypes.DELETE_CATEGORY_SUCCESS,
@@ -25,7 +25,7 @@ export const deleteCategoryFailure = (): DestroyCategoryFailureAction => {
   };
 };
 
-export const deleteCategory = (id: string) => {
+export const deleteCategory = (id: string) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteCategoryIsLoading());
     return API.categories

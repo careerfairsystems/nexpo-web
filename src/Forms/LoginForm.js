@@ -39,8 +39,8 @@ const mapStateToProps = state => ({
   formState: state.form.ProductionLoginForm
 });
 
-const stateful = connect(mapStateToProps);
-
-export default stateful(
+const stateful : any = connect(mapStateToProps)(
   reduxForm({ form: 'productionLogin' })(ProductionLoginForm)
 );
+
+export default stateful;

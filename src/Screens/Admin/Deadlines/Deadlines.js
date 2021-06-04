@@ -21,7 +21,7 @@ const Deadlines = ({
   fetching,
   getAllDeadlines,
   deleteDeadline
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getAllDeadlines();
   }, [getAllDeadlines]);
@@ -103,7 +103,7 @@ const Deadlines = ({
 };
 
 Deadlines.defaultProps = {
-  deadlines: {}
+  deadlines: undefined
 };
 
 export default Deadlines;

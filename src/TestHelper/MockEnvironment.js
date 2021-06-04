@@ -31,7 +31,7 @@ const runInEnvironment = (env, func) => {
  */
 // eslint-disable-next-line import/prefer-default-export
 export const mockEnvironment = {
-  runInProduction: (func: *) => runInEnvironment('production', func),
-  runInDevelopment: (func: *) => runInEnvironment('development', func),
-  runInTest: (func: *) => runInEnvironment('test', func)
+  runInProduction: (func: *) : any => runInEnvironment('production', func),
+  runInDevelopment: (func: *) : any => runInEnvironment('development', func),
+  runInTest: (func: *) : any => runInEnvironment('test', func)
 };

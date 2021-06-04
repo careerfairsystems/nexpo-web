@@ -48,10 +48,10 @@ import { hasAccess, hasPermission } from '../Util/PermissionsHelper';
 const { Header, Content, Footer } = Layout;
 
 // the | ... | means exact type. look up flow exact type for more information
-type RouteItem = {|
+type RouteItem = {
   path: string,
   component: React$ComponentType<{}>
-|};
+};
 
 const privateRoutes: Array<RouteItem> = [
   { path: '/', component: Home },
@@ -102,7 +102,7 @@ const routes = (
     <Route path="/signup" component={Signup} />
     <Route path="/forgot-password" component={ForgotPassword} />
     {privateRoutes.map((props: RouteItem) => (
-      <PrivateRoute key={props.path} exact {...props} />
+      <PrivateRoute key={props.path} exact {...(props: $Rest<RouteItem, any>)} />
     ))}
     <Route component={NotFound} />
   </Switch>
@@ -121,17 +121,17 @@ type Props = {
   pathname: string
 };
 
-type SubMenuProps = {|
+type SubMenuProps = {
   route: string,
   title: string,
   menus: Array<?React$Element<any>>
-|};
+};
 
-type MenuItemProps = {|
+type MenuItemProps = {
   route: string,
   title: string,
   disabled?: boolean
-|};
+};
 
 /**
  * The base of the application. Defines the basic layout
@@ -168,6 +168,7 @@ const App = ({
     menus,
     ...rest
   }: SubMenuProps) => {
+    const restProps = {...(rest: $Rest<SubMenuProps, any>)}
     if (
       isLoggedIn &&
       hasPermission(currentUser, route) &&
@@ -178,7 +179,7 @@ const App = ({
           title={title}
           key={`/${route}`}
           onTitleClick={() => redirect(`/${route}`)}
-          {...rest}
+          {...restProps}
         >
           {menus}
         </Menu.SubMenu>
@@ -188,13 +189,14 @@ const App = ({
   };
 
   const restrictedMenuItem = ({ route, title, ...rest }: MenuItemProps) => {
+    const restProps = {...(rest: $Rest<MenuItemProps, any>)}
     if (
       isLoggedIn &&
       hasPermission(currentUser, route) &&
       hasAccess(currentUser, route)
     ) {
       return (
-        <Menu.Item key={`/${route}`} {...rest}>
+        <Menu.Item key={`/${route}`} {...restProps}>
           {title}
         </Menu.Item>
       );

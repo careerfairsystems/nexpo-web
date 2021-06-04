@@ -32,7 +32,7 @@ const SessionApplication = ({
   getAllProgrammes,
   createStudentSessionAppl,
   resetForm
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getAllCompanies();
     getAllProgrammes();

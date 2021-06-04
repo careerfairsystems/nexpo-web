@@ -8,7 +8,7 @@ type Props = {
   to: string,
   children?: Node
 };
-const MailLink = ({ to, children }: Props) => {
+const MailLink = ({ to, children }: Props) : React$Element<any> => {
   return <a href={`mailto:${to}`}>{children}</a>;
 }
 

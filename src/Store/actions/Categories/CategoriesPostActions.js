@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const createCategoryIsLoading = () => ({
+export const createCategoryIsLoading = () : any => ({
   type: actionTypes.POST_CATEGORY
 });
 
-export const createCategorySuccess = (category: {}) => {
+export const createCategorySuccess = (category: {}) : any => {
   message.success('Category successfully created');
   return {
     type: actionTypes.POST_CATEGORY_SUCCESS,
@@ -25,7 +25,7 @@ export const createCategoryFailure = (): CreateCategoryFailureAction => {
   };
 };
 
-export const createCategory = (data: {}) => {
+export const createCategory = (data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createCategoryIsLoading());
     return API.categories

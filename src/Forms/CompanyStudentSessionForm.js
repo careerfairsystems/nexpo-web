@@ -1,17 +1,21 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import type { FormProps } from 'redux-form';
+import type { FormProps } from 'redux-form/lib/types.js.flow';
 import { connect } from 'react-redux';
 import { Button, Form, Select } from 'antd';
 import makeField from './helper';
 
 const FieldSelect = makeField(Select);
 
+type Props = {
+  options: any
+} & FormProps;
+
 const CompanyStudentSessionForm = ({
   handleSubmit,
   submitting,
   options
-}: FormProps) => (
+}: Props) => (
   <Form onSubmit={handleSubmit} layout="inline">
     <Field
       name="studentId"
@@ -41,8 +45,8 @@ const mapStateToProps = (state, props) => ({
   form: `CompanyStudentSession${props.id}`
 });
 
-const stateful = connect(mapStateToProps);
-
-export default stateful(
+const stateful : any = connect(mapStateToProps)(
   reduxForm({ enableReinitialize: true })(CompanyStudentSessionForm)
 );
+
+export default stateful;

@@ -91,7 +91,7 @@ type Props = {
   }
 };
 
-const Statistics = ({ getAllStatistics, statistics }: Props) => {
+const Statistics = ({ getAllStatistics, statistics }: Props) : React$Element<any> => {
   useEffect(() => {
     getAllStatistics();
   }, [getAllStatistics]);
@@ -186,7 +186,7 @@ const Statistics = ({ getAllStatistics, statistics }: Props) => {
           'desc',
           companyStats.map((stat, i) => ({
             key: i,
-            ...stat
+            ...(stat: $Rest<any, any>)
           }))
         )}
       />

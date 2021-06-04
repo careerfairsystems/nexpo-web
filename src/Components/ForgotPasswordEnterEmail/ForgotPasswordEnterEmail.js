@@ -11,7 +11,7 @@ type Props = {
 const ForgotPasswordEnterEmail = ({
   callBackend,
   success
-}: Props) => {
+}: Props) : React$Element<any> => {
   
   const queryBackend = (values: { email: string }) => {
     const { email } = values;

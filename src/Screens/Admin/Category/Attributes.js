@@ -13,7 +13,7 @@ type Props = {
   attributes?: Array<any>,
   entries?: Array<any>
 };
-export const Attributes = ({ fetching, attributes, entries }: Props) => (
+export const Attributes = ({ fetching, attributes, entries }: Props) : React$Element<any> => (
   <div>
     {fetching && <LoadingSpinner />}
     {!fetching && <Table columns={attributes} dataSource={entries} />}
@@ -21,11 +21,11 @@ export const Attributes = ({ fetching, attributes, entries }: Props) => (
 );
 
 Attributes.defaultProps = {
-  attributes: [],
-  entries: []
+  attributes: undefined,
+  entries: undefined
 };
 
-const stateful = connect((state: State, props) => {
+const stateful : any = connect((state: State, props) => {
   if (
     isEmpty(state.entities.attributes) ||
     isEmpty(state.entities.entries) ||
@@ -36,23 +36,29 @@ const stateful = connect((state: State, props) => {
   const attributeIds = props.ids;
 
   const attributes = filter(
+    // $FlowIgnore
     ({ id }) => attributeIds.includes(id),
     state.entities.attributes
   );
 
   const entries = filter(
+    // $FlowIgnore
     ({ attribute }) => attributeIds.includes(attribute),
     state.entities.entries
   )
     .map(entry => ({
       ...entry,
+      // $FlowIgnore
       company: state.entities.companies[entry.company],
+      // $FlowIgnore
       attribute: state.entities.attributes[entry.attribute]
     }))
     .map(entry => ({
       ...entry,
+      // $FlowIgnore
       key: entry.id,
       companyName: entry.company.name,
+      // $FlowIgnore
       [entry.attribute.title.toLowerCase()]: entry.value
     }));
 
@@ -66,6 +72,7 @@ const stateful = connect((state: State, props) => {
   return {
     fetching: state.api.categories.fetching,
     attributes: [companyColumn].concat(
+      // $FlowIgnore
       attributes.map(({ title }) => ({
         title,
         dataIndex: title.toLowerCase(),
@@ -74,6 +81,6 @@ const stateful = connect((state: State, props) => {
     ),
     entries
   };
-});
+})(Attributes);
 
-export default stateful(Attributes);
+export default stateful;

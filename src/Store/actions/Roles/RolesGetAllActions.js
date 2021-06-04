@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const getAllRolesIsLoading = () => ({
+export const getAllRolesIsLoading = () : any => ({
   type: actionTypes.FETCH_ROLES
 });
 
-export const getAllRolesSuccess = (roles: Array<{}>) => ({
+export const getAllRolesSuccess = (roles: Array<{}>) : any => ({
   type: actionTypes.FETCH_ROLES_SUCCESS,
   roles
 });
@@ -24,7 +24,7 @@ export const getAllRolesFailure = (): GetAllRolesFailureAction => {
   };
 };
 
-export const getAllRoles = () => {
+export const getAllRoles = () : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getAllRolesIsLoading());
     return API.roles

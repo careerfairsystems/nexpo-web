@@ -9,7 +9,7 @@ import type { ApiStatus } from './ApiReducer';
 export const ApiReducerVerifyForgotPassword = (
   state: ApiStatus = initialStatus,
   act: { type: string }
-) => {
+) : any => {
   switch (act.type) {
     case actionTypes.VERIFY_FORGOT_PASSWORD_KEY_REQUEST: {
       const stateChange = fetching;

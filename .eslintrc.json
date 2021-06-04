@@ -11,10 +11,7 @@
     "plugin:react/recommended",
     "plugin:flowtype/recommended",
     "airbnb",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react",
-    "prettier/standard"
+    "prettier"
   ],
   "plugins": ["react", "flowtype", "prettier"],
   "rules": {
@@ -31,7 +28,20 @@
         "components": ["Link"],
         "specialLink": ["to"]
       }
-    ]
+    ],
+    "react/jsx-props-no-spreading": 0,
+    "react/prop-types": 0,
+    "react/require-default-props": 0,
+    "no-unused-vars": 0,
+    "react/default-props-match-prop-types": 0,
+    "react/destructuring-assignment": 0,
+    "arrow-body-style": 0,
+    "no-shadow": 0,
+    "spaced-comment": 0,
+    "import/no-cycle": 0,
+    "import/prefer-default-export": 0,
+    "global-require": 0,
+    "prefer-destructuring": 0
   },
   "settings": {
     "import/resolver": {

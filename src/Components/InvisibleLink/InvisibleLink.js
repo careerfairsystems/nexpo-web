@@ -10,7 +10,7 @@ type Props = {
   to: string,
   children?: Node
 };
-const InvisibleLink = ({ to, children }: Props) => {
+const InvisibleLink = ({ to, children }: Props): React$Element<any> => {
   const style = {
     textDecoration: 'none'
   };

@@ -2,7 +2,7 @@ import React from 'react';
 import InvisibleLink from '../../../Components/InvisibleLink';
 import '../YourCompany.css';
 
-const YourCompanyHome = () => (
+const YourCompanyHome = () : React$Element<any> => (
   <div className="your-company-home">
     <h1>Welcome to Your Company!</h1>
     <p>

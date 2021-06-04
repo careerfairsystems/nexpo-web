@@ -9,7 +9,7 @@ import type { ApiStatus } from './ApiReducer';
 export const ApiReducerCompanies = (
   state: ApiStatus = initialStatus,
   act: { type: string }
-) => {
+) : any => {
   switch (act.type) {
     case actionTypes.FETCH_CURRENT_COMPANY: {
       const stateChange = fetching;

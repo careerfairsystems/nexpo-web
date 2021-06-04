@@ -1,8 +1,16 @@
 [ignore]
 .*/node_modules/.*
-!.*/node_modules/@types/.*
-!.*/node_modules/redux-form/.*
 .*/build/.*
+!.*/node_modules/redux-form/.*
+.*/node_modules/redux-form/lib/FormName.js
+.*/node_modules/redux-form/lib/FormSection.js
+.*/node_modules/redux-form/lib/createReduxForm.js
+.*/node_modules/redux-form/lib/defaultShouldAsyncValidate.js
+.*/node_modules/redux-form/lib/defaultShouldError.js
+.*/node_modules/redux-form/lib/defaultShouldValidate.js
+.*/node_modules/redux-form/lib/defaultShouldWarn.js
+.*/node_modules/redux-form/lib/immutable.js
+.*/node_modules/redux-form/lib/index.js
 .*/coverage/.*
 [include]
 

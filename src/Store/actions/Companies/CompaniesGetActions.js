@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const getCompanyIsLoading = () => ({
+export const getCompanyIsLoading = () : any => ({
   type: actionTypes.FETCH_COMPANY
 });
 
-export const getCompanySuccess = (company: {}) => ({
+export const getCompanySuccess = (company: {}) : any => ({
   type: actionTypes.FETCH_COMPANY_SUCCESS,
   company
 });
@@ -24,7 +24,7 @@ export const getCompanyFailure = (): GetCompanyFailureAction => {
   };
 };
 
-export const getCompany = (id: string) => {
+export const getCompany = (id: string) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getCompanyIsLoading());
     return API.companies

@@ -16,7 +16,7 @@ type Props = {
   getAllUsers: () => Promise<void>
 };
 
-const RoleNew = ({ createRole, getAllUsers }: Props) => {
+const RoleNew = ({ createRole, getAllUsers }: Props) : React$Element<any> => {
   useEffect(() => {
     getAllUsers();
   }, [getAllUsers]);

@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const updateCategoryIsLoading = () => ({
+export const updateCategoryIsLoading = () : any => ({
   type: actionTypes.PUT_CATEGORY
 });
 
-export const updateCategorySuccess = (category: {}) => {
+export const updateCategorySuccess = (category: {}) : any => {
   message.success('Category successfully updated');
   return {
     type: actionTypes.PUT_CATEGORY_SUCCESS,
@@ -25,7 +25,7 @@ export const updateCategoryFailure = (): UpdateCategoryFailureAction => {
   };
 };
 
-export const updateCategory = (id: string, data: {}) => {
+export const updateCategory = (id: string, data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateCategoryIsLoading());
     return API.categories

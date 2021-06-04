@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const updateUserIsLoading = () => ({
+export const updateUserIsLoading = () : any => ({
   type: actionTypes.PUT_USER
 });
 
-export const updateUserSuccess = (user: {}) => {
+export const updateUserSuccess = (user: {}) : any => {
   message.success('User successfully updated');
   return {
     type: actionTypes.PUT_USER_SUCCESS,
@@ -25,7 +25,7 @@ export const updateUserFailure = (): UpdateUserFailureAction => {
   };
 };
 
-export const updateUser = (id: string, data: {}) => {
+export const updateUser = (id: string, data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateUserIsLoading());
     return API.users

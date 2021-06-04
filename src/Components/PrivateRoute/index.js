@@ -8,6 +8,6 @@ const mapStateToProps = state => ({
   isLoggedIn: state.auth.isLoggedIn
 });
 
-const stateful = connect(mapStateToProps, undefined);
+const stateful : any = connect(mapStateToProps, undefined)(PrivateRoute)
 
-export default stateful(PrivateRoute);
+export default stateful;

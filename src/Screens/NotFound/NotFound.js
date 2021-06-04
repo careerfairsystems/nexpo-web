@@ -5,7 +5,7 @@ import HtmlTitle from '../../Components/HtmlTitle';
 /**
  * A Component that defines the 404 view
  */
-export const NotFound = () => (
+export const NotFound = () : React$Element<any> => (
   <div>
     <HtmlTitle title="404" />
     <ErrorMessage

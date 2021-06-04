@@ -39,10 +39,10 @@ const mapStateToProps = state => ({
   formState: state.form.ReplacePasswordForm
 });
 
-const stateful = connect(mapStateToProps);
-
-export default stateful(
+const stateful : any = connect(mapStateToProps)(
   reduxForm({ form: 'replacePassword', validate: validatePassword })(
     ReplacePasswordForm
   )
 );
+
+export default stateful;

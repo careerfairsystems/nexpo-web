@@ -21,7 +21,7 @@ const Login = ({
   location,
   isLoggedIn,
   login
-}: Props) => {
+}: Props) : React$Element<any> => {
 
   // Url that redirected here
   const { from } = location.state || { from: { pathname: '/' } };

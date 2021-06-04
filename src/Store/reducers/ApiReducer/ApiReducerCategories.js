@@ -9,7 +9,7 @@ import * as actionTypes from '../../ActionTypes';
 export const ApiReducerCategories = (
   state: ApiStatus = initialStatus,
   act: { type: string }
-) => {
+) : any => {
   switch (act.type) {
     case actionTypes.FETCH_CATEGORY: {
       const stateChange = fetching;

@@ -24,7 +24,7 @@ const ReplaceForgottenPassword = ({
   verifyKey,
   keyIsValid,
   success
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     verifyKey();
   }, [verifyKey]);
@@ -59,7 +59,10 @@ const ReplaceForgottenPassword = ({
 };
 
 ReplaceForgottenPassword.defaultProps = {
-  errors: {},
+  errors: {
+    password: undefined,
+    passwordConfirmation: undefined
+  },
   success: false
 };
 

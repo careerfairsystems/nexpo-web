@@ -27,7 +27,7 @@ type SignUpValues = {
 /**
  * A component which allows users to complete a sign up process
  */
-const FinalizeSignup = ({ signupKey }: Props) => {
+const FinalizeSignup = ({ signupKey }: Props) : React$Element<any> => {
   const [state, setState] = useState(DefaultState);
 
   const fetchCurrentSignup = () => {

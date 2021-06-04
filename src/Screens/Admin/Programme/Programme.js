@@ -24,7 +24,7 @@ const Programme = ({
   getProgramme,
   createProgramme,
   updateProgramme
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     if (id) getProgramme(id);
   }, [getProgramme, id]);

@@ -3,7 +3,7 @@ import Schema from '../../normalizr/schema';
 import users from '../Users';
 import type { State } from '../../reducers';
 
-export const getCurrentCompany = (state: State) => {
+export const getCurrentCompany = (state: State) : any => {
   const currentUser = users.getCurrentUser(state);
 
   const {

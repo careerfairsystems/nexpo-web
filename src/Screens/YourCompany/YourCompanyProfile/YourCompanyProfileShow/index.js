@@ -14,6 +14,6 @@ const mapDispatchToProps = {
   resetForm: reset
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(YourCompanyProfileShow);
 
-export default stateful(YourCompanyProfileShow);
+export default stateful;

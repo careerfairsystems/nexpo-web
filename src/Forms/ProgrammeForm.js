@@ -34,6 +34,6 @@ const mapStateToProps = state => ({
   formState: state.form.ProgrammeForm
 });
 
-const stateful = connect(mapStateToProps);
+const stateful : any = connect(mapStateToProps)(reduxForm({ form: 'programme' })(ProgrammeForm));
 
-export default stateful(reduxForm({ form: 'programme' })(ProgrammeForm));
+export default stateful;

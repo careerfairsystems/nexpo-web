@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const updateMailtemplateIsLoading = () => ({
+export const updateMailtemplateIsLoading = () : any => ({
   type: actionTypes.PUT_MAILTEMPLATE
 });
 
-export const updateMailtemplateSuccess = (mailtemplate: {}) => {
+export const updateMailtemplateSuccess = (mailtemplate: {}) : any => {
   message.success('Mailtemplate successfully updated');
   return {
     type: actionTypes.PUT_MAILTEMPLATE_SUCCESS,
@@ -25,7 +25,7 @@ export const updateMailtemplateFailure = (): UpdateMailtemplateFailureAction => 
   };
 };
 
-export const updateMailtemplate = (id: string, data: {}) => {
+export const updateMailtemplate = (id: string, data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateMailtemplateIsLoading());
     return API.mailtemplates

@@ -82,12 +82,12 @@ const mapStateToProps = state => ({
   formState: state.form.FinalizeSignupForm
 });
 
-const stateful = connect(mapStateToProps);
-
-export default stateful(
+const stateful : any = connect(mapStateToProps)(
   reduxForm({
     form: 'finalizeSignup',
     validate: validatePassword,
     enableReinitialize: true
   })(FinalizeSignupForm)
 );
+
+export default stateful;

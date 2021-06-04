@@ -22,7 +22,7 @@ export const snakeCaseKeys: Function = obj => convertKeys(obj, snakeCase);
 
 const dateFormats = ['YYYY-MM-DD', 'YYYY-MM-DD HH:mm'];
 
-export const toFormData = (obj: {}, form: ?FormData, namespace: ?string) => {
+export const toFormData = (obj: {}, form: ?FormData, namespace: ?string) : any => {
   const fd = form || new FormData();
   let formKey;
 
@@ -48,12 +48,12 @@ export const toFormData = (obj: {}, form: ?FormData, namespace: ?string) => {
   return fd;
 };
 
-export const toDayFormat = (time: ?string) =>
+export const toDayFormat = (time: ?string) : any =>
   moment.utc(time).format('dddd D MMMM YYYY HH:mm');
 
-export const toTimeFormat = (time: ?string) => moment.utc(time).format('HH:mm');
+export const toTimeFormat = (time: ?string) : any => moment.utc(time).format('HH:mm');
 
-export const toSessionTimeFormat = (start: ?string, end: ?string) =>
+export const toSessionTimeFormat = (start: ?string, end: ?string) : any =>
   [
     `Date: ${moment.utc(start).format('ddd, MMM D')}`,
     `Time: ${toTimeFormat(start)} - ${toTimeFormat(end)}`

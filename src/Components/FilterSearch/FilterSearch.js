@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Input, Button, Icon } from 'antd';
 
-export const FilterIcon = (filtered: boolean) => (
+export const FilterIcon = (filtered: boolean) : React$Element<any> => (
   <Icon type="search" style={{ color: filtered ? '#108ee9' : '#aaa' }} />
 );
 
@@ -20,7 +20,7 @@ const FilterSearch = ({
   selectedKeys,
   confirm,
   clearFilters
-}: Props) => (
+}: Props) : React$Element<any> => (
   <div className="custom-filter-dropdown">
     <Input
       placeholder="Search"

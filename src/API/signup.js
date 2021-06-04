@@ -20,13 +20,13 @@ export default {
   /**
    * Initiates a representative signup
    */
-  initialRepresentativeSignup: (data: {}): Promise<Response> =>
+  initialRepresentativeSignup: (data: {}): Promise<any> =>
     authPost('/api/initial_representative_signup', data),
 
   /**
    * Initiates a representative signup for a co-worker
    */
-  inviteRepresentative: (data: {}): Promise<Response> =>
+  inviteRepresentative: (data: {}): Promise<any> =>
     authPost('/api/me/company/invite_representative', data),
 
   /**

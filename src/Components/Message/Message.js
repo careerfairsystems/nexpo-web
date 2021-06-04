@@ -35,7 +35,7 @@ const Message = ({
   linkUrl,
   linkText,
   type 
-}: Props) => {
+}: Props) : React$Element<any> => {
   let icon = null;
   switch (type) {
     case 'error':

@@ -16,7 +16,7 @@ type Props = {
   deleteRole: string => Promise<void>
 };
 
-const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) => {
+const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) : React$Element<any> => {
   useEffect(() => {
     getAllRoles();
   }, [getAllRoles]);

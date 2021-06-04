@@ -20,7 +20,7 @@ const Programmes = ({
   fetching,
   deleteProgramme,
   getAllProgrammes
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getAllProgrammes();
   }, [getAllProgrammes]);
@@ -90,7 +90,7 @@ const Programmes = ({
 };
 
 Programmes.defaultProps = {
-  programmes: {}
+  programmes: undefined
 };
 
 export default Programmes;

@@ -30,6 +30,6 @@ const mapStateToProps = state => ({
   formState: state.form.MailtemplateForm
 });
 
-const stateful = connect(mapStateToProps);
+const stateful : any = connect(mapStateToProps)(reduxForm({ form: 'mailtemplate' })(MailtemplateForm));
 
-export default stateful(reduxForm({ form: 'mailtemplate' })(MailtemplateForm));
+export default stateful;

@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const updateStudentSessionApplIsLoading = () => ({
+export const updateStudentSessionApplIsLoading = () : any => ({
   type: actionTypes.PUT_STUDENT_SESSION_APPL
 });
 
-export const updateStudentSessionApplSuccess = (sessionApplication: {}) => {
+export const updateStudentSessionApplSuccess = (sessionApplication: {}) : any => {
   message.success('Your Application was successfully updated.');
   return {
     type: actionTypes.PUT_STUDENT_SESSION_APPL_SUCCESS,
@@ -25,7 +25,7 @@ export const updateStudentSessionApplFailure = (): UpdateStudentSessionApplFailu
   };
 };
 
-export const updateStudentSessionAppl = (id: string, data: {}) => {
+export const updateStudentSessionAppl = (id: string, data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(updateStudentSessionApplIsLoading());
     return API.studentSessions

@@ -13,6 +13,6 @@ const mapDispatchToProps = {
   getAllProgrammes: Actions.programmes.getAllProgrammes
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(Programmes);
 
-export default stateful(Programmes);
+export default stateful;

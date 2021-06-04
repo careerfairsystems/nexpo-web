@@ -17,7 +17,7 @@ type Props = {
   deleteUser: string => Promise<void>
 };
 
-const Users = ({ users, fetching, getAllUsers, deleteUser }: Props) => {
+const Users = ({ users, fetching, getAllUsers, deleteUser }: Props) : React$Element<any> => {
   useEffect(() => {
     getAllUsers();
   }, [getAllUsers]);
@@ -96,7 +96,7 @@ const Users = ({ users, fetching, getAllUsers, deleteUser }: Props) => {
 };
 
 Users.defaultProps = {
-  users: {}
+  users: undefined
 };
 
 export default Users;

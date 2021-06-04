@@ -20,7 +20,7 @@ type Props = {
   getAllCompanies: () => Promise<void>
 };
 
-const SessionCompanies = ({ fetching, companies, getAllCompanies }: Props) => {
+const SessionCompanies = ({ fetching, companies, getAllCompanies }: Props) : React$Element<any> => {
   useEffect(() => {
     getAllCompanies();
   }, [getAllCompanies]);

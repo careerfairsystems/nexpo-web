@@ -21,7 +21,7 @@ const Mailtemplates = ({
   fetching,
   getAllMailtemplates,
   deleteMailtemplate
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getAllMailtemplates();
   }, [getAllMailtemplates]);
@@ -103,7 +103,7 @@ const Mailtemplates = ({
 };
 
 Mailtemplates.defaultProps = {
-  mailtemplates: {}
+  mailtemplates: undefined
 };
 
 export default Mailtemplates;

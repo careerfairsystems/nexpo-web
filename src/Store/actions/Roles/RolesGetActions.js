@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const getRoleIsLoading = () => ({
+export const getRoleIsLoading = () : any => ({
   type: actionTypes.FETCH_ROLE
 });
 
-export const getRoleSuccess = (role: { id: number, name: string }) => ({
+export const getRoleSuccess = (role: { id: number, name: string }) : any => ({
   type: actionTypes.FETCH_ROLE_SUCCESS,
   role
 });
@@ -24,7 +24,7 @@ export const getRoleFailure = (): GetRoleFailureAction => {
   };
 };
 
-export const getRole = (id: string) => {
+export const getRole = (id: string) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getRoleIsLoading());
     return API.roles

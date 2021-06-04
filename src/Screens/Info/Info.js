@@ -1,7 +1,7 @@
 import React from 'react';
 import InvisibleLink from '../../Components/InvisibleLink';
 
-const Info = () => (
+const Info = () : React$Element<any> => (
   <div>
     <h1>Welcome to ARKAD!</h1>
     <h3>What is this?</h3>

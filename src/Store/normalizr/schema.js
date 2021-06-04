@@ -11,11 +11,13 @@ const merge = key => (entityA, entityB) => ({
 
 const belongsTo = key => (value, parent) => ({
   ...value,
+  // $FlowIgnore
   [key]: parent.id
 });
 
 const hasMany = key => (value, parent) => ({
   ...value,
+  // $FlowIgnore
   [key]: [parent.id]
 });
 
@@ -25,21 +27,22 @@ type Entity = (
   options?: { model?: Function, merge?: Function }
 ) => schema.Entity;
 const entity: Entity = (key, definition = {}, options = {}) =>
+  // $FlowIgnore
   new schema.Entity(key, definition, {
     mergeStrategy: options.merge,
     processStrategy: options.model
   });
 
-const mailtemplateSchema = () => entity('mailtemplates');
-const mailtemplatesSchema = () => [mailtemplateSchema()];
+const mailtemplateSchema = () : any => entity('mailtemplates');
+const mailtemplatesSchema = () : any => [mailtemplateSchema()];
 
-const deadlineSchema = () => entity('deadlines');
-const deadlinesSchema = () => [deadlineSchema()];
+const deadlineSchema = () : any => entity('deadlines');
+const deadlinesSchema = () : any => [deadlineSchema()];
 
-const programmeSchema = () => entity('programmes');
-const programmesSchema = () => [programmeSchema()];
+const programmeSchema = () : any => entity('programmes');
+const programmesSchema = () : any => [programmeSchema()];
 
-const sessionApplicationSchema = () => {
+const sessionApplicationSchema = () : any => {
   const company = entity(
     'companies',
     {},
@@ -56,8 +59,8 @@ const sessionApplicationSchema = () => {
   });
   return application;
 };
-const studentSessionApplicationsSchema = () => [sessionApplicationSchema()];
-const studentSessionSchema = () => {
+const studentSessionApplicationsSchema = () : any => [sessionApplicationSchema()];
+const studentSessionSchema = () : any => {
   const company = entity(
     'companies',
     {},
@@ -71,9 +74,9 @@ const studentSessionSchema = () => {
   return session;
 };
 
-const studentSessionsSchema = () => [studentSessionSchema()];
+const studentSessionsSchema = () : any => [studentSessionSchema()];
 
-const categorySchema = () => {
+const categorySchema = () : any => {
   const company = entity(
     'companies',
     {},
@@ -94,14 +97,14 @@ const categorySchema = () => {
   return category;
 };
 
-const categoriesSchema = () => {
+const categoriesSchema = () : any => {
   const attribute = entity('attributes', {}, { model: belongsTo('category') });
   const category = entity('categories', { attributes: [attribute] });
 
   return [category];
 };
 
-const companySchema = () => {
+const companySchema = () : any => {
   const user = entity('users');
   const entry = entity('entries', {}, { model: belongsTo('company') });
   const student = entity('students', { user });
@@ -130,9 +133,9 @@ const companySchema = () => {
   return company;
 };
 
-const companiesSchema = () => [companySchema()];
+const companiesSchema = () : any => [companySchema()];
 
-const roleSchema = () => {
+const roleSchema = () : any => {
   const user = entity('users', {}, { model: belongsTo('role') });
 
   const role = entity('roles', { users: [user] });
@@ -140,9 +143,9 @@ const roleSchema = () => {
   return role;
 };
 
-const rolesSchema = () => [roleSchema()];
+const rolesSchema = () : any => [roleSchema()];
 
-const studentSchema = () => {
+const studentSchema = () : any => {
   const programme = entity('programmes', {}, { model: belongsTo('student') });
   const student = entity(
     'students',
@@ -153,9 +156,9 @@ const studentSchema = () => {
   return student;
 };
 
-const studentsSchema = () => [studentSchema()];
+const studentsSchema = () : any => [studentSchema()];
 
-const userSchema = () => {
+const userSchema = () : any => {
   const company = entity('companies');
   const sessionApplication = entity(
     'studentSessionApplications',
@@ -189,7 +192,7 @@ const userSchema = () => {
   return user;
 };
 
-const usersSchema = () => [userSchema()];
+const usersSchema = () : any => [userSchema()];
 
 export default {
   categorySchema,

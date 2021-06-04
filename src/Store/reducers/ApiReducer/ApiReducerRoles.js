@@ -9,7 +9,7 @@ import type { ApiStatus } from './ApiReducer';
 export const ApiReducerRoles = (
   state: ApiStatus = initialStatus,
   act: { type: string }
-) => {
+) : any => {
   switch (act.type) {
     case actionTypes.FETCH_ROLE: {
       const stateChange = fetching;

@@ -18,6 +18,6 @@ const mapDispatchToProps = {
   resetForm: reset
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(Mailtemplate);
 
-export default stateful(Mailtemplate);
+export default stateful;

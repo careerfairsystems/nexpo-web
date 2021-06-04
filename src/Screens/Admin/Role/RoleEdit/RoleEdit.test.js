@@ -44,7 +44,7 @@ describe('RoleEdit', () => {
     const wrapper = shallow(<RoleEdit id="1" {...props} />);
 
     expect(
-      wrapper.contains(<HtmlTitle title={capitalize(props.role.type)} />)
+      wrapper.contains(<HtmlTitle title={capitalize(props.role.type || "")} />)
     ).toBeTruthy();
   });
 
@@ -52,7 +52,7 @@ describe('RoleEdit', () => {
     const wrapper = shallow(<RoleEdit id="1" {...props} />);
 
     expect(
-      wrapper.contains(<h1>Role: {capitalize(props.role.type)}</h1>)
+      wrapper.contains(<h1>Role: {capitalize(props.role.type || "")}</h1>)
     ).toBeTruthy();
   });
 

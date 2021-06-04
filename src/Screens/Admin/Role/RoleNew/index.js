@@ -7,6 +7,6 @@ const mapDispatchToProps = {
   getAllUsers: Actions.users.getAllUsers
 };
 
-const stateful = connect(null, mapDispatchToProps);
+const stateful : any = connect(null, mapDispatchToProps)(RoleNew);
 
-export default stateful(RoleNew);
+export default stateful;

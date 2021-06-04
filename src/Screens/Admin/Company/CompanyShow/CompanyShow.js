@@ -78,7 +78,7 @@ const CompanyShow = ({
   fetching,
   getCompany,
   match
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getCompany(id);
   }, [getCompany, id]);
@@ -153,6 +153,7 @@ const CompanyShow = ({
     topStudents
   );
 
+  // $FlowIgnore
   const data = flow(
     //sortBy(['location', 'start']),
     map(({ studentSession, ...rest }) => ({

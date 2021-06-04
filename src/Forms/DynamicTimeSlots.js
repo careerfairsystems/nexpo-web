@@ -3,7 +3,7 @@ import { zipWith, sortBy, flow } from 'lodash/fp';
 import { Table, Input, Checkbox, Button } from 'antd';
 import { Field } from 'redux-form';
 import moment from 'moment';
-import type { FieldProps } from 'redux-form';
+import type { FieldProps } from 'redux-form/es/FieldProps.types.js.flow'
 import makeField, { required } from './helper';
 import DatePicker from '../Components/DatePicker';
 import TimePicker from '../Components/TimePicker';
@@ -164,13 +164,14 @@ const DynamicTimeSlots = ({
           (field, obj: { id: number }) => ({
             field,
             key: obj.id,
-            ...obj,
+            ...(obj: $Rest<FieldProps, any>),
             fields
           }),
           fields.map(i => i)
         ),
         sortBy('start')
-      )(fields.getAll())}
+        // fields.getAll()
+      )(fields)}Props
       columns={columns}
       locale={{ emptyText: 'No Student Time Slots' }}
     />

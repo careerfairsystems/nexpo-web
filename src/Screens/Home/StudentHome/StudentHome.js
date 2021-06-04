@@ -46,7 +46,7 @@ function StudentSessionDisabled() {
   );
 }
 
-const StudentHome = () => (
+const StudentHome = () : React$Element<any> => (
   <div>
     <h1>Welcome to ARKAD!</h1>
 

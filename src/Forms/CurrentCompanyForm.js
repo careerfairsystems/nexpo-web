@@ -61,8 +61,8 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const stateful = connect(mapStateToProps);
-
-export default stateful(
+const stateful : any = connect(mapStateToProps)(
   reduxForm({ form: 'currentCompany' })(CurrentCompanyForm)
 );
+
+export default stateful;

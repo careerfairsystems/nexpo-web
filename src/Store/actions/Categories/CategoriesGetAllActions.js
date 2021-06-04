@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const getAllCategoriesIsLoading = () => ({
+export const getAllCategoriesIsLoading = () : any => ({
   type: actionTypes.FETCH_CATEGORIES
 });
 
-export const getAllCategoriesSuccess = (categories: Array<{}>) => ({
+export const getAllCategoriesSuccess = (categories: Array<{}>) : any => ({
   type: actionTypes.FETCH_CATEGORIES_SUCCESS,
   categories
 });
@@ -24,7 +24,7 @@ export const getAllCategoriesFailure = (): GetAllCategoriesFailureAction => {
   };
 };
 
-export const getAllCategories = () => {
+export const getAllCategories = () : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getAllCategoriesIsLoading());
     return API.categories

@@ -26,11 +26,13 @@ const renderInterestItem = (interest: { id: number, name: string }) => (
   </Select.Option>
 );
 
-const renderProgrammeItem = (programme: {
+type ProgrammeItem = {
   id: number,
   name: string,
   code: string
-}): React$Element<any> => (
+}
+
+const renderProgrammeItem = (programme: ProgrammeItem): React$Element<any> => (
   <Select.Option key={programme.id} value={programme.id}>
     {programme.name} - {programme.code}
   </Select.Option>
@@ -48,7 +50,7 @@ type Props = {
     }
   },
   handleSubmit: () => Promise<void>,
-  programmes: {},
+  programmes: ProgrammeItem[],
   pristine: boolean
 };
 

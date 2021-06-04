@@ -4,11 +4,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const createRoleIsLoading = () => ({
+export const createRoleIsLoading = () : any => ({
   type: actionTypes.POST_ROLE
 });
 
-export const createRoleSuccess = (role: {}) => {
+export const createRoleSuccess = (role: {}) : any => {
   message.success('Role successfully created');
   return {
     type: actionTypes.POST_ROLE_SUCCESS,
@@ -26,7 +26,7 @@ export const createRoleFailure = (): CreateRoleFailureAction => {
   };
 };
 
-export const createRole = (data: {}) => {
+export const createRole = (data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createRoleIsLoading());
     return API.roles

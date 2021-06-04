@@ -14,6 +14,6 @@ const mapDispatchToProps = {
   updateStudentSessionAppl: Actions.studentSessions.updateStudentSessionAppl
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(YourCompanyApplications);
 
-export default stateful(YourCompanyApplications);
+export default stateful;

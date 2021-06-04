@@ -47,23 +47,23 @@ export type ApiState = {
 
 export const initialStatus: ApiStatus = {
   fetching: false,
-  errors: {},
+  errors: ({} : any),
   success: false
 };
 
 export const fetching = {
   fetching: true,
-  errors: {},
+  errors: ({} : any),
   success: false
 };
 
 export const retrieving = {
   fetching: false,
-  errors: {},
+  errors: ({} : any),
   success: true
 };
 
-export const failure = (error: ?{ [key: string]: string }) => ({
+export const failure = (error: ?{ [key: string]: string }) : any => ({
   fetching: false,
   errors: error || ['There was an error'],
   success: false

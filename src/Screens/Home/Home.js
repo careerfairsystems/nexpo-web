@@ -17,7 +17,7 @@ type Props = {
   fetching?: boolean
 };
 
-const Home = ({ currentUser = {}, fetching }: Props) => {
+const Home = ({ currentUser = {}, fetching }: Props) : React$Element<any> => {
   if (fetching) {
     return <LoadingSpinner />;
   }
@@ -29,7 +29,7 @@ const Home = ({ currentUser = {}, fetching }: Props) => {
 };
 
 Home.defaultProps = {
-  currentUser: {},
+  currentUser: undefined,
   fetching: false
 };
 

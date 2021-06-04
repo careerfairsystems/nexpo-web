@@ -8,6 +8,6 @@ const mapStateToProps = (state: State) => ({
   fetching: state.api.currentUser.fetching
 });
 
-const stateful = connect(mapStateToProps);
+const stateful : any = connect(mapStateToProps)(Home);
 
-export default stateful(Home);
+export default stateful;

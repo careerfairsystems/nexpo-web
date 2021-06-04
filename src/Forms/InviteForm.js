@@ -26,6 +26,6 @@ const mapStateToProps = state => ({
   formState: state.form.InviteForm
 });
 
-const stateful = connect(mapStateToProps);
+const stateful : any = connect(mapStateToProps)(reduxForm({ form: 'invite' })(InviteForm));
 
-export default stateful(reduxForm({ form: 'invite' })(InviteForm));
+export default stateful;

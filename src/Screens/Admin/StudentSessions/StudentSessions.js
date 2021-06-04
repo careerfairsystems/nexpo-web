@@ -8,7 +8,7 @@ type Props = {
   createBulkStudentSessions: () => Promise<void>
 };
 
-const StudentSessions = ({ createBulkStudentSessions }: Props) => (
+const StudentSessions = ({ createBulkStudentSessions }: Props) : React$Element<any> => (
   <div>
     <HtmlTitle title="StudentSessions" />
 

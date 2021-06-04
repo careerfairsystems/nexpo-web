@@ -25,7 +25,7 @@ const Companies = ({
   getAllCompanies,
   deleteCompany,
   createBulk
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getAllCompanies();
   }, [getAllCompanies]);
@@ -146,6 +146,7 @@ const Companies = ({
             beforeUpload={file => {
               const reader = new FileReader();
               reader.onload = e => {
+                // $FlowIgnore
                 const obj = csvToObj(e.target.result);
                 createBulk(obj);
               };
@@ -175,7 +176,7 @@ const Companies = ({
 };
 
 Companies.defaultProps = {
-  companies: {}
+  companies: undefined
 };
 
 export default Companies;

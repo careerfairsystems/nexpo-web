@@ -4,7 +4,7 @@ import HtmlTitle from '../../../Components/HtmlTitle';
 import ForgotPasswordEnterEmail from '../../../Components/ForgotPasswordEnterEmail';
 import ReplaceForgottenPassword from '../../../Components/ReplaceForgottenPassword';
 
-const ForgotPassword = () => {
+const ForgotPassword = () : React$Element<any> => {
   const key = getParameterByName('key');
 
   return (
