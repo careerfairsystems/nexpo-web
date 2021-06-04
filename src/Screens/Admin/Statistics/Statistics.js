@@ -175,7 +175,7 @@ const Statistics = ({ getAllStatistics, statistics }: Props) : React$Element<any
       <br />
       <br />
       <br />
-      <Button icon={DownloadOutlined} onClick={API.studentSessions.downloadReserves}>
+      <Button icon={<DownloadOutlined />} onClick={API.studentSessions.downloadReserves}>
         Download reserves
       </Button>
       <br />

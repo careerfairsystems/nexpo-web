@@ -30,13 +30,13 @@ const StudentSessions = ({ createBulkStudentSessions }: Props) : React$Element<a
     </Popconfirm>
     <br />
     <br />
-    <Button icon={DownloadOutlined} onClick={API.studentSessions.downloadReserves}>
+    <Button icon={<DownloadOutlined />} onClick={API.studentSessions.downloadReserves}>
       Download reserves
     </Button>
     <br />
     <br />
     <Button
-      icon={DownloadOutlined}
+      icon={<DownloadOutlined />}
       onClick={API.studentSessions.downloadSessionInformation}
     >
       Download student sessions information

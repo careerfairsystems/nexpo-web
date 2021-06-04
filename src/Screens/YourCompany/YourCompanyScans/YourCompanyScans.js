@@ -135,7 +135,7 @@ const YourCompanyScans = ({
         >
           <h2>Student Scans</h2>
         </div>
-        <Button icon={DownloadOutlined} style={{ float: 'left' }} onClick={exportBlips}>
+        <Button icon={<DownloadOutlined />} style={{ float: 'left' }} onClick={exportBlips}>
           Export Scans
         </Button>
       </div>

@@ -224,7 +224,7 @@ const CompanyShow = ({
       <p>{description}</p>
       <h3>Student Session Time Slots</h3>
       <CSVLink data={data} filename={`${name} - Student Sessions.csv`}>
-        <Button icon={DownloadOutlined}>Download Schema</Button>
+        <Button icon={<DownloadOutlined />}>Download Schema</Button>
       </CSVLink>
       <br />
       <br />
