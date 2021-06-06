@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { FieldProps } from 'redux-form/es/FieldProps.types.js.flow'
+import type { FieldProps, InputProps } from 'redux-form/es/FieldProps.types.js.flow'
 import { trim } from 'lodash/fp';
 import { Form } from 'antd';
 
@@ -29,6 +29,7 @@ type Props = FieldProps & {
   hasFeedback: Boolean,
   required: Boolean
 };
+
 const makeField = (Component: React.ComponentType<any>) : React.ComponentType<any> => ({
   input,
   meta,
@@ -47,11 +48,11 @@ const makeField = (Component: React.ComponentType<any>) : React.ComponentType<an
       hasFeedback={hasFeedback && hasError}
       help={hasError && meta.error}
     >
-      <Component label={label} {...(input: $Rest<Props, any>)} {...(rest: $Rest<Props, any>)}>
+      <Component label={label} {...input} {...(rest: $Rest<Object, InputProps & {label: string}>)} >
         {children}
       </Component>
     </FormItem>
   );
-};
+}
 
-export default makeField;
+export default makeField

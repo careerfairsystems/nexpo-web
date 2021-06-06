@@ -7,12 +7,15 @@ import { Button, Input } from 'antd';
 import {Form} from '@ant-design/compatible';
 import '@ant-design/compatible/assets/index.css';
 import DatePicker from '../Components/DatePicker';
+import type {DatePickerProps} from '../Components/DatePicker';
 
 import makeField from './helper';
 
+type DateProps = FieldProps & DatePickerProps & {||}
+
 const TextInput = makeField(Input);
-const MyDatePicker = makeField((props: FieldProps) =>
-  DatePicker({ showTime: true, format: 'YYYY-MM-DD HH:mm', ...(props: $Rest<FieldProps, any>) })
+const MyDatePicker = makeField((props: DateProps) =>
+  DatePicker({ showTime: true, format: 'YYYY-MM-DD HH:mm', ...props })
 );
 
 type Props = {

@@ -77,19 +77,21 @@ const getData = applicationsPerDay => {
   )(applicationsPerDay);
 };
 
+type StatisticsProps = {
+  applicationsPerDay?: Array<string>,
+  companyStats?: Array<{
+    name?: string,
+    id: number,
+    nbrApplications: number
+  }>,
+  nbrStudents?: number,
+  nbrSearchingStudents?: number,
+  wordsPerAppl?: number
+}
+
 type Props = {
   getAllStatistics: () => Promise<void>,
-  statistics: {
-    applicationsPerDay?: Array<string>,
-    companyStats?: Array<{
-      name?: string,
-      id: number,
-      nbrApplications: number
-    }>,
-    nbrStudents?: number,
-    nbrSearchingStudents?: number,
-    wordsPerAppl?: number
-  }
+  statistics: StatisticsProps
 };
 
 const Statistics = ({ getAllStatistics, statistics }: Props) : React$Element<any> => {
@@ -187,7 +189,7 @@ const Statistics = ({ getAllStatistics, statistics }: Props) : React$Element<any
           'desc',
           companyStats.map((stat, i) => ({
             key: i,
-            ...(stat: $Rest<any, any>)
+            ...(stat: $Rest<Object, StatisticsProps>)
           }))
         )}
       />

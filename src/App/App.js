@@ -103,7 +103,7 @@ const routes = (
     <Route path="/signup" component={Signup} />
     <Route path="/forgot-password" component={ForgotPassword} />
     {privateRoutes.map((props: RouteItem) => (
-      <PrivateRoute key={props.path} exact {...(props: $Rest<RouteItem, any>)} />
+      <PrivateRoute key={props.path} exact {...(props: $Rest<Object, RouteItem>)} />
     ))}
     <Route component={NotFound} />
   </Switch>
@@ -169,7 +169,7 @@ const App = ({
     menus,
     ...rest
   }: SubMenuProps) => {
-    const restProps = {...(rest: $Rest<SubMenuProps, any>)}
+    const restProps = {...(rest: $Rest<Object, SubMenuProps>)}
     if (
       isLoggedIn &&
       hasPermission(currentUser, route) &&
@@ -190,7 +190,7 @@ const App = ({
   };
 
   const restrictedMenuItem = ({ route, title, ...rest }: MenuItemProps) => {
-    const restProps = {...(rest: $Rest<MenuItemProps, any>)}
+    const restProps = {...(rest: $Rest<Object, MenuItemProps>)}
     if (
       isLoggedIn &&
       hasPermission(currentUser, route) &&

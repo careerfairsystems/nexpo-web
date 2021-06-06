@@ -14,7 +14,7 @@ const MyDatePicker = makeField(DatePicker);
 const MyTimePicker = makeField(TimePicker);
 
 type Props = FieldProps & {
-  fields: any[],
+  fields: Array<Array<any>> & Array<{}>,
   fieldValues: {
     date: any,
     startTime: any,
@@ -161,17 +161,18 @@ const DynamicTimeSlots = ({
       size="small"
       dataSource={flow(
         zipWith(
-          (field, obj: { id: number }) => ({
+          (field, obj: {| id: number |}) => ({
             field,
             key: obj.id,
-            ...(obj: $Rest<FieldProps, any>),
+            ...obj,
             fields
           }),
           fields.map(i => i)
         ),
         sortBy('start')
         // fields.getAll()
-      )(fields)}Props
+        // $FlowIgnore
+      )(fields.getAll())}Props
       columns={columns}
       locale={{ emptyText: 'No Student Time Slots' }}
     />

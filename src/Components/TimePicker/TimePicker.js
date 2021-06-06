@@ -22,7 +22,7 @@ const MyTimePicker = ({
     format={format}
     onChange={time => (time ? onChange(time.format(format)) : onChange(null))}
     minuteStep={5}
-    {...(rest: $Rest<Props, any>)}
+    {...(rest: $Rest<Object, Props>)}
   />
 );
 
