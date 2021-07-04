@@ -36,7 +36,7 @@ const RoleEdit = ({
   fetchingUsers,
   updateRole,
   history
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getRole(id);
     getAllUsers();

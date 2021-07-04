@@ -47,7 +47,7 @@ const CurrentUser = ({
   deleteCurrentUser,
   logout,
   resetForm
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getAllProgrammes();
   }, [getAllProgrammes]);
@@ -125,8 +125,8 @@ const CurrentUser = ({
 };
 
 CurrentUser.defaultProps = {
-  currentUser: {},
-  currentStudent: {}
+  currentUser: undefined,
+  currentStudent: undefined
 };
 
 export default CurrentUser;

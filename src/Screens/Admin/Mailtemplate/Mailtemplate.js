@@ -32,7 +32,7 @@ const Mailtemplate = ({
   fetching,
   getMailtemplate,
   updateMailtemplate
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     if (id) getMailtemplate(id);
   }, [getMailtemplate, id]);

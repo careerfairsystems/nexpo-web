@@ -26,6 +26,6 @@ const mapDispatchToprops = (dispatch: Dispatch<any>, props) => {
   };
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToprops);
+const stateful : any = connect(mapStateToProps, mapDispatchToprops)(ReplaceForgottenPassword);
 
-export default stateful(ReplaceForgottenPassword);
+export default stateful;

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Button, Checkbox, Input } from 'antd';
 import makeField, { required, validatePassword } from './helper';
 
 const TextInput = makeField(Input);
@@ -82,12 +84,12 @@ const mapStateToProps = state => ({
   formState: state.form.FinalizeSignupForm
 });
 
-const stateful = connect(mapStateToProps);
-
-export default stateful(
+const stateful : any = connect(mapStateToProps)(
   reduxForm({
     form: 'finalizeSignup',
     validate: validatePassword,
     enableReinitialize: true
   })(FinalizeSignupForm)
 );
+
+export default stateful;

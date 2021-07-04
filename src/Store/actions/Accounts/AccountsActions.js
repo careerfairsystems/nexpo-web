@@ -4,18 +4,18 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 import ApiError from '../../../Errors/ApiError';
 
-export const forgotPasswordRequest = () => ({
+export const forgotPasswordRequest = () : any => ({
   type: actionTypes.FORGOT_PASSWORD_REQUEST
 });
 
-export const forgotPasswordSuccess = () => ({
+export const forgotPasswordSuccess = () : any => ({
   type: actionTypes.FORGOT_PASSWORD_SUCCESS
 });
 
 export type ForgotPasswordAction = {
   email: string
 };
-export const forgotPassword = ({ email }: ForgotPasswordAction) => (
+export const forgotPassword = ({ email }: ForgotPasswordAction) : any => (
   dispatch: Dispatch<{ type: string }>
 ) => {
   dispatch(forgotPasswordRequest());
@@ -24,15 +24,15 @@ export const forgotPassword = ({ email }: ForgotPasswordAction) => (
   });
 };
 
-export const verifyForgotPasswordKeyRequest = () => ({
+export const verifyForgotPasswordKeyRequest = () : any => ({
   type: actionTypes.VERIFY_FORGOT_PASSWORD_KEY_REQUEST
 });
 
-export const verifyForgotPasswordKeySuccess = () => ({
+export const verifyForgotPasswordKeySuccess = () : any => ({
   type: actionTypes.VERIFY_FORGOT_PASSWORD_KEY_SUCCESS
 });
 
-export const verifyForgotPasswordKeyFailure = () => ({
+export const verifyForgotPasswordKeyFailure = () : any => ({
   type: actionTypes.VERIFY_FORGOT_PASSWORD_KEY_FAILURE
 });
 
@@ -41,7 +41,7 @@ export type VerifyForgotPasswordKeyAction = {
 };
 export const verifyForgotPasswordKey = ({
   key
-}: VerifyForgotPasswordKeyAction) => (dispatch: Dispatch<{ type: string }>) => {
+}: VerifyForgotPasswordKeyAction) : any => (dispatch: Dispatch<{ type: string }>) => {
   dispatch(verifyForgotPasswordKeyRequest());
   return API.session
     .verifyForgotPasswordKey({ key })
@@ -53,11 +53,11 @@ export const verifyForgotPasswordKey = ({
     });
 };
 
-export const replaceForgottenPasswordRequest = () => ({
+export const replaceForgottenPasswordRequest = () : any => ({
   type: actionTypes.REPLACE_FORGOTTEN_PASSWORD_REQUEST
 });
 
-export const replaceForgottenPasswordSuccess = () => ({
+export const replaceForgottenPasswordSuccess = () : any => ({
   type: actionTypes.REPLACE_FORGOTTEN_PASSWORD_SUCCESS
 });
 
@@ -81,7 +81,7 @@ export const replaceForgottenPassword = ({
   key,
   password,
   passwordConfirmation
-}: ReplaceForgottenPasswordAction) => (
+}: ReplaceForgottenPasswordAction) : any => (
   dispatch: Dispatch<{ type: string }>
 ) => {
   dispatch(replaceForgottenPasswordRequest());

@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const createDeadlineIsLoading = () => ({
+export const createDeadlineIsLoading = () : any => ({
   type: actionTypes.POST_DEADLINE
 });
 
-export const createDeadlineSuccess = (deadline: {}) => {
+export const createDeadlineSuccess = (deadline: {}) : any => {
   message.success('Deadline successfully created');
   return {
     type: actionTypes.POST_DEADLINE_SUCCESS,
@@ -25,7 +25,7 @@ export const createDeadlineFailure = (): CreateDeadlineFailureAction => {
   };
 };
 
-export const createDeadline = (data: {}) => {
+export const createDeadline = (data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createDeadlineIsLoading());
     return API.deadlines

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { FieldProps } from 'redux-form';
+import type { FieldProps, InputProps } from 'redux-form/es/FieldProps.types.js.flow'
 import { trim } from 'lodash/fp';
 import { Form } from 'antd';
 
@@ -9,7 +9,7 @@ type PasswordValues = {
   passwordConfirmation?: string
 };
 
-export const validatePassword = (values: PasswordValues) => {
+export const validatePassword = (values: PasswordValues): any => {
   const errors = {};
   if (values && values.password && values.passwordConfirmation) {
     if (values.password !== values.passwordConfirmation) {
@@ -18,17 +18,19 @@ export const validatePassword = (values: PasswordValues) => {
   }
   return errors;
 };
-export const required = (value: string) =>
+export const required = (value: string): ?string =>
   trim(value) ? undefined : "Field can't be empty";
 
-type Props = {
-  ...FieldProps,
+type Props = FieldProps & {
   accept: string,
   children: Node,
   format: string,
-  label: string
+  label: string,
+  hasFeedback: Boolean,
+  required: Boolean
 };
-const makeField = (Component: React.ComponentType<*>) => ({
+
+const makeField = (Component: React.ComponentType<any>) : React.ComponentType<any> => ({
   input,
   meta,
   children,
@@ -46,11 +48,11 @@ const makeField = (Component: React.ComponentType<*>) => ({
       hasFeedback={hasFeedback && hasError}
       help={hasError && meta.error}
     >
-      <Component label={label} {...input} {...rest}>
+      <Component label={label} {...input} {...(rest: $Rest<Object, InputProps & {label: string}>)} >
         {children}
       </Component>
     </FormItem>
   );
-};
+}
 
-export default makeField;
+export default makeField

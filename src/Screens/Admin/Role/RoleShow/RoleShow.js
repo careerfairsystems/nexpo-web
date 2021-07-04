@@ -9,18 +9,21 @@ import '../Role.css';
 /**
  * Responsible for rendering a role. Role id is recieved via url
  */
+
+export type RoleProps = {
+  id?: string,
+  type?: string,
+  permissions?: Array<string>,
+  users?: Array<number>
+}
+
 type Props = {
   id: string,
-  role: {
-    id?: string,
-    type?: string,
-    permissions?: Array<string>,
-    users?: Array<number>
-  },
+  role: RoleProps,
   getRole: string => Promise<void>
 };
 
-const RoleShow = ({ id, role, getRole }: Props) => {
+const RoleShow = ({ id, role, getRole }: Props) : React$Element<any> => {
   useEffect(() => {
     getRole(id);
   }, [getRole, id]);

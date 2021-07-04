@@ -15,7 +15,7 @@ const setKeys = entries =>
 const categoryColumns = [
   {
     title: 'Title',
-    dataIndex: 'title',
+    dataIndex: ['title'],
     key: 'title',
     render: (title, { id }) => (
       <InvisibleLink to={`/admin/categories/${id}`}>{title}</InvisibleLink>
@@ -39,7 +39,7 @@ const categoryColumns = [
 ];
 
 const attributeColumns = [
-  { title: 'Title', dataIndex: 'title', key: 'title' },
+  { title: 'Title', dataIndex: ['title'], key: 'title' },
   {
     title: 'Action',
     key: 'action',
@@ -86,7 +86,7 @@ const Categories = ({
   attributes,
   fetching,
   getAllCategories
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getAllCategories();
   }, [getAllCategories]);
@@ -118,8 +118,8 @@ const Categories = ({
 };
 
 Categories.defaultProps = {
-  categories: {},
-  attributes: {}
+  categories: undefined,
+  attributes: undefined
 };
 
 export default Categories;

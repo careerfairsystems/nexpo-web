@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Col, Row, Table, Button } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
 import {
   orderBy,
   divide,
@@ -33,7 +34,7 @@ const toPercent = (n, d, decimals = 2) =>
 const columns = [
   {
     title: 'Name',
-    dataIndex: 'name',
+    dataIndex: ['name'],
     key: 'name'
   },
   {
@@ -76,22 +77,24 @@ const getData = applicationsPerDay => {
   )(applicationsPerDay);
 };
 
+type StatisticsProps = {
+  applicationsPerDay?: Array<string>,
+  companyStats?: Array<{
+    name?: string,
+    id: number,
+    nbrApplications: number
+  }>,
+  nbrStudents?: number,
+  nbrSearchingStudents?: number,
+  wordsPerAppl?: number
+}
+
 type Props = {
   getAllStatistics: () => Promise<void>,
-  statistics: {
-    applicationsPerDay?: Array<string>,
-    companyStats?: Array<{
-      name?: string,
-      id: number,
-      nbrApplications: number
-    }>,
-    nbrStudents?: number,
-    nbrSearchingStudents?: number,
-    wordsPerAppl?: number
-  }
+  statistics: StatisticsProps
 };
 
-const Statistics = ({ getAllStatistics, statistics }: Props) => {
+const Statistics = ({ getAllStatistics, statistics }: Props) : React$Element<any> => {
   useEffect(() => {
     getAllStatistics();
   }, [getAllStatistics]);
@@ -174,7 +177,7 @@ const Statistics = ({ getAllStatistics, statistics }: Props) => {
       <br />
       <br />
       <br />
-      <Button icon="download" onClick={API.studentSessions.downloadReserves}>
+      <Button icon={<DownloadOutlined />} onClick={API.studentSessions.downloadReserves}>
         Download reserves
       </Button>
       <br />
@@ -186,7 +189,7 @@ const Statistics = ({ getAllStatistics, statistics }: Props) => {
           'desc',
           companyStats.map((stat, i) => ({
             key: i,
-            ...stat
+            ...(stat: $Rest<Object, StatisticsProps>)
           }))
         )}
       />

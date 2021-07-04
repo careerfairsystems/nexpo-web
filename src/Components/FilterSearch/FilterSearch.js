@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Input, Button, Icon } from 'antd';
+import { Input, Button } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 
-export const FilterIcon = (filtered: boolean) => (
-  <Icon type="search" style={{ color: filtered ? '#108ee9' : '#aaa' }} />
+export const FilterIcon = (filtered: boolean) : React$Element<any> => (
+  <SearchOutlined style={{ color: filtered ? '#108ee9' : '#aaa' }} />
 );
 
 type InputEvent = SyntheticKeyboardEvent<HTMLInputElement>;
@@ -20,7 +21,7 @@ const FilterSearch = ({
   selectedKeys,
   confirm,
   clearFilters
-}: Props) => (
+}: Props) : React$Element<any> => (
   <div className="custom-filter-dropdown">
     <Input
       placeholder="Search"

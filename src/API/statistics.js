@@ -8,5 +8,6 @@ export default {
   /**
    * Fetches all statistics
    */
-  getAll: () => authFetch('/api/statistics').then(handleHttpResponse)
+  getAll: (): Promise<any> =>
+    authFetch('/api/statistics').then(handleHttpResponse)
 };

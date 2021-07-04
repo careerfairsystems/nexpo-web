@@ -2,7 +2,9 @@ import React from 'react';
 import { map } from 'lodash/fp';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Select, Input, Form, Button } from 'antd';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Select, Input, Button } from 'antd';
 import makeField from './helper';
 import { Selectors } from '../Store';
 
@@ -66,8 +68,8 @@ const mapStateToProps = state => ({
   formState: state.form.StudentSessionForm
 });
 
-const stateful = connect(mapStateToProps);
-
-export default stateful(
+const stateful : any = connect(mapStateToProps)(
   reduxForm({ form: 'studentSession' })(StudentSessionForm)
 );
+
+export default stateful;

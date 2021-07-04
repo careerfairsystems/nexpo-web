@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const createMailtemplateIsLoading = () => ({
+export const createMailtemplateIsLoading = () : any => ({
   type: actionTypes.POST_MAILTEMPLATE
 });
 
-export const createMailtemplateSuccess = (mailtemplate: {}) => {
+export const createMailtemplateSuccess = (mailtemplate: {}) : any => {
   message.success('Mailtemplate successfully created');
   return {
     type: actionTypes.POST_MAILTEMPLATE_SUCCESS,
@@ -25,7 +25,7 @@ export const createMailtemplateFailure = (): CreateMailtemplateFailureAction => 
   };
 };
 
-export const createMailtemplate = (data: {}) => {
+export const createMailtemplate = (data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createMailtemplateIsLoading());
     return API.mailtemplates

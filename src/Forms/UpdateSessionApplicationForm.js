@@ -1,7 +1,9 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Input, Form, Button } from 'antd';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Input, Button } from 'antd';
 import makeField from './helper';
 
 const TextArea = makeField(Input.TextArea);
@@ -20,7 +22,7 @@ const UpdateSessionApplicationForm = ({
   invalid,
   pristine,
   submitting
-}: Props) => (
+}: Props): React$Element<any> => (
   <Form onSubmit={handleSubmit}>
     <Field
       name="motivation"
@@ -45,6 +47,8 @@ const mapStateToProps = (state, props) => ({
   form: `updateStudentSessionApplication${props.id}`
 });
 
-const stateful = connect(mapStateToProps);
+const stateful: any = connect(mapStateToProps)(
+  reduxForm()(UpdateSessionApplicationForm)
+);
 
-export default stateful(reduxForm()(UpdateSessionApplicationForm));
+export default stateful;

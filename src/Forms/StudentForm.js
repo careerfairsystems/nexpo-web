@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { isNil, map } from 'lodash/fp';
-import { Button, Form, Input, Select } from 'antd';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Button, Input, Select } from 'antd';
 
 import makeField from './helper';
 import UploadButton from './UploadButton';
@@ -20,13 +22,19 @@ const interestsValues = [
   { id: 7, name: 'Full-time job' }
 ];
 
-const renderInterestItem = interest => (
+const renderInterestItem = (interest: { id: number, name: string }) => (
   <Select.Option key={interest.id} value={interest.id}>
     {interest.name}
   </Select.Option>
 );
 
-const renderProgrammeItem = programme => (
+type ProgrammeItem = {
+  id: number,
+  name: string,
+  code: string
+}
+
+const renderProgrammeItem = (programme: ProgrammeItem): React$Element<any> => (
   <Select.Option key={programme.id} value={programme.id}>
     {programme.name} - {programme.code}
   </Select.Option>
@@ -44,11 +52,15 @@ type Props = {
     }
   },
   handleSubmit: () => Promise<void>,
-  programmes: {},
+  programmes: ProgrammeItem[],
   pristine: boolean
 };
 
-const StudentForm = ({ handleSubmit, pristine, programmes }: Props) => (
+const StudentForm = ({
+  handleSubmit,
+  pristine,
+  programmes
+}: Props): React$Element<any> => (
   <Form onSubmit={handleSubmit}>
     <Field name="year" label="Graduation Year" component={TextInput} />
     <Field
@@ -132,12 +144,12 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const stateful = connect(mapStateToProps);
-
-export default stateful(
+const stateful: any = connect(mapStateToProps)(
   reduxForm({
     form: 'student',
     enableReinitialize: true,
     keepDirtyOnReinitialize: true
   })(StudentForm)
 );
+
+export default stateful;

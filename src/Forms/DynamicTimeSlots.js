@@ -3,7 +3,7 @@ import { zipWith, sortBy, flow } from 'lodash/fp';
 import { Table, Input, Checkbox, Button } from 'antd';
 import { Field } from 'redux-form';
 import moment from 'moment';
-import type { FieldsProps } from 'redux-form';
+import type { FieldProps } from 'redux-form/es/FieldProps.types.js.flow'
 import makeField, { required } from './helper';
 import DatePicker from '../Components/DatePicker';
 import TimePicker from '../Components/TimePicker';
@@ -13,9 +13,16 @@ const FieldCheckbox = makeField(Checkbox);
 const MyDatePicker = makeField(DatePicker);
 const MyTimePicker = makeField(TimePicker);
 
-type Props = {
-  ...FieldsProps,
-  fieldValues?: {}
+type Props = FieldProps & {
+  fields: Array<Array<any>> & Array<{}>,
+  fieldValues: {
+    date: any,
+    startTime: any,
+    endTime: any,
+    timeslotLength: any,
+    breakLength: any,
+    location: any
+  }
 };
 
 const generateTimeSlots = (fields, values) => {
@@ -48,7 +55,7 @@ const columns = [
   {
     title: 'Start Time',
     key: 'start',
-    dataIndex: 'field',
+    dataIndex: ['field'],
     render: timeSlot => (
       <Field
         name={`${timeSlot}.start`}
@@ -111,7 +118,10 @@ const columns = [
   }
 ];
 
-const DynamicTimeSlots = ({ fields, fieldValues }: Props) => (
+const DynamicTimeSlots = ({
+  fields,
+  fieldValues
+}: Props): React$Element<any> => (
   <div className="student-session-time-slots">
     <Field name="date" label="Date" component={MyDatePicker} />
     <Field name="startTime" label="Start Time" component={MyTimePicker} />
@@ -151,7 +161,7 @@ const DynamicTimeSlots = ({ fields, fieldValues }: Props) => (
       size="small"
       dataSource={flow(
         zipWith(
-          (field, obj: { id: number }) => ({
+          (field, obj: {| id: number |}) => ({
             field,
             key: obj.id,
             ...obj,
@@ -160,15 +170,13 @@ const DynamicTimeSlots = ({ fields, fieldValues }: Props) => (
           fields.map(i => i)
         ),
         sortBy('start')
-      )(fields.getAll())}
+        // fields.getAll()
+        // $FlowIgnore
+      )(fields.getAll())}Props
       columns={columns}
       locale={{ emptyText: 'No Student Time Slots' }}
     />
   </div>
 );
-
-DynamicTimeSlots.defaultProps = {
-  fieldValues: {}
-};
 
 export default DynamicTimeSlots;

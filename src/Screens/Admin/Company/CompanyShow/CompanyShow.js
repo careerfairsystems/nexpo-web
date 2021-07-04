@@ -14,6 +14,7 @@ import {
   flow
 } from 'lodash/fp';
 import { List, Avatar, Button, Tag, Popconfirm, Select } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
 import { CSVLink } from 'react-csv';
 import moment from 'moment';
 import NotFound from '../../../NotFound';
@@ -78,7 +79,7 @@ const CompanyShow = ({
   fetching,
   getCompany,
   match
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getCompany(id);
   }, [getCompany, id]);
@@ -153,6 +154,7 @@ const CompanyShow = ({
     topStudents
   );
 
+  // $FlowIgnore
   const data = flow(
     //sortBy(['location', 'start']),
     map(({ studentSession, ...rest }) => ({
@@ -222,7 +224,7 @@ const CompanyShow = ({
       <p>{description}</p>
       <h3>Student Session Time Slots</h3>
       <CSVLink data={data} filename={`${name} - Student Sessions.csv`}>
-        <Button icon="download">Download Schema</Button>
+        <Button icon={<DownloadOutlined />}>Download Schema</Button>
       </CSVLink>
       <br />
       <br />

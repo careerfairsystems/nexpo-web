@@ -3,13 +3,13 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 import type { Dispatch } from '../../reducers';
 
-export function createBulkStudentSessionsIsLoading() {
+export function createBulkStudentSessionsIsLoading() : any {
   return {
     type: actionTypes.POST_BULK_STUDENT_SESSION
   };
 }
 
-export function createBulkStudentSessionsSuccess(studentSessions: {}) {
+export function createBulkStudentSessionsSuccess(studentSessions: {}) : any {
   message.success('Student Sessions was successfully bulk created.');
   return {
     type: actionTypes.POST_BULK_STUDENT_SESSION_SUCCESS,
@@ -28,7 +28,7 @@ export function createBulkStudentSessionsFailure(): CreateBulkStudentSessionsFai
   };
 }
 
-export const createBulkStudentSessions = () => {
+export const createBulkStudentSessions = () : any => {
   return (dispatch: Dispatch) => {
     dispatch(createBulkStudentSessionsIsLoading());
     return API.studentSessions

@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const deleteMailtemplateIsLoading = () => ({
+export const deleteMailtemplateIsLoading = () : any => ({
   type: actionTypes.DELETE_MAILTEMPLATE
 });
 
-export const deleteMailtemplateSuccess = (id: string) => {
+export const deleteMailtemplateSuccess = (id: string) : any => {
   message.success('Mailtemplate successfully deleted');
   return {
     type: actionTypes.DELETE_MAILTEMPLATE_SUCCESS,
@@ -25,7 +25,7 @@ export const deleteMailtemplateFailure = (): DestroyMailtemplateFailureAction =>
   };
 };
 
-export const deleteMailtemplate = (id: string) => {
+export const deleteMailtemplate = (id: string) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteMailtemplateIsLoading());
     return API.mailtemplates

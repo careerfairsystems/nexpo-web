@@ -8,7 +8,7 @@ export type Response = {
   type: any,
   error?: string,
   errors?: Error,
-  +json: () => Promise<*>,
+  +json: () => Promise<any>,
   headers: Headers,
   +text: () => Promise<any>
 };
@@ -24,7 +24,7 @@ type ErrorResponse = {
  */
 export const handleHttpResponse = (
   response: Response
-): Promise<{ data: any }> => {
+): Promise<{data: any}> => {
   const contentType = response.headers.get('content-type');
   const isJson = contentType && contentType.includes('application/json');
   if (response.ok && isJson) {

@@ -9,7 +9,7 @@ import type { ApiStatus } from './ApiReducer';
 export const ApiReducerUsers = (
   state: ApiStatus = initialStatus,
   act: { type: string }
-) => {
+) : any => {
   switch (act.type) {
     case actionTypes.FETCH_USER: {
       const stateChange = fetching;

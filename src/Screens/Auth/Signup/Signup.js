@@ -9,7 +9,7 @@ import HtmlTitle from '../../../Components/HtmlTitle';
  * It renders a form for either step 1 or step 2 of sign up process,
  * depending on the url
  */
-const Signup = () => {
+const Signup = () : React$Element<any> => {
   const key = getParameterByName('key');
 
   return (

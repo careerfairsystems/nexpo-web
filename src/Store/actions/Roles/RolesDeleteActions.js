@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const deleteRoleIsLoading = () => ({
+export const deleteRoleIsLoading = () : any => ({
   type: actionTypes.DELETE_ROLE
 });
 
-export const deleteRoleSuccess = (id: string) => {
+export const deleteRoleSuccess = (id: string) : any => {
   message.success('Role successfully deleted');
   return {
     type: actionTypes.DELETE_ROLE_SUCCESS,
@@ -25,7 +25,7 @@ export const deleteRoleFailure = (): DestroyRoleFailureAction => {
   };
 };
 
-export const deleteRole = (id: string) => {
+export const deleteRole = (id: string) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteRoleIsLoading());
     return API.roles

@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import UserShow from './UserShow';
+import type {UserProps} from './UserShow'
 import NotFound from '../../../NotFound';
 import LoadingSpinner from '../../../../Components/LoadingSpinner';
 
@@ -45,7 +46,7 @@ it('should render LoadingSpinner if fetching is true', () => {
 });
 
 it('displayName and roles should function correctly', () => {
-  const user = {
+  const user : UserProps = {
     email: 'admin@test',
     firstName: 'Dev',
     lastName: 'X',
@@ -64,6 +65,6 @@ it('displayName and roles should function correctly', () => {
     const displayName = instance.displayName();
     const roles = instance.roles();
     expect(roles).toEqual('admin');
-    expect(displayName).toEqual(`${user.firstName} ${user.lastName}`);
+    expect(displayName).toEqual(`${user.firstName || ''} ${user.lastName || ''}`);
   }
 });

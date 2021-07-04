@@ -13,6 +13,6 @@ const mapDispatchToProps = {
   updateCurrentCompany: Actions.companies.updateCurrentCompany
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(YourCompanyProfileEdit);
 
-export default stateful(YourCompanyProfileEdit);
+export default stateful;

@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const deleteStudentSessionApplIsLoading = () => ({
+export const deleteStudentSessionApplIsLoading = () : any => ({
   type: actionTypes.DELETE_STUDENT_SESSION_APPL
 });
 
-export const deleteStudentSessionApplSuccess = (id: string) => {
+export const deleteStudentSessionApplSuccess = (id: string) : any => {
   message.success('Your Application was successfully deleted.');
   return {
     type: actionTypes.DELETE_STUDENT_SESSION_APPL_SUCCESS,
@@ -25,7 +25,7 @@ export const deleteStudentSessionApplFailure = (): deleteStudentSessionApplFailu
   };
 };
 
-export const deleteStudentSessionAppl = (id: string) => {
+export const deleteStudentSessionAppl = (id: string) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteStudentSessionApplIsLoading());
     return API.studentSessions

@@ -27,9 +27,9 @@ const PrivateRoute = ({
   isLoggedIn,
   fetching,
   ...rest
-}: Props) => (
+}: Props) : React$Element<any> => (
   <Route
-    {...rest}
+    {...(rest: $Rest<Object, Props>)}
     render={props => {
       if (fetching) return <LoadingSpinner />;
       if (isLoggedIn && hasPermission(currentUser, props.location.pathname))

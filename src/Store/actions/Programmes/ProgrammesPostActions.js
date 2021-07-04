@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const createProgrammeIsLoading = () => ({
+export const createProgrammeIsLoading = () : any => ({
   type: actionTypes.POST_PROGRAMME
 });
 
-export const createProgrammeSuccess = (programme: {}) => {
+export const createProgrammeSuccess = (programme: {}) : any => {
   message.success('Programme successfully created');
   return {
     type: actionTypes.POST_PROGRAMME_SUCCESS,
@@ -25,7 +25,7 @@ export const createProgrammeFailure = (): CreateProgrammeFailureAction => {
   };
 };
 
-export const createProgramme = (data: {}) => {
+export const createProgramme = (data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createProgrammeIsLoading());
     return API.programmes

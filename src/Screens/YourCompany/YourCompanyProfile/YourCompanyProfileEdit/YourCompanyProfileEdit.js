@@ -31,7 +31,7 @@ const YourCompanyProfileEdit = ({
   currentCompany,
   getCurrentCompany,
   updateCurrentCompany
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getCurrentCompany();
   }, [getCurrentCompany]);

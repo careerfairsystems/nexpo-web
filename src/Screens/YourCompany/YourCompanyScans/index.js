@@ -12,6 +12,6 @@ const mapDispatchToProps = {
   getCurrentCompany: Actions.companies.getCurrentCompany
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(YourCompanyScans);
 
-export default stateful(YourCompanyScans);
+export default stateful;

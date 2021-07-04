@@ -40,7 +40,7 @@ const SessionApplications = ({
   deleteStudentSessionAppl,
   fetching,
   updateStudentSessionAppl
-}: Props) => {
+}: Props) : React$Element<any> => {
   const [state, setState] = useState(DefaultState);
 
   useEffect(() => {
@@ -134,8 +134,8 @@ const SessionApplications = ({
 };
 
 SessionApplications.defaultProps = {
-  companies: {},
-  applications: []
+  companies: undefined,
+  applications: undefined
 };
 
 export default SessionApplications;

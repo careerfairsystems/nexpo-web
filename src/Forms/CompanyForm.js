@@ -1,9 +1,11 @@
 import React from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
-import type { FormProps } from 'redux-form';
+import type { FormProps } from 'redux-form/lib/types.js.flow';
 import { connect } from 'react-redux';
 import { isNil } from 'lodash/fp';
-import { Button, Form, Input } from 'antd';
+import { Button, Input } from 'antd';
+import {Form} from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
 
 import makeField, { required } from './helper';
 import UploadButton from './UploadButton';
@@ -13,9 +15,9 @@ const TextInput = makeField(Input);
 const TextArea = makeField(Input.TextArea);
 
 type Props = {
-  ...FormProps,
-  onCancel?: Event => any
-};
+  onCancel?: Event => any,
+  formState: {values: any}
+} & FormProps;
 
 const CompanyForm = ({
   handleSubmit,
@@ -65,7 +67,10 @@ const CompanyForm = ({
 );
 
 CompanyForm.defaultProps = {
-  onCancel: null
+  onCancel: null,
+  formState: {
+    values: undefined
+  }
 };
 
 const mapStateToProps = (state, props) => {
@@ -89,6 +94,6 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const stateful = connect(mapStateToProps);
+const stateful : any = connect(mapStateToProps)(reduxForm({ form: 'company' })(CompanyForm));
 
-export default stateful(reduxForm({ form: 'company' })(CompanyForm));
+export default stateful;

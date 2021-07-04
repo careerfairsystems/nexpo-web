@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const deleteUserIsLoading = () => ({
+export const deleteUserIsLoading = () : any => ({
   type: actionTypes.DELETE_USER
 });
 
-export const deleteUserSuccess = (id: string) => {
+export const deleteUserSuccess = (id: string) : any => {
   message.success('User successfully deleted');
   return {
     type: actionTypes.DELETE_USER_SUCCESS,
@@ -25,7 +25,7 @@ export const deleteUserFailure = (): DestroyUserFailureAction => {
   };
 };
 
-export const deleteUser = (id: string) => {
+export const deleteUser = (id: string) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteUserIsLoading());
     return API.users

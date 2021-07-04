@@ -20,7 +20,7 @@ const Programmes = ({
   fetching,
   deleteProgramme,
   getAllProgrammes
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getAllProgrammes();
   }, [getAllProgrammes]);
@@ -28,7 +28,7 @@ const Programmes = ({
   const programmeColumns = () => [
     {
       title: 'Name',
-      dataIndex: 'name',
+      dataIndex: ['name'],
       key: 'name',
       render: (name: string, { id }: { id: string }) => (
         <InvisibleLink to={`/admin/programmes/${id}`}>{name}</InvisibleLink>
@@ -90,7 +90,7 @@ const Programmes = ({
 };
 
 Programmes.defaultProps = {
-  programmes: {}
+  programmes: undefined
 };
 
 export default Programmes;

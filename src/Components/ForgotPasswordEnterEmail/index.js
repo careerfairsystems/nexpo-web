@@ -11,5 +11,5 @@ const mapDispatchToProps = {
   callBackend: Actions.accounts.forgotPassword
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
-export default stateful(ForgotPasswordEnterEmail);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(ForgotPasswordEnterEmail);
+export default stateful;

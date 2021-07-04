@@ -16,7 +16,7 @@ type Props = {
   deleteRole: string => Promise<void>
 };
 
-const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) => {
+const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) : React$Element<any> => {
   useEffect(() => {
     getAllRoles();
   }, [getAllRoles]);
@@ -24,7 +24,7 @@ const Roles = ({ roles, fetching, getAllRoles, deleteRole }: Props) => {
   const roleColumns = () => [
     {
       title: 'Type',
-      dataIndex: 'type',
+      dataIndex: ['type'],
       key: 'type',
       render: (type: string, { id }: { id: string }) => (
         <InvisibleLink to={`/admin/roles/${id}`}>{type}</InvisibleLink>

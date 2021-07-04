@@ -21,7 +21,7 @@ type Props = {
 
 const CompanyNew = ({
   createCompany
-}: Props) => {
+}: Props) : React$Element<any> => {
 
   return (
     <div className="company-new-view">

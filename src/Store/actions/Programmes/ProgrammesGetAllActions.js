@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const getAllProgrammesIsLoading = () => ({
+export const getAllProgrammesIsLoading = () : any => ({
   type: actionTypes.FETCH_PROGRAMMES
 });
 
-export const getAllProgrammesSuccess = (programmes: Array<{}>) => ({
+export const getAllProgrammesSuccess = (programmes: Array<{}>) : any => ({
   type: actionTypes.FETCH_PROGRAMMES_SUCCESS,
   programmes
 });
@@ -24,7 +24,7 @@ export const getAllProgrammesFailure = (): GetAllProgrammesFailureAction => {
   };
 };
 
-export const getAllProgrammes = () => {
+export const getAllProgrammes = () : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getAllProgrammesIsLoading());
     return API.programmes

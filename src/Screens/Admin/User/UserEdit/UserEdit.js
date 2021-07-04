@@ -32,7 +32,7 @@ const UserEdit = ({
   getUser,
   history,
   updateUser
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     if (id) getUser(id);
   }, [getUser, id]);

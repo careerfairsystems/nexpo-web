@@ -3,13 +3,13 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const deleteDeadlineIsLoading = () => {
+export const deleteDeadlineIsLoading = () : any => {
   return {
     type: actionTypes.DELETE_DEADLINE
   };
 };
 
-export const deleteDeadlineSuccess = (id: string) => {
+export const deleteDeadlineSuccess = (id: string) : any => {
   message.success('Deadline successfully deleted');
   return {
     type: actionTypes.DELETE_DEADLINE_SUCCESS,
@@ -27,7 +27,7 @@ export const deleteDeadlineFailure = (): DestroyDeadlineFailureAction => {
   };
 };
 
-export const deleteDeadline = (id: string) => {
+export const deleteDeadline = (id: string) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteDeadlineIsLoading());
     return API.deadlines

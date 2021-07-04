@@ -45,7 +45,7 @@ const YourCompanyApplications = ({
   updating,
   getCurrentCompany,
   updateStudentSessionAppl
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getCurrentCompany();
   }, [getCurrentCompany]);

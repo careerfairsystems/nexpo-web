@@ -1,4 +1,5 @@
 import React from 'react';
+import { DownloadOutlined } from '@ant-design/icons';
 import { Button, Popconfirm } from 'antd';
 import HtmlTitle from '../../../Components/HtmlTitle';
 
@@ -8,7 +9,7 @@ type Props = {
   createBulkStudentSessions: () => Promise<void>
 };
 
-const StudentSessions = ({ createBulkStudentSessions }: Props) => (
+const StudentSessions = ({ createBulkStudentSessions }: Props) : React$Element<any> => (
   <div>
     <HtmlTitle title="StudentSessions" />
 
@@ -29,13 +30,13 @@ const StudentSessions = ({ createBulkStudentSessions }: Props) => (
     </Popconfirm>
     <br />
     <br />
-    <Button icon="download" onClick={API.studentSessions.downloadReserves}>
+    <Button icon={<DownloadOutlined />} onClick={API.studentSessions.downloadReserves}>
       Download reserves
     </Button>
     <br />
     <br />
     <Button
-      icon="download"
+      icon={<DownloadOutlined />}
       onClick={API.studentSessions.downloadSessionInformation}
     >
       Download student sessions information

@@ -2,11 +2,20 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter, Route } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 
+import { createMockStore } from '../TestHelper';
 import App from './App';
 import ConnectedApp from './index';
-import { createMockStore } from '../TestHelper';
 import NotFound from '../Screens/NotFound';
+
+global.matchMedia = global.matchMedia || function () {
+  return {
+    matches: false,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+  };
+};
 
 it('renders without crashing', () => {
   shallow(
@@ -153,7 +162,8 @@ const route = path => (
 
 const found = wrapper => expect(wrapper.find(NotFound)).toHaveLength(0);
 
-it('renders routes without crashing', () => {
+it('renders routes without crashing', async () => {
+  await act(async () => {
   found(mount(route('/')));
   found(mount(route('/info')));
   found(mount(route('/admin/categories')));
@@ -185,4 +195,5 @@ it('renders routes without crashing', () => {
   found(mount(route('/company/profile')));
   found(mount(route('/company/profile/edit')));
   expect(mount(route('/invalid-path')).find(NotFound)).toHaveLength(1);
+})
 });

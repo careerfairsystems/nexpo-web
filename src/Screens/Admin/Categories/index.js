@@ -14,6 +14,6 @@ const mapDispatchToProps = {
   createCategory: Actions.categories.createCategory
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(Categories);
 
-export default stateful(Categories);
+export default stateful;

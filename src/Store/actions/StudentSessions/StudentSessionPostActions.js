@@ -4,13 +4,13 @@ import { actionTypes } from '../..';
 import API from '../../../API';
 import type { Dispatch } from '../../reducers';
 
-export function createStudentSessionIsLoading() {
+export function createStudentSessionIsLoading() : any {
   return {
     type: actionTypes.POST_STUDENT_SESSION
   };
 }
 
-export function createStudentSessionSuccess(company: {}) {
+export function createStudentSessionSuccess(company: {}) : any {
   message.success('Student Session was successfully created.');
   return {
     type: actionTypes.POST_STUDENT_SESSION_SUCCESS,
@@ -29,7 +29,7 @@ export function createStudentSessionFailure(): CreateStudentSessionFailureAction
   };
 }
 
-export const createStudentSession = (data: {}) => {
+export const createStudentSession = (data: {}) : any => {
   return (dispatch: Dispatch) => {
     dispatch(createStudentSessionIsLoading());
     return API.studentSessions

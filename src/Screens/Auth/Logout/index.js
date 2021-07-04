@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import Logout from './Logout';
 import { Actions } from '../../../Store';
 
-const stateful = connect(null, (dispatch: Dispatch<any>) => ({
+const stateful : any = connect(null, (dispatch: Dispatch<any>) => ({
   logout: () => dispatch(Actions.auth.logout())
-}));
+}))(Logout);
 
-export default stateful(Logout);
+export default stateful;

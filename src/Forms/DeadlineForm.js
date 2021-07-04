@@ -1,16 +1,21 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import type { FieldProps } from 'redux-form';
+import type { FieldProps } from 'redux-form/es/FieldProps.types.js.flow'
 
 import { connect } from 'react-redux';
-import { Button, Form, Input } from 'antd';
+import { Button, Input } from 'antd';
+import {Form} from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
 import DatePicker from '../Components/DatePicker';
+import type {DatePickerProps} from '../Components/DatePicker';
 
 import makeField from './helper';
 
+type DateProps = FieldProps & DatePickerProps & {||}
+
 const TextInput = makeField(Input);
-const MyDatePicker = makeField((props: FieldProps) =>
-  DatePicker({ ...props, showTime: true, format: 'YYYY-MM-DD HH:mm' })
+const MyDatePicker = makeField((props: DateProps) =>
+  DatePicker({ showTime: true, format: 'YYYY-MM-DD HH:mm', ...props })
 );
 
 type Props = {
@@ -29,6 +34,8 @@ const mapStateToProps = state => ({
   formState: state.form.DeadlineForm
 });
 
-const stateful = connect(mapStateToProps);
+const stateful: any = connect(mapStateToProps)(
+  reduxForm({ form: 'deadline' })(DeadlineForm)
+);
 
-export default stateful(reduxForm({ form: 'deadline' })(DeadlineForm));
+export default stateful;

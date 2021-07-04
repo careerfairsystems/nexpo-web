@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const getUserIsLoading = () => ({
+export const getUserIsLoading = () : any => ({
   type: actionTypes.FETCH_USER
 });
 
-export const getUserSuccess = (user: {}) => ({
+export const getUserSuccess = (user: {}) : any => ({
   type: actionTypes.FETCH_USER_SUCCESS,
   user
 });
@@ -24,7 +24,7 @@ export const getUserFailure = (): GetUserFailureAction => {
   };
 };
 
-export const getUser = (id: string) => {
+export const getUser = (id: string) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getUserIsLoading());
     return API.users

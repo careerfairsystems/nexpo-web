@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { capitalize } from 'lodash/fp';
 import RoleShow from './RoleShow';
+import type {RoleProps} from './RoleShow'
 import NotFound from '../../../NotFound';
 import HtmlTitle from '../../../../Components/HtmlTitle';
 
@@ -12,7 +13,7 @@ it('should render without crashing', () => {
 });
 
 it('should render NotFound if there is no role', () => {
-  const role = {};
+  const role : RoleProps = {};
   const func = jest.fn();
   const wrapper = shallow(<RoleShow id="1" role={role} getRole={func} />);
 
@@ -20,7 +21,7 @@ it('should render NotFound if there is no role', () => {
 });
 
 it('should set html title', () => {
-  const role = {
+  const role : RoleProps = {
     type: 'test',
     permissions: ['read_all', 'write_all']
   };
@@ -28,17 +29,17 @@ it('should set html title', () => {
   const wrapper = shallow(<RoleShow id="1" role={role} getRole={func} />);
 
   expect(
-    wrapper.contains(<HtmlTitle title={capitalize(role.type)} />)
+    wrapper.contains(<HtmlTitle title={capitalize(role.type || "")} />)
   ).toBeTruthy();
 });
 
 it('should render role information', () => {
-  const role = {
+  const role : RoleProps = {
     type: 'test',
     permissions: ['read_all', 'write_all']
   };
   const func = jest.fn();
   const wrapper = shallow(<RoleShow id="1" role={role} getRole={func} />);
 
-  expect(wrapper.contains(<h1>{capitalize(role.type)}</h1>)).toBeTruthy();
+  expect(wrapper.contains(<h1>{capitalize(role.type || "")}</h1>)).toBeTruthy();
 });

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Button, Input, Form } from 'antd';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Button, Input } from 'antd';
 import makeField from './helper';
 
 const TextInput = makeField(Input);
@@ -34,6 +36,6 @@ const mapStateToProps = state => ({
   formState: state.form.ProgrammeForm
 });
 
-const stateful = connect(mapStateToProps);
+const stateful : any = connect(mapStateToProps)(reduxForm({ form: 'programme' })(ProgrammeForm));
 
-export default stateful(reduxForm({ form: 'programme' })(ProgrammeForm));
+export default stateful;

@@ -1,6 +1,21 @@
 [ignore]
 .*/node_modules/.*
 .*/build/.*
+!.*/node_modules/redux-form/.*
+!.*/node_modules/antd/.*
+!.*/node_modules/@ant-design/.*
+.*/node_modules/antd/lib/index.js
+.*/node_modules/@ant-design/icons/lib/index.js
+.*/node_modules/@ant-design/compatible/lib/index.js
+.*/node_modules/redux-form/lib/FormName.js
+.*/node_modules/redux-form/lib/FormSection.js
+.*/node_modules/redux-form/lib/createReduxForm.js
+.*/node_modules/redux-form/lib/defaultShouldAsyncValidate.js
+.*/node_modules/redux-form/lib/defaultShouldError.js
+.*/node_modules/redux-form/lib/defaultShouldValidate.js
+.*/node_modules/redux-form/lib/defaultShouldWarn.js
+.*/node_modules/redux-form/lib/immutable.js
+.*/node_modules/redux-form/lib/index.js
 .*/coverage/.*
 [include]
 
@@ -25,4 +40,4 @@ suppress_type=$FlowFixMe
 [strict]
 
 [version]
-^0.93.0
+^0.148.0

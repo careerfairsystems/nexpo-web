@@ -6,6 +6,6 @@ const mapDispatchToProps = {
   createCompany: Actions.companies.createCompany
 };
 
-const stateful = connect(null, mapDispatchToProps);
+const stateful : any = connect(null, mapDispatchToProps)(CompanyNew);
 
-export default stateful(CompanyNew);
+export default stateful;

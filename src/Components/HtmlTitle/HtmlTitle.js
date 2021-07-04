@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 type Props = {
   title?: ?string
 };
-const HtmlTitle = ({ title }: Props) => {
+const HtmlTitle = ({ title }: Props) : React$Element<any> => {
   const text = title ? `Nexpo | ${title}` : 'Nexpo';
   return (
     <Helmet>

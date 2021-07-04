@@ -13,7 +13,7 @@ type Props = {
   finished?: boolean
 }
 
-const InitialSignup = ({finished} : Props) => {
+const InitialSignup = ({finished} : Props) : React$Element<any> => {
 
   const [state, setState] = useState({finished});
 

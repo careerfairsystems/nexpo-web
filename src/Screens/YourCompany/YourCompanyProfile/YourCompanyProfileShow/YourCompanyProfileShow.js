@@ -29,7 +29,7 @@ const YourCompanyProfileShow = ({
   currentCompany,
   getCurrentCompany,
   resetForm
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getCurrentCompany();
   }, [getCurrentCompany]);

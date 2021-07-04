@@ -1,7 +1,7 @@
 import React from 'react';
 import InvisibleLink from '../../../Components/InvisibleLink';
 
-const RepresentativeHome = () => (
+const RepresentativeHome = () : React$Element<any> => (
   <div className="session-home">
     <h1>Welcome to ARKAD!</h1>
     <p>

@@ -1,7 +1,8 @@
 import React from 'react';
 // import type { Element } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-import { Breadcrumb, Icon, Menu, Layout } from 'antd';
+import { Breadcrumb, Menu, Layout } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import { startCase } from 'lodash/fp';
 import Home from '../Screens/Home';
 import Info from '../Screens/Info';
@@ -48,10 +49,10 @@ import { hasAccess, hasPermission } from '../Util/PermissionsHelper';
 const { Header, Content, Footer } = Layout;
 
 // the | ... | means exact type. look up flow exact type for more information
-type RouteItem = {|
+type RouteItem = {
   path: string,
   component: React$ComponentType<{}>
-|};
+};
 
 const privateRoutes: Array<RouteItem> = [
   { path: '/', component: Home },
@@ -102,7 +103,7 @@ const routes = (
     <Route path="/signup" component={Signup} />
     <Route path="/forgot-password" component={ForgotPassword} />
     {privateRoutes.map((props: RouteItem) => (
-      <PrivateRoute key={props.path} exact {...props} />
+      <PrivateRoute key={props.path} exact {...(props: $Rest<Object, RouteItem>)} />
     ))}
     <Route component={NotFound} />
   </Switch>
@@ -121,17 +122,17 @@ type Props = {
   pathname: string
 };
 
-type SubMenuProps = {|
+type SubMenuProps = {
   route: string,
   title: string,
   menus: Array<?React$Element<any>>
-|};
+};
 
-type MenuItemProps = {|
+type MenuItemProps = {
   route: string,
   title: string,
   disabled?: boolean
-|};
+};
 
 /**
  * The base of the application. Defines the basic layout
@@ -142,7 +143,7 @@ const App = ({
   logout,
   redirect,
   pathname
-}: Props) => {
+}: Props): React$Element<any> => {
   const loggedInMenuItem = () => {
     const { email, firstName, lastName } = currentUser || {};
 
@@ -151,7 +152,7 @@ const App = ({
 
     return [
       <Menu.Item key="/user">
-        {displayName} <Icon type="user" />
+        {displayName} <UserOutlined /> 
       </Menu.Item>,
       <Menu.Item key="/logout">Logout</Menu.Item>
     ];
@@ -168,6 +169,7 @@ const App = ({
     menus,
     ...rest
   }: SubMenuProps) => {
+    const restProps = {...(rest: $Rest<Object, SubMenuProps>)}
     if (
       isLoggedIn &&
       hasPermission(currentUser, route) &&
@@ -178,7 +180,7 @@ const App = ({
           title={title}
           key={`/${route}`}
           onTitleClick={() => redirect(`/${route}`)}
-          {...rest}
+          {...restProps}
         >
           {menus}
         </Menu.SubMenu>
@@ -188,13 +190,14 @@ const App = ({
   };
 
   const restrictedMenuItem = ({ route, title, ...rest }: MenuItemProps) => {
+    const restProps = {...(rest: $Rest<Object, MenuItemProps>)}
     if (
       isLoggedIn &&
       hasPermission(currentUser, route) &&
       hasAccess(currentUser, route)
     ) {
       return (
-        <Menu.Item key={`/${route}`} {...rest}>
+        <Menu.Item key={`/${route}`} {...restProps}>
           {title}
         </Menu.Item>
       );

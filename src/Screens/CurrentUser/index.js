@@ -19,6 +19,6 @@ const mapDispatchToProps = {
   resetForm: reset
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(CurrentUser);
 
-export default stateful(CurrentUser);
+export default stateful;

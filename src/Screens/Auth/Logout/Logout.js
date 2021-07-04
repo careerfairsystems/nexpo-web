@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 type Props = {
   logout: () => Promise<void>
 };
-const Logout = ({ logout }: Props) => {
+const Logout = ({ logout }: Props) : React$Element<any> => {
   useEffect(() => {
     logout();
   }, [logout]);

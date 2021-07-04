@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { DownloadOutlined } from '@ant-design/icons';
 import { List, Button, Avatar, Rate } from 'antd';
 import { sortBy } from 'lodash/fp';
 import HtmlTitle from '../../../Components/HtmlTitle';
@@ -50,7 +51,7 @@ const YourCompanyScans = ({
   currentCompany,
   fetching,
   getCurrentCompany
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getCurrentCompany();
   }, [getCurrentCompany]);
@@ -134,7 +135,7 @@ const YourCompanyScans = ({
         >
           <h2>Student Scans</h2>
         </div>
-        <Button icon="download" style={{ float: 'left' }} onClick={exportBlips}>
+        <Button icon={<DownloadOutlined />} style={{ float: 'left' }} onClick={exportBlips}>
           Export Scans
         </Button>
       </div>

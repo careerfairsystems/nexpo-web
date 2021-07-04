@@ -2,10 +2,10 @@ import React from 'react';
 import { isNil, join } from 'lodash/fp';
 
 type Props = {
-  roles?: Array<string>,
-  permissions?: Array<string>
+  roles?: string[],
+  permissions?: string[]
 };
-const AdminHome = ({ roles = [], permissions = [] }: Props) => (
+const AdminHome = ({ roles = [], permissions = [] }: Props) : React$Element<any> => (
   <div>
     <h1>Congratulations you did it!</h1>
     <h2>You have admin privileges!!</h2>
@@ -24,8 +24,8 @@ const AdminHome = ({ roles = [], permissions = [] }: Props) => (
 );
 
 AdminHome.defaultProps = {
-  roles: [],
-  permissions: []
+  roles: undefined,
+  permissions: undefined
 };
 
 export default AdminHome;

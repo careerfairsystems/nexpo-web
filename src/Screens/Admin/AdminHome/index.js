@@ -18,6 +18,6 @@ const mapStateToProps = (state: State) => {
   return {};
 };
 
-const stateful = connect(mapStateToProps);
+const stateful : any = connect(mapStateToProps)(AdminHome);
 
-export default stateful(AdminHome);
+export default stateful;

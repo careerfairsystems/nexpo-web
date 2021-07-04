@@ -17,7 +17,7 @@ type ReplaceForgottenPasswordFailure = {
   errors: { password: string, passwordConfirmation: string }
 };
 
-type Action =
+type Action = 
   | ReplaceForgottenPasswordRequest
   | ReplaceForgottenPasswordSuccess
   | ReplaceForgottenPasswordFailure;
@@ -25,7 +25,7 @@ type Action =
 export const ApiReducerForgotPassword = (
   state: ApiStatus = initialStatus,
   act: Action
-) => {
+) : any => {
   switch (act.type) {
     case actionTypes.REPLACE_FORGOTTEN_PASSWORD_REQUEST: {
       const stateChange = fetching;
@@ -38,7 +38,8 @@ export const ApiReducerForgotPassword = (
     }
 
     case actionTypes.REPLACE_FORGOTTEN_PASSWORD_FAILURE: {
-      const stateChange = failure(act.errors);
+      const errors : any = act.errors;
+      const stateChange = failure(errors);
       return { ...state, ...stateChange };
     }
 

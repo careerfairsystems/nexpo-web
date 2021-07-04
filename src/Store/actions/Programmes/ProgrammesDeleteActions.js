@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const deleteProgrammeIsLoading = () => ({
+export const deleteProgrammeIsLoading = () : any => ({
   type: actionTypes.DELETE_PROGRAMME
 });
 
-export const deleteProgrammeSuccess = (id: string) => {
+export const deleteProgrammeSuccess = (id: string) : any => {
   message.success('Programme successfully deleted');
   return {
     type: actionTypes.DELETE_PROGRAMME_SUCCESS,
@@ -25,7 +25,7 @@ export const deleteProgrammeFailure = (): DestroyProgrammeFailureAction => {
   };
 };
 
-export const deleteProgramme = (id: string) => {
+export const deleteProgramme = (id: string) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteProgrammeIsLoading());
     return API.programmes

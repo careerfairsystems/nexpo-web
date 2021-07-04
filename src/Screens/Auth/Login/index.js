@@ -11,6 +11,6 @@ const mapDispatchToProps = {
   login: Actions.auth.login
 };
 
-const stateful = connect(mapStateToProps, mapDispatchToProps);
+const stateful : any = connect(mapStateToProps, mapDispatchToProps)(Login);
 
-export default stateful(Login);
+export default stateful;

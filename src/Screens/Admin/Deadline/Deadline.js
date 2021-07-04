@@ -26,7 +26,7 @@ const Deadline = ({
   fetching,
   getDeadline,
   updateDeadline
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     if (id) getDeadline(id);
   }, [getDeadline, id]);

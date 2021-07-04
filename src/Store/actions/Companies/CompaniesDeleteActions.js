@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const deleteCompanyIsLoading = () => ({
+export const deleteCompanyIsLoading = () : any => ({
   type: actionTypes.DELETE_COMPANY
 });
 
-export const deleteCompanySuccess = (id: string) => {
+export const deleteCompanySuccess = (id: string) : any => {
   message.success('Company successfully deleted');
   return {
     type: actionTypes.DELETE_COMPANY_SUCCESS,
@@ -25,7 +25,7 @@ export const deleteCompanyFailure = (): DestroyCompanyFailureAction => {
   };
 };
 
-export const deleteCompany = (id: string) => {
+export const deleteCompany = (id: string) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(deleteCompanyIsLoading());
     return API.companies

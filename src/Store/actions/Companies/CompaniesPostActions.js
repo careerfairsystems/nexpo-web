@@ -5,11 +5,11 @@ import { actionTypes } from '../..';
 
 import API from '../../../API';
 
-export const createCompanyIsLoading = () => ({
+export const createCompanyIsLoading = () : any => ({
   type: actionTypes.POST_COMPANY
 });
 
-export const createCompanySuccess = (company: {}) => {
+export const createCompanySuccess = (company: {}) : any => {
   message.success('Company successfully created');
   return {
     type: actionTypes.POST_COMPANY_SUCCESS,
@@ -27,7 +27,7 @@ export const createCompanyFailure = (): CreateCompanyFailureAction => {
   };
 };
 
-export const createCompany = (data: {}) => {
+export const createCompany = (data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createCompanyIsLoading());
     return API.companies
@@ -42,11 +42,11 @@ export const createCompany = (data: {}) => {
   };
 }
 
-export const createCompanyBulkIsLoading = () => ({
+export const createCompanyBulkIsLoading = () : any => ({
   type: actionTypes.POST_COMPANY_BULK
 });
 
-export const createCompanyBulkSuccess = (company: {}) => {
+export const createCompanyBulkSuccess = (company: {}) : any => {
   message.success('Company successfully created');
   return {
     type: actionTypes.POST_COMPANY_BULK_SUCCESS,
@@ -64,7 +64,7 @@ export const createCompanyBulkFailure = (): CreateCompanyBulkFailureAction => {
   };
 };
 
-export const createBulk = (data: {}) => {
+export const createBulk = (data: {}) : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(createCompanyBulkIsLoading());
     return API.companies

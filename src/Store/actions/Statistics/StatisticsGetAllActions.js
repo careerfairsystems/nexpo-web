@@ -3,11 +3,11 @@ import { message } from 'antd';
 import { actionTypes } from '../..';
 import API from '../../../API';
 
-export const getAllStatisticsIsLoading = () => ({
+export const getAllStatisticsIsLoading = () : any => ({
   type: actionTypes.FETCH_STATISTICS
 });
 
-export const getAllStatisticsSuccess = (statistics: {}) => ({
+export const getAllStatisticsSuccess = (statistics: {}) : any => ({
   type: actionTypes.FETCH_STATISTICS_SUCCESS,
   statistics
 });
@@ -24,7 +24,7 @@ export const getAllStatisticsFailure = (): GetAllStatisticsFailureAction => {
   };
 };
 
-export const getAllStatistics = () => {
+export const getAllStatistics = () : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getAllStatisticsIsLoading());
     return API.statistics

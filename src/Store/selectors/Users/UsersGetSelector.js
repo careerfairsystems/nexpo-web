@@ -6,9 +6,9 @@ import type { State } from '../../reducers';
 type Props = {
   match: Match
 };
-export const getUserId = (state: State, props: Props) => props.match.params.id;
+export const getUserId = (state: State, props: Props) : any => props.match.params.id;
 
-export const getUser = (state: State, props: Props) => {
+export const getUser = (state: State, props: Props) : any => {
   const userId = getUserId(state, props);
 
   const {

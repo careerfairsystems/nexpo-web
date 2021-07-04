@@ -46,7 +46,7 @@ const StudentSessions = ({
   updateSession,
   getAllCompanies,
   fetching
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getAllCompanies();
   }, [getAllCompanies]);
@@ -161,8 +161,8 @@ const StudentSessions = ({
 };
 
 StudentSessions.defaultProps = {
-  companies: {},
-  sessions: []
+  companies: undefined,
+  sessions: undefined
 };
 
 export default StudentSessions;

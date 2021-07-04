@@ -1,7 +1,10 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Button, Form, Input, Icon } from 'antd';
+import { MailOutlined } from '@ant-design/icons';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Button, Input } from 'antd';
 import makeField from './helper';
 
 const TextInput = makeField(Input);
@@ -15,7 +18,7 @@ const InviteForm = ({ handleSubmit }: Props) => (
       name="email"
       label="Email:"
       component={TextInput}
-      prefix={<Icon type="mail" />}
+      prefix={<MailOutlined />}
       placeholder="Email"
     />
     <Button htmlType="submit">Invite</Button>
@@ -26,6 +29,6 @@ const mapStateToProps = state => ({
   formState: state.form.InviteForm
 });
 
-const stateful = connect(mapStateToProps);
+const stateful : any = connect(mapStateToProps)(reduxForm({ form: 'invite' })(InviteForm));
 
-export default stateful(reduxForm({ form: 'invite' })(InviteForm));
+export default stateful;

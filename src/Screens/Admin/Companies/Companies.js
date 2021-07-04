@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Icon, Upload, Table, Button, Popconfirm, Divider } from 'antd';
+import { Upload, Table, Button, Popconfirm, Divider } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 import { size, sortBy, toLower } from 'lodash/fp';
 
 import { toExternal } from '../../../Util/URLHelper';
@@ -25,7 +26,7 @@ const Companies = ({
   getAllCompanies,
   deleteCompany,
   createBulk
-}: Props) => {
+}: Props) : React$Element<any> => {
   useEffect(() => {
     getAllCompanies();
   }, [getAllCompanies]);
@@ -33,7 +34,7 @@ const Companies = ({
   const companyColumns = () => [
     {
       title: 'Name',
-      dataIndex: 'name',
+      dataIndex: ['name'],
       key: 'name',
       filterDropdown: FilterSearch,
       filterIcon: FilterIcon,
@@ -146,6 +147,7 @@ const Companies = ({
             beforeUpload={file => {
               const reader = new FileReader();
               reader.onload = e => {
+                // $FlowIgnore
                 const obj = csvToObj(e.target.result);
                 createBulk(obj);
               };
@@ -154,7 +156,7 @@ const Companies = ({
             }}
           >
             <Button>
-              <Icon type="upload" />
+              <UploadOutlined />
               Create Multiple Companies
             </Button>
           </Upload>
@@ -175,7 +177,7 @@ const Companies = ({
 };
 
 Companies.defaultProps = {
-  companies: {}
+  companies: undefined
 };
 
 export default Companies;

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Button, Input, Form } from 'antd';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Button, Input } from 'antd';
 import makeField, { required, validatePassword } from './helper';
 
 const TextInput = makeField(Input);
@@ -39,10 +41,10 @@ const mapStateToProps = state => ({
   formState: state.form.ReplacePasswordForm
 });
 
-const stateful = connect(mapStateToProps);
-
-export default stateful(
+const stateful : any = connect(mapStateToProps)(
   reduxForm({ form: 'replacePassword', validate: validatePassword })(
     ReplacePasswordForm
   )
 );
+
+export default stateful;

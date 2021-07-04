@@ -28,7 +28,7 @@ type Props = {
   getCurrentCompany: () => Promise<void>
 };
 
-const YourCompanyTimeSlots = ({ currentCompany, getCurrentCompany }: Props) => {
+const YourCompanyTimeSlots = ({ currentCompany, getCurrentCompany }: Props) : React$Element<any> => {
   useEffect(() => {
     getCurrentCompany();
   }, [getCurrentCompany]);
