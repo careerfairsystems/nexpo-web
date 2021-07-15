@@ -21,7 +21,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "rxjs-compat": "^6.6.7",
-    "victory": "^35.9.0",
+    "victory": "^35.9.1",
     "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
