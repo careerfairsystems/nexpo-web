@@ -5,6 +5,8 @@ const Info = (): React$Element<any> => (
   <div>
     <h1>Welcome to ARKAD!</h1>
     <h1>Detta är en ändring i demon</h1>
+
+    <h1>Detta är en ändring av demonerna</h1>
     <h3>What is this?</h3>
     <h4>
       This is the inhouse project management system for ARKAD, called Nexpo.
