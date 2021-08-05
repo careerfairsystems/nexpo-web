@@ -33,6 +33,8 @@ Development is fairly straightforward but require some dependencies:
 4. Run the development server: `yarn start`
 5. To stop the server, simply press Ctrl+C. You can access the app on localhost:3000, the first time you access it can be very slow (30+ seconds) but the next will be fast.
 
+At the moment node version 12 is required. (Optional: For nvm users run nvm use in the terminal to apply the right node version.)
+
 **\*\*\*** ATTENTION **\*\*\***
 The content below is outdated and from a time where the backend and frontend were entwined together. It can no longer be called relevant and we need to update it. Not everything is outdated though so if you wonder something you can take a look at it but don't think of it as the ultimate truth.
 
