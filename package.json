@@ -2,7 +2,7 @@
   "name": "nexpo-web",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000",
+  "proxy": "https://nexpo.marfor.io/",
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@ant-design/compatible": "^1.0.8",
