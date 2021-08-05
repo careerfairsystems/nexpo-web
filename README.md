@@ -25,8 +25,6 @@ Development is fairly straightforward but require some dependencies:
 6. Seed the database. This is needed because we need to populate the database with some data so we can log in and access the backend. You can seed the database by running: `docker-compose exec mix run priv/repo/seeds.exs`
 7. Done! You can now use this command to **start** the backend: `docker-compose up -d` and to **stop** the backend: `docker-compose down` and you don't have to repeat all the steps next time you want to use the backend
 
-At the moment node version 12 is required. For nvm users run nvm use in the terminal to apply the right node version.
-
 ### Set up the frontend
 
 1. Clone this repo: `git clone https://github.com/careerfairsystems/nexpo-web`
@@ -34,6 +32,8 @@ At the moment node version 12 is required. For nvm users run nvm use in the term
 3. Install all the dependencies: `yarn install`
 4. Run the development server: `yarn start`
 5. To stop the server, simply press Ctrl+C. You can access the app on localhost:3000, the first time you access it can be very slow (30+ seconds) but the next will be fast.
+
+At the moment node version 12 is required. (Optional: For nvm users run nvm use in the terminal to apply the right node version.)
 
 **\*\*\*** ATTENTION **\*\*\***
 The content below is outdated and from a time where the backend and frontend were entwined together. It can no longer be called relevant and we need to update it. Not everything is outdated though so if you wonder something you can take a look at it but don't think of it as the ultimate truth.
