@@ -17,12 +17,7 @@ type Props = {
   login: ({ email: string, password: string }) => Promise<void>
 };
 
-const Login = ({
-  location,
-  isLoggedIn,
-  login
-}: Props) : React$Element<any> => {
-
+const Login = ({ location, isLoggedIn, login }: Props): React$Element<any> => {
   // Url that redirected here
   const { from } = location.state || { from: { pathname: '/' } };
 
@@ -33,22 +28,36 @@ const Login = ({
   return (
     <div className="production-login">
       <HtmlTitle title="Login" />
+      <div>
+        <div
+          style={{
+            marginBottom: '1.5rem',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <h1>Login</h1>
+        </div>
+        <div>
+          <LoginForm onSubmit={login} />
+        </div>
+      </div>
 
-      <h1>Login</h1>
-      <LoginForm onSubmit={login} />
-
-      <br />
-      <br />
-
-      <div className="existing-account">
-        <div>Hard time logging in?</div>
-
+      <div
+        className="existing-account"
+        style={{
+          display: 'grid',
+          gridTemplateRows: '1fr 1fr 1fr',
+          justifyContent: 'left',
+          marginTop: '1rem'
+        }}
+      >
+        <span>Hard time logging in?</span>
         <Link to="/signup">Sign up</Link>
-        <br />
         <Link to="/forgot-password">Forgot password</Link>
       </div>
     </div>
   );
-}
+};
 
 export default Login;

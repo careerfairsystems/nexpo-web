@@ -12,6 +12,7 @@ type Props = {
   handleSubmit: () => Promise<void>,
   submitting: boolean
 };
+
 const ProductionLoginForm = ({ handleSubmit, submitting }: Props) => (
   <Form onSubmit={handleSubmit}>
     <Field
@@ -22,6 +23,7 @@ const ProductionLoginForm = ({ handleSubmit, submitting }: Props) => (
       required
       autoFocus
       validate={[required]}
+      style={{ width: '300px', marginLeft: '27px' }}
     />
     <Field
       name="password"
@@ -30,10 +32,13 @@ const ProductionLoginForm = ({ handleSubmit, submitting }: Props) => (
       type="password"
       required
       validate={[required]}
+      style={{ width: '300px' }}
     />
-    <Button disabled={submitting} type="primary" htmlType="submit">
-      Login
-    </Button>
+    <div style={{display:'flex', justifyContent:'center'}}>
+      <Button disabled={submitting} type="primary" htmlType="submit">
+        Login
+      </Button>
+    </div>
   </Form>
 );
 
@@ -41,7 +46,7 @@ const mapStateToProps = state => ({
   formState: state.form.ProductionLoginForm
 });
 
-const stateful : any = connect(mapStateToProps)(
+const stateful: any = connect(mapStateToProps)(
   reduxForm({ form: 'productionLogin' })(ProductionLoginForm)
 );
 
