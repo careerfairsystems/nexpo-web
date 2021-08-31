@@ -5,6 +5,7 @@ import { isNil, map } from 'lodash/fp';
 import { Form } from '@ant-design/compatible';
 import '@ant-design/compatible/assets/index.css';
 import { Button, Input, Select } from 'antd';
+import './StudentForm.css';
 
 import makeField from './helper';
 import UploadButton from './UploadButton';
@@ -32,7 +33,7 @@ type ProgrammeItem = {
   id: number,
   name: string,
   code: string
-}
+};
 
 const renderProgrammeItem = (programme: ProgrammeItem): React$Element<any> => (
   <Select.Option key={programme.id} value={programme.id}>
@@ -62,47 +63,70 @@ const StudentForm = ({
   programmes
 }: Props): React$Element<any> => (
   <Form onSubmit={handleSubmit}>
-    <Field name="year" label="Graduation Year" component={TextInput} />
-    <Field
-      name="programme"
-      label="Educational programme:"
-      showSearch
-      format={null}
-      optionFilterProp="children"
-      component={FieldSelect}
+    <div className="student-input-component">
+      Graduation Year:
+      <Field
+        name="year"
+        component={TextInput}
+        style={{ width: '75px' }}
+        placeholder="..."
+      />
+    </div>
+    <div className="student-input-component">
+      Educational programme:
+      <Field
+        name="programme"
+        showSearch
+        format={null}
+        optionFilterProp="children"
+        component={FieldSelect}
+        style={{ width: '125px' }}
+        placeholder="Choose..."
+      >
+        {map(renderProgrammeItem, programmes)}
+      </Field>
+    </div>
+    <div className="student-input-component">
+      Master’s Degree
+      <Field
+        name="master"
+        component={TextInput}
+        style={{ width: '650px' }}
+        placeholder="Type here..."
+      />
+    </div>
+    <div className="student-input-component">
+      Interests:
+      <Field
+        name="interests"
+        mode="multiple"
+        format={null}
+        optionFilterProp="children"
+        component={FieldSelect}
+        style={{ width: '650px' }}
+        placeholder="Choose from the list..."
+      >
+        {map(renderInterestItem, interestsValues)}
+      </Field>
+    </div>
+    <div className="student-input-component">
+      LinkedIn URL:
+      <Field name="linkedIn" component={TextInput} style={{ width: '450px' }} placeholder="Type here..."/>
+    </div>
+    <div className="student-input-component">
+      Swedish CV:
+      <Field name="resumeSvUrl" accept=".pdf" component={UploadButton} />
+    </div>
+    <div className="student-input-component">
+      English CV:
+      <Field name="resumeEnUrl" accept=".pdf" component={UploadButton} />
+    </div>
+    <Button
+      type="primary"
+      disabled={pristine}
+      htmlType="submit"
+      style={{ marginTop: '0.75rem' }}
     >
-      {map(renderProgrammeItem, programmes)}
-    </Field>
-    <Field
-      name="interests"
-      label="Interests:"
-      mode="multiple"
-      format={null}
-      optionFilterProp="children"
-      component={FieldSelect}
-    >
-      {map(renderInterestItem, interestsValues)}
-    </Field>
-    <Field
-      name="master"
-      label="Master's specialization:"
-      component={TextInput}
-    />
-    <Field name="linkedIn" label="LinkedIn URL:" component={TextInput} />
-    <Field
-      name="resumeSvUrl"
-      label="Swedish CV"
-      accept=".pdf"
-      component={UploadButton}
-    />
-    <Field
-      name="resumeEnUrl"
-      label="English CV"
-      accept=".pdf"
-      component={UploadButton}
-    />
-
-    <Button disabled={pristine} htmlType="submit">
       Submit Student Information
     </Button>
   </Form>
