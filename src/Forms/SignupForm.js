@@ -14,18 +14,28 @@ type Props = {
 };
 const SignupForm = ({ handleSubmit, submitting }: Props) => (
   <Form onSubmit={handleSubmit}>
-    <Field
-      name="email"
-      label="Email"
-      component={TextInput}
-      type="email"
-      required
-      autoFocus
-      validate={[required]}
-    />
-    <Button disabled={submitting} type="primary" htmlType="submit">
-      Sign Up
-    </Button>
+    <div style={{marginTop:'1.5rem'}}>
+      <Field
+        name="email"
+        label="Email"
+        component={TextInput}
+        type="email"
+        required
+        autoFocus
+        validate={[required]}
+      />
+    </div>
+
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <Button
+        style={{ marginTop: '1.5rem' }}
+        disabled={submitting}
+        type="primary"
+        htmlType="submit"
+      >
+        Sign Up
+      </Button>
+    </div>
   </Form>
 );
 
@@ -33,6 +43,8 @@ const mapStateToProps = state => ({
   formState: state.form.SignupForm
 });
 
-const stateful : any = connect(mapStateToProps)(reduxForm({ form: 'signup' })(SignupForm));
+const stateful: any = connect(mapStateToProps)(
+  reduxForm({ form: 'signup' })(SignupForm)
+);
 
 export default stateful;

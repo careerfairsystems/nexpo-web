@@ -36,7 +36,7 @@ const Login = ({ location, isLoggedIn, login }: Props): React$Element<any> => {
             justifyContent: 'center'
           }}
         >
-          <h1>Login</h1>
+          <h1 style={{fontSize:'22px'}}>Login</h1>
         </div>
         <div>
           <LoginForm onSubmit={login} />

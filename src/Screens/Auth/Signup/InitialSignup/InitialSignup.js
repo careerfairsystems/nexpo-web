@@ -32,8 +32,8 @@ const InitialSignup = ({finished} : Props) : React$Element<any> => {
   }
   return (
     <div className="initial-signup">
-      <h1>Sign Up</h1>
-      <h2>Please enter your email</h2>
+      <h1 style={{fontSize:'22px'}}>Sign Up</h1>
+      <h1>Please enter your email</h1>
       <SignupForm onSubmit={signup} />
       <br />
       <br />
