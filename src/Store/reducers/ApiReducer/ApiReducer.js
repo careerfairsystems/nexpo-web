@@ -17,6 +17,7 @@ import ApiReducerForgotPassword from './ApiReducerForgotPassword';
 import ApiReducerLogin from './ApiReducerLogin';
 import ApiReducerVerifyForgotPassword from './ApiReducerVerifyForgotPassword';
 import ApiReducerReplacePassword from './ApiReducerReplacePassword';
+import ApiReducerEvents from './ApiReducerEvents';
 
 export type ApiStatus = {
   fetching: boolean,
@@ -84,7 +85,8 @@ export const ApiReducer = combineReducers({
   forgotPassword: ApiReducerForgotPassword,
   login: ApiReducerLogin,
   verifyForgotPasswordKey: ApiReducerVerifyForgotPassword,
-  replacePassword: ApiReducerReplacePassword
+  replacePassword: ApiReducerReplacePassword,
+  events: ApiReducerEvents,
 });
 
 export default ApiReducer;

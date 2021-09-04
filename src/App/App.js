@@ -6,6 +6,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { startCase } from 'lodash/fp';
 import Home from '../Screens/Home';
 import Info from '../Screens/Info';
+import Events from '../Screens/Events';
 import AdminHome from '../Screens/Admin/AdminHome';
 import Categories from '../Screens/Admin/Categories';
 import Category from '../Screens/Admin/Category';
@@ -99,6 +100,7 @@ const privateRoutes: Array<RouteItem> = [
 const routes = (
   <Switch>
     <Route path="/info" component={Info} />
+    <Route path="/events" component={Events} />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={Signup} />
     <Route path="/forgot-password" component={ForgotPassword} />
@@ -320,6 +322,9 @@ const App = ({
                 })
               ]
             })}
+            <Menu.Item key='/events'>
+              Events
+            </Menu.Item>
             {isLoggedIn ? loggedInMenuItem() : loggedOutMenuItem()}
           </Menu>
         </Header>
