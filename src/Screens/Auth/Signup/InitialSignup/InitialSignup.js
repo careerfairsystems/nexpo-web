@@ -11,11 +11,10 @@ import SuccessMessage from '../../../../Components/SuccessMessage';
 
 type Props = {
   finished?: boolean
-}
+};
 
-const InitialSignup = ({finished} : Props) : React$Element<any> => {
-
-  const [state, setState] = useState({finished});
+const InitialSignup = ({ finished }: Props): React$Element<any> => {
+  const [state, setState] = useState({ finished });
 
   const signup = (values: { email: string }) => {
     const { email } = values;
@@ -32,18 +31,16 @@ const InitialSignup = ({finished} : Props) : React$Element<any> => {
   }
   return (
     <div className="initial-signup">
-      <h1 style={{fontSize:'22px'}}>Sign Up</h1>
+      <h1 style={{ fontSize: '22px' }}>Sign Up</h1>
       <h1>Please enter your email</h1>
       <SignupForm onSubmit={signup} />
-      <br />
-      <br />
-      <div className="existing-account">
+      <div style={{ marginTop: '3rem' }}>
         Already have an account?
         <br />
         <Link to="/login">Log in</Link>
       </div>
     </div>
   );
-}
+};
 
 export default InitialSignup;
