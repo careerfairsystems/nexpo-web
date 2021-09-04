@@ -17,7 +17,7 @@ type Props = {
 const ProductionLoginForm = ({ handleSubmit, submitting }: Props) => (
   <Form onSubmit={handleSubmit} className="login-input-form">
     <div className="login-input-component">
-      <span style={{textAlign:'center'}}>Email:</span>
+      <span style={{textAlign:'left'}}>Email:</span>
       <Field
         name="email"
         component={TextInput}

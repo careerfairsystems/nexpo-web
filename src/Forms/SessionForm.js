@@ -45,6 +45,7 @@ const StudentSessionForm = ({
       optionFilterProp="children"
       validate={requiredCompany}
       component={InputSelect}
+      style={{width:'250px'}}
     >
       {map(companyOption, availableCompanies)}
     </Field>
