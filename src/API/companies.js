@@ -58,7 +58,7 @@ export default {
    * Updates a company
    */
   update: (id: string, data: {}): Promise<any> =>
-    authFormPut(`/api/companies/${id}`, data).then(handleHttpResponse),
+    authFormPut(`/api/companies/${id}`, {company: data}).then(handleHttpResponse),
 
   /**
    * Delete a company
