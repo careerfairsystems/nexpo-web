@@ -136,8 +136,10 @@ const CompanyShow = ({
     return 'blue';
   };
 
-  const studentInfo = ({ student: { user } }) => (
-    <>
+  const studentInfo = ({ student}) => {
+    if (!student) return null
+    const {user} = student;
+    return <>
       Name: {[user.firstName, user.lastName].join(' ')}
       <br />
       Email: {user.email}
@@ -145,7 +147,7 @@ const CompanyShow = ({
       Phone Number: {user.phoneNumber}
       <br />
     </>
-  );
+  };
 
   const options = map(
     s => (

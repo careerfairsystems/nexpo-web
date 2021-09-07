@@ -73,7 +73,7 @@ const CompanyEdit = ({
       <div>
         <h1>{company.name}</h1>
         <CompanyForm
-          onSubmit={updateCompany}
+          onSubmit={(data, junk) => updateCompany(data.id, data)}
           onSubmitSuccess={onSuccess}
           initialValues={company}
         />
