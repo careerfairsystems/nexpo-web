@@ -16,8 +16,8 @@ const UploadButton = ({ accept = '', value, onChange }: Props) => (
     accept={accept}
     fileList={isEmpty(value) ? [] : [value]}
     beforeUpload={file => {
-      if (file.size < 1e6) onChange(file);
-      else message.warning('Cannot upload files larger than 1MB');
+      if (file.size < 5e6) onChange(file);
+      else message.warning('Cannot upload files larger than 5MB');
       return false;
     }}
     onRemove={() => onChange(null)}
