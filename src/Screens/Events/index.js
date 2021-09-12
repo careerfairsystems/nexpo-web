@@ -4,17 +4,17 @@ import { Actions } from '../../Store';
 import type { State } from '../../Store/reducers';
 
 const mapStateToProps = (state: State) => ({
-  users: state.entities.users,
-  fetching: state.api.users.fetching
+  events: state.entities.events,
+  fetching: state.api.events.fetching
 });
 
 const mapDispatchToProps = {
-  getAllUsers: Actions.users.getAllUsers,
+  getAllEvents: Actions.events.getAllEvents,
 };
 
 const stateful : any = connect(mapStateToProps, mapDispatchToProps)(Events);
 
-export default stateful;
+export default stateful;  
 
 /*
 import Events from './Events';

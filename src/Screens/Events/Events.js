@@ -9,6 +9,68 @@ import FilterSearch, { FilterIcon } from '../../Components/FilterSearch';
 
 
 type Props = {
+  events?: {},
+  fetching: boolean,
+  getAllEvents: () => Promise<void>
+};
+
+const Events = ({ events, fetching, getAllEvents }: Props): React$Element<any> => {
+  useEffect(() => {
+    getAllEvents();
+  }, [getAllEvents]);
+
+  if (fetching) {
+    return <LoadingSpinner />;
+  }
+    //console.log(Events);
+  const renderEvents = () => {
+    const eventColumns = [
+      
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name'
+      }
+      ,
+      {
+        title: 'Date',
+        dataIndex: 'date',
+        key: 'date'
+      },
+      {
+        title: 'Start',
+        dataIndex: 'start',
+        key: 'start'
+      },
+      {
+        title: 'Location',
+        dataIndex: 'lastName',
+        key: 'lastName'
+      },
+        
+    ];
+
+  const tempEvents = events || {};
+  return (
+    <div>
+      <HtmlTitle title='Events' />
+
+      <h1>Welcome to Events</h1>
+
+      <Table
+        columns={eventColumns}
+        dataSource={Object.keys(tempEvents).map(i => ({
+          ...tempEvents[i],
+          key: i
+        }))}
+      />
+    </div>
+  );
+  }
+  return renderEvents();
+}
+/* 
+type Props = {
   users?: {},
   fetching: boolean,
   getAllUsers: () => Promise<void>
@@ -83,5 +145,10 @@ const Events = ({ users, fetching, getAllUsers }: Props): React$Element<any> => 
   }
   return renderUsers();
 }
+*/
+
+Events.defaultProps = {
+  events: undefined
+};
 
 export default Events;
