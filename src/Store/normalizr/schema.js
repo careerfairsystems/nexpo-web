@@ -137,6 +137,7 @@ const companySchema = () : any => {
 const companiesSchema = () : any => [companySchema()];
 
 const eventSchema = () : any => {
+  const event = entity('events', {});
   return event;
 }
 const eventsSchema = () : any => [eventSchema()];

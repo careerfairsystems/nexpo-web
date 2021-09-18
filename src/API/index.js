@@ -9,6 +9,7 @@ import session from './session';
 import statistics from './statistics';
 import studentSessions from './studentSessions';
 import users from './users';
+import events from './events';
 
 export default {
   categories,
@@ -21,5 +22,6 @@ export default {
   session,
   statistics,
   studentSessions,
-  users
+  users,
+  events,
 };

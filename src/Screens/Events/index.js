@@ -14,7 +14,7 @@ const mapDispatchToProps = {
 
 const stateful : any = connect(mapStateToProps, mapDispatchToProps)(Events);
 
-export default stateful;  
+export default stateful;
 
 /*
 import Events from './Events';
