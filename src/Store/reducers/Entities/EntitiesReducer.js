@@ -59,6 +59,17 @@ type UsersActions = {
   users: Array<{}>
 };
 
+type EventActions = {
+  type: 
+    | typeof actionTypes.FETCH_EVENTS_SUCCESS,
+  events: {}
+};
+
+type EventsActions = {
+  type: typeof actionTypes.FETCH_USERS_SUCCESS,
+  events: Array<{}>
+}
+
 type UserActions = {
   type:
     | typeof actionTypes.FETCH_USER_SUCCESS
@@ -161,7 +172,9 @@ export type EntitiesAction =
   | CurrentUserDelete
   | CurrentStudentActions
   | CurrentCompanyActions
-  | StatisticsActions;
+  | StatisticsActions
+  | EventsActions
+  | EventActions;
 
 export type EntitiesState = {
   categories: {},
@@ -173,6 +186,7 @@ export type EntitiesState = {
   programmes: {},
   roles: {},
   users: {},
+  events: {},
   statistics: {},
   studentSessions: {},
   studentSessionTimeSlots: {},
@@ -190,6 +204,7 @@ const initialState = {
   programmes: {},
   roles: {},
   users: {},
+  events: {},
   statistics: {},
   studentSessions: {},
   studentSessionTimeSlots: {},
@@ -239,6 +254,11 @@ export const EntitiesReducer = (
     }
     case actionTypes.FETCH_USERS_SUCCESS: {
       normalized = normalize(action.users, Schema.usersSchema());
+      return mergeWith(handleMerge, state, normalized.entities);
+    }
+    case actionTypes.FETCH_EVENT_SUCCESS: 
+    case actionTypes.FETCH_EVENTS_SUCCESS: {
+      normalized = normalize(action.events, Schema.eventsSchema());
       return mergeWith(handleMerge, state, normalized.entities);
     }
     case actionTypes.FETCH_USER_SUCCESS:

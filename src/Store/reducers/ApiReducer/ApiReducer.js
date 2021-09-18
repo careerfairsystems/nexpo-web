@@ -37,6 +37,7 @@ export type ApiState = {
   studentSession: ApiStatus,
   forgotPassword: ApiStatus,
   login: ApiStatus,
+  events: ApiStatus,
   replacePassword: ApiStatus & {
     errors: {
       password?: string[],

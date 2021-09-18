@@ -25,10 +25,10 @@ export const getAllEventsFailure = () : any => {
 export const getAllEvents = () : any => {
   return (dispatch: Dispatch<{ type: string }>) => {
     dispatch(getAllEventsIsLoading());
-    return API.users
+    return API.events
       .getAll()
-      .then(users => {
-        dispatch(getAllEventsSuccess(users.data));
+      .then(events => {
+        dispatch(getAllEventsSuccess(events.data));
       })
       .catch(() => {
         dispatch(getAllEventsFailure());

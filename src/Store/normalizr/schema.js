@@ -104,6 +104,7 @@ const categoriesSchema = () : any => {
   return [category];
 };
 
+
 const companySchema = () : any => {
   const user = entity('users');
   const entry = entity('entries', {}, { model: belongsTo('company') });
@@ -134,6 +135,12 @@ const companySchema = () : any => {
 };
 
 const companiesSchema = () : any => [companySchema()];
+
+const eventSchema = () : any => {
+  return event;
+}
+const eventsSchema = () : any => [eventSchema()];
+
 
 const roleSchema = () : any => {
   const user = entity('users', {}, { model: belongsTo('role') });
@@ -192,6 +199,8 @@ const userSchema = () : any => {
   return user;
 };
 
+
+
 const usersSchema = () : any => [userSchema()];
 
 export default {
@@ -214,5 +223,7 @@ export default {
   userSchema,
   usersSchema,
   studentSchema,
-  studentsSchema
+  studentsSchema,
+  eventsSchema,
+  eventSchema
 };

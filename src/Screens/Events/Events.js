@@ -6,6 +6,7 @@ import InvisibleLink from '../../Components/InvisibleLink';
 import LoadingSpinner from '../../Components/LoadingSpinner';
 import HtmlTitle from '../../Components/HtmlTitle';
 import FilterSearch, { FilterIcon } from '../../Components/FilterSearch';
+import API from '../../API';
 
 
 type Props = {
@@ -16,7 +17,8 @@ type Props = {
 
 const Events = ({ events, fetching, getAllEvents }: Props): React$Element<any> => {
   useEffect(() => {
-    getAllEvents();
+      API.events.getAll();
+ //   getAllEvents();
   }, [getAllEvents]);
 
   if (fetching) {
@@ -44,8 +46,8 @@ const Events = ({ events, fetching, getAllEvents }: Props): React$Element<any> =
       },
       {
         title: 'Location',
-        dataIndex: 'lastName',
-        key: 'lastName'
+        dataIndex: 'location',
+        key: 'location'
       },
         
     ];
