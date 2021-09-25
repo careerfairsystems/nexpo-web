@@ -40,7 +40,7 @@ const SessionApplications = ({
   deleteStudentSessionAppl,
   fetching,
   updateStudentSessionAppl
-}: Props) : React$Element<any> => {
+}: Props): React$Element<any> => {
   const [state, setState] = useState(DefaultState);
 
   useEffect(() => {

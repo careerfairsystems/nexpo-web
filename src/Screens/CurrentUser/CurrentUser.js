@@ -101,14 +101,14 @@ const CurrentUser = ({
         alt="User Profile Image"
       />
 
-      <h1 style={{ fontSize: '48px', paddingTop:'1.25rem'}}>
+      <h1 style={{ fontSize: '48px', marginTop: '1.25rem' }}>
         {firstName} {lastName}
       </h1>
 
       <h2>User Information</h2>
 
-      <div className="user-input-component">
-        <span style={{marginBottom:'0px'}}>Email:</span>
+      <div className="user-email">
+        <span>Email:</span>
         {email}
       </div>
 

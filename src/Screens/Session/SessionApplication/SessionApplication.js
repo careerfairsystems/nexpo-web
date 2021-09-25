@@ -32,7 +32,7 @@ const SessionApplication = ({
   getAllProgrammes,
   createStudentSessionAppl,
   resetForm
-}: Props) : React$Element<any> => {
+}: Props): React$Element<any> => {
   useEffect(() => {
     getAllCompanies();
     getAllProgrammes();
@@ -72,7 +72,6 @@ const SessionApplication = ({
         You can update your information
         <InvisibleLink to="/user"> here</InvisibleLink>
       </h4>
-      <br />
 
       {enabled ? (
         <SessionForm onSubmit={createStudentSessionApplication} />

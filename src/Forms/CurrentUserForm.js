@@ -20,7 +20,7 @@ type Props = {
 
 const CurrentUserForm = ({ handleSubmit, pristine, submitting }: Props) => (
   <Form onSubmit={handleSubmit}>
-    <div className="user-input-component">
+    <div className="user-input">
       Phone Number:
       <Field
         name="phoneNumber"
@@ -30,8 +30,7 @@ const CurrentUserForm = ({ handleSubmit, pristine, submitting }: Props) => (
         placeholder="Enter your number..."
       />
     </div>
-
-    <div className="user-input-component">
+    <div className="user-input">
       Profile Image:
       <Field
         name="profileImage"
@@ -39,7 +38,6 @@ const CurrentUserForm = ({ handleSubmit, pristine, submitting }: Props) => (
         component={UploadButton}
       />
     </div>
-
     <Button
       type="primary"
       disabled={pristine || submitting}

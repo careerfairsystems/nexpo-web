@@ -63,72 +63,79 @@ const StudentForm = ({
   programmes
 }: Props): React$Element<any> => (
   <Form onSubmit={handleSubmit}>
-    <div className="student-input-component">
-      Graduation Year:
-      <Field
-        name="year"
-        component={TextInput}
-        style={{ width: '75px' }}
-        placeholder="..."
-      />
-    </div>
-    <div className="student-input-component">
-      Educational programme:
-      <Field
-        name="programme"
-        showSearch
-        format={null}
-        optionFilterProp="children"
-        component={FieldSelect}
-        style={{ width: '125px' }}
-        placeholder="Choose..."
+    <section className="student-section">
+      <div className="student-input-small">
+        Graduation Year:
+        <Field
+          name="year"
+          component={TextInput}
+          className="student-graduation"
+          placeholder="Type here..."
+        />
+      </div>
+      <div className="student-input-small">
+        Educational programme:
+        <Field
+          name="programme"
+          showSearch
+          format={null}
+          className="student-programme"
+          optionFilterProp="children"
+          component={FieldSelect}
+          placeholder="Choose..."
+        >
+          {map(renderProgrammeItem, programmes)}
+        </Field>
+      </div>
+      <div className="student-input-large">
+        Master’s Degree
+        <Field
+          name="master"
+          className="student-degree"
+          component={TextInput}
+          placeholder="Type here..."
+        />
+      </div>
+      <div className="student-input-large">
+        Interests:
+        <Field
+          name="interests"
+          mode="multiple"
+          format={null}
+          optionFilterProp="children"
+          component={FieldSelect}
+          className="student-interests"
+          placeholder="Choose from the list..."
+        >
+          {map(renderInterestItem, interestsValues)}
+        </Field>
+      </div>
+      <div className="student-input-large">
+        LinkedIn URL:
+        <Field
+          name="linkedIn"
+          component={TextInput}
+          className="student-url"
+          placeholder="Type here..."
+        />
+      </div>
+      <div className="student-input-small">
+        Swedish CV:
+        <Field name="resumeSvUrl" accept=".pdf" component={UploadButton} />
+      </div>
+      <div className="student-input-small">
+        English CV:
+        <Field name="resumeEnUrl" accept=".pdf" component={UploadButton} />
+      </div>
+      <Button
+        type="primary"
+        disabled={pristine}
+        htmlType="submit"
+        style={{ marginTop: '0.75rem' }}
       >
-        {map(renderProgrammeItem, programmes)}
-      </Field>
-    </div>
-    <div className="student-input-component">
-      Master’s Degree
-      <Field
-        name="master"
-        component={TextInput}
-        style={{ width: '650px' }}
-        placeholder="Type here..."
-      />
-    </div>
-    <div className="student-input-component">
-      Interests:
-      <Field
-        name="interests"
-        mode="multiple"
-        format={null}
-        optionFilterProp="children"
-        component={FieldSelect}
-        style={{ width: '650px' }}
-        placeholder="Choose from the list..."
-      >
-        {map(renderInterestItem, interestsValues)}
-      </Field>
-    </div>
-    <div className="student-input-component">
-      LinkedIn URL:
-      <Field name="linkedIn" component={TextInput} style={{ width: '450px' }} placeholder="Type here..."/>
-    </div>
-    <div className="student-input-component">
-      Swedish CV:
-      <Field name="resumeSvUrl" accept=".pdf" component={UploadButton} />
-    </div>
-    <div className="student-input-component">
-      English CV:
-      <Field name="resumeEnUrl" accept=".pdf" component={UploadButton} />
-    </div>
-    <Button
-      type="primary"
-      disabled={pristine}
-      htmlType="submit"
-      style={{ marginTop: '0.75rem' }}
-    >
-      Submit Student Information
-    </Button>
+        Submit Student Information
+      </Button>
+    </section>
   </Form>
 );
 
