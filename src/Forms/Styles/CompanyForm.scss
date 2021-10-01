@@ -1,0 +1,42 @@
+@media (min-width: 0px) {
+  .CompanyForm {
+    display: grid;
+    row-gap: 1rem;
+
+    .field {
+      width: 100%;
+    }
+  }
+  .CompanyForm-time-slots {
+    margin-bottom: 2rem;
+  }
+
+  .student-session-time-slots {
+    .add {
+      display: grid;
+      row-gap: 1rem;
+      margin-bottom: 2.5rem;
+
+      .time-length {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+
+    .table {
+      .button {
+        display:flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .CompanyForm {
+    .field {
+      width: 50%;
+    }
+  }
+}

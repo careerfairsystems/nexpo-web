@@ -3,7 +3,7 @@ import { zipWith, sortBy, flow } from 'lodash/fp';
 import { Table, Input, Checkbox, Button } from 'antd';
 import { Field } from 'redux-form';
 import moment from 'moment';
-import type { FieldProps } from 'redux-form/es/FieldProps.types.js.flow'
+import type { FieldProps } from 'redux-form/es/FieldProps.types.js.flow';
 import makeField, { required } from './helper';
 import DatePicker from '../Components/DatePicker';
 import TimePicker from '../Components/TimePicker';
@@ -92,6 +92,7 @@ const columns = [
       <Field
         name={`${timeSlot}.location`}
         type="text"
+        placeholder="Enter location..."
         component={TextInput}
         validate={required}
         required
@@ -112,7 +113,11 @@ const columns = [
             Mark for Delete
           </Field>
         )}
-        {!id && <Button onClick={() => fields.remove(index)}>Delete</Button>}
+        {!id && (
+          <Button type="primary" danger onClick={() => fields.remove(index)}>
+            Delete
+          </Button>
+        )}
       </>
     )
   }
@@ -123,59 +128,74 @@ const DynamicTimeSlots = ({
   fieldValues
 }: Props): React$Element<any> => (
   <div className="student-session-time-slots">
-    <Field name="date" label="Date" component={MyDatePicker} />
-    <Field name="startTime" label="Start Time" component={MyTimePicker} />
-    <Field name="endTime" label="End Time" component={MyTimePicker} />
-    <Field name="location" type="text" component={TextInput} label="Location" />
-    <br />
-    <Field
-      name="timeslotLength"
-      type="number"
-      defaultValue={20}
-      component={TextInput}
-      label="Timeslot length"
-      addonAfter="minutes"
-    />
-    <Field
-      name="breakLength"
-      type="number"
-      component={TextInput}
-      label="Break length"
-      addonAfter="minutes"
-    />
-    <br />
-    <Button
-      type="secondary"
-      onClick={() => generateTimeSlots(fields, fieldValues)}
-    >
-      Generate
-    </Button>
-    <br />
-    <br />
-    <Button type="primary" onClick={() => fields.push({ key: fields.length })}>
-      Add a row
-    </Button>
-    <br />
-    <br />
-    <Table
-      size="small"
-      dataSource={flow(
-        zipWith(
-          (field, obj: {| id: number |}) => ({
-            field,
-            key: obj.id,
-            ...obj,
-            fields
-          }),
-          fields.map(i => i)
-        ),
-        sortBy('start')
-        // fields.getAll()
-        // $FlowIgnore
-      )(fields.getAll())}Props
-      columns={columns}
-      locale={{ emptyText: 'No Student Time Slots' }}
-    />
+    <div className="add">
+      <div>
+        <Field name="date" label="Date" component={MyDatePicker} />
+        <Field name="startTime" label="Start Time" component={MyTimePicker} />
+        <Field name="endTime" label="End Time" component={MyTimePicker} />
+        <Field
+          name="location"
+          type="text"
+          placeholder="Enter location..."
+          component={TextInput}
+          label="Location"
+        />
+      </div>
+      <div className="time-length">
+        <Field
+          name="timeslotLength"
+          type="number"
+          defaultValue={20}
+          component={TextInput}
+          label="Timeslot length"
+          addonAfter="minutes"
+        />
+        <Field
+          name="breakLength"
+          type="number"
+          component={TextInput}
+          label="Break length"
+          addonAfter="minutes"
+        />
+        <Button
+          style={{ marginBottom: '1px' }}
+          type="secondary"
+          onClick={() => generateTimeSlots(fields, fieldValues)}
+        >
+          Generate Time Slots
+        </Button>
+      </div>
+    </div>
+    <section className="table">
+      <Table
+        size="small"
+        dataSource={flow(
+          zipWith(
+            (field, obj: {| id: number |}) => ({
+              field,
+              key: obj.id,
+              ...obj,
+              fields
+            }),
+            fields.map(i => i)
+          ),
+          sortBy('start')
+          // fields.getAll()
+          // $FlowIgnore
+        )(fields.getAll())}
+        Props
+        columns={columns}
+        locale={{ emptyText: 'No Student Time Slots' }}
+      />
+      <div className="button">
+        <Button
+          type="primary"
+          onClick={() => fields.push({ key: fields.length })}
+        >
+          Add a time slot
+        </Button>
+      </div>
+    </section>
   </div>
 );
 

@@ -1,0 +1,53 @@
+@media (min-width: 0px) {
+  .student-section {
+    width: 100%;
+  }
+
+  .student-input-small {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+
+  .student-input-large {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+
+  .student-graduation,
+  .student-programme {
+    width: 150px !important;
+  }
+
+  .student-degree,
+  .student-interests,
+  .student-url {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .student-input-small {
+    grid-template-columns: 12rem 1fr;
+    grid-template-rows: none;
+  }
+
+  .student-input-large {
+    grid-template-rows: none;
+    grid-template-columns: 12rem 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .student-degree,
+  .student-interests,
+  .student-url {
+    width: 50% !important;
+  }
+}

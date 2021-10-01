@@ -1,0 +1,23 @@
+@media (min-width: 0px) {
+  .login-input-component {
+    display: grid;
+    grid-template-rows: 0.75 1fr;
+    justify-content: center;
+    margin-bottom: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  .login-input-form {
+    display: grid;
+  }
+}
+
+@media (min-width: 762px) {
+  .login-input-component {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    align-items: center;
+    margin-bottom: 0;
+    padding-bottom: 1.5rem;
+  }
+}

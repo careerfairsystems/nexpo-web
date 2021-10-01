@@ -8,7 +8,7 @@ import { Button, Input } from 'antd';
 import makeField from './helper';
 import UploadButton from './UploadButton';
 
-import './CurrentUserForm.css';
+import './Styles/CurrentUserForm.scss';
 
 const TextInput = makeField(Input);
 

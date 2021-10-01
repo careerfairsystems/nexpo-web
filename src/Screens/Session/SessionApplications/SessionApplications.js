@@ -4,7 +4,7 @@ import { List, Avatar, Popconfirm, Button } from 'antd';
 import LoadingSpinner from '../../../Components/LoadingSpinner';
 import HtmlTitle from '../../../Components/HtmlTitle';
 import UpdateSessionApplicationForm from '../../../Forms/UpdateSessionApplicationForm';
-import '../Session.css';
+import '../Session.scss';
 
 type Company = {
   name: string,

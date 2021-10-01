@@ -10,7 +10,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { setupErrorTracking } from './Util/ErrorTracking';
 
 import App from './App';
-import './index.css';
+import './index.scss';
 
 import { getStore, Actions } from './Store';
 

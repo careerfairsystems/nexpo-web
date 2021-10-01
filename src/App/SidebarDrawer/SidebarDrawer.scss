@@ -1,0 +1,21 @@
+.menu-button .ant-btn-primary {
+  margin-left: 1.5rem;
+  width: 35px;
+  height: 35px;
+  background: #00bdf2;
+  border-color: #00bdf2;
+}
+
+@media (min-width: 600px) {
+  .menu-button {
+    display: none !important;
+  }
+}
+
+.button {
+  color: #777777;
+}
+
+.drawer-item {
+  height: 3rem !important;
+}

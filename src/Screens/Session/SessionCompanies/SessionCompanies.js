@@ -5,7 +5,7 @@ import { toExternal } from '../../../Util/URLHelper';
 import LoadingSpinner from '../../../Components/LoadingSpinner';
 import HtmlTitle from '../../../Components/HtmlTitle';
 import InvisibleLink from '../../../Components/InvisibleLink';
-import '../Session.css';
+import '../Session.scss';
 
 type Company = {
   name: string,

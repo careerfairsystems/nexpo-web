@@ -1,6 +1,6 @@
 import React from 'react';
 import InvisibleLink from '../../../Components/InvisibleLink';
-import '../Session.css';
+import '../Session.scss';
 
 const SessionHome = (): any => {
   return (

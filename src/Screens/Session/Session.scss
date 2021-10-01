@@ -1,16 +1,32 @@
-.session-applications,
-.session-companies,
-.sessions-approved {
-  .ant-list-item-content,
-  .ant-list-item-meta-description {
-    white-space: pre-wrap;
+@media (min-width: 0px) {
+  .session-applications,
+  .session-companies,
+  .sessions-approved {
+    .ant-list-item-content,
+    .ant-list-item-meta-description {
+      white-space: pre-wrap;
+    }
+    .anticon {
+      color: #4caf50;
+      font-size: 50px;
+    }
   }
-  .anticon {
-    color: #4caf50;
-    font-size: 50px;
+å
+  .sessionButton {
+    margin-bottom: 3vh;
+  }
+
+  .session-companies .ant-list-vertical .ant-list-item-main {
+    text-align: center;
+  }
+
+  .ant-list-vertical .ant-list-item-action > li {
+    padding-right: 0px !important;
   }
 }
 
-.sessionButton {
-  margin-bottom: 3vh;
+@media (min-width: 430px) {
+  .session-companies .ant-list-vertical .ant-list-item-main {
+    text-align: left;
+  }
 }

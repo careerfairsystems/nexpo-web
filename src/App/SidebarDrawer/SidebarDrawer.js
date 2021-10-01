@@ -2,14 +2,14 @@ import 'antd/dist/antd.css';
 import React, { useState } from 'react';
 import './SidebarDrawer.css';
 import { Menu, Drawer, Button } from 'antd';
-/* import {
+import {
   MenuOutlined,
   MailOutlined,
   CalendarOutlined,
   AppstoreOutlined,
   SettingOutlined,
   LinkOutlined
-} from '@ant-design/icons'; */
+} from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 

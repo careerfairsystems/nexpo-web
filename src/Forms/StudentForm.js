@@ -5,7 +5,7 @@ import { isNil, map } from 'lodash/fp';
 import { Form } from '@ant-design/compatible';
 import '@ant-design/compatible/assets/index.css';
 import { Button, Input, Select } from 'antd';
-import './StudentForm.css';
+import './Styles/StudentForm.scss';
 
 import makeField from './helper';
 import UploadButton from './UploadButton';

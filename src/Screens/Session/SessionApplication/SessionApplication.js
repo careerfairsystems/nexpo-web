@@ -5,7 +5,7 @@ import LoadingSpinner from '../../../Components/LoadingSpinner';
 import HtmlTitle from '../../../Components/HtmlTitle';
 import InvisibleLink from '../../../Components/InvisibleLink';
 import SessionForm from '../../../Forms/SessionForm';
-import '../Session.css';
+import '../Session.scss';
 
 type Application = {
   companyId: number,

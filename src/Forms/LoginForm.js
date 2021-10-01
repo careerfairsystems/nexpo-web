@@ -5,7 +5,7 @@ import { Form } from '@ant-design/compatible';
 import '@ant-design/compatible/assets/index.css';
 import { Button, Input } from 'antd';
 import makeField, { required } from './helper';
-import './LoginForm.css';
+import './Styles/LoginForm.scss';
 
 const TextInput = makeField(Input);
 
@@ -17,7 +17,7 @@ type Props = {
 const ProductionLoginForm = ({ handleSubmit, submitting }: Props) => (
   <Form onSubmit={handleSubmit} className="login-input-form">
     <div className="login-input-component">
-      <span style={{textAlign:'left'}}>Email:</span>
+      <span style={{ textAlign: 'left' }}>Email:</span>
       <Field
         name="email"
         component={TextInput}
@@ -25,7 +25,7 @@ const ProductionLoginForm = ({ handleSubmit, submitting }: Props) => (
         required
         autoFocus
         validate={[required]}
-        style={{ width: '300px'}}
+        style={{ width: '300px' }}
       />
     </div>
 
@@ -41,7 +41,13 @@ const ProductionLoginForm = ({ handleSubmit, submitting }: Props) => (
       />
     </div>
 
-    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem'}}>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginBottom: '1rem'
+      }}
+    >
       <Button disabled={submitting} type="primary" htmlType="submit">
         Login
       </Button>

@@ -42,7 +42,7 @@ const CompanyEdit = ({
   history,
   resetForm,
   updateCompany
-}: Props) : React$Element<any> => {
+}: Props): React$Element<any> => {
   useEffect(() => {
     getCompany(id);
   }, [getCompany, id]);

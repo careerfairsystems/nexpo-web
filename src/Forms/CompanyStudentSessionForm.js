@@ -6,6 +6,7 @@ import { Form } from '@ant-design/compatible';
 import '@ant-design/compatible/assets/index.css';
 import { Button, Select } from 'antd';
 import makeField from './helper';
+import './Styles/CompanyStudentSessionForm.scss';
 
 const FieldSelect = makeField(Select);
 
@@ -19,26 +20,28 @@ const CompanyStudentSessionForm = ({
   options
 }: Props) => (
   <Form onSubmit={handleSubmit} layout="inline">
-    <Field
-      name="studentId"
-      component={FieldSelect}
-      showSearch
-      style={{ width: 200 }}
-      filterOption={(inputValue, option) =>
-        option.props.children
-          .toUpperCase()
-          .indexOf(inputValue.toUpperCase()) !== -1
-      }
-    >
-      {options}
-    </Field>
-    <Button
-      disabled={options.length === 0 || submitting}
-      htmlType="submit"
-      type="primary"
-    >
-      Assign
-    </Button>
+    <div className="assign-student-field">
+      <Field
+        name="studentId"
+        component={FieldSelect}
+        showSearch
+        style={{ width: 200 }}
+        filterOption={(inputValue, option) =>
+          option.props.children
+            .toUpperCase()
+            .indexOf(inputValue.toUpperCase()) !== -1
+        }
+      >
+        {options}
+      </Field>
+      <Button
+        disabled={options.length === 0 || submitting}
+        htmlType="submit"
+        type="primary"
+      >
+        Assign
+      </Button>
+    </div>
   </Form>
 );
 
@@ -47,7 +50,7 @@ const mapStateToProps = (state, props) => ({
   form: `CompanyStudentSession${props.id}`
 });
 
-const stateful : any = connect(mapStateToProps)(
+const stateful: any = connect(mapStateToProps)(
   reduxForm({ enableReinitialize: true })(CompanyStudentSessionForm)
 );
 

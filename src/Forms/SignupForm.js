@@ -5,7 +5,7 @@ import { Form } from '@ant-design/compatible';
 import '@ant-design/compatible/assets/index.css';
 import { Button, Input } from 'antd';
 import makeField, { required } from './helper';
-import './SignupForm.css';
+import './Styles/SignupForm.scss';
 
 const TextInput = makeField(Input);
 
@@ -29,11 +29,7 @@ const SignupForm = ({ handleSubmit, submitting }: Props) => (
     </div>
 
     <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <Button
-        disabled={submitting}
-        type="primary"
-        htmlType="submit"
-      >
+      <Button disabled={submitting} type="primary" htmlType="submit">
         Sign Up
       </Button>
     </div>

@@ -5,7 +5,7 @@ import LoadingSpinner from '../../../Components/LoadingSpinner';
 import HtmlTitle from '../../../Components/HtmlTitle';
 import { toSessionTimeFormat } from '../../../Util/FormatHelper';
 
-import '../Session.css';
+import '../Session.scss';
 
 type Company = {
   name: string,

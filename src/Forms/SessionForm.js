@@ -7,7 +7,7 @@ import '@ant-design/compatible/assets/index.css';
 import { Select, Input, Button } from 'antd';
 import makeField from './helper';
 import { Selectors } from '../Store';
-import './SessionForm.css';
+import './Styles/SessionForm.scss';
 
 const InputSelect = makeField(Select);
 const TextArea = makeField(Input.TextArea);

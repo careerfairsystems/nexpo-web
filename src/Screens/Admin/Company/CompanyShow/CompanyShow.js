@@ -13,7 +13,15 @@ import {
   flatten,
   flow
 } from 'lodash/fp';
-import { List, Avatar, Button, Tag, Popconfirm, Select } from 'antd';
+import {
+  List,
+  Avatar,
+  Button,
+  Tag,
+  Popconfirm,
+  Select,
+  Statistic,
+} from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 import { CSVLink } from 'react-csv';
 import moment from 'moment';
@@ -23,8 +31,9 @@ import { toDayFormat } from '../../../../Util/FormatHelper';
 import InvisibleLink from '../../../../Components/InvisibleLink';
 import HtmlTitle from '../../../../Components/HtmlTitle';
 import LoadingSpinner from '../../../../Components/LoadingSpinner';
-import '../Company.css';
+import './CompanyShow.scss';
 import CompanyStudentSessionForm from '../../../../Forms/CompanyStudentSessionForm';
+
 /**
  * Responsible for rendering a company. Company id is recieved via url
  */
@@ -79,7 +88,7 @@ const CompanyShow = ({
   fetching,
   getCompany,
   match
-}: Props) : React$Element<any> => {
+}: Props): React$Element<any> => {
   useEffect(() => {
     getCompany(id);
   }, [getCompany, id]);
@@ -137,14 +146,22 @@ const CompanyShow = ({
   };
 
   const studentInfo = ({ student: { user } }) => (
-    <>
-      Name: {[user.firstName, user.lastName].join(' ')}
-      <br />
-      Email: {user.email}
-      <br />
-      Phone Number: {user.phoneNumber}
-      <br />
-    </>
+    <section className="fields">
+      <div className="field">
+        <span>Name:</span>
+        <span>
+          {user.firstName} {user.lastName}
+        </span>
+      </div>
+      <div className="field">
+        <span>Email:</span>
+        <span>{user.email}</span>
+      </div>
+      <div className="field">
+        <span>Phone Number:</span>
+        <span>{user.phoneNumber}</span>
+      </div>
+    </section>
   );
 
   const options = map(
@@ -203,29 +220,39 @@ const CompanyShow = ({
   return (
     <div className="company-show-view">
       <HtmlTitle title={name} />
-      <div className="centering">
-        <Avatar
-          src={logoUrl}
-          size={128}
-          shape="square"
-          alt="Company Logotype"
-        />
-        <h1>{name}</h1>
-        <a href={toExternal(website)}>{website}</a>
-      </div>
-      <h4>
-        {`Student Session Application Scored: ${
-          filter('score', studentSessionApplications).length
-        }`}
-      </h4>
-      <p>
-        {name} has student sessions: {showStudentSession()}
-      </p>
-      <p>{description}</p>
-      <h3>Student Session Time Slots</h3>
-      <CSVLink data={data} filename={`${name} - Student Sessions.csv`}>
-        <Button icon={<DownloadOutlined />}>Download Schema</Button>
-      </CSVLink>
+      <section className="company-show">
+        <div className="avatar">
+          <Avatar
+            src={logoUrl}
+            size={128}
+            shape="square"
+            alt="Company Logotype"
+          />
+          <h1>{name}</h1>
+          <a href={toExternal(website)}>{website}</a>
+        </div>
+        <div className="information">
+          <div className="description">
+            <p>{description}</p>
+          </div>
+          <div className="student-sessions">
+            <Statistic
+              title={`${name} has student sessions:`}
+              value={showStudentSession()}
+            />
+            <Statistic
+              title="Student Session Application Scored"
+              value={filter('score', studentSessionApplications).length}
+            />
+          </div>
+          <div>
+            <h3>Student Session Time Slots</h3>
+            <CSVLink data={data} filename={`${name} - Student Sessions.csv`}>
+              <Button icon={<DownloadOutlined />}>Download Schema</Button>
+            </CSVLink>
+          </div>
+        </div>
+      </section>
       <br />
       <br />
       <List
@@ -244,25 +271,29 @@ const CompanyShow = ({
             actions={[
               <>
                 {studentSession ? (
-                  <Popconfirm
-                    title={`Sure to ${'remove'}?`}
-                    onConfirm={() => {
-                      deleteStudentSession(studentSession.id);
-                    }}
-                  >
-                    <Button onClick={() => null} type="danger">
-                      Remove
-                    </Button>
-                  </Popconfirm>
+                  <div className="list-buttons">
+                    <Popconfirm
+                      title={`Sure to ${'remove'}?`}
+                      onConfirm={() => {
+                        deleteStudentSession(studentSession.id);
+                      }}
+                    >
+                      <Button onClick={() => null} type="danger">
+                        Remove
+                      </Button>
+                    </Popconfirm>
+                  </div>
                 ) : (
-                  <CompanyStudentSessionForm
-                    options={options}
-                    id={itemId}
-                    onSubmit={values => handleSubmit(values, itemId)}
-                    initialValues={{
-                      studentId: options[0] ? options[0].key : null
-                    }}
-                  />
+                  <div className="list-buttons">
+                    <CompanyStudentSessionForm
+                      options={options}
+                      id={itemId}
+                      onSubmit={values => handleSubmit(values, itemId)}
+                      initialValues={{
+                        studentId: options[0] ? options[0].key : null
+                      }}
+                    />
+                  </div>
                 )}
               </>
             ]}
@@ -274,11 +305,18 @@ const CompanyShow = ({
                 start
               )}\nEnd Time: ${toDayFormat(end)}`}
             />
-            {studentSession && studentInfo(studentSession)}
-            Student:{' '}
-            <Tag color={studentSessionStatusColor(studentSession)}>
-              {studentSessionStatus(studentSession)}
-            </Tag>
+            <div className="company-show-list">
+              {studentSession && studentInfo(studentSession)}
+              <div className="field">
+                <span>Student:</span>
+                <Tag
+                  className="student-confirmation"
+                  color={studentSessionStatusColor(studentSession)}
+                >
+                  {studentSessionStatus(studentSession)}
+                </Tag>
+              </div>
+            </div>
           </List.Item>
         )}
       />
