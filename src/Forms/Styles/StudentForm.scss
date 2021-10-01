@@ -7,8 +7,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     align-items: center;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
+    padding: 0.5rem 0 0.5rem 0;
   }
 
   .student-input-large {
@@ -16,8 +15,7 @@
     grid-template-rows: 1fr 1fr;
     align-items: center;
     margin-bottom: 0;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
+    padding: 0.5rem 0 0.5rem 0;
   }
 
   .student-graduation,
