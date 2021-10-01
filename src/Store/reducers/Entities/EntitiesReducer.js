@@ -25,7 +25,6 @@ type DeleteAction = {
     | typeof actionTypes.DELETE_ROLE_SUCCESS
     | typeof actionTypes.DELETE_USER_SUCCESS
     | typeof actionTypes.DELETE_STUDENT_SESSION_APPL_SUCCESS
-    | typeof actionTypes.DELETE_CATEGORY_SUCCESS
     | typeof actionTypes.DELETE_PROGRAMME_SUCCESS
     | typeof actionTypes.DELETE_MAILTEMPLATE_SUCCESS
     | typeof actionTypes.DELETE_DEADLINE_SUCCESS,
@@ -66,18 +65,7 @@ type UserActions = {
     | typeof actionTypes.PUT_USER_SUCCESS,
   user: {}
 };
-type CategoriesActions = {
-  type: typeof actionTypes.FETCH_CATEGORIES_SUCCESS,
-  categories: Array<{}>
-};
 
-type CategoryActions = {
-  type:
-    | typeof actionTypes.FETCH_CATEGORY_SUCCESS
-    | typeof actionTypes.POST_CATEGORY_SUCCESS
-    | typeof actionTypes.PUT_CATEGORY_SUCCESS,
-  category: {}
-};
 type ProgrammesActions = {
   type: typeof actionTypes.FETCH_PROGRAMMES_SUCCESS,
   programmes: Array<{}>
@@ -150,7 +138,6 @@ export type EntitiesAction =
   | CreateStudentSessionAppl
   | UpdateStudentSessionAppl
   | CategoriesActions
-  | CategoryActions
   | ProgrammesActions
   | ProgrammeActions
   | MailTemplatesActions
@@ -299,19 +286,6 @@ export const EntitiesReducer = (
         studentSessionApplications: omit([`${action.id}`], appls),
         students
       };
-    }
-    case actionTypes.FETCH_CATEGORIES_SUCCESS: {
-      normalized = normalize(action.categories, Schema.categoriesSchema());
-      return mergeWith(handleMerge, state, normalized.entities);
-    }
-    case actionTypes.FETCH_CATEGORY_SUCCESS:
-    case actionTypes.POST_CATEGORY_SUCCESS:
-    case actionTypes.PUT_CATEGORY_SUCCESS: {
-      normalized = normalize(action.category, Schema.categorySchema());
-      return mergeWith(handleMerge, state, normalized.entities);
-    }
-    case actionTypes.DELETE_CATEGORY_SUCCESS: {
-      return { ...state, categories: omit([`${action.id}`], state.categories) };
     }
     case actionTypes.FETCH_PROGRAMMES_SUCCESS: {
       normalized = normalize(action.programmes, Schema.programmesSchema());

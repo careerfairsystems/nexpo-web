@@ -3,7 +3,6 @@
  */
 
 import { combineReducers } from 'redux';
-import ApiReducerCategories from './ApiReducerCategories';
 import ApiReducerCompanies from './ApiReducerCompanies';
 import ApiReducerCurrentUser from './ApiReducerCurrentUser';
 import ApiReducerCurrentCompany from './ApiReducerCurrentCompany';
@@ -24,7 +23,6 @@ export type ApiStatus = {
 };
 
 export type ApiState = {
-  categories: ApiStatus,
   companies: ApiStatus,
   mailtemplates: ApiStatus,
   deadlines: ApiStatus,
@@ -71,7 +69,6 @@ export const failure = (error: ?{ [key: string]: string }) : any => ({
 
 // $FlowFixMe
 export const ApiReducer = combineReducers({
-  categories: ApiReducerCategories,
   companies: ApiReducerCompanies,
   currentUser: ApiReducerCurrentUser,
   currentCompany: ApiReducerCurrentCompany,

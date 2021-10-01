@@ -1,7 +1,5 @@
 import Home from '../Screens/Home';
 import AdminHome from '../Screens/Admin/AdminHome';
-import Categories from '../Screens/Admin/Categories';
-import Category from '../Screens/Admin/Category';
 import Mailtemplates from '../Screens/Admin/Mailtemplates';
 import Mailtemplate from '../Screens/Admin/Mailtemplate';
 import Deadlines from '../Screens/Admin/Deadlines';
@@ -40,8 +38,6 @@ type RouteItem = {
 export const AppRoutes: Array<RouteItem> = [
   { path: '/', component: Home },
   { path: '/admin', component: AdminHome },
-  { path: '/admin/categories', component: Categories },
-  { path: '/admin/categories/:id', component: Category },
   { path: '/admin/programmes', component: Programmes },
   { path: '/admin/programmes/new', component: Programme },
   { path: '/admin/programmes/:id', component: Programme },

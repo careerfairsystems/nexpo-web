@@ -76,34 +76,6 @@ const studentSessionSchema = () : any => {
 
 const studentSessionsSchema = () : any => [studentSessionSchema()];
 
-const categorySchema = () : any => {
-  const company = entity(
-    'companies',
-    {},
-    { merge: merge('entries'), model: hasMany('entries') }
-  );
-  const entry = entity(
-    'entries',
-    { company },
-    { model: belongsTo('attribute') }
-  );
-  const attribute = entity(
-    'attributes',
-    { entries: [entry] },
-    { model: belongsTo('category') }
-  );
-  const category = entity('categories', { attributes: [attribute] });
-
-  return category;
-};
-
-const categoriesSchema = () : any => {
-  const attribute = entity('attributes', {}, { model: belongsTo('category') });
-  const category = entity('categories', { attributes: [attribute] });
-
-  return [category];
-};
-
 const companySchema = () : any => {
   const user = entity('users');
   const entry = entity('entries', {}, { model: belongsTo('company') });
@@ -195,8 +167,6 @@ const userSchema = () : any => {
 const usersSchema = () : any => [userSchema()];
 
 export default {
-  categorySchema,
-  categoriesSchema,
   companySchema,
   companiesSchema,
   mailtemplateSchema,
