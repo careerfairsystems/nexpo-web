@@ -136,13 +136,6 @@ const companySchema = () : any => {
 
 const companiesSchema = () : any => [companySchema()];
 
-const eventSchema = () : any => {
-  const event = entity('events', {});
-  return event;
-}
-const eventsSchema = () : any => [eventSchema()];
-
-
 const roleSchema = () : any => {
   const user = entity('users', {}, { model: belongsTo('role') });
 
@@ -225,6 +218,4 @@ export default {
   usersSchema,
   studentSchema,
   studentsSchema,
-  eventsSchema,
-  eventSchema
 };

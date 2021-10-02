@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import moment from 'moment';
-import Grid from 'antd/lib/card/Grid';
 import LoadingSpinner from '../../Components/LoadingSpinner';
 import HtmlTitle from '../../Components/HtmlTitle';
 import DateFilter from '../../Components/DateFilter';
@@ -22,24 +21,16 @@ const Events = ({
   const [table, setTable] = useState();
   const [data, setData] = useState();
 
-  useEffect(
-    () => {
-      const getEvents = async () => {
-        /*       Redux
-            //API.events.getAll();
-            await getAllEvents(); */
-        API.events.getAll().then(events => {
-          setData(events.data);
-          setTable(events.data);
-          console.log(events.data);
-        });
-      };
-      getEvents();
-    },
-    [
-      /* getAllEvents */
-    ]
-  );
+  useEffect(() => {
+    const getEvents = async () => {
+      API.events.getAll().then(events => {
+        setData(events.data);
+        setTable(events.data);
+        console.log(events.data);
+      });
+    };
+    getEvents();
+  }, []);
 
   if (fetching) {
     return <LoadingSpinner />;
@@ -108,7 +99,7 @@ const Events = ({
         <div
           style={{
             display: 'grid',
-            justifyItems: 'center',
+            justifyItems: 'left',
             marginBottom: '1rem'
           }}
         >

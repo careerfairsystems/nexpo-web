@@ -8,7 +8,6 @@ import MailtemplatesActions from './Mailtemplates';
 import AccountActions from './Accounts';
 import StudentSessionsActions from './StudentSessions';
 import ProgrammesActions from './Programmes';
-import EventsActions from './Events';
 import StatisticsActions from './Statistics';
 
 export default {
@@ -22,6 +21,5 @@ export default {
   mailtemplates: MailtemplatesActions,
   accounts: AccountActions,
   statistics: StatisticsActions,
-  events: EventsActions,
   studentSessions: StudentSessionsActions
 };
