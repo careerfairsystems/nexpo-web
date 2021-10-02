@@ -1,0 +1,29 @@
+@media (min-width: 0px) {
+  .UserForm {
+    display: grid;
+    row-gap: 1rem;
+    margin-bottom: 1rem;
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .UserForm {
+    .field {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      align-items: center;
+    }
+
+    .small-input {
+      width: 250px;
+    }
+
+    .large-input {
+      width: 325px;
+    }
+  }
+}

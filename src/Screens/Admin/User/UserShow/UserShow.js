@@ -89,7 +89,7 @@ const UserShow = ({ id, user, fetching, getUser, match }: Props) : React$Element
 
       <h1 className="centering">{displayName()}</h1>
       <p>Email: {email}</p>
-      <p>Phone number: {phoneNumber}</p>
+      <p>Phone Number: {phoneNumber}</p>
       <p>Roles: {rolesFunc()}</p>
       <p>Food Preferences: {foodPreferences}</p>
       {student && renderStudent()}
