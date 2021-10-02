@@ -104,6 +104,7 @@ const categoriesSchema = () : any => {
   return [category];
 };
 
+
 const companySchema = () : any => {
   const user = entity('users');
   const entry = entity('entries', {}, { model: belongsTo('company') });
@@ -192,6 +193,8 @@ const userSchema = () : any => {
   return user;
 };
 
+
+
 const usersSchema = () : any => [userSchema()];
 
 export default {
@@ -214,5 +217,5 @@ export default {
   userSchema,
   usersSchema,
   studentSchema,
-  studentsSchema
+  studentsSchema,
 };

@@ -84,7 +84,7 @@ export const ApiReducer = combineReducers({
   forgotPassword: ApiReducerForgotPassword,
   login: ApiReducerLogin,
   verifyForgotPasswordKey: ApiReducerVerifyForgotPassword,
-  replacePassword: ApiReducerReplacePassword
+  replacePassword: ApiReducerReplacePassword,
 });
 
 export default ApiReducer;

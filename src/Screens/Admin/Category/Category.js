@@ -12,7 +12,6 @@ type Props = {
   category: { attributes?: Array<any>, title?: string },
   getCategory: string => Promise<void>
 };
-
 const Category = ({ id, category, getCategory }: Props) : React$Element<any> => {
   useEffect(() => {
     getCategory(id);
