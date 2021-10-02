@@ -5,6 +5,7 @@ import { toDayFormat } from '../../../Util/FormatHelper';
 import NotFound from '../../NotFound';
 import HtmlTitle from '../../../Components/HtmlTitle';
 import '../YourCompany.css';
+import './YourCompanyTimeSlots.scss';
 
 const statusLabel = [
   { text: 'Unanswered', color: 'gold' },
@@ -53,12 +54,22 @@ const YourCompanyTimeSlots = ({
   };
 
   const studentInfo = ({ student: { user } }) => (
-    <div>
-      Name: {[user.firstName, user.lastName].join(' ')}
-      <br />
-      Email: {user.email}
-      <br />
-    </div>
+    <section className="fields">
+      <div className="field">
+        <span>Name:</span>
+        <span>
+          {user.firstName} {user.lastName}
+        </span>
+      </div>
+      <div className="field">
+        <span>Email:</span>
+        <span>{user.email}</span>
+      </div>
+      <div className="field">
+        <span>Phone Number:</span>
+        <span>{user.phoneNumber}</span>
+      </div>
+    </section>
   );
 
   return (
@@ -81,11 +92,18 @@ const YourCompanyTimeSlots = ({
                 start
               )}\nEnd Time: ${toDayFormat(end)}`}
             />
-            {studentSession && studentInfo(studentSession)}
-            Student:{' '}
-            <Tag color={studentSessionStatusColor(studentSession)}>
-              {studentSessionStatus(studentSession)}
-            </Tag>
+            <div className="CompanyTimeSlots">
+              {studentSession && studentInfo(studentSession)}
+              <div className="field">
+                <span>Student:</span>
+                <Tag
+                  className="student-confirmation"
+                  color={studentSessionStatusColor(studentSession)}
+                >
+                  {studentSessionStatus(studentSession)}
+                </Tag>
+              </div>
+            </div>
           </List.Item>
         )}
       />
