@@ -168,7 +168,7 @@ const DynamicTimeSlots = ({
     </div>
     <section className="table">
       <Table
-        size="small"
+        size="large"
         dataSource={flow(
           zipWith(
             (field, obj: {| id: number |}) => ({

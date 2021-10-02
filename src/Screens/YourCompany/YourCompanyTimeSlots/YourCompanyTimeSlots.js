@@ -28,7 +28,10 @@ type Props = {
   getCurrentCompany: () => Promise<void>
 };
 
-const YourCompanyTimeSlots = ({ currentCompany, getCurrentCompany }: Props) : React$Element<any> => {
+const YourCompanyTimeSlots = ({
+  currentCompany,
+  getCurrentCompany
+}: Props): React$Element<any> => {
   useEffect(() => {
     getCurrentCompany();
   }, [getCurrentCompany]);
@@ -50,12 +53,12 @@ const YourCompanyTimeSlots = ({ currentCompany, getCurrentCompany }: Props) : Re
   };
 
   const studentInfo = ({ student: { user } }) => (
-    <>
+    <div>
       Name: {[user.firstName, user.lastName].join(' ')}
       <br />
       Email: {user.email}
       <br />
-    </>
+    </div>
   );
 
   return (

@@ -13,15 +13,7 @@ import {
   flatten,
   flow
 } from 'lodash/fp';
-import {
-  List,
-  Avatar,
-  Button,
-  Tag,
-  Popconfirm,
-  Select,
-  Statistic,
-} from 'antd';
+import { List, Avatar, Button, Tag, Popconfirm, Select, Statistic } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 import { CSVLink } from 'react-csv';
 import moment from 'moment';
