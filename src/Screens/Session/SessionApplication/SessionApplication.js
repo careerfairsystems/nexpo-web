@@ -5,7 +5,7 @@ import LoadingSpinner from '../../../Components/LoadingSpinner';
 import HtmlTitle from '../../../Components/HtmlTitle';
 import InvisibleLink from '../../../Components/InvisibleLink';
 import SessionForm from '../../../Forms/SessionForm';
-import '../Session.css';
+import '../Session.scss';
 
 type Application = {
   companyId: number,
@@ -32,7 +32,7 @@ const SessionApplication = ({
   getAllProgrammes,
   createStudentSessionAppl,
   resetForm
-}: Props) : React$Element<any> => {
+}: Props): React$Element<any> => {
   useEffect(() => {
     getAllCompanies();
     getAllProgrammes();
@@ -72,7 +72,6 @@ const SessionApplication = ({
         You can update your information
         <InvisibleLink to="/user"> here</InvisibleLink>
       </h4>
-      <br />
 
       {enabled ? (
         <SessionForm onSubmit={createStudentSessionApplication} />

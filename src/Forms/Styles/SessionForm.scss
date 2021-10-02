@@ -1,0 +1,31 @@
+@media (min-width: 0px) {
+  .session-form-component {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    align-items: center;
+    margin-bottom: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  .session-motivation {
+    width: 100%;
+  }
+
+  .session-field {
+    padding: 0.5rem 0 0.5rem 0;
+  }
+
+  .session-company {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .session-motivation {
+    width: 50%;
+  }
+
+  .session-company {
+    width: 275px !important;
+  }
+}

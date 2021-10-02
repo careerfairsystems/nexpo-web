@@ -1,0 +1,36 @@
+@media (min-width: 0px) {
+  .user-email,
+  .user-input {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 0.25rem 0 0.25rem 0;
+  }
+
+  .phone-number-input {
+    width: 100%;
+  }
+
+  .ant-form-item {
+    margin-bottom: 0 !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .user-email,
+  .user-input {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    grid-template-rows: none;
+    padding: 0.5rem 0 0.5rem 0;
+  }
+
+  .phone-number-input {
+    width: 250px !important;
+  }
+
+  .ant-form-item {
+    margin-bottom: 0 !important;
+  }
+}

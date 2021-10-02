@@ -14,14 +14,16 @@ type Props = {
 };
 const InviteForm = ({ handleSubmit }: Props) => (
   <Form onSubmit={handleSubmit} layout="inline">
-    <Field
-      name="email"
-      label="Email:"
-      component={TextInput}
-      prefix={<MailOutlined />}
-      placeholder="Email"
-    />
-    <Button htmlType="submit">Invite</Button>
+    <div style={{ display: 'flex', width: '400px' }}>
+      <Input
+        name="email"
+        label="Email:"
+        component={TextInput}
+        prefix={<MailOutlined />}
+        placeholder="Enter email here..."
+      />
+      <Button htmlType="submit">Invite</Button>
+    </div>
   </Form>
 );
 
@@ -29,6 +31,8 @@ const mapStateToProps = state => ({
   formState: state.form.InviteForm
 });
 
-const stateful : any = connect(mapStateToProps)(reduxForm({ form: 'invite' })(InviteForm));
+const stateful: any = connect(mapStateToProps)(
+  reduxForm({ form: 'invite' })(InviteForm)
+);
 
 export default stateful;

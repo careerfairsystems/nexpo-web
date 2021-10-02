@@ -9,7 +9,9 @@ type Props = {
   createBulkStudentSessions: () => Promise<void>
 };
 
-const StudentSessions = ({ createBulkStudentSessions }: Props) : React$Element<any> => (
+const StudentSessions = ({
+  createBulkStudentSessions
+}: Props): React$Element<any> => (
   <div>
     <HtmlTitle title="StudentSessions" />
 
@@ -30,7 +32,10 @@ const StudentSessions = ({ createBulkStudentSessions }: Props) : React$Element<a
     </Popconfirm>
     <br />
     <br />
-    <Button icon={<DownloadOutlined />} onClick={API.studentSessions.downloadReserves}>
+    <Button
+      icon={<DownloadOutlined />}
+      onClick={API.studentSessions.downloadReserves}
+    >
       Download reserves
     </Button>
     <br />

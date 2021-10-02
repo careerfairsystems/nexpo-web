@@ -47,7 +47,7 @@ const CurrentUser = ({
   deleteCurrentUser,
   logout,
   resetForm
-}: Props) : React$Element<any> => {
+}: Props): React$Element<any> => {
   useEffect(() => {
     getAllProgrammes();
   }, [getAllProgrammes]);
@@ -100,13 +100,18 @@ const CurrentUser = ({
         shape="circle"
         alt="User Profile Image"
       />
-      <h1 style={{ fontSize: '48px' }}>
+
+      <h1 style={{ fontSize: '48px', marginTop: '1.25rem' }}>
         {firstName} {lastName}
       </h1>
 
       <h2>User Information</h2>
 
-      <h4>Email: {email}</h4>
+      <div className="user-email">
+        <span>Email:</span>
+        {email}
+      </div>
+
       <CurrentUserForm onSubmit={updateUser} initialValues={currentUser} />
 
       {!isEmpty(currentStudent) && (

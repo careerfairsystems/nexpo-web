@@ -8,6 +8,7 @@ import InvisibleLink from '../../../Components/InvisibleLink';
 import LoadingSpinner from '../../../Components/LoadingSpinner';
 import HtmlTitle from '../../../Components/HtmlTitle';
 import FilterSearch, { FilterIcon } from '../../../Components/FilterSearch';
+import './Companies.scss';
 
 /**
  * Responsible for rendering a list of companies
@@ -26,7 +27,7 @@ const Companies = ({
   getAllCompanies,
   deleteCompany,
   createBulk
-}: Props) : React$Element<any> => {
+}: Props): React$Element<any> => {
   useEffect(() => {
     getAllCompanies();
   }, [getAllCompanies]);
@@ -132,38 +133,38 @@ const Companies = ({
             }))
           )}
         />
-        <div>
-          <InvisibleLink to="companies/new">
-            <Button onClick={() => null} type="primary">
-              New company
-            </Button>
-          </InvisibleLink>
-          <br />
-          <br />
-          <Upload
-            key="uploadButton"
-            accept=".csv"
-            showUploadList={false}
-            beforeUpload={file => {
-              const reader = new FileReader();
-              reader.onload = e => {
-                // $FlowIgnore
-                const obj = csvToObj(e.target.result);
-                createBulk(obj);
-              };
-              reader.readAsText(file);
-              return false;
-            }}
-          >
-            <Button>
-              <UploadOutlined />
-              Create Multiple Companies
-            </Button>
-          </Upload>
+        <div className="companies">
+          <div className="buttons">
+            <InvisibleLink to="companies/new">
+              <Button onClick={() => null} type="primary">
+                New company
+              </Button>
+            </InvisibleLink>
+            <Upload
+              key="uploadButton"
+              accept=".csv"
+              showUploadList={false}
+              beforeUpload={file => {
+                const reader = new FileReader();
+                reader.onload = e => {
+                  // $FlowIgnore
+                  const obj = csvToObj(e.target.result);
+                  createBulk(obj);
+                };
+                reader.readAsText(file);
+                return false;
+              }}
+            >
+              <Button>
+                <UploadOutlined />
+                Create Multiple Companies
+              </Button>
+            </Upload>
+          </div>
           <p>
             This button expects an .csv file with the following headers:
             <br />
-            name,description,website,email,hostName,hostMail,hostPhoneNumber
+            name, description, website, email, hostName, hostMail, hostPhoneNumber
           </p>
         </div>
       </div>

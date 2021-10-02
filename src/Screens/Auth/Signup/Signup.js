@@ -15,7 +15,7 @@ const Signup = () : React$Element<any> => {
   return (
     <div>
       <HtmlTitle title="Signup" />
-
+      
       {!key ? <InitialSignup /> : <FinalizeSignup signupKey={key} />}
     </div>
   );

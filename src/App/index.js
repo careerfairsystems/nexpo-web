@@ -13,6 +13,6 @@ const mapDispatchToProps = {
   logout: Actions.auth.logout
 };
 
-const stateful : any = connect(mapStateToProps, mapDispatchToProps)(App)
+const stateful: any = connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default stateful;

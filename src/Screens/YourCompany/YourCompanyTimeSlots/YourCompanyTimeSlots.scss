@@ -1,0 +1,31 @@
+@media (min-width: 0px) {
+  .CompanyTimeSlots {
+    margin-left: 3.5rem;
+    margin-bottom: 1rem;
+    display: grid;
+    row-gap: 0.5rem;
+
+    .fields {
+      display: grid;
+      row-gap: 0.25rem;
+    }
+
+    .field {
+      display: grid;
+      grid-template-columns: 8rem 0.5fr;
+    }
+
+    .student-confirmation {
+      width: 90px;
+      text-align: center;
+    }
+  }
+
+  .list-buttons {
+    margin-left: 3.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 600px) {
+}

@@ -1,0 +1,25 @@
+@media (min-width: 0px) {
+  .MailtemplateForm {
+    display: grid;
+    row-gap: 1rem;
+    margin-bottom: 1.5rem;
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .MailtemplateForm {
+    margin-bottom: 1rem;
+    .field {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+    }
+
+    .input {
+      width: 450px;
+    }
+  }
+}

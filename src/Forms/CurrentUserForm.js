@@ -8,6 +8,8 @@ import { Button, Input } from 'antd';
 import makeField from './helper';
 import UploadButton from './UploadButton';
 
+import './Styles/CurrentUserForm.scss';
+
 const TextInput = makeField(Input);
 
 type Props = {
@@ -15,21 +17,33 @@ type Props = {
   pristine: boolean,
   submitting: boolean
 };
+
 const CurrentUserForm = ({ handleSubmit, pristine, submitting }: Props) => (
   <Form onSubmit={handleSubmit}>
-    <Field
-      name="phoneNumber"
-      label="Phone Number"
-      component={TextInput}
-      type="number"
-    />
-    <Field
-      name="profileImage"
-      label="Profile Image"
-      accept=".jpg,.jpeg,.gif,.png"
-      component={UploadButton}
-    />
-    <Button disabled={pristine || submitting} htmlType="submit">
+    <div className="user-input">
+      Phone Number:
+      <Field
+        name="phoneNumber"
+        className="phone-number-input"
+        component={TextInput}
+        type="number"
+        placeholder="Enter your number..."
+      />
+    </div>
+    <div className="user-input">
+      Profile Image:
+      <Field
+        name="profileImage"
+        accept=".jpg,.jpeg,.gif,.png"
+        component={UploadButton}
+      />
+    </div>
+    <Button
+      type="primary"
+      disabled={pristine || submitting}
+      htmlType="submit"
+      style={{ marginTop: '0.75rem' }}
+    >
       Submit User Information
     </Button>
   </Form>
@@ -53,6 +67,8 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const stateful : any = connect(mapStateToProps)(reduxForm({ form: 'currentUser' })(CurrentUserForm));
+const stateful: any = connect(mapStateToProps)(
+  reduxForm({ form: 'currentUser' })(CurrentUserForm)
+);
 
 export default stateful;

@@ -1,0 +1,32 @@
+@media (min-width: 0px) {
+  .DeadlineForm {
+    display: grid;
+    row-gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .time {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .DeadlineForm {
+    .field {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      align-items: center;
+    }
+
+    .time {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+    }
+  }
+}

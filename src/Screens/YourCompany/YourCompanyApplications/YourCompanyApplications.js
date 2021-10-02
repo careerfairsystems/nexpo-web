@@ -45,7 +45,7 @@ const YourCompanyApplications = ({
   updating,
   getCurrentCompany,
   updateStudentSessionAppl
-}: Props) : React$Element<any> => {
+}: Props): React$Element<any> => {
   useEffect(() => {
     getCurrentCompany();
   }, [getCurrentCompany]);
@@ -62,13 +62,13 @@ const YourCompanyApplications = ({
         <Button onClick={_ => scoreSessionApplication(application.id, 0)}>
           Reset Score
         </Button>,
-        <>
-          Score:{' '}
+        <div>
+          Score:
           <Rate
             value={application.score}
             onChange={value => scoreSessionApplication(application.id, value)}
           />
-        </>,
+        </div>,
         <a
           href={application.student.resumeSvUrl}
           disabled={!application.student.resumeSvUrl}

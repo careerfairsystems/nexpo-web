@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Table, Button, Popconfirm, Divider } from 'antd';
 import { sortBy } from 'lodash/fp';
-
+import moment from 'moment';
 import InvisibleLink from '../../../Components/InvisibleLink';
 import LoadingSpinner from '../../../Components/LoadingSpinner';
 import HtmlTitle from '../../../Components/HtmlTitle';
@@ -21,7 +21,7 @@ const Deadlines = ({
   fetching,
   getAllDeadlines,
   deleteDeadline
-}: Props) : React$Element<any> => {
+}: Props): React$Element<any> => {
   useEffect(() => {
     getAllDeadlines();
   }, [getAllDeadlines]);
@@ -38,12 +38,22 @@ const Deadlines = ({
     {
       title: 'Start',
       dataIndex: 'start',
-      key: 'start'
+      key: 'start',
+      render: start => (
+        <span style={{ marginBottom: 'auto' }}>
+          {moment(start).format('dddd, MMMM Do YYYY, hh:mm a')}
+        </span>
+      )
     },
     {
       title: 'End',
       dataIndex: 'end',
-      key: 'end'
+      key: 'end',
+      render: end => (
+        <span style={{ marginBottom: 'auto' }}>
+          {moment(end).format('dddd, MMMM Do YYYY, hh:mm a')}
+        </span>
+      )
     },
     {
       title: 'Action',

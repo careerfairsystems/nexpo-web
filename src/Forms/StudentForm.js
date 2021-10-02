@@ -5,6 +5,7 @@ import { isNil, map } from 'lodash/fp';
 import { Form } from '@ant-design/compatible';
 import '@ant-design/compatible/assets/index.css';
 import { Button, Input, Select } from 'antd';
+import './Styles/StudentForm.scss';
 
 import makeField from './helper';
 import UploadButton from './UploadButton';
@@ -32,7 +33,7 @@ type ProgrammeItem = {
   id: number,
   name: string,
   code: string
-}
+};
 
 const renderProgrammeItem = (programme: ProgrammeItem): React$Element<any> => (
   <Select.Option key={programme.id} value={programme.id}>
@@ -62,49 +63,79 @@ const StudentForm = ({
   programmes
 }: Props): React$Element<any> => (
   <Form onSubmit={handleSubmit}>
-    <Field name="year" label="Graduation Year" component={TextInput} />
-    <Field
-      name="programme"
-      label="Educational programme:"
-      showSearch
-      format={null}
-      optionFilterProp="children"
-      component={FieldSelect}
-    >
-      {map(renderProgrammeItem, programmes)}
-    </Field>
-    <Field
-      name="interests"
-      label="Interests:"
-      mode="multiple"
-      format={null}
-      optionFilterProp="children"
-      component={FieldSelect}
-    >
-      {map(renderInterestItem, interestsValues)}
-    </Field>
-    <Field
-      name="master"
-      label="Master's specialization:"
-      component={TextInput}
-    />
-    <Field name="linkedIn" label="LinkedIn URL:" component={TextInput} />
-    <Field
-      name="resumeSvUrl"
-      label="Swedish CV"
-      accept=".pdf"
-      component={UploadButton}
-    />
-    <Field
-      name="resumeEnUrl"
-      label="English CV"
-      accept=".pdf"
-      component={UploadButton}
-    />
-
-    <Button disabled={pristine} htmlType="submit">
-      Submit Student Information
-    </Button>
+    <section className="student-section">
+      <div className="student-input-small">
+        Graduation Year:
+        <Field
+          name="year"
+          component={TextInput}
+          className="student-graduation"
+          placeholder="Type here..."
+        />
+      </div>
+      <div className="student-input-small">
+        Educational programme:
+        <Field
+          name="programme"
+          showSearch
+          format={null}
+          className="student-programme"
+          optionFilterProp="children"
+          component={FieldSelect}
+          placeholder="Choose..."
+        >
+          {map(renderProgrammeItem, programmes)}
+        </Field>
+      </div>
+      <div className="student-input-large">
+        Master’s Degree
+        <Field
+          name="master"
+          className="student-degree"
+          component={TextInput}
+          placeholder="Type here..."
+        />
+      </div>
+      <div className="student-input-large">
+        Interests:
+        <Field
+          name="interests"
+          mode="multiple"
+          format={null}
+          optionFilterProp="children"
+          component={FieldSelect}
+          className="student-interests"
+          placeholder="Choose from the list..."
+        >
+          {map(renderInterestItem, interestsValues)}
+        </Field>
+      </div>
+      <div className="student-input-large">
+        LinkedIn URL:
+        <Field
+          name="linkedIn"
+          component={TextInput}
+          className="student-url"
+          placeholder="Type here..."
+        />
+      </div>
+      <div className="student-input-small">
+        Swedish CV:
+        <Field name="resumeSvUrl" accept=".pdf" component={UploadButton} />
+      </div>
+      <div className="student-input-small">
+        English CV:
+        <Field name="resumeEnUrl" accept=".pdf" component={UploadButton} />
+      </div>
+      <Button
+        type="primary"
+        disabled={pristine}
+        htmlType="submit"
+        style={{ marginTop: '0.75rem' }}
+      >
+        Submit Student Information
+      </Button>
+    </section>
   </Form>
 );
 

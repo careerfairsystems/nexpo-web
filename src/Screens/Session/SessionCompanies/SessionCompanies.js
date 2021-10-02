@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { filter, sortBy } from 'lodash/fp';
-import { List, Avatar } from 'antd';
+import { List, Avatar, Button } from 'antd';
 import { toExternal } from '../../../Util/URLHelper';
 import LoadingSpinner from '../../../Components/LoadingSpinner';
 import HtmlTitle from '../../../Components/HtmlTitle';
 import InvisibleLink from '../../../Components/InvisibleLink';
-import '../Session.css';
+import '../Session.scss';
 
 type Company = {
   name: string,
@@ -20,7 +20,11 @@ type Props = {
   getAllCompanies: () => Promise<void>
 };
 
-const SessionCompanies = ({ fetching, companies, getAllCompanies }: Props) : React$Element<any> => {
+const SessionCompanies = ({
+  fetching,
+  companies,
+  getAllCompanies
+}: Props): React$Element<any> => {
   useEffect(() => {
     getAllCompanies();
   }, [getAllCompanies]);
@@ -36,7 +40,9 @@ const SessionCompanies = ({ fetching, companies, getAllCompanies }: Props) : Rea
         />
       }
       actions={[
-        <InvisibleLink to="/session/application">Apply now</InvisibleLink>
+        <Button type="dashed">
+          <InvisibleLink to="/session/application">Apply now</InvisibleLink>
+        </Button>
       ]}
     >
       <List.Item.Meta

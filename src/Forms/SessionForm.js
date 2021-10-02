@@ -7,6 +7,7 @@ import '@ant-design/compatible/assets/index.css';
 import { Select, Input, Button } from 'antd';
 import makeField from './helper';
 import { Selectors } from '../Store';
+import './Styles/SessionForm.scss';
 
 const InputSelect = makeField(Select);
 const TextArea = makeField(Input.TextArea);
@@ -36,28 +37,35 @@ const StudentSessionForm = ({
   disabled
 }: Props) => (
   <Form onSubmit={handleSubmit}>
-    <Field
-      label="Choose the company you would like to meet"
-      required
-      name="companyId"
-      showSearch
-      notFoundContent="You have applied to all available companies"
-      optionFilterProp="children"
-      validate={requiredCompany}
-      component={InputSelect}
-    >
-      {map(companyOption, availableCompanies)}
-    </Field>
-    <Field
-      name="motivation"
-      label="Write a short motivation to why you want to get in contact with the company. (Max 400 words)"
-      required
-      validate={requiredMotivation}
-      component={TextArea}
-      maxLength="2400"
-      rows={6}
-    />
-    <Button disabled={submitting || disabled} htmlType="submit">
+    <div className="session-field">
+      Choose the company you would like to meet
+      <Field
+        required
+        className="session-company"
+        name="companyId"
+        showSearch
+        notFoundContent="You have applied to all available companies"
+        optionFilterProp="children"
+        validate={requiredCompany}
+        component={InputSelect}
+      >
+        {map(companyOption, availableCompanies)}
+      </Field>
+    </div>
+    <div className="session-field">
+      Write a short motivation to why you want to get in contact with the
+      company. (Max 400 words)
+      <Field
+        className="session-motivation"
+        name="motivation"
+        required
+        validate={requiredMotivation}
+        component={TextArea}
+        maxLength="2400"
+        rows={6}
+      />
+    </div>
+    <Button type="primary" disabled={submitting || disabled} htmlType="submit">
       Submit Student Session
     </Button>
   </Form>
@@ -68,7 +76,7 @@ const mapStateToProps = state => ({
   formState: state.form.StudentSessionForm
 });
 
-const stateful : any = connect(mapStateToProps)(
+const stateful: any = connect(mapStateToProps)(
   reduxForm({ form: 'studentSession' })(StudentSessionForm)
 );
 

@@ -17,7 +17,12 @@ type Props = {
   deleteUser: string => Promise<void>
 };
 
-const Users = ({ users, fetching, getAllUsers, deleteUser }: Props) : React$Element<any> => {
+const Users = ({
+  users,
+  fetching,
+  getAllUsers,
+  deleteUser
+}: Props): React$Element<any> => {
   useEffect(() => {
     getAllUsers();
   }, [getAllUsers]);

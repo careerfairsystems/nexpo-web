@@ -10,7 +10,7 @@ export function createBulkStudentSessionsIsLoading() : any {
 }
 
 export function createBulkStudentSessionsSuccess(studentSessions: {}) : any {
-  message.success('Student Sessions was successfully bulk created.');
+  message.success('Multiple Student Sessions was successfully bulk created.');
   return {
     type: actionTypes.POST_BULK_STUDENT_SESSION_SUCCESS,
     studentSessions
@@ -21,7 +21,7 @@ export type CreateBulkStudentSessionsFailureAction = {
   type: string
 };
 export function createBulkStudentSessionsFailure(): CreateBulkStudentSessionsFailureAction {
-  message.warning('Student Sessions could not be bulk created');
+  message.warning('Multiple Student Sessions could not be bulk created');
 
   return {
     type: actionTypes.POST_BULK_STUDENT_SESSION_FAILURE
